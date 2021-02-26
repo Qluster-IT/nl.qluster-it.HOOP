@@ -1,0 +1,41 @@
+{
+    "id": "flowgroup_trigger__text1",
+    
+    "title": {
+      "en": "Flow with Arguments (1 text)"
+    },
+    "titleFormatted": {
+      "en": "Flow with Arguments (1 text) ID [[id]]"
+    },
+    "args": [
+      {
+          "type" : "device",
+          "name" : "device",
+          "filter": "driver_id=flowgroup"
+      },
+      {
+        "type": "autocomplete",
+        "name": "id",
+        "placeholder": {
+          "en": "ID"
+        }
+      }
+    ],
+    "tokens": [
+      {
+        "name": "text_1",
+        "type": "string",
+        "title": {
+          "en": "text_1"
+        }
+      },
+      {
+        "name": "text_1_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "text_1 has value"
+        }
+      }
+    ]    
+    
+  }

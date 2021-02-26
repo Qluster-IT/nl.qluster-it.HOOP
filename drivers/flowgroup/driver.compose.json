@@ -1,0 +1,61 @@
+{
+  "id": "flowgroup",
+  "name": {
+    "en": "Flow Group",
+    "nlnotyet": "Flow Groep"
+  },
+  "class": "other",
+  "capabilities": [],
+  "images": {
+    "large": "/drivers/flowgroup/assets/images/large.png",
+    "small": "/drivers/flowgroup/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_my_devices"
+      },
+      "options": {
+        "singular": true
+      }
+    },
+    {
+      "id": "add_my_devices",
+      "template": "add_devices"
+    }
+  ],      
+  "settings": [
+    {
+      "id": "overloading",
+      "type": "dropdown",
+      "label": {
+        "en": "Overloading"
+      },
+      "value": "false",
+      "hint": {
+        "en": "Overloading as a function; If so, a actioncard for 1 argument can also fire a trigger with more then 1 "
+      },
+      "values": [
+        {
+          "id": "true",
+          "name": "true",
+          "label": {
+            "en": "Yes",
+            "nl": "Ja"
+          }
+        },
+        {
+          "id": "false",
+          "name": "false",
+          "label": {
+            "en": "No",
+            "nl": "Nee"
+          }
+        }
+      ]
+    }
+  ]
+  
+}

@@ -1,0 +1,139 @@
+{
+    "triggers": [
+    ],
+    "conditions": [
+      {        
+        "id": "condition_translate",
+        "title": {
+          "en": "Translate",
+          "nl": "Vertaal"
+        },
+        "titleFormatted": {
+          "en": "Translate [[translate]] into [[targetlanguagecode]]",
+          "nl": "Vertaal [[translate]] naar [[targetlanguagecode]]"
+        },
+        "args": [
+          
+          {
+            "name": "translate",
+            "type": "text",
+            "title": {
+              "en": "Translate",
+              "nl": "Vertaal"
+            }
+          },
+          {
+            "name": "targetlanguagecode",
+            "type": "dropdown",
+            "title": {
+              "en": "Translate",
+              "nl": "Vertaal"
+            },
+            "hint": {
+              "en": "Choose the language for this device"
+            },
+            "values": [
+              {
+                "id": "en-GB",
+                "name": "en-GB",
+                "label": {
+                  "en": "English (GB)",
+                  "nl": "Engels (GB)"
+                }
+              },
+              {
+                "id": "en-US",
+                "name": "en-US",
+                "label": {
+                  "en": "English (US)",
+                  "nl": "Engels (US)"
+                }
+              },
+              {
+                "id": "nl-NL",
+                "name": "nl-NL",
+                "label": {
+                  "en": "Dutch (NL)",
+                  "nl": "Nederlands (NL)"
+                }
+              },
+              {
+                "id": "nl-BE",
+                "name": "nl-BE",
+                "label": {
+                  "en": "Dutch (BE)",
+                  "nl": "Nederlands (BE)"
+                }
+              },
+              {
+                "id": "de-DE",
+                "name": "de-DE",
+                "label": {
+                  "en": "German (DE)",
+                  "nl": "Duits (DE)"
+                }
+              },
+              {
+                "id": "de-LU",
+                "name": "de-LU",
+                "label": {
+                  "en": "German (LU)",
+                  "nl": "Duits (LU)"
+                }
+              },
+              {
+                "id": "fr-FR",
+                "name": "fr-FR",
+                "label": {
+                  "en": "French (FR)",
+                  "nl": "Frans (FR)"
+                }
+              },
+              {
+                "id": "fr-BE",
+                "name": "fr-BE",
+                "label": {
+                  "en": "French (BE)",
+                  "nl": "Frans (BE)"
+                }
+              },
+              {
+                "id": "es-ES",
+                "name": "es-ES",
+                "label": {
+                  "en": "Spanish (ES)",
+                  "nl": "Spaans (ES)"
+                }
+              },
+              {
+                "id": "it-IT",
+                "name": "it-IT",
+                "label": {
+                  "en": "Italian (IT)",
+                  "nl": "Italiaans (IT)"
+                }
+              },
+              {
+                "id": "sv-SV",
+                "name": "sv-SV",
+                "label": {
+                  "en": "Swedish (SV)",
+                  "nl": "Zweeds (SV)"
+                }
+              },
+              {
+                "id": "no-NO",
+                "name": "no-NO",
+                "label": {
+                  "en": "Norwegian (NO)",
+                  "nl": "Noors (NO)"
+                }
+              }
+            ]
+          }
+        ]      
+      }
+    ],
+    "actions": [
+    ]
+}

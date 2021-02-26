@@ -1,5 +1,5 @@
 {
-    "id": "trigger_flow__text2",
+    "id": "flowgroup_trigger__text2",
     
     "title": {
       "en": "Flow with Arguments (2 texts)"
@@ -8,6 +8,11 @@
       "en": "Flow with Arguments (2 texts) ID [[id]]"
     },
     "args": [
+      {
+          "type" : "device",
+          "name" : "device",
+          "filter": "driver_id=flowgroup"
+      },
       {
         "type": "autocomplete",
         "name": "id",
@@ -26,10 +31,24 @@
         }
       },
       {
+        "name": "text_1_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "text_1 has value"
+        }
+      },
+      {
         "name": "text_2",
         "type": "string",
         "title": {
           "en": "text2"
+        }
+      },
+      {
+        "name": "text_2_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "text_2 has value"
         }
       }
     ]    

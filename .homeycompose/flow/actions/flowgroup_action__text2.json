@@ -1,10 +1,15 @@
 {
-    "id":"action_flow__text2",
+    "id":"flowgroup_action__text2",
     "title" : {
         "en":"Start Flow with Arguments (2 texts)",
         "nlnotyet" : "Start Flow met Argumenten (2 teksten)"
     },
     "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=flowgroup"
+        },
         {
             "type": "autocomplete",
             "name": "flow",

@@ -29,11 +29,19 @@
   "flow": {
     "triggers": [
       {
-        "id": "trigger_flow__text1",
+        "id": "flowgroup_trigger__text1",
         "title": {
           "en": "Flow with Arguments (1 text)"
         },
+        "titleFormatted": {
+          "en": "Flow with Arguments (1 text) ID [[id]]"
+        },
         "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowgroup"
+          },
           {
             "type": "autocomplete",
             "name": "id",
@@ -49,11 +57,18 @@
             "title": {
               "en": "text_1"
             }
+          },
+          {
+            "name": "text_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text_1 has value"
+            }
           }
         ]
       },
       {
-        "id": "trigger_flow__text2",
+        "id": "flowgroup_trigger__text2",
         "title": {
           "en": "Flow with Arguments (2 texts)"
         },
@@ -61,6 +76,11 @@
           "en": "Flow with Arguments (2 texts) ID [[id]]"
         },
         "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowgroup"
+          },
           {
             "type": "autocomplete",
             "name": "id",
@@ -79,10 +99,24 @@
             }
           },
           {
+            "name": "text_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text_1 has value"
+            }
+          },
+          {
             "name": "text_2",
             "type": "string",
             "title": {
               "en": "text2"
+            }
+          },
+          {
+            "name": "text_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text_2 has value"
             }
           }
         ]
@@ -90,12 +124,17 @@
     ],
     "actions": [
       {
-        "id": "action_flow__text1",
+        "id": "flowgroup_action__text1",
         "title": {
           "en": "Start Flow with Arguments (1 text)",
           "nlnotyet": "Start Flow met Argumenten (1 tekst)"
         },
         "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowgroup"
+          },
           {
             "type": "autocomplete",
             "name": "flow",
@@ -114,12 +153,17 @@
         ]
       },
       {
-        "id": "action_flow__text2",
+        "id": "flowgroup_action__text2",
         "title": {
           "en": "Start Flow with Arguments (2 texts)",
           "nlnotyet": "Start Flow met Argumenten (2 teksten)"
         },
         "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowgroup"
+          },
           {
             "type": "autocomplete",
             "name": "flow",
@@ -144,6 +188,205 @@
           }
         ]
       }
+    ],
+    "conditions": [
+      {
+        "id": "condition_translate",
+        "title": {
+          "en": "Translate",
+          "nl": "Vertaal"
+        },
+        "titleFormatted": {
+          "en": "Translate [[translate]] into [[targetlanguagecode]]",
+          "nl": "Vertaal [[translate]] naar [[targetlanguagecode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowgroup"
+          },
+          {
+            "name": "translate",
+            "type": "text",
+            "title": {
+              "en": "Translate",
+              "nl": "Vertaal"
+            }
+          },
+          {
+            "name": "targetlanguagecode",
+            "type": "dropdown",
+            "title": {
+              "en": "Translate",
+              "nl": "Vertaal"
+            },
+            "hint": {
+              "en": "Choose the language for this device"
+            },
+            "values": [
+              {
+                "id": "en-GB",
+                "name": "en-GB",
+                "label": {
+                  "en": "English (GB)",
+                  "nl": "Engels (GB)"
+                }
+              },
+              {
+                "id": "en-US",
+                "name": "en-US",
+                "label": {
+                  "en": "English (US)",
+                  "nl": "Engels (US)"
+                }
+              },
+              {
+                "id": "nl-NL",
+                "name": "nl-NL",
+                "label": {
+                  "en": "Dutch (NL)",
+                  "nl": "Nederlands (NL)"
+                }
+              },
+              {
+                "id": "nl-BE",
+                "name": "nl-BE",
+                "label": {
+                  "en": "Dutch (BE)",
+                  "nl": "Nederlands (BE)"
+                }
+              },
+              {
+                "id": "de-DE",
+                "name": "de-DE",
+                "label": {
+                  "en": "German (DE)",
+                  "nl": "Duits (DE)"
+                }
+              },
+              {
+                "id": "de-LU",
+                "name": "de-LU",
+                "label": {
+                  "en": "German (LU)",
+                  "nl": "Duits (LU)"
+                }
+              },
+              {
+                "id": "fr-FR",
+                "name": "fr-FR",
+                "label": {
+                  "en": "French (FR)",
+                  "nl": "Frans (FR)"
+                }
+              },
+              {
+                "id": "fr-BE",
+                "name": "fr-BE",
+                "label": {
+                  "en": "French (BE)",
+                  "nl": "Frans (BE)"
+                }
+              },
+              {
+                "id": "es-ES",
+                "name": "es-ES",
+                "label": {
+                  "en": "Spanish (ES)",
+                  "nl": "Spaans (ES)"
+                }
+              },
+              {
+                "id": "it-IT",
+                "name": "it-IT",
+                "label": {
+                  "en": "Italian (IT)",
+                  "nl": "Italiaans (IT)"
+                }
+              },
+              {
+                "id": "sv-SV",
+                "name": "sv-SV",
+                "label": {
+                  "en": "Swedish (SV)",
+                  "nl": "Zweeds (SV)"
+                }
+              },
+              {
+                "id": "no-NO",
+                "name": "no-NO",
+                "label": {
+                  "en": "Norwegian (NO)",
+                  "nl": "Noors (NO)"
+                }
+              }
+            ]
+          }
+        ]
+      }
     ]
-  }
+  },
+  "drivers": [
+    {
+      "id": "flowgroup",
+      "name": {
+        "en": "Flow Group",
+        "nlnotyet": "Flow Groep"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/flowgroup/assets/images/large.png",
+        "small": "/drivers/flowgroup/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          },
+          "options": {
+            "singular": true
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "overloading",
+          "type": "dropdown",
+          "label": {
+            "en": "Overloading"
+          },
+          "value": "false",
+          "hint": {
+            "en": "Overloading as a function; If so, a actioncard for 1 argument can also fire a trigger with more then 1 "
+          },
+          "values": [
+            {
+              "id": "true",
+              "name": "true",
+              "label": {
+                "en": "Yes",
+                "nl": "Ja"
+              }
+            },
+            {
+              "id": "false",
+              "name": "false",
+              "label": {
+                "en": "No",
+                "nl": "Nee"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
