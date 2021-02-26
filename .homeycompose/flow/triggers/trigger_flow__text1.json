@@ -1,0 +1,30 @@
+{
+    "id": "trigger_flow__text1",
+    
+    "title": {
+      "en": "Flow with 1 Argument"
+    },
+    "titleFormatted": {
+      "en": "Flow [[id]] with one Argument"
+    },
+    "tokens": [
+      {
+        "name": "arg1",
+        "type": "string",
+        "title": {
+          "en": "arg1"
+        }
+      }
+    ],
+    "args": [
+      {
+        "type": "autocomplete",
+        "name": "id",
+        "placeholder": {
+          "en": "Flow",
+          "nl": "Flow"
+        }
+      }
+    ]
+    
+  }

@@ -1,0 +1,26 @@
+{
+  "id": "nl.qluster-it.FlowEnhancer",
+  "version": "0.0.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "name": {
+    "en": "Flow Enhancer",
+    "nl": "Flow Versterker"
+  },
+  "description": {
+    "en": "Enhance Flows with arguments",
+    "nl": "Versterk Flows met argumenten"
+  },
+  "category": [
+    "tools"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Arie J. Godschalk",
+    "email": "arie@qluster-it.nl"
+  }
+}
