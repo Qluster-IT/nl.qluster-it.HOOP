@@ -15,7 +15,9 @@
   "category": [
     "tools"
   ],
-  "permissions": [],
+  "permissions": [
+    "homey:manager:api"
+  ],
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
@@ -29,20 +31,35 @@
       {
         "id": "trigger_flow__text1",
         "title": {
-          "en": "Flow with 1 Argument"
+          "en": "Flow with Arguments (1 text)"
         },
-        "titleFormatted": {
-          "en": "Flow [[id]] with one Argument"
-        },
-        "tokens": [
+        "args": [
           {
-            "name": "arg1",
-            "type": "string",
-            "title": {
-              "en": "arg1"
+            "type": "autocomplete",
+            "name": "id",
+            "placeholder": {
+              "en": "ID"
             }
           }
         ],
+        "tokens": [
+          {
+            "name": "text_1",
+            "type": "string",
+            "title": {
+              "en": "text_1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "trigger_flow__text2",
+        "title": {
+          "en": "Flow with Arguments (2 texts)"
+        },
+        "titleFormatted": {
+          "en": "Flow with Arguments (2 texts) ID [[id]]"
+        },
         "args": [
           {
             "type": "autocomplete",
@@ -52,6 +69,22 @@
               "nl": "Flow"
             }
           }
+        ],
+        "tokens": [
+          {
+            "name": "text_1",
+            "type": "string",
+            "title": {
+              "en": "text1"
+            }
+          },
+          {
+            "name": "text_2",
+            "type": "string",
+            "title": {
+              "en": "text2"
+            }
+          }
         ]
       }
     ],
@@ -59,8 +92,8 @@
       {
         "id": "action_flow__text1",
         "title": {
-          "en": "Start Flow with 1 Argument (text)",
-          "nl": "Start Flow met 1 Argument (tekst)"
+          "en": "Start Flow with Arguments (1 text)",
+          "nlnotyet": "Start Flow met Argumenten (1 tekst)"
         },
         "args": [
           {
@@ -73,9 +106,40 @@
           },
           {
             "type": "text",
-            "name": "arg1",
+            "name": "arg_1",
             "placeholder": {
-              "en": "arg1"
+              "en": "text1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_flow__text2",
+        "title": {
+          "en": "Start Flow with Arguments (2 texts)",
+          "nlnotyet": "Start Flow met Argumenten (2 teksten)"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
+            }
+          },
+          {
+            "type": "text",
+            "name": "arg_1",
+            "placeholder": {
+              "en": "text1"
+            }
+          },
+          {
+            "type": "text",
+            "name": "arg_2",
+            "placeholder": {
+              "en": "text2"
             }
           }
         ]

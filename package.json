@@ -4,5 +4,9 @@
   "main": "app.js",
   "devDependencies": {
     "homey": "^2.9.7"
+  },
+  "dependencies": {
+    "athom-api": "^3.2.25",
+    "lodash": "^4.17.21"
   }
 }

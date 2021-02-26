@@ -1,0 +1,37 @@
+{
+    "id": "trigger_flow__text2",
+    
+    "title": {
+      "en": "Flow with Arguments (2 texts)"
+    },
+    "titleFormatted": {
+      "en": "Flow with Arguments (2 texts) ID [[id]]"
+    },
+    "args": [
+      {
+        "type": "autocomplete",
+        "name": "id",
+        "placeholder": {
+          "en": "Flow",
+          "nl": "Flow"
+        }
+      }
+    ],
+    "tokens": [
+      {
+        "name": "text_1",
+        "type": "string",
+        "title": {
+          "en": "text1"
+        }
+      },
+      {
+        "name": "text_2",
+        "type": "string",
+        "title": {
+          "en": "text2"
+        }
+      }
+    ]    
+    
+  }

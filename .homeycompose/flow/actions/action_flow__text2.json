@@ -1,0 +1,31 @@
+{
+    "id":"action_flow__text2",
+    "title" : {
+        "en":"Start Flow with Arguments (2 texts)",
+        "nlnotyet" : "Start Flow met Argumenten (2 teksten)"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow",
+                "nl": "Flow"
+            }
+        },
+        {
+            "type": "text",
+            "name": "arg_1",
+            "placeholder": {
+                "en": "text1"
+            }            
+        },
+        {
+            "type": "text",
+            "name": "arg_2",
+            "placeholder": {
+                "en": "text2"
+            }            
+        }
+    ]
+}

@@ -1,8 +1,8 @@
 {
     "id":"action_flow__text1",
     "title" : {
-        "en":"Start Flow with 1 Argument (text)",
-        "nl" : "Start Flow met 1 Argument (tekst)"
+        "en":"Start Flow with Arguments (1 text)",
+        "nlnotyet" : "Start Flow met Argumenten (1 tekst)"
     },
     "args": [
         {
@@ -15,9 +15,9 @@
         },
         {
         "type": "text",
-        "name": "arg1",
+        "name": "arg_1",
         "placeholder": {
-            "en": "arg1"
+            "en": "text1"
         }            
         }
     ]
