@@ -5,8 +5,7 @@
         "nlnotyet" : "Start Flow met Argumenten (3 teksten, 1 ja/nee)"
     },
     "titleFormatted" : {
-        "en":"Start [[flow]] ([[text_1]], [[text_2]], [[text_3]], [[boolean_1]])",
-        "nlnotyet" : "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], boolean1:[[boolean_1]])"
+        "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], boolean1:[[boolean_1]])"
     },
     "args": [
         {
