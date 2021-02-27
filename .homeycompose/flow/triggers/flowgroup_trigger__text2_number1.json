@@ -34,7 +34,7 @@
         "name": "text_1_hasvalue",
         "type": "boolean",
         "title": {
-          "en": "text_1 has value"
+          "en": "text1 has value"
         }
       },
       {
@@ -48,7 +48,7 @@
         "name": "text_2_hasvalue",
         "type": "boolean",
         "title": {
-          "en": "text_2 has value"
+          "en": "text2 has value"
         }
       },      
       {
@@ -62,7 +62,7 @@
         "name": "number_1_hasvalue",
         "type": "boolean",
         "title": {
-          "en": "number_1 has value"
+          "en": "number1 has value"
         }
       }
     ]    

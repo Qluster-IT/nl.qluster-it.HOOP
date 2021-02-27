@@ -8,6 +8,7 @@
     "en": "H.O.O.P. (Hope)",
     "nl": "H.O.O.P."
   },
+  "brandColor": "#3D64AC",
   "description": {
     "en": "Homey Object Oriented Programming",
     "nl": "Homey Object geOriënteerd Programmeren"
@@ -22,6 +23,11 @@
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
   },
+  "source": "https://bitbucket.org/QlusterIT/nl.qluster-it.hoop/",
+  "bugs": {
+    "url": "https://bitbucket.org/QlusterIT/nl.qluster-it.hoop/issues"
+  },
+  "homeyCommunityTopicId": 43709,
   "author": {
     "name": "Arie J. Godschalk",
     "email": "arie@qluster-it.nl"
@@ -62,7 +68,7 @@
             "name": "text_1_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_1 has value"
+              "en": "text1 has value"
             }
           }
         ]
@@ -102,7 +108,7 @@
             "name": "text_1_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_1 has value"
+              "en": "text1 has value"
             }
           },
           {
@@ -116,7 +122,7 @@
             "name": "text_2_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_2 has value"
+              "en": "text2 has value"
             }
           }
         ]
@@ -156,7 +162,7 @@
             "name": "text_1_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_1 has value"
+              "en": "text1 has value"
             }
           },
           {
@@ -170,7 +176,7 @@
             "name": "text_2_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_2 has value"
+              "en": "text2 has value"
             }
           },
           {
@@ -184,7 +190,7 @@
             "name": "boolean_1_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "boolean_1 has value"
+              "en": "boolean1 has value"
             }
           }
         ]
@@ -224,7 +230,7 @@
             "name": "text_1_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_1 has value"
+              "en": "text1 has value"
             }
           },
           {
@@ -238,7 +244,7 @@
             "name": "text_2_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_2 has value"
+              "en": "text2 has value"
             }
           },
           {
@@ -292,7 +298,7 @@
             "name": "text_1_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_1 has value"
+              "en": "text1 has value"
             }
           },
           {
@@ -306,7 +312,7 @@
             "name": "text_2_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_2 has value"
+              "en": "text2 has value"
             }
           },
           {
@@ -320,7 +326,7 @@
             "name": "text_3_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_3 has value"
+              "en": "text3 has value"
             }
           }
         ]
@@ -360,7 +366,7 @@
             "name": "text_1_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_1 has value"
+              "en": "text1 has value"
             }
           },
           {
@@ -374,7 +380,7 @@
             "name": "text_2_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_2 has value"
+              "en": "text2 has value"
             }
           },
           {
@@ -388,7 +394,7 @@
             "name": "text_3_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_3 has value"
+              "en": "text3 has value"
             }
           },
           {
@@ -402,7 +408,7 @@
             "name": "boolean_1_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "boolean_1 has value"
+              "en": "boolean1 has value"
             }
           }
         ]
@@ -442,7 +448,7 @@
             "name": "text_1_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_1 has value"
+              "en": "text1 has value"
             }
           },
           {
@@ -456,7 +462,7 @@
             "name": "text_2_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_2 has value"
+              "en": "text2 has value"
             }
           },
           {
@@ -470,7 +476,7 @@
             "name": "text_3_hasvalue",
             "type": "boolean",
             "title": {
-              "en": "text_3 has value"
+              "en": "text3 has value"
             }
           },
           {

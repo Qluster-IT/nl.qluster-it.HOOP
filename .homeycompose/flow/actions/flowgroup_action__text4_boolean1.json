@@ -24,28 +24,28 @@
             "type": "text",
             "name": "text_1",
             "placeholder": {
-                "en": "text 1"
+                "en": "text1"
             }            
         },
         {
             "type": "text",
             "name": "text_2",
             "placeholder": {
-                "en": "text 2"
+                "en": "text2"
             }            
         },
         {
             "type": "text",
             "name": "text_3",
             "placeholder": {
-                "en": "text 3"
+                "en": "text3"
             }            
         },
         {
             "type": "text",
             "name": "text_4",
             "placeholder": {
-                "en": "text 4"
+                "en": "text4"
             }            
         },
         {

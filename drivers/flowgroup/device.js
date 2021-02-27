@@ -56,9 +56,7 @@ class FlowGroupDevice extends Homey.Device
               var res = [{id:max.toString(), name:max.toString()}];
               if(query && query!=max.toString()) res.push( {id:query, name:query});
               return res;              
-            } catch (error) {
-              this.error(error);
-            }
+            } catch (error) { this.error(triggerCard.id + '.id.registerAutocompleteListener.error :', error); throw error; }
           });
           card.on('update', this.refreshFlowTriggers.bind(this, triggerCards[triggerCard.id]))
           this.refreshFlowTriggers(triggerCards[triggerCard.id]);
@@ -172,20 +170,20 @@ class FlowGroupDevice extends Homey.Device
       });
       if (actionCard.args) {
         if (actionCard.args.find(x => x.name == 'flow' && x.type == 'autocomplete')) card.getArgument('flow').registerAutocompleteListener(async (query, args) => {
-          this.log(actionCard.id + '.flow.registerAutocompleteListener: ', actionCard.args);
+          //this.log(actionCard.id + '.flow.registerAutocompleteListener: ', actionCard.args);
           //console.log(query);
           //console.log(args);
           try {
 
             var flows = await homeyApi.getOwnTriggerFlows({args: actionCard.args, device:args.device, cardId : actionCard.id.split('__')[1] });
             // var flow = flows ? _.find(flows, x=>x.trigger.uri=='homey:app:nl.qluster-it.FlowEnhancer') : null;
-            this.log('flows', flows);
+            //this.log('flows', flows);
             //console.log(flows);
             if (query) flows = flows.filter(f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
             return flows.map(f => {
               return { id: f.id, name: f.name }
             });
-          } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); }
+          } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
         });
       }
     }

@@ -7,6 +7,7 @@
     "en": "H.O.O.P. (Hope)",
     "nl": "H.O.O.P."
   },
+  "brandColor":"#3D64AC",
   "description": {
     "en": "Homey Object Oriented Programming",
     "nl": "Homey Object geOriënteerd Programmeren"
@@ -21,6 +22,11 @@
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
   },
+  "source": "https://bitbucket.org/QlusterIT/nl.qluster-it.hoop/",
+  "bugs": {
+    "url": "https://bitbucket.org/QlusterIT/nl.qluster-it.hoop/issues"
+  },
+  "homeyCommunityTopicId": 43709,
   "author": {
     "name": "Arie J. Godschalk",
     "email": "arie@qluster-it.nl"
