@@ -1,0 +1,70 @@
+{
+    "id": "flowgroup_trigger__text2_boolean1",
+    
+    "title": {
+      "en": "Flow with Arguments (2 texts, 1 yes/no)"
+    },
+    "titleFormatted": {
+      "en": "Flow with Arguments (2 texts, 1 yes/no) ID [[id]]"
+    },
+    "args": [
+      {
+          "type" : "device",
+          "name" : "device",
+          "filter": "driver_id=flowgroup"
+      },
+      {
+        "type": "autocomplete",
+        "name": "id",
+        "placeholder": {
+          "en": "Flow",
+          "nl": "Flow"
+        }
+      }
+    ],
+    "tokens": [
+      {
+        "name": "text_1",
+        "type": "string",
+        "title": {
+          "en": "text1"
+        }
+      },
+      {
+        "name": "text_1_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "text_1 has value"
+        }
+      },
+      {
+        "name": "text_2",
+        "type": "string",
+        "title": {
+          "en": "text2"
+        }
+      },
+      {
+        "name": "text_2_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "text_2 has value"
+        }
+      },      
+      {
+        "name": "boolean_1",
+        "type": "boolean",
+        "title": {
+          "en": "boolean1"
+        }
+      },
+      {
+        "name": "boolean_1_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "boolean_1 has value"
+        }
+      }
+    ]    
+    
+  }

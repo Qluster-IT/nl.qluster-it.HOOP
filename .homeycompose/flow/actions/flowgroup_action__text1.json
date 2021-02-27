@@ -20,7 +20,7 @@
         },
         {
         "type": "text",
-        "name": "arg_1",
+        "name": "text_1",
         "placeholder": {
             "en": "text1"
         }            
