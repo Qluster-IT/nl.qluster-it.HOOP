@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "nl.qluster-it.HOOP",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -722,6 +722,38 @@
         ]
       },
       {
+        "id": "flowgroup_action__text1",
+        "title": {
+          "en": "Start Flow with Arguments (1 text)",
+          "nlnotyet": "Start Flow met Argumenten (1 tekst)"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (text1:[[text_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+              "en": "text1"
+            }
+          }
+        ]
+      },
+      {
         "id": "flowgroup_action__text2",
         "title": {
           "en": "Start Flow with Arguments (2 texts)",
@@ -1171,143 +1203,6 @@
             "placeholder": {
               "en": "number1"
             }
-          }
-        ]
-      }
-    ],
-    "conditions": [
-      {
-        "id": "condition_translate",
-        "title": {
-          "en": "Translate",
-          "nl": "Vertaal"
-        },
-        "titleFormatted": {
-          "en": "Translate [[translate]] into [[targetlanguagecode]]",
-          "nl": "Vertaal [[translate]] naar [[targetlanguagecode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=flowgroup"
-          },
-          {
-            "name": "translate",
-            "type": "text",
-            "title": {
-              "en": "Translate",
-              "nl": "Vertaal"
-            }
-          },
-          {
-            "name": "targetlanguagecode",
-            "type": "dropdown",
-            "title": {
-              "en": "Translate",
-              "nl": "Vertaal"
-            },
-            "hint": {
-              "en": "Choose the language for this device"
-            },
-            "values": [
-              {
-                "id": "en-GB",
-                "name": "en-GB",
-                "label": {
-                  "en": "English (GB)",
-                  "nl": "Engels (GB)"
-                }
-              },
-              {
-                "id": "en-US",
-                "name": "en-US",
-                "label": {
-                  "en": "English (US)",
-                  "nl": "Engels (US)"
-                }
-              },
-              {
-                "id": "nl-NL",
-                "name": "nl-NL",
-                "label": {
-                  "en": "Dutch (NL)",
-                  "nl": "Nederlands (NL)"
-                }
-              },
-              {
-                "id": "nl-BE",
-                "name": "nl-BE",
-                "label": {
-                  "en": "Dutch (BE)",
-                  "nl": "Nederlands (BE)"
-                }
-              },
-              {
-                "id": "de-DE",
-                "name": "de-DE",
-                "label": {
-                  "en": "German (DE)",
-                  "nl": "Duits (DE)"
-                }
-              },
-              {
-                "id": "de-LU",
-                "name": "de-LU",
-                "label": {
-                  "en": "German (LU)",
-                  "nl": "Duits (LU)"
-                }
-              },
-              {
-                "id": "fr-FR",
-                "name": "fr-FR",
-                "label": {
-                  "en": "French (FR)",
-                  "nl": "Frans (FR)"
-                }
-              },
-              {
-                "id": "fr-BE",
-                "name": "fr-BE",
-                "label": {
-                  "en": "French (BE)",
-                  "nl": "Frans (BE)"
-                }
-              },
-              {
-                "id": "es-ES",
-                "name": "es-ES",
-                "label": {
-                  "en": "Spanish (ES)",
-                  "nl": "Spaans (ES)"
-                }
-              },
-              {
-                "id": "it-IT",
-                "name": "it-IT",
-                "label": {
-                  "en": "Italian (IT)",
-                  "nl": "Italiaans (IT)"
-                }
-              },
-              {
-                "id": "sv-SV",
-                "name": "sv-SV",
-                "label": {
-                  "en": "Swedish (SV)",
-                  "nl": "Zweeds (SV)"
-                }
-              },
-              {
-                "id": "no-NO",
-                "name": "no-NO",
-                "label": {
-                  "en": "Norwegian (NO)",
-                  "nl": "Noors (NO)"
-                }
-              }
-            ]
           }
         ]
       }

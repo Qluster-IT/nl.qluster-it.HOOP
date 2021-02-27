@@ -1,0 +1,31 @@
+{
+    "id":"flowgroup_action__text1",
+    "title" : {
+        "en":"Start Flow with Arguments (1 text)",
+        "nlnotyet" : "Start Flow met Argumenten (1 tekst)"
+    },"titleFormatted" : {
+        "en":"Start [[flow]] (text1:[[text_1]])"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=flowgroup"
+        },
+        {
+        "type": "autocomplete",
+        "name": "flow",
+        "placeholder": {
+            "en": "Flow",
+            "nl": "Flow"
+        }
+        },
+        {
+        "type": "text",
+        "name": "text_1",
+        "placeholder": {
+            "en": "text1"
+        }            
+        }
+    ]
+}
