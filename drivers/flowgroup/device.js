@@ -70,11 +70,7 @@ class FlowGroupDevice extends Homey.Device
   
   //Build in notification if double ID!
   async refreshFlowTriggers(trigger) {
-    // console.log('refreshFlowTriggers');
-    // console.log(trigger);
-    //trigger.card.getAr
     var flows = await homeyApi.getOwnTriggerFlows({device:this, refresh:true, triggerCardId:trigger.id});
-    this.log('refreshFlowTriggers', flows);
     trigger.flows = flows || [];
   }
 

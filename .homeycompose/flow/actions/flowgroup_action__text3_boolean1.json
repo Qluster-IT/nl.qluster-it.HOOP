@@ -1,8 +1,7 @@
 {
     "id":"flowgroup_action__text3_boolean1",
     "title" : {
-        "en":"Start Flow with Arguments (3 texts, 1 yes/no)",
-        "nlnotyet" : "Start Flow met Argumenten (3 teksten, 1 ja/nee)"
+        "en":"Start Flow with Arguments (3 texts, 1 yes/no)"
     },
     "titleFormatted" : {
         "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], boolean1:[[boolean_1]])"

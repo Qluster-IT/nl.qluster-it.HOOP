@@ -3,6 +3,8 @@
     "title" : {
         "en":"Start Flow with Arguments (3 texts)",
         "nlnotyet" : "Start Flow met Argumenten (3 teksten)"
+    },"titleFormatted" : {
+        "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]])"
     },
     "args": [
         {

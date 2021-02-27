@@ -1,0 +1,52 @@
+{
+    "id":"flowgroup_action__text4",
+    "title" : {
+        "en":"Start Flow with Arguments (4 texts)",
+        "nlnotyet" : "Start Flow met Argumenten (4 teksten)"
+    },"titleFormatted" : {
+        "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]])"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=flowgroup"
+        },
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow",
+                "nl": "Flow"
+            }
+        },
+        {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+                "en": "text1"
+            }            
+        },
+        {
+            "type": "text",
+            "name": "text_2",
+            "placeholder": {
+                "en": "text2"
+            }            
+        },
+        {
+            "type": "text",
+            "name": "text_3",
+            "placeholder": {
+                "en": "text3"
+            }            
+        },
+        {
+            "type": "text",
+            "name": "text_4",
+            "placeholder": {
+                "en": "text4"
+            }            
+        }
+    ]
+}

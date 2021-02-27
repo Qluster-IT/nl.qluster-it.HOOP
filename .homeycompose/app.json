@@ -1,15 +1,15 @@
 {
-  "id": "nl.qluster-it.FlowEnhancer",
+  "id": "nl.qluster-it.HOOP",
   "version": "0.0.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
-    "en": "Flow Enhancer",
-    "nl": "Flow Versterker"
+    "en": "H.O.O.P. (Hope)",
+    "nl": "H.O.O.P."
   },
   "description": {
-    "en": "Enhance Flows with arguments",
-    "nl": "Versterk Flows met argumenten"
+    "en": "Homey Object Oriented Programming",
+    "nl": "Homey Object geOriënteerd Programmeren"
   },
   "category": [
     "tools"

@@ -497,6 +497,9 @@
           "en": "Start Flow with Arguments (1 text)",
           "nlnotyet": "Start Flow met Argumenten (1 tekst)"
         },
+        "titleFormatted": {
+          "en": "Start [[flow]] (text1:[[text_1]])"
+        },
         "args": [
           {
             "type": "device",
@@ -525,6 +528,9 @@
         "title": {
           "en": "Start Flow with Arguments (2 texts)",
           "nlnotyet": "Start Flow met Argumenten (2 teksten)"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]])"
         },
         "args": [
           {
@@ -561,6 +567,9 @@
         "title": {
           "en": "Start Flow with Arguments (2 texts, 1 yes/no)",
           "nlnotyet": "Start Flow met Argumenten (2 teksten, 1 ja/nee)"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], boolean1:[[boolean_1]])"
         },
         "args": [
           {
@@ -605,6 +614,9 @@
           "en": "Start Flow with Arguments (2 texts, 1 number)",
           "nlnotyet": "Start Flow met Argumenten (2 teksten, 1 nummers)"
         },
+        "titleFormatted": {
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], number1:[[number_1]])"
+        },
         "args": [
           {
             "type": "device",
@@ -648,6 +660,9 @@
           "en": "Start Flow with Arguments (3 texts)",
           "nlnotyet": "Start Flow met Argumenten (3 teksten)"
         },
+        "titleFormatted": {
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]])"
+        },
         "args": [
           {
             "type": "device",
@@ -688,8 +703,7 @@
       {
         "id": "flowgroup_action__text3_boolean1",
         "title": {
-          "en": "Start Flow with Arguments (3 texts, 1 yes/no)",
-          "nlnotyet": "Start Flow met Argumenten (3 teksten, 1 ja/nee)"
+          "en": "Start Flow with Arguments (3 texts, 1 yes/no)"
         },
         "titleFormatted": {
           "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], boolean1:[[boolean_1]])"
@@ -742,7 +756,10 @@
         "id": "flowgroup_action__text3_number1",
         "title": {
           "en": "Start Flow with Arguments (3 texts, 1 number)",
-          "nlnotyet": "Start Flow met Argumenten (3 teksten, 1 nummers)"
+          "nlnotyet": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], number1:[[number_1]])"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], number1:[[number_1]])"
         },
         "args": [
           {
@@ -781,7 +798,7 @@
           },
           {
             "type": "number",
-            "name": "number_4",
+            "name": "number_1",
             "placeholder": {
               "en": "number1"
             }
