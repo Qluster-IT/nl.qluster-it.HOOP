@@ -17,7 +17,8 @@
     "tools"
   ],
   "permissions": [
-    "homey:manager:api"
+    "homey:manager:api",
+    "homey:app:com.athom.homeyscript"
   ],
   "images": {
     "large": "/assets/images/large.png",
@@ -688,22 +689,16 @@
         ]
       }
     ],
-    "actions": [
+    "conditions": [
       {
-        "id": "flowgroup_action__text1",
+        "id": "app_condition__synccall",
         "title": {
-          "en": "Start Flow with Arguments (1 text)",
-          "nlnotyet": "Start Flow met Argumenten (1 tekst)"
+          "en": "Synchronised call"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]])"
+          "en": "Synchronised call [[flow]]"
         },
         "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=flowgroup"
-          },
           {
             "type": "autocomplete",
             "name": "flow",
@@ -711,12 +706,25 @@
               "en": "Flow",
               "nl": "Flow"
             }
-          },
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "app_action__wait",
+        "title": {
+          "en": "Wait"
+        },
+        "titleFormatted": {
+          "en": "Wait [[waitDuration]] ms"
+        },
+        "args": [
           {
-            "type": "text",
-            "name": "text_1",
+            "type": "number",
+            "name": "waitDuration",
             "placeholder": {
-              "en": "text1"
+              "en": "Duration"
             }
           }
         ]

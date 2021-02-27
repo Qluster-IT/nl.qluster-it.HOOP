@@ -15,8 +15,8 @@ class FlowGroupDevice extends Homey.Device
 {
     async onInit() {
         this.log('MyApp has been initialized');
-        this.flows = {    
-        };
+        
+        this.flows = {};
     
         this.initializeTriggers();
         this.initializeActions();
@@ -31,6 +31,7 @@ class FlowGroupDevice extends Homey.Device
     this.flows.triggers = triggerCards;
     for (let triggerCardIndex = 0; triggerCardIndex < homeyApi.app.manifest.flow.triggers.length; triggerCardIndex++) {
       const triggerCard = homeyApi.app.manifest.flow.triggers[triggerCardIndex];
+      if(!triggerCard.id.startsWith('flowgroup_')) continue;
       var card = this.homey.flow.getDeviceTriggerCard(triggerCard.id);
       triggerCards[triggerCard.id] = {
         id: triggerCard.id,
@@ -78,6 +79,7 @@ class FlowGroupDevice extends Homey.Device
     this.flows.actions = actionsCards
     for (let actionCardIndex = 0; actionCardIndex < homeyApi.app.manifest.flow.actions.length; actionCardIndex++) {
       const actionCard = homeyApi.app.manifest.flow.actions[actionCardIndex];
+      if(!actionCard.id.startsWith('flowgroup_')) continue;
       var card = this.homey.flow.getActionCard(actionCard.id);
       actionsCards[actionCard.id] = {
         id: actionCard.id,
@@ -179,6 +181,7 @@ class FlowGroupDevice extends Homey.Device
             // var flow = flows ? _.find(flows, x=>x.trigger.uri=='homey:app:nl.qluster-it.FlowEnhancer') : null;
             //this.log('flows', flows);
             //console.log(flows);
+            flows.filter(f => f.enabled);
             if (query) flows = flows.filter(f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
             return flows.map(f => {
               return { id: f.id, name: f.name }

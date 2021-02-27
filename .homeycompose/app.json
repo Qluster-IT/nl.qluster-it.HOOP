@@ -16,7 +16,8 @@
     "tools"
   ],
   "permissions": [
-    "homey:manager:api"
+    "homey:manager:api",
+    "homey:app:com.athom.homeyscript"
   ],
   "images": {
     "large": "/assets/images/large.png",

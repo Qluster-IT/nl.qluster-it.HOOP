@@ -1,0 +1,18 @@
+{
+    "id":"app_condition__synccall",
+    "title" : {
+        "en":"Synchronised call"        
+    },"titleFormatted" : {
+        "en":"Synchronised call [[flow]]"
+    },
+    "args": [        
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow",
+                "nl": "Flow"
+            }
+        }
+    ]
+}
