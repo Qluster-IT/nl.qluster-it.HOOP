@@ -139,14 +139,24 @@ class FlowGroupDevice extends Homey.Device
             if (Object.hasOwnProperty.call(argsToUse, key)) {
               const arg = argsToUse[key];
               for (let i = 0; i < arg.length; i++) {
-                const val = arg[i] || defaults[key];
-                triggerArgs[key+'_'+(i+1)] = (key=='boolean' ? val=='true' : val) ;
-                triggerArgs[key+'_'+(i+1) + '_hasvalue'] = val !=null && (key=='boolean' || val !=defaults[key]) && !(key=='text' && val =='null');
+                switch (key) {
+                  case 'boolean':
+                    const _val = arg[i];// || defaults[key];
+                    const val = _val==='true' || _val===true ? true : _val==='false' || _val===false ? false : null ;
+                    triggerArgs[key+'_'+(i+1)] = (val!==null ? val : defaults[key]);
+                    triggerArgs[key+'_'+(i+1) + '_hasvalue'] = val !==null ;
+                    break;                
+                  default:
+                    const valText = arg[i] || defaults[key];
+                    triggerArgs[key+'_'+(i+1)] = valText;
+                    triggerArgs[key+'_'+(i+1) + '_hasvalue'] = valText !=null && (valText !=defaults[key]) && !(key=='text' && valText =='null');
+                    break;
+                }
               }
             }
           }
-          console.log('triggerArgs');
-          console.log(triggerArgs);
+          //console.log('triggerArgs');
+          //console.log(triggerArgs);
           ownFlowItem.card.trigger(args.device, triggerArgs, { id: { id: flow.trigger.args.id.id } });
 
           function fillArgs(type, args, arg) {
