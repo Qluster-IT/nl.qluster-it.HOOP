@@ -1,8 +1,8 @@
 {
-    "id":"flowgroup_action__text3",
+    "id":"methodgroup_action__text3",
     "title" : {
-        "en":"Start Flow with Arguments (3 texts)",
-        "nlnotyet" : "Start Flow met Argumenten (3 teksten)"
+        "en":"Start Method with Arguments (3 texts)",
+        "nlnotyet" : "Start Method met Argumenten (3 teksten)"
     },"titleFormatted" : {
         "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]])"
     },
@@ -10,7 +10,7 @@
         {
             "type" : "device",
             "name" : "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
         },
         {
             "type": "autocomplete",

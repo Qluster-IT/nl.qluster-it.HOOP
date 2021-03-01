@@ -11,7 +11,7 @@ const defaults = {
     bool:false
   }
 
-class FlowGroupDevice extends Homey.Device
+class MethodGroupDevice extends Homey.Device
 {
     async onInit() {
         this.log('MyApp has been initialized');
@@ -31,7 +31,7 @@ class FlowGroupDevice extends Homey.Device
     this.flows.triggers = triggerCards;
     for (let triggerCardIndex = 0; triggerCardIndex < homeyApi.app.manifest.flow.triggers.length; triggerCardIndex++) {
       const triggerCard = homeyApi.app.manifest.flow.triggers[triggerCardIndex];
-      if(!triggerCard.id.startsWith('flowgroup_')) continue;
+      if(!triggerCard.id.startsWith('methodgroup_')) continue;
       var card = this.homey.flow.getDeviceTriggerCard(triggerCard.id);
       triggerCards[triggerCard.id] = {
         id: triggerCard.id,
@@ -79,7 +79,7 @@ class FlowGroupDevice extends Homey.Device
     this.flows.actions = actionsCards
     for (let actionCardIndex = 0; actionCardIndex < homeyApi.app.manifest.flow.actions.length; actionCardIndex++) {
       const actionCard = homeyApi.app.manifest.flow.actions[actionCardIndex];
-      if(!actionCard.id.startsWith('flowgroup_')) continue;
+      if(!actionCard.id.startsWith('methodgroup_')) continue;
       var card = this.homey.flow.getActionCard(actionCard.id);
       actionsCards[actionCard.id] = {
         id: actionCard.id,
@@ -157,7 +157,8 @@ class FlowGroupDevice extends Homey.Device
           }
           //console.log('triggerArgs');
           //console.log(triggerArgs);
-          ownFlowItem.card.trigger(args.device, triggerArgs, { id: { id: flow.trigger.args.id.id } });
+          //ownFlowItem.card.trigger(args.device, triggerArgs, { id: { id: flow.trigger.args.id.id } });
+          await homeyApi.triggerFlow({flow, device:this.device, args:triggerArgs});
 
           function fillArgs(type, args, arg) {
             if(!filledArgs[type]) filledArgs[type] = [];
@@ -196,4 +197,4 @@ class FlowGroupDevice extends Homey.Device
 
 }
 
-module.exports = FlowGroupDevice;
+module.exports = MethodGroupDevice;

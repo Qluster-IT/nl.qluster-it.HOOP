@@ -1,8 +1,8 @@
 {
-    "id":"flowgroup_action__text2_boolean1",
+    "id":"methodgroup_action__text2_boolean1",
     "title" : {
-        "en":"Start Flow with Arguments (2 texts, 1 yes/no)",
-        "nlnotyet" : "Start Flow met Argumenten (2 teksten, 1 ja/nee)"
+        "en":"Start Method with Arguments (2 texts, 1 yes/no)",
+        "nlnotyet" : "Start Method met Argumenten (2 teksten, 1 ja/nee)"
     },"titleFormatted" : {
         "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], boolean1:[[boolean_1]])"
     },
@@ -10,7 +10,7 @@
         {
             "type" : "device",
             "name" : "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
         },
         {
             "type": "autocomplete",

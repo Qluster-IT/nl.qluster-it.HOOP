@@ -1,7 +1,7 @@
 {
-    "id":"flowgroup_action__text3_boolean1",
+    "id":"methodgroup_action__text3_boolean1",
     "title" : {
-        "en":"Start Flow with Arguments (3 texts, 1 yes/no)"
+        "en":"Start Method with Arguments (3 texts, 1 yes/no)"
     },
     "titleFormatted" : {
         "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], boolean1:[[boolean_1]])"
@@ -10,7 +10,7 @@
         {
             "type" : "device",
             "name" : "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
         },
         {
             "type": "autocomplete",

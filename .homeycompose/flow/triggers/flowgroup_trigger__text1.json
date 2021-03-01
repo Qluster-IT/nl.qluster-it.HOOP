@@ -1,17 +1,17 @@
 {
-    "id": "flowgroup_trigger__text1",
+    "id": "methodgroup_trigger__text1",
     
     "title": {
-      "en": "Flow with Arguments (1 text)"
+      "en": "Method with Arguments (1 text)"
     },
     "titleFormatted": {
-      "en": "Flow with Arguments (1 text) ID [[id]]"
+      "en": "Method with Arguments (1 text) ID [[id]]"
     },
     "args": [
       {
           "type" : "device",
           "name" : "device",
-          "filter": "driver_id=flowgroup"
+          "filter": "driver_id=methodgroup"
       },
       {
         "type": "autocomplete",

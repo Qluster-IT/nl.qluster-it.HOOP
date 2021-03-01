@@ -1,7 +1,7 @@
 {
-    "id":"flowgroup_action__text3_number1",
+    "id":"methodgroup_action__text3_number1",
     "title" : {
-        "en":"Start Flow with Arguments (3 texts, 1 number)",
+        "en":"Start Method with Arguments (3 texts, 1 number)",
         "nlnotyet" : "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], number1:[[number_1]])"
     },"titleFormatted" : {
         "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], number1:[[number_1]])"
@@ -10,7 +10,7 @@
         {
             "type" : "device",
             "name" : "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
         },
         {
             "type": "autocomplete",

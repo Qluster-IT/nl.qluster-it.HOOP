@@ -8,12 +8,12 @@ const Script = require('./lib/script');
 
 //const { HomeyAPI } = require('athom-api');
 
-class FlowEnhancerApp extends Homey.App {
+class HOOPApp extends Homey.App {
   /**
    * onInit is called when the app is initialized.
    */
   async onInit() {
-    this.log('FlowEnhancerApp has been initialized');
+    this.log('HOOPApp has been initialized');
     homeyApi.init(this);
     Script.init(this);
     //this.log('init', await homeyApi.getDevice({id:'4fbe7935-cfe3-47d4-b552-68e05f9d0e91'}));
@@ -138,4 +138,4 @@ class FlowEnhancerApp extends Homey.App {
   }
 }
 
-module.exports = FlowEnhancerApp;
+module.exports = HOOPApp;

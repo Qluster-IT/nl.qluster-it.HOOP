@@ -1,14 +1,13 @@
 {
-  "id": "flowgroup",
+  "id": "methodgroup",
   "name": {
-    "en": "Flow Group",
-    "nlnotyet": "Flow Groep"
+    "en": "Method Group"
   },
   "class": "other",
   "capabilities": [],
   "images": {
-    "large": "/drivers/flowgroup/assets/images/large.png",
-    "small": "/drivers/flowgroup/assets/images/small.png"
+    "large": "/drivers/methodgroup/assets/images/large.png",
+    "small": "/drivers/methodgroup/assets/images/small.png"
   },
   "pair": [
     {
@@ -35,7 +34,7 @@
       },
       "value": "false",
       "hint": {
-        "en": "Overloading as a function; If so, a actioncard for 1 argument can also fire a trigger with more then 1 "
+        "en": "Overloading (as a method overloading); If so, a actioncard for one argument can also fire a trigger with more then one argument"
       },
       "values": [
         {

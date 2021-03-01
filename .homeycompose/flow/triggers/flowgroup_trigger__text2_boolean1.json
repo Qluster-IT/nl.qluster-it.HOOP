@@ -1,17 +1,17 @@
 {
-    "id": "flowgroup_trigger__text2_boolean1",
+    "id": "methodgroup_trigger__text2_boolean1",
     
     "title": {
-      "en": "Flow with Arguments (2 texts, 1 yes/no)"
+      "en": "Method with Arguments (2 texts, 1 yes/no)"
     },
     "titleFormatted": {
-      "en": "Flow with Arguments (2 texts, 1 yes/no) ID [[id]]"
+      "en": "Method with Arguments (2 texts, 1 yes/no) ID [[id]]"
     },
     "args": [
       {
           "type" : "device",
           "name" : "device",
-          "filter": "driver_id=flowgroup"
+          "filter": "driver_id=methodgroup"
       },
       {
         "type": "autocomplete",

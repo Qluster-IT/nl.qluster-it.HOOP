@@ -36,18 +36,18 @@
   "flow": {
     "triggers": [
       {
-        "id": "flowgroup_trigger__text1",
+        "id": "methodgroup_trigger__text1",
         "title": {
-          "en": "Flow with Arguments (1 text)"
+          "en": "Method with Arguments (1 text)"
         },
         "titleFormatted": {
-          "en": "Flow with Arguments (1 text) ID [[id]]"
+          "en": "Method with Arguments (1 text) ID [[id]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -75,18 +75,18 @@
         ]
       },
       {
-        "id": "flowgroup_trigger__text2",
+        "id": "methodgroup_trigger__text2",
         "title": {
-          "en": "Flow with Arguments (2 texts)"
+          "en": "Method with Arguments (2 texts)"
         },
         "titleFormatted": {
-          "en": "Flow with Arguments (2 texts) ID [[id]]"
+          "en": "Method with Arguments (2 texts) ID [[id]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -129,18 +129,18 @@
         ]
       },
       {
-        "id": "flowgroup_trigger__text2_boolean1",
+        "id": "methodgroup_trigger__text2_boolean1",
         "title": {
-          "en": "Flow with Arguments (2 texts, 1 yes/no)"
+          "en": "Method with Arguments (2 texts, 1 yes/no)"
         },
         "titleFormatted": {
-          "en": "Flow with Arguments (2 texts, 1 yes/no) ID [[id]]"
+          "en": "Method with Arguments (2 texts, 1 yes/no) ID [[id]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -197,18 +197,18 @@
         ]
       },
       {
-        "id": "flowgroup_trigger__text2_number1",
+        "id": "methodgroup_trigger__text2_number1",
         "title": {
-          "en": "Flow with Arguments (2 texts, 1 number)"
+          "en": "Method with Arguments (2 texts, 1 number)"
         },
         "titleFormatted": {
-          "en": "Flow with Arguments (2 texts, 1 number) ID [[id]]"
+          "en": "Method with Arguments (2 texts, 1 number) ID [[id]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -265,18 +265,18 @@
         ]
       },
       {
-        "id": "flowgroup_trigger__text3",
+        "id": "methodgroup_trigger__text3",
         "title": {
-          "en": "Flow with Arguments (3 texts)"
+          "en": "Method with Arguments (3 texts)"
         },
         "titleFormatted": {
-          "en": "Flow with Arguments (3 texts) ID [[id]]"
+          "en": "Method with Arguments (3 texts) ID [[id]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -333,18 +333,18 @@
         ]
       },
       {
-        "id": "flowgroup_trigger__text3_boolean1",
+        "id": "methodgroup_trigger__text3_boolean1",
         "title": {
-          "en": "Flow with Arguments (3 texts, 1 yes/no)"
+          "en": "Method with Arguments (3 texts, 1 yes/no)"
         },
         "titleFormatted": {
-          "en": "Flow with Arguments (3 texts, 1 ja/nee) ID [[id]]"
+          "en": "Method with Arguments (3 texts, 1 ja/nee) ID [[id]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -415,18 +415,18 @@
         ]
       },
       {
-        "id": "flowgroup_trigger__text3_number1",
+        "id": "methodgroup_trigger__text3_number1",
         "title": {
-          "en": "Flow with Arguments (3 texts, 1 number)"
+          "en": "Method with Arguments (3 texts, 1 number)"
         },
         "titleFormatted": {
-          "en": "Flow with Arguments (3 texts, 1 number) ID [[id]]"
+          "en": "Method with Arguments (3 texts, 1 number) ID [[id]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -497,18 +497,18 @@
         ]
       },
       {
-        "id": "flowgroup_trigger__text4_boolean1",
+        "id": "methodgroup_trigger__text4_boolean1",
         "title": {
-          "en": "Flow with Arguments (4 texts, 1 yes/no)"
+          "en": "Method with Arguments (4 texts, 1 yes/no)"
         },
         "titleFormatted": {
-          "en": "Flow with Arguments (4 texts, 1 ja/nee) ID [[id]]"
+          "en": "Method with Arguments (4 texts, 1 ja/nee) ID [[id]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -593,18 +593,18 @@
         ]
       },
       {
-        "id": "flowgroup_trigger__text4_number1",
+        "id": "methodgroup_trigger__text4_number1",
         "title": {
-          "en": "Flow with Arguments (4 texts, 1 number)"
+          "en": "Method with Arguments (4 texts, 1 number)"
         },
         "titleFormatted": {
-          "en": "Flow with Arguments (4 texts, 1 number) ID [[id]]"
+          "en": "Method with Arguments (4 texts, 1 number) ID [[id]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -730,10 +730,10 @@
         ]
       },
       {
-        "id": "flowgroup_action__text1",
+        "id": "methodgroup_action__text1",
         "title": {
-          "en": "Start Flow with Arguments (1 text)",
-          "nlnotyet": "Start Flow met Argumenten (1 tekst)"
+          "en": "Start Method with Arguments (1 text)",
+          "nlnotyet": "Start Method met Argumenten (1 tekst)"
         },
         "titleFormatted": {
           "en": "Start [[flow]] (text1:[[text_1]])"
@@ -742,7 +742,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -762,10 +762,10 @@
         ]
       },
       {
-        "id": "flowgroup_action__text2",
+        "id": "methodgroup_action__text2",
         "title": {
-          "en": "Start Flow with Arguments (2 texts)",
-          "nlnotyet": "Start Flow met Argumenten (2 teksten)"
+          "en": "Start Method with Arguments (2 texts)",
+          "nlnotyet": "Start Method met Argumenten (2 teksten)"
         },
         "titleFormatted": {
           "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]])"
@@ -774,7 +774,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -801,10 +801,10 @@
         ]
       },
       {
-        "id": "flowgroup_action__text2_boolean1",
+        "id": "methodgroup_action__text2_boolean1",
         "title": {
-          "en": "Start Flow with Arguments (2 texts, 1 yes/no)",
-          "nlnotyet": "Start Flow met Argumenten (2 teksten, 1 ja/nee)"
+          "en": "Start Method with Arguments (2 texts, 1 yes/no)",
+          "nlnotyet": "Start Method met Argumenten (2 teksten, 1 ja/nee)"
         },
         "titleFormatted": {
           "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], boolean1:[[boolean_1]])"
@@ -813,7 +813,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -847,10 +847,10 @@
         ]
       },
       {
-        "id": "flowgroup_action__text2_number1",
+        "id": "methodgroup_action__text2_number1",
         "title": {
-          "en": "Start Flow with Arguments (2 texts, 1 number)",
-          "nlnotyet": "Start Flow met Argumenten (2 teksten, 1 nummers)"
+          "en": "Start Method with Arguments (2 texts, 1 number)",
+          "nlnotyet": "Start Method met Argumenten (2 teksten, 1 nummers)"
         },
         "titleFormatted": {
           "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], number1:[[number_1]])"
@@ -859,7 +859,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -893,10 +893,10 @@
         ]
       },
       {
-        "id": "flowgroup_action__text3",
+        "id": "methodgroup_action__text3",
         "title": {
-          "en": "Start Flow with Arguments (3 texts)",
-          "nlnotyet": "Start Flow met Argumenten (3 teksten)"
+          "en": "Start Method with Arguments (3 texts)",
+          "nlnotyet": "Start Method met Argumenten (3 teksten)"
         },
         "titleFormatted": {
           "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]])"
@@ -905,7 +905,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -939,9 +939,9 @@
         ]
       },
       {
-        "id": "flowgroup_action__text3_boolean1",
+        "id": "methodgroup_action__text3_boolean1",
         "title": {
-          "en": "Start Flow with Arguments (3 texts, 1 yes/no)"
+          "en": "Start Method with Arguments (3 texts, 1 yes/no)"
         },
         "titleFormatted": {
           "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], boolean1:[[boolean_1]])"
@@ -950,7 +950,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -991,9 +991,9 @@
         ]
       },
       {
-        "id": "flowgroup_action__text3_number1",
+        "id": "methodgroup_action__text3_number1",
         "title": {
-          "en": "Start Flow with Arguments (3 texts, 1 number)",
+          "en": "Start Method with Arguments (3 texts, 1 number)",
           "nlnotyet": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], number1:[[number_1]])"
         },
         "titleFormatted": {
@@ -1003,7 +1003,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -1044,10 +1044,10 @@
         ]
       },
       {
-        "id": "flowgroup_action__text4",
+        "id": "methodgroup_action__text4",
         "title": {
-          "en": "Start Flow with Arguments (4 texts)",
-          "nlnotyet": "Start Flow met Argumenten (4 teksten)"
+          "en": "Start Method with Arguments (4 texts)",
+          "nlnotyet": "Start Method met Argumenten (4 teksten)"
         },
         "titleFormatted": {
           "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]])"
@@ -1056,7 +1056,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -1097,9 +1097,9 @@
         ]
       },
       {
-        "id": "flowgroup_action__text4_boolean1",
+        "id": "methodgroup_action__text4_boolean1",
         "title": {
-          "en": "Start Flow with Arguments (4 texts, 1 yes/no)"
+          "en": "Start Method with Arguments (4 texts, 1 yes/no)"
         },
         "titleFormatted": {
           "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], boolean1:[[boolean_1]])"
@@ -1108,7 +1108,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -1156,9 +1156,9 @@
         ]
       },
       {
-        "id": "flowgroup_action__text4_number1",
+        "id": "methodgroup_action__text4_number1",
         "title": {
-          "en": "Start Flow with Arguments (4 texts, 1 number)"
+          "en": "Start Method with Arguments (4 texts, 1 number)"
         },
         "titleFormatted": {
           "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], number1:[[number_1]])"
@@ -1167,7 +1167,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=flowgroup"
+            "filter": "driver_id=methodgroup"
           },
           {
             "type": "autocomplete",
@@ -1218,16 +1218,15 @@
   },
   "drivers": [
     {
-      "id": "flowgroup",
+      "id": "methodgroup",
       "name": {
-        "en": "Flow Group",
-        "nlnotyet": "Flow Groep"
+        "en": "Method Group"
       },
       "class": "other",
       "capabilities": [],
       "images": {
-        "large": "/drivers/flowgroup/assets/images/large.png",
-        "small": "/drivers/flowgroup/assets/images/small.png"
+        "large": "/drivers/methodgroup/assets/images/large.png",
+        "small": "/drivers/methodgroup/assets/images/small.png"
       },
       "pair": [
         {
@@ -1254,7 +1253,7 @@
           },
           "value": "false",
           "hint": {
-            "en": "Overloading as a function; If so, a actioncard for 1 argument can also fire a trigger with more then 1 "
+            "en": "Overloading (as a method overloading); If so, a actioncard for one argument can also fire a trigger with more then one argument"
           },
           "values": [
             {
