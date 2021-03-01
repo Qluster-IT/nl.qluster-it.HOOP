@@ -67,7 +67,7 @@ class CardOverloaderDevice extends Homey.Device {
             } catch (error) { this.error(error) }
           });
           if (actionCard.args) {
-            if (actionCard.args.find(x => x.name == 'app' && x.type == 'autocomplete')) card.getArgument('card').registerAutocompleteListener(async (query, args) => {
+            if (actionCard.args.find(x => x.name == 'card' && x.type == 'autocomplete')) card.getArgument('card').registerAutocompleteListener(async (query, args) => {
               try {
                 var flowCards = await homeyApi.getFlowCards({type:cardTargetType});
                 flowCards = flowCards.filter(card => _.each(['text', 'number', 'boolean', 'autocomplete'], type=> _.sumBy( card.args, arg=> arg.type==type)==cardToUser.count[type]));
