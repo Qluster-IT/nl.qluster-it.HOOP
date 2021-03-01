@@ -30,6 +30,7 @@ class HOOPApp extends Homey.App {
     //this.initializeTriggers();
     this.initializeConditions();
     this.initializeActions();
+    this.initializeConditionsAndActions();
 
   }
   
@@ -113,6 +114,10 @@ class HOOPApp extends Homey.App {
       // }
     
     }
+    
+  }
+
+  initializeConditionsAndActions() {
     ['app_condition__wait', 'app_action__wait'].forEach((card=>{ 
       this.flows[card.startsWith('app_condition') ? 'conditions' : 'actions'][card].card.registerRunListener(({waitDuration} = {}, state) => {
         try {

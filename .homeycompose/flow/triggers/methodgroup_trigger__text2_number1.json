@@ -4,22 +4,11 @@
     "title": {
       "en": "Method with Arguments (2 texts, 1 number)"
     },
-    "titleFormatted": {
-      "en": "Method with Arguments (2 texts, 1 number) ID [[id]]"
-    },
     "args": [
       {
           "type" : "device",
           "name" : "device",
           "filter": "driver_id=methodgroup"
-      },
-      {
-        "type": "autocomplete",
-        "name": "id",
-        "placeholder": {
-          "en": "Flow",
-          "nl": "Flow"
-        }
       }
     ],
     "tokens": [

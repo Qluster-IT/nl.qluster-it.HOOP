@@ -1,0 +1,81 @@
+{
+    "id":"methodgroup_condition__text4_boolean1",
+    "title" : {
+        "en":"Start Method with Arguments (4 texts, 1 yes/no)"
+    },
+    "titleFormatted" : {
+        "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], boolean1:[[boolean_1]]) while [[actioncardsmode]] and continue when !{{|not}} successful"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=methodgroup"
+        },
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow",
+                "nl": "Flow"
+            }
+        },
+        {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+                "en": "Actioncard mode"
+            },
+            "values": [
+                {
+                    "id": "async",
+                    "name": "async",
+                    "label": {
+                      "en": "Executing actioncards asynchroon"
+                    }
+                },{
+                    "id": "sync",
+                    "name": "sync",
+                    "label": {
+                      "en": "Executing actioncards synchroon"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+                "en": "text1"
+            }            
+        },
+        {
+            "type": "text",
+            "name": "text_2",
+            "placeholder": {
+                "en": "text2"
+            }            
+        },
+        {
+            "type": "text",
+            "name": "text_3",
+            "placeholder": {
+                "en": "text3"
+            }            
+        },
+        {
+            "type": "text",
+            "name": "text_4",
+            "placeholder": {
+                "en": "text4"
+            }            
+        },
+        {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+                "en": "boolean1 - true/false"
+            }
+        }
+    ]
+}
