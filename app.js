@@ -5,6 +5,7 @@ const homeyApi = require('./lib/homeyApi');
 const _ = require('lodash');
 const { Defer } = require('./lib/proto');
 const Script = require('./lib/script');
+const Flower = require('./lib/flower');
 
 //const { HomeyAPI } = require('athom-api');
 
@@ -16,6 +17,7 @@ class HOOPApp extends Homey.App {
     this.log('HOOPApp has been initialized');
     homeyApi.init(this);
     Script.init(this);
+    Flower.init(this);
     //this.log('init', await homeyApi.getDevice({id:'4fbe7935-cfe3-47d4-b552-68e05f9d0e91'}));
 
     this.flows = {};
@@ -44,10 +46,11 @@ class HOOPApp extends Homey.App {
         manifest : conditionCard
       };
     }    
-    this.flows.conditions['app_condition__synccall'].card.getArgument('flow').registerAutocompleteListener(async (query, args) => {
+    this.flows.conditions['app_condition__await'].card.getArgument('flow').registerAutocompleteListener(async (query, args) => {
       try {
         var flows = await homeyApi.getFlows();
-        _.filter(flows, f => f.enabled && this.triggerAble);
+        _.filter(flows, f => //f.enabled && 
+          this.triggerAble);
 
         if (query) flows = _.filter(flows, f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
         flows = _.orderBy(flows, f=>f.name);
@@ -58,28 +61,11 @@ class HOOPApp extends Homey.App {
         return r;
       } catch (error) { this.error('app_action__synccall.flow.registerAutocompleteListener.error :', error); throw error; }
     });
-    this.flows.conditions['app_condition__synccall'].card.registerRunListener(({flow} = {}, state) => {
+    this.flows.conditions['app_condition__await'].card.registerRunListener(({flow, actioncardsmode='async'} = {}, state) => {
       try {
         if(!flow ) return Promise.reject('Missing flow argument');            
         var defer  = new Defer(30*1000);
-        (async ()=>{
-          const res = await (await homeyApi.getHomeyAPI()).flow.runFlowCardAction({
-            uri: 'homey:app:nl.qluster-it.HOOP',
-            id: 'app_action__wait',
-            args: {
-              waitDuration: 5000,
-            },
-          });
-          console.log('res', res);
-        }).call(this);
-
-        // homeyApi.test();
-        // homeyApi.getFlow(flow).then(flow=> {
-        //   this.log('flow', JSON.stringify(flow))
-        //   //Script.execute('HOOP_TriggerCards', "asd", {asdasd:'sdf'}, 1.2);
-
-        // });
-
+        Flower.triggerFlow({flow, actioncardsmode}).then(()=> defer.resolve(true)).catch(err=>defer.reject(err));
         return defer.promise;
       } catch (error) { this.error(error) }
   });
@@ -127,14 +113,25 @@ class HOOPApp extends Homey.App {
       // }
     
     }
-    this.flows.actions['app_action__wait'].card.registerRunListener(({waitDuration} = {}, state) => {
+    ['app_condition__wait', 'app_action__wait'].forEach((card=>{ 
+      this.flows[card.startsWith('app_condition') ? 'conditions' : 'actions'][card].card.registerRunListener(({waitDuration} = {}, state) => {
         try {
           if(!waitDuration ) return Promise.reject('Missing duration argument');          
           var defer  = new Defer();
           setTimeout(()=> defer.resolve(true), waitDuration);          
           return defer.promise;
         } catch (error) { this.error(error) }
-    });
+      });
+    }).bind(this));
+    ['app_condition__throw', 'app_action__throw'].forEach((card=>{ 
+      this.flows[card.startsWith('app_condition') ? 'conditions' : 'actions'][card].card.registerRunListener(({message} = {}, state) => {
+        var defer = new Defer();
+        if(!message ) defer.reject(new Error('Missing message argument'));
+        else defer.reject(new Error(message));
+
+        return defer.promise;
+      });
+    }).bind(this));
   }
 }
 

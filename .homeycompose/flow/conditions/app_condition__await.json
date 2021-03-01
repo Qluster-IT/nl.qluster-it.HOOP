@@ -1,0 +1,39 @@
+{
+    "id":"app_condition__await",
+    "title" : {
+        "en":"Await flow call"        
+    },"titleFormatted" : {
+        "en":"Await [[flow]] while [[actioncardsmode]] and continue when !{{|not}} successful"
+    },
+    "args": [        
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow"
+            }
+        },
+        {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+                "en": "Actioncard mode"
+            },
+            "values": [
+                {
+                    "id": "async",
+                    "name": "async",
+                    "label": {
+                      "en": "Executing actioncards asynchronised"
+                    }
+                },{
+                    "id": "sync",
+                    "name": "sync",
+                    "label": {
+                      "en": "Executing actioncards synchronised"
+                    }
+                }
+            ]
+        }
+    ]
+}

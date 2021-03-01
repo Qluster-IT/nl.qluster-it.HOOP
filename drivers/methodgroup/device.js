@@ -4,6 +4,7 @@ const Homey = require('homey');
 
 const homeyApi = require('./../../lib/homeyApi');
 const _ = require('lodash');
+const Flower = require('../../lib/flower');
 
 const defaults = {
     text:'null',
@@ -41,7 +42,7 @@ class MethodGroupDevice extends Homey.Device
       }
       //check if flow is enabled
       card.registerRunListener(async (args, state) => {
-        // console.log(triggerCard.id + '.registerRunListener: ');
+        this.log(triggerCard.id + '.registerRunListener: ');
         // console.log(args);
         // console.log(state);
         // console.log('returns ' + args.id && args.id.id && state.id && state.id.id && args.id.id == state.id.id);
@@ -87,88 +88,22 @@ class MethodGroupDevice extends Homey.Device
         manifest : actionCard
       };
       card.registerRunListener(async (args, state) => {
-        try {          
+        try {
           // console.log(actionCard.id + '.registerRunListener: ');
           // console.log(args);
           // console.log(state);
           var flow = await homeyApi.getFlow({ id: args.flow.id });
           if (!flow.enabled) return true;
-          var filledArgs = {};
-          for (const key in _.orderBy(actionCard.args, arg=>arg.name)) {
-            if (Object.hasOwnProperty.call(actionCard.args, key)) {
-              const arg = actionCard.args[key];
-              var type = arg.name.split('_')[0];
-              switch (type) {
-                case 'text':
-                  fillArgs('text', args, arg);                
-                  break;
-                case 'number':
-                  fillArgs('number', args, arg);
-                  break;
-                case 'boolean':
-                  fillArgs('boolean', args, arg);
-                  break;
-                default:
-                  break;
-              }
-            }
-          }
-          var argsToUse = {};
-          var ownFlowItem = this.flows.triggers[flow.trigger.id];
-          for (const key in _.orderBy(ownFlowItem.manifest.tokens, arg=>arg.name)) {
-            if (Object.hasOwnProperty.call(ownFlowItem.manifest.tokens, key)) {
-              const token = ownFlowItem.manifest.tokens[key];
-              if(token.name.split('_').length>2) continue;
-              switch (token.type) {
-                case 'string':
-                  fillTokens('text');
-                  break;
-                case 'number':
-                  fillTokens('number');
-                  break;
-                case 'boolean':
-                  fillTokens('boolean');
-                  break;
-                default:
-                  break;
-              }
-            }
-          }
-          var triggerArgs = {};
-          for (const key in argsToUse) {
-            if (Object.hasOwnProperty.call(argsToUse, key)) {
-              const arg = argsToUse[key];
-              for (let i = 0; i < arg.length; i++) {
-                switch (key) {
-                  case 'boolean':
-                    const _val = arg[i];// || defaults[key];
-                    const val = _val==='true' || _val===true ? true : _val==='false' || _val===false ? false : null ;
-                    triggerArgs[key+'_'+(i+1)] = (val!==null ? val : defaults[key]);
-                    triggerArgs[key+'_'+(i+1) + '_hasvalue'] = val !==null ;
-                    break;                
-                  default:
-                    const valText = arg[i] || defaults[key];
-                    triggerArgs[key+'_'+(i+1)] = valText;
-                    triggerArgs[key+'_'+(i+1) + '_hasvalue'] = valText !=null && (valText !=defaults[key]) && !(key=='text' && valText =='null');
-                    break;
-                }
-              }
-            }
-          }
-          //console.log('triggerArgs');
-          //console.log(triggerArgs);
-          //ownFlowItem.card.trigger(args.device, triggerArgs, { id: { id: flow.trigger.args.id.id } });
-          await homeyApi.triggerFlow({flow, device:this.device, args:triggerArgs});
 
-          function fillArgs(type, args, arg) {
-            if(!filledArgs[type]) filledArgs[type] = [];
-            filledArgs[type].push(type == 'boolean' ? args[arg.name]=='true' :  args[arg.name] || null);
-          }
-          function fillTokens(type) {
-            if(!argsToUse[type]) argsToUse[type] = [];
-            var val = filledArgs && filledArgs[type] && filledArgs[type].length> argsToUse[type].length ? filledArgs[type][argsToUse[type].length] : null;
-            argsToUse[type].push(val);
-          }
+          var triggerArgs =  this.getArgs({flow, args, actionCard});
+          Flower.triggerFlow({flow, tokens:triggerArgs})
+
+          //ownFlowItem.card.trigger(args.device, triggerArgs, { id: { id: flow.trigger.args.id.id } });
+          
+          //triggerArgs.device = this;
+          //await homeyApi.triggerFlow({flow, tokens:{ id: { id: flow.trigger.args.id.id } }});
+          //await homeyApi.triggerFlow({flow, tokens:triggerArgs});
+
         } catch (error) { this.error(error) }
       });
       if (actionCard.args) {
@@ -182,7 +117,7 @@ class MethodGroupDevice extends Homey.Device
             // var flow = flows ? _.find(flows, x=>x.trigger.uri=='homey:app:nl.qluster-it.FlowEnhancer') : null;
             //this.log('flows', flows);
             //console.log(flows);
-            flows.filter(f => f.enabled);
+            //flows.filter(f => f.enabled); //find disabled flows to, but the will not trigger.
             if (query) flows = flows.filter(f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
             return flows.map(f => {
               return { id: f.id, name: f.name }
@@ -193,7 +128,84 @@ class MethodGroupDevice extends Homey.Device
     }
   }
 
+  getArgs({flow, args, actionCard} = {}) {
+    var filledArgs = {};
+    for (const key in _.orderBy(actionCard.args, arg=>arg.name)) {
+      if (Object.hasOwnProperty.call(actionCard.args, key)) {
+        const arg = actionCard.args[key];
+        var type = arg.name.split('_')[0];
+        switch (type) {
+          case 'text':
+            fillArgs('text', args, arg);                
+            break;
+          case 'number':
+            fillArgs('number', args, arg);
+            break;
+          case 'boolean':
+            fillArgs('boolean', args, arg);
+            break;
+          default:
+            break;
+        }
+      }
+    }
+    var argsToUse = {};
+    var ownFlowItem = this.flows.triggers[flow.trigger.id];
+    for (const key in _.orderBy(ownFlowItem.manifest.tokens, arg=>arg.name)) {
+      if (Object.hasOwnProperty.call(ownFlowItem.manifest.tokens, key)) {
+        const token = ownFlowItem.manifest.tokens[key];
+        if(token.name.split('_').length>2) continue;
+        switch (token.type) {
+          case 'string':
+            fillTokens('text');
+            break;
+          case 'number':
+            fillTokens('number');
+            break;
+          case 'boolean':
+            fillTokens('boolean');
+            break;
+          default:
+            break;
+        }
+      }
+    }
+    var triggerArgs = {};
+    for (const key in argsToUse) {
+      if (Object.hasOwnProperty.call(argsToUse, key)) {
+        const arg = argsToUse[key];
+        for (let i = 0; i < arg.length; i++) {
+          switch (key) {
+            case 'boolean':
+              const _val = arg[i];// || defaults[key];
+              const val = _val==='true' || _val===true ? true : _val==='false' || _val===false ? false : null ;
+              triggerArgs[key+'_'+(i+1)] = (val!==null ? val : defaults[key]);
+              triggerArgs[key+'_'+(i+1) + '_hasvalue'] = val !==null ;
+              break;                
+            default:
+              const valText = arg[i] || defaults[key];
+              triggerArgs[key+'_'+(i+1)] = valText;
+              triggerArgs[key+'_'+(i+1) + '_hasvalue'] = valText !=null && (valText !=defaults[key]) && !(key=='text' && valText =='null');
+              break;
+          }
+        }
+      }
+    }
+    this.log('triggerArgs', triggerArgs);
 
+    return filledArgs;
+
+    
+    function fillArgs(type, args, arg) {
+      if(!filledArgs[type]) filledArgs[type] = [];
+      filledArgs[type].push(type == 'boolean' ? args[arg.name]=='true' :  args[arg.name] || null);
+    }
+    function fillTokens(type) {
+      if(!argsToUse[type]) argsToUse[type] = [];
+      var val = filledArgs && filledArgs[type] && filledArgs[type].length> argsToUse[type].length ? filledArgs[type][argsToUse[type].length] : null;
+      argsToUse[type].push(val);
+    }
+  }
 
 }
 

@@ -691,14 +691,96 @@
     ],
     "conditions": [
       {
-        "id": "app_condition__synccall",
+        "id": "app_condition__await",
         "title": {
-          "en": "Synchronised call"
+          "en": "Await flow call"
         },
         "titleFormatted": {
-          "en": "Synchronised call [[flow]]"
+          "en": "Await [[flow]] while [[actioncardsmode]] and continue when !{{|not}} successful"
         },
         "args": [
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronised"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronised"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "app_condition__throw",
+        "title": {
+          "en": "Throw an error"
+        },
+        "titleFormatted": {
+          "en": "Throw [[message]]"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "placeholder": {
+              "en": "Message"
+            }
+          }
+        ]
+      },
+      {
+        "id": "app_condition__wait",
+        "title": {
+          "en": "Wait"
+        },
+        "titleFormatted": {
+          "en": "Wait [[waitDuration]] ms"
+        },
+        "args": [
+          {
+            "type": "number",
+            "name": "waitDuration",
+            "placeholder": {
+              "en": "Duration"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_condition__text1",
+        "title": {
+          "en": "Await Method with Arguments (1 text)"
+        },
+        "titleFormatted": {
+          "en": "Await [[flow]] (text1:[[text_1]]) while [[actioncardsmode]] and continue when !{{|not}} successful "
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
           {
             "type": "autocomplete",
             "name": "flow",
@@ -706,11 +788,59 @@
               "en": "Flow",
               "nl": "Flow"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronised"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronised"
+                }
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+              "en": "text1"
+            }
           }
         ]
       }
     ],
     "actions": [
+      {
+        "id": "app_action__throw",
+        "title": {
+          "en": "Throw an error"
+        },
+        "titleFormatted": {
+          "en": "Throw [[message]]"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "placeholder": {
+              "en": "Message"
+            }
+          }
+        ]
+      },
       {
         "id": "app_action__wait",
         "title": {

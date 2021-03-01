@@ -1,0 +1,17 @@
+{
+    "id":"app_condition__wait",
+    "title" : {
+        "en":"Wait"        
+    },"titleFormatted" : {
+        "en":"Wait [[waitDuration]] ms"
+    },
+    "args": [        
+        {
+            "type": "number",
+            "name": "waitDuration",
+            "placeholder": {
+                "en": "Duration"
+            }                    
+        }
+    ]
+}

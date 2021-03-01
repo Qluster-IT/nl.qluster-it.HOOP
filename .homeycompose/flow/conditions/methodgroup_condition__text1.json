@@ -1,0 +1,52 @@
+{
+    "id":"methodgroup_condition__text1",
+    "title" : {
+        "en":"Await Method with Arguments (1 text)"
+    },"titleFormatted" : {
+        "en":"Await [[flow]] (text1:[[text_1]]) while [[actioncardsmode]] and continue when !{{|not}} successful "
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=methodgroup"
+        },
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow",
+                "nl": "Flow"
+            }
+        },
+        {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+                "en": "Actioncard mode"
+            },
+            "values": [
+                {
+                    "id": "async",
+                    "name": "async",
+                    "label": {
+                      "en": "Executing actioncards asynchronised"
+                    }
+                },{
+                    "id": "sync",
+                    "name": "sync",
+                    "label": {
+                      "en": "Executing actioncards synchronised"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+                "en": "text1"
+            }            
+        }
+    ]
+}
