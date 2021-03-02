@@ -20,28 +20,6 @@
             }
         },
         {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-                "en": "Actioncard mode"
-            },
-            "values": [
-                {
-                    "id": "async",
-                    "name": "async",
-                    "label": {
-                      "en": "Executing actioncards asynchroon"
-                    }
-                },{
-                    "id": "sync",
-                    "name": "sync",
-                    "label": {
-                      "en": "Executing actioncards synchroon"
-                    }
-                }
-            ]
-        },
-        {
             "type": "text",
             "name": "text_1",
             "placeholder": {
