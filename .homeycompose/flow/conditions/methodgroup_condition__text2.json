@@ -3,7 +3,7 @@
     "title" : {
         "en":"Await Method with Arguments (2 texts)"
     },"titleFormatted" : {
-        "en":"Await [[flow]] (text1:[[text_1]], text2:[[text_2]]) while [[actioncardsmode]] and continue when !{{|not}} successful "
+        "en":"Await [[flow]] (text1:[[text_1]], text2:[[text_2]]) and continue when !{{|not}} successful "
     },
     "args": [
         {
@@ -18,28 +18,6 @@
                 "en": "Flow",
                 "nl": "Flow"
             }
-        },
-        {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-                "en": "Actioncard mode"
-            },
-            "values": [
-                {
-                    "id": "async",
-                    "name": "async",
-                    "label": {
-                      "en": "Executing actioncards asynchroon"
-                    }
-                },{
-                    "id": "sync",
-                    "name": "sync",
-                    "label": {
-                      "en": "Executing actioncards synchroon"
-                    }
-                }
-            ]
         },
         {
             "type": "text",

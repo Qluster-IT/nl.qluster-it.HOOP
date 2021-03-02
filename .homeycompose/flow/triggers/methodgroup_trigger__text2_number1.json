@@ -2,13 +2,35 @@
     "id": "methodgroup_trigger__text2_number1",
     
     "title": {
-      "en": "Method with Arguments (2 texts, 1 number)"
+      "en": "Method with Arguments (2 texts, 1 number) [[actioncardsmode]]"
     },
     "args": [
       {
           "type" : "device",
           "name" : "device",
           "filter": "driver_id=methodgroup"
+      },
+      {
+          "type": "dropdown",
+          "name": "actioncardsmode",
+          "placeholder": {
+              "en": "Actioncard mode"
+          },
+          "values": [
+              {
+                  "id": "async",
+                  "name": "async",
+                  "label": {
+                    "en": "Executing actioncards asynchroon"
+                  }
+              },{
+                  "id": "sync",
+                  "name": "sync",
+                  "label": {
+                    "en": "Executing actioncards synchroon"
+                  }
+              }
+          ]
       }
     ],
     "tokens": [

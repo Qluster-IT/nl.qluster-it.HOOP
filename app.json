@@ -38,13 +38,36 @@
       {
         "id": "methodgroup_trigger__text1",
         "title": {
-          "en": "Method with Arguments (1 text)"
+          "en": "Method with Arguments (1 text) [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -67,13 +90,36 @@
       {
         "id": "methodgroup_trigger__text2",
         "title": {
-          "en": "Method with Arguments (2 texts)"
+          "en": "Method with Arguments (2 texts) [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -110,13 +156,36 @@
       {
         "id": "methodgroup_trigger__text2_boolean1",
         "title": {
-          "en": "Method with Arguments (2 texts, 1 yes/no)"
+          "en": "Method with Arguments (2 texts, 1 boolean) [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -167,13 +236,36 @@
       {
         "id": "methodgroup_trigger__text2_number1",
         "title": {
-          "en": "Method with Arguments (2 texts, 1 number)"
+          "en": "Method with Arguments (2 texts, 1 number) [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -224,13 +316,36 @@
       {
         "id": "methodgroup_trigger__text3",
         "title": {
-          "en": "Method with Arguments (3 texts)"
+          "en": "Method with Arguments (3 texts) [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -281,13 +396,36 @@
       {
         "id": "methodgroup_trigger__text3_boolean1",
         "title": {
-          "en": "Method with Arguments (3 texts, 1 yes/no)"
+          "en": "Method with Arguments (3 texts, 1 boolean) [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -352,13 +490,36 @@
       {
         "id": "methodgroup_trigger__text3_number1",
         "title": {
-          "en": "Method with Arguments (3 texts, 1 number)"
+          "en": "Method with Arguments (3 texts, 1 number) [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -423,13 +584,36 @@
       {
         "id": "methodgroup_trigger__text4_boolean1",
         "title": {
-          "en": "Method with Arguments (4 texts, 1 yes/no)"
+          "en": "Method with Arguments (4 texts, 1 boolean) [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -508,13 +692,36 @@
       {
         "id": "methodgroup_trigger__text4_number1",
         "title": {
-          "en": "Method with Arguments (4 texts, 1 number)"
+          "en": "Method with Arguments (4 texts, 1 number) [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -846,7 +1053,7 @@
           "en": "Await Method with Arguments (1 text)"
         },
         "titleFormatted": {
-          "en": "Await [[flow]] (text1:[[text_1]]) while [[actioncardsmode]] and continue when !{{|not}} successful "
+          "en": "Await [[flow]] (text1:[[text_1]]) and continue when !{{|not}} successful "
         },
         "args": [
           {
@@ -861,29 +1068,6 @@
               "en": "Flow",
               "nl": "Flow"
             }
-          },
-          {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-              "en": "Actioncard mode"
-            },
-            "values": [
-              {
-                "id": "async",
-                "name": "async",
-                "label": {
-                  "en": "Executing actioncards asynchroon"
-                }
-              },
-              {
-                "id": "sync",
-                "name": "sync",
-                "label": {
-                  "en": "Executing actioncards synchroon"
-                }
-              }
-            ]
           },
           {
             "type": "text",
@@ -900,7 +1084,7 @@
           "en": "Await Method with Arguments (2 texts)"
         },
         "titleFormatted": {
-          "en": "Await [[flow]] (text1:[[text_1]], text2:[[text_2]]) while [[actioncardsmode]] and continue when !{{|not}} successful "
+          "en": "Await [[flow]] (text1:[[text_1]], text2:[[text_2]]) and continue when !{{|not}} successful "
         },
         "args": [
           {
@@ -915,29 +1099,6 @@
               "en": "Flow",
               "nl": "Flow"
             }
-          },
-          {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-              "en": "Actioncard mode"
-            },
-            "values": [
-              {
-                "id": "async",
-                "name": "async",
-                "label": {
-                  "en": "Executing actioncards asynchroon"
-                }
-              },
-              {
-                "id": "sync",
-                "name": "sync",
-                "label": {
-                  "en": "Executing actioncards synchroon"
-                }
-              }
-            ]
           },
           {
             "type": "text",
@@ -958,11 +1119,10 @@
       {
         "id": "methodgroup_condition__text2_boolean1",
         "title": {
-          "en": "Start Method with Arguments (2 texts, 1 yes/no)",
-          "nlnotyet": "Start Method met Argumenten (2 teksten, 1 ja/nee)"
+          "en": "Start Method with Arguments (2 texts, 1 boolean)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], boolean1:[[boolean_1]]) while [[actioncardsmode]] and continue when !{{|not}} successful"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], boolean1:[[boolean_1]]) and continue when !{{|not}} successful"
         },
         "args": [
           {
@@ -977,29 +1137,6 @@
               "en": "Flow",
               "nl": "Flow"
             }
-          },
-          {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-              "en": "Actioncard mode"
-            },
-            "values": [
-              {
-                "id": "async",
-                "name": "async",
-                "label": {
-                  "en": "Executing actioncards asynchroon"
-                }
-              },
-              {
-                "id": "sync",
-                "name": "sync",
-                "label": {
-                  "en": "Executing actioncards synchroon"
-                }
-              }
-            ]
           },
           {
             "type": "text",
@@ -1031,7 +1168,7 @@
           "nlnotyet": "Start Method met Argumenten (2 teksten, 1 nummers)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], number1:[[number_1]]) while [[actioncardsmode]] and continue when !{{|not}} successful"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], number1:[[number_1]]) and continue when !{{|not}} successful"
         },
         "args": [
           {
@@ -1046,29 +1183,6 @@
               "en": "Flow",
               "nl": "Flow"
             }
-          },
-          {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-              "en": "Actioncard mode"
-            },
-            "values": [
-              {
-                "id": "async",
-                "name": "async",
-                "label": {
-                  "en": "Executing actioncards asynchroon"
-                }
-              },
-              {
-                "id": "sync",
-                "name": "sync",
-                "label": {
-                  "en": "Executing actioncards synchroon"
-                }
-              }
-            ]
           },
           {
             "type": "text",
@@ -1099,7 +1213,7 @@
           "en": "Start Method with Arguments (3 texts)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]]) while [[actioncardsmode]] and continue when !{{|not}} successful"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]]) and continue when !{{|not}} successful"
         },
         "args": [
           {
@@ -1114,29 +1228,6 @@
               "en": "Flow",
               "nl": "Flow"
             }
-          },
-          {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-              "en": "Actioncard mode"
-            },
-            "values": [
-              {
-                "id": "async",
-                "name": "async",
-                "label": {
-                  "en": "Executing actioncards asynchroon"
-                }
-              },
-              {
-                "id": "sync",
-                "name": "sync",
-                "label": {
-                  "en": "Executing actioncards synchroon"
-                }
-              }
-            ]
           },
           {
             "type": "text",
@@ -1164,10 +1255,10 @@
       {
         "id": "methodgroup_condition__text3_boolean1",
         "title": {
-          "en": "Start Method with Arguments (3 texts, 1 yes/no)"
+          "en": "Start Method with Arguments (3 texts, 1 boolean)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], boolean1:[[boolean_1]]) while [[actioncardsmode]] and continue when !{{|not}} successful"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], boolean1:[[boolean_1]]) and continue when !{{|not}} successful"
         },
         "args": [
           {
@@ -1182,29 +1273,6 @@
               "en": "Flow",
               "nl": "Flow"
             }
-          },
-          {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-              "en": "Actioncard mode"
-            },
-            "values": [
-              {
-                "id": "async",
-                "name": "async",
-                "label": {
-                  "en": "Executing actioncards asynchroon"
-                }
-              },
-              {
-                "id": "sync",
-                "name": "sync",
-                "label": {
-                  "en": "Executing actioncards synchroon"
-                }
-              }
-            ]
           },
           {
             "type": "text",
@@ -1242,7 +1310,7 @@
           "en": "Start Method with Arguments (3 texts, 1 number)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], number1:[[number_1]]) while [[actioncardsmode]] and continue when !{{|not}} successful"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], number1:[[number_1]]) and continue when !{{|not}} successful"
         },
         "args": [
           {
@@ -1257,29 +1325,6 @@
               "en": "Flow",
               "nl": "Flow"
             }
-          },
-          {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-              "en": "Actioncard mode"
-            },
-            "values": [
-              {
-                "id": "async",
-                "name": "async",
-                "label": {
-                  "en": "Executing actioncards asynchroon"
-                }
-              },
-              {
-                "id": "sync",
-                "name": "sync",
-                "label": {
-                  "en": "Executing actioncards synchroon"
-                }
-              }
-            ]
           },
           {
             "type": "text",
@@ -1314,11 +1359,10 @@
       {
         "id": "methodgroup_condition__text4",
         "title": {
-          "en": "Start Method with Arguments (4 texts)",
-          "nlnotyet": "Start Method met Argumenten (4 teksten)"
+          "en": "Start Method with Arguments (4 texts)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]]) while [[actioncardsmode]] and continue when !{{|not}} successful"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]]) and continue when !{{|not}} successful"
         },
         "args": [
           {
@@ -1333,29 +1377,6 @@
               "en": "Flow",
               "nl": "Flow"
             }
-          },
-          {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-              "en": "Actioncard mode"
-            },
-            "values": [
-              {
-                "id": "async",
-                "name": "async",
-                "label": {
-                  "en": "Executing actioncards asynchroon"
-                }
-              },
-              {
-                "id": "sync",
-                "name": "sync",
-                "label": {
-                  "en": "Executing actioncards synchroon"
-                }
-              }
-            ]
           },
           {
             "type": "text",
@@ -1390,10 +1411,10 @@
       {
         "id": "methodgroup_condition__text4_boolean1",
         "title": {
-          "en": "Start Method with Arguments (4 texts, 1 yes/no)"
+          "en": "Start Method with Arguments (4 texts, 1 boolean)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], boolean1:[[boolean_1]]) while [[actioncardsmode]] and continue when !{{|not}} successful"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], boolean1:[[boolean_1]]) and continue when !{{|not}} successful"
         },
         "args": [
           {
@@ -1408,29 +1429,6 @@
               "en": "Flow",
               "nl": "Flow"
             }
-          },
-          {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-              "en": "Actioncard mode"
-            },
-            "values": [
-              {
-                "id": "async",
-                "name": "async",
-                "label": {
-                  "en": "Executing actioncards asynchroon"
-                }
-              },
-              {
-                "id": "sync",
-                "name": "sync",
-                "label": {
-                  "en": "Executing actioncards synchroon"
-                }
-              }
-            ]
           },
           {
             "type": "text",
@@ -1475,7 +1473,7 @@
           "en": "Start Method with Arguments (4 texts, 1 number)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], number1:[[number_1]]) while [[actioncardsmode]] and continue when !{{|not}} successful"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], number1:[[number_1]]) and continue when !{{|not}} successful"
         },
         "args": [
           {
@@ -1490,29 +1488,6 @@
               "en": "Flow",
               "nl": "Flow"
             }
-          },
-          {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-              "en": "Actioncard mode"
-            },
-            "values": [
-              {
-                "id": "async",
-                "name": "async",
-                "label": {
-                  "en": "Executing actioncards asynchroon"
-                }
-              },
-              {
-                "id": "sync",
-                "name": "sync",
-                "label": {
-                  "en": "Executing actioncards synchroon"
-                }
-              }
-            ]
           },
           {
             "type": "text",
@@ -1738,7 +1713,7 @@
       {
         "id": "methodgroup_action__text2_boolean1",
         "title": {
-          "en": "Start Method with Arguments (2 texts, 1 yes/no)"
+          "en": "Start Method with Arguments (2 texts, 1 boolean)"
         },
         "titleFormatted": {
           "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], boolean1:[[boolean_1]])"
@@ -1874,7 +1849,7 @@
       {
         "id": "methodgroup_action__text3_boolean1",
         "title": {
-          "en": "Start Method with Arguments (3 texts, 1 yes/no)"
+          "en": "Start Method with Arguments (3 texts, 1 boolean)"
         },
         "titleFormatted": {
           "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], boolean1:[[boolean_1]])"
@@ -2032,7 +2007,7 @@
       {
         "id": "methodgroup_action__text4_boolean1",
         "title": {
-          "en": "Start Method with Arguments (4 texts, 1 yes/no)"
+          "en": "Start Method with Arguments (4 texts, 1 boolean)"
         },
         "titleFormatted": {
           "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], boolean1:[[boolean_1]])"

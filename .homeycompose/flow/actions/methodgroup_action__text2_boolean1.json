@@ -1,7 +1,7 @@
 {
     "id":"methodgroup_action__text2_boolean1",
     "title" : {
-        "en":"Start Method with Arguments (2 texts, 1 yes/no)"
+        "en":"Start Method with Arguments (2 texts, 1 boolean)"
     },"titleFormatted" : {
         "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], boolean1:[[boolean_1]])"
     },

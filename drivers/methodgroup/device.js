@@ -6,6 +6,8 @@ const homeyApi = require('./../../lib/homeyApi');
 const _ = require('lodash');
 const Flower = require('../../lib/flower');
 
+const { Defer } = require('./../../lib/proto');
+
 class MethodGroupDevice extends Homey.Device {
   async onInit() {
     this.log('MyApp has been initialized');
@@ -83,19 +85,31 @@ class MethodGroupDevice extends Homey.Device {
             card: card,
             manifest: actionCard
           };
-          card.registerRunListener(async (args, state) => {
+          card.registerRunListener((args, state) => {
+            var defer = new Defer();
             try {
-              var flow = await homeyApi.getFlow({ id: args.flow.id });
-              if (!flow.enabled) return true;
-              
-              var triggerManifest = await homeyApi.getFlowCard({ uri:  flow.trigger.uri ,id: flow.trigger.id, type:'triggers' }); 
-              var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
-
-              var promise = Flower.triggerFlow({ flow, tokensAsArgs: triggerArgs, actioncardsmode:args.actioncardsmode });
-              if(cardType=='conditions') return await promise;
-              else return true;
+              (async()=>{
+                var flow = await homeyApi.getFlow({ id: args.flow.id });
+                if (!flow.enabled) return true;
+                
+                var triggerManifest = await homeyApi.getFlowCard({ uri:  flow.trigger.uri ,id: flow.trigger.id, type:'triggers' }); 
+                var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
+  
+                var promise = Flower.triggerFlow({ flow, tokensAsArgs: triggerArgs, actioncardsmode:args.actioncardsmode });
+                if(cardType=='conditions') 
+                  promise.then(r=> {
+                    defer.resolve(r===undefined || r===null ? true : r);
+                  }).catch(err=> {
+                    defer.reject(err);//'Error triggering MehodGroup Card (1)');
+                  });
+                else defer.resolve(true);
+              }).call(this).then(res=> {
+              }).catch(err=> {
+                this.log('Error triggering MehodGroup Card 2');this.error(err); defer.reject('Error message');
+              })
               //ownFlowItem.card.trigger(args.device, triggerArgs, { id: { id: flow.trigger.args.id.id } });
-            } catch (error) { this.error(error) }
+            } catch (error) { this.log('Error triggering MehodGroup Card (3)');this.error(error); defer.reject('Error message'); }
+            return defer.promise;
           });
           if (actionCard.args) {
             if (actionCard.args.find(x => x.name == 'flow' && x.type == 'autocomplete')) card.getArgument('flow').registerAutocompleteListener(async (query, args) => {

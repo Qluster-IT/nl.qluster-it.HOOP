@@ -7,11 +7,6 @@ const _ = require('lodash');
 const Flower = require('../../lib/flower');
 
 const { Defer } = require('./../../lib/proto');
-const defaults = {
-  text: 'null',
-  number: -1,
-  bool: false
-}
 
 class CardOverloaderDevice extends Homey.Device {
   async onInit() {
@@ -57,36 +52,49 @@ class CardOverloaderDevice extends Homey.Device {
           });
           cardToUser.count.number += cardToUser.count.range || 0;
           
-          card.registerRunListener(async (args, state) => {
+          card.registerRunListener((args, state) => {
+            var defer = new Defer();
             try {
-              const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
-              const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
-              if (!card) return false;
+              (async ()=>{
+                  
+                const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
+                const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
+                if (!card) return false;
+                  
+                // var triggerArgs = Flower.getArgsForTokens({ flow, args, actionCard });
                 
-              // var triggerArgs = Flower.getArgsForTokens({ flow, args, actionCard });
+                // var promise = Flower.triggerFlow({ flow, tokensAsArgs: triggerArgs });
+                // if(cardType=='conditions') return await promise;
+                // else return true;
+                
+                //var triggerManifest = await homeyApi.getFlowCard({ uri:  args.card.refUri ,id: args.card.refId, type:type });
+                
+                var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:card });
+                //var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
+
+                this.log('triggerArgs -->', triggerArgs);
+
+                //var argsToUse = Flower.getArgsForTokens({ flow, args, actionCard:card, triggerCard:triggerManifest  });
+                var promise = Flower.triggerCard({ card, args: triggerArgs, type:type });
+
+                
+
+                if(cardType=='conditions') {
+                  promise.then(r=> {
+                    defer.resolve(r===undefined || r===null ? true : r);
+                  }).catch(err=> {
+                    defer.reject(err + ' within ' + card.uri + '.' + card.id);
+                  });
+                } 
+                else return defer.resolve(true);
+              }).call(this).then(res=> {
+              }).catch(err=> {
+                this.log('Error triggering CardOverloader Card 2');this.error(err); defer.reject('Error message');
+              })
               
-              // var promise = Flower.triggerFlow({ flow, tokensAsArgs: triggerArgs });
-              // if(cardType=='conditions') return await promise;
-              // else return true;
-              
-              //var triggerManifest = await homeyApi.getFlowCard({ uri:  args.card.refUri ,id: args.card.refId, type:type });
-              
-              var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:card });
-              //var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
 
-              this.log('triggerArgs -->', triggerArgs);
-
-              //var argsToUse = Flower.getArgsForTokens({ flow, args, actionCard:card, triggerCard:triggerManifest  });
-              var promise = Flower.triggerCard({ card, args: triggerArgs, type:type });
-
-              if(cardType=='conditions') {
-                var r = (await promise);
-                this.log('r', r);
-                return (r===undefined || r===null ? true : r);
-              } 
-              else return true;
-
-            } catch (error) { this.error(error) }
+            } catch (error) { this.log('Error triggering CardOverloader Card (3)');this.error(error); defer.reject('Error message'); }
+            return defer.promise;
           });
           this.log('actionCard.args', actionCard.args);
           if (actionCard.args) {

@@ -4,7 +4,7 @@
         "en":"Start Method with Arguments (2 texts, 1 number)",
         "nlnotyet" : "Start Method met Argumenten (2 teksten, 1 nummers)"
     },"titleFormatted" : {
-        "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], number1:[[number_1]]) while [[actioncardsmode]] and continue when !{{|not}} successful"
+        "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], number1:[[number_1]]) and continue when !{{|not}} successful"
     },
     "args": [
         {
@@ -19,28 +19,6 @@
                 "en": "Flow",
                 "nl": "Flow"
             }
-        },
-        {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-                "en": "Actioncard mode"
-            },
-            "values": [
-                {
-                    "id": "async",
-                    "name": "async",
-                    "label": {
-                      "en": "Executing actioncards asynchroon"
-                    }
-                },{
-                    "id": "sync",
-                    "name": "sync",
-                    "label": {
-                      "en": "Executing actioncards synchroon"
-                    }
-                }
-            ]
         },
         {
             "type": "text",
