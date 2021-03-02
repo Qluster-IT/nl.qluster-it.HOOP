@@ -1,8 +1,7 @@
 {
     "id":"methodgroup_action__text1",
     "title" : {
-        "en":"Start Method with Arguments (1 text)",
-        "nlnotyet" : "Start Method met Argumenten (1 tekst)"
+        "en":"Start Method with Arguments (1 text)"
     },"titleFormatted" : {
         "en":"Start [[flow]] (text1:[[text_1]])"
     },
