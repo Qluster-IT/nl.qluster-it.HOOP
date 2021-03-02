@@ -28,14 +28,14 @@ class CardOverloaderDevice extends Homey.Device {
 
   initializeConditionsAndActions() {
     ['cardoverloader_condition__','cardoverloader_action__'].forEach((cardName => {
-      var cardType = cardName.startsWith('cardoverloader_condition_') ? 'conditions' : 'actions';
-        var actionsCards = {};
+        const cardType = cardName.startsWith('cardoverloader_condition_') ? 'conditions' : 'actions';
+        const actionsCards = {};
         this.flows[cardType] = actionsCards
         for (let actionCardIndex = 0; actionCardIndex < homeyApi.app.manifest.flow[cardType].length; actionCardIndex++) {
           const actionCard = homeyApi.app.manifest.flow[cardType][actionCardIndex];
           if (!actionCard.id.startsWith('cardoverloader_')) continue;
-          var card = this.homey.flow[cardType =='actions' ? 'getActionCard': 'getConditionCard'](actionCard.id);
-          var cardToUser = actionsCards[actionCard.id] = {
+          const card = this.homey.flow[cardType =='actions' ? 'getActionCard': 'getConditionCard'](actionCard.id);
+          const cardToUser = actionsCards[actionCard.id] = {
             id: actionCard.id,
             card: card,
             manifest: actionCard,
@@ -53,14 +53,11 @@ class CardOverloaderDevice extends Homey.Device {
             else if(t.startsWith('boolean')) cardToUser.count['boolean']= Number.parseInt( t.replace('boolean',''));
             else if(t.startsWith('autocomplete')) cardToUser.count['autocomplete']= Number.parseInt( t.replace('autocomplete',''));
           });
-          this.log('cardToUser.count', cardToUser.count);
-
+          
           card.registerRunListener(async (args, state) => {
             try {
-              this.log('args.card', args.card)
-              var type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
-              this.log('type', type)
-              var card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
+              const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
+              const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
               if (!card) return false;
                 
               // var triggerArgs = Flower.getArgsForTokens({ flow, args, actionCard });
@@ -69,12 +66,12 @@ class CardOverloaderDevice extends Homey.Device {
               // if(cardType=='conditions') return await promise;
               // else return true;
               
-              var triggerManifest = await homeyApi.getFlowCard({ uri:  args.card.refUri ,id: args.card.refId, type:type });
+              //var triggerManifest = await homeyApi.getFlowCard({ uri:  args.card.refUri ,id: args.card.refId, type:type });
               
-              var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:triggerManifest });
+              var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:card });
               //var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
 
-              this.log('triggerArgs -->', triggerArgs);
+              //this.log('triggerArgs -->', triggerArgs);
 
               //var argsToUse = Flower.getArgsForTokens({ flow, args, actionCard:card, triggerCard:triggerManifest  });
               var promise = Flower.triggerCard({ card, args: triggerArgs, type:type });
@@ -84,6 +81,7 @@ class CardOverloaderDevice extends Homey.Device {
 
             } catch (error) { this.error(error) }
           });
+          this.log('actionCard.args', actionCard.args);
           if (actionCard.args) {
             if (actionCard.args.find(x => x.name == 'card' && x.type == 'autocomplete')) card.getArgument('card').registerAutocompleteListener(async (query, args) => {
               try {
@@ -91,6 +89,7 @@ class CardOverloaderDevice extends Homey.Device {
                 //var flowCardsConditions = await homeyApi.getFlowCards({type:'conditions'});
                 //var flowCardsActions = await homeyApi.getFlowCards({type:'actions'});
                 //var flowCards = _.union(flowCardsConditions, flowCardsActions);
+                this.log('cardToUser.count', cardToUser.id, cardToUser.count);
                 flowCards = flowCards.filter(card => _.every(['text', 'number', 'boolean', 'autocomplete'], type=>  _.sumBy( card.args, arg=> arg.type==type)==cardToUser.count[type]));
                 // flowCards = [flowCards[0]];
                 // this.log('flowCards', flowCards);
@@ -118,6 +117,33 @@ class CardOverloaderDevice extends Homey.Device {
                 return r;
               } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
             });
+            if (actionCard.args.find(x => x.name.indexOf('autocomplete')>-1)) actionCard.args.filter(x => x.name.indexOf('autocomplete')>-1).forEach(arg=>{
+              const argName = arg.name;
+                card.getArgument(argName).registerAutocompleteListener(async (query, args) => {
+                  try {
+                    const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
+                    const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
+                    if (!card) return false;
+                    
+                    var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:card });
+                    
+                    var promise = Flower.getFlowCardAutocomplete({ card, args: triggerArgs, type:type, query, autocompleteNumber:1 });
+                    var r = await promise;
+                    
+                    // var r =  n.map(x=> {
+                    //   return {
+                    //   id:x.id || x.name,
+                    //   name:x.name
+                    //   }
+                    // });
+                    r.forEach(x=> x.id= x.id || x.name);
+                    this.log('r------>', r);
+                    
+                    return r;
+
+                  } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
+                });
+              });          
           }
         }
         
