@@ -50,9 +50,12 @@ class CardOverloaderDevice extends Homey.Device {
           _.forEach(types, t=> {
             if(t.startsWith('text')) cardToUser.count['text']= Number.parseInt( t.replace('text',''));
             else if(t.startsWith('number')) cardToUser.count['number']= Number.parseInt( t.replace('number',''));
+            else if(t.startsWith('range')) cardToUser.count['range']= Number.parseInt( t.replace('range',''));
+            
             else if(t.startsWith('boolean')) cardToUser.count['boolean']= Number.parseInt( t.replace('boolean',''));
             else if(t.startsWith('autocomplete')) cardToUser.count['autocomplete']= Number.parseInt( t.replace('autocomplete',''));
           });
+          cardToUser.count.number += cardToUser.count.range || 0;
           
           card.registerRunListener(async (args, state) => {
             try {
@@ -71,12 +74,16 @@ class CardOverloaderDevice extends Homey.Device {
               var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:card });
               //var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
 
-              //this.log('triggerArgs -->', triggerArgs);
+              this.log('triggerArgs -->', triggerArgs);
 
               //var argsToUse = Flower.getArgsForTokens({ flow, args, actionCard:card, triggerCard:triggerManifest  });
               var promise = Flower.triggerCard({ card, args: triggerArgs, type:type });
 
-              if(cardType=='conditions') return await promise;
+              if(cardType=='conditions') {
+                var r = (await promise);
+                this.log('r', r);
+                return (r===undefined || r===null ? true : r);
+              } 
               else return true;
 
             } catch (error) { this.error(error) }
@@ -90,7 +97,12 @@ class CardOverloaderDevice extends Homey.Device {
                 //var flowCardsActions = await homeyApi.getFlowCards({type:'actions'});
                 //var flowCards = _.union(flowCardsConditions, flowCardsActions);
                 this.log('cardToUser.count', cardToUser.id, cardToUser.count);
-                flowCards = flowCards.filter(card => _.every(['text', 'number', 'boolean', 'autocomplete'], type=>  _.sumBy( card.args, arg=> arg.type==type)==cardToUser.count[type]));
+                flowCards = flowCards.filter(card => 
+                  _.every(['text',  'autocomplete'], type=>  _.sumBy( card.args, arg=> arg.type==type)==cardToUser.count[type])
+                  && _.sumBy( card.args, arg=> arg.type=='number' || arg.type=='range') == cardToUser.count.number
+                  //boolean
+                  && _.sumBy( card.args, arg=> arg.type=='dropdown' && arg.values.length==2 && (arg.values[0].id === 'true' || arg.values[0].id==='false' ) && (arg.values[1].id === 'true' || arg.values[1].id==='false' )) == cardToUser.count.number
+                  );
                 // flowCards = [flowCards[0]];
                 // this.log('flowCards', flowCards);
                 // flowCards = flowCards.filter(card => _.every(['text', 'number', 'boolean', 'autocomplete'], type=> 
@@ -138,7 +150,7 @@ class CardOverloaderDevice extends Homey.Device {
                     // });
                     r.forEach(x=> x.id= x.id || x.name);
                     this.log('r------>', r);
-                    
+
                     return r;
 
                   } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }

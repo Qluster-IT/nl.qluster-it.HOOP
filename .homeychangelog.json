@@ -13,5 +13,8 @@
   },
   "1.0.4": {
     "en": "Added Card Overloader"
+  },
+  "1.0.5": {
+    "en": "Added (sychroon) conditions to Card Overloader"
   }
 }
