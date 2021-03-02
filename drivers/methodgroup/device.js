@@ -41,31 +41,32 @@ class MethodGroupDevice extends Homey.Device {
         // console.log('returns ' + args.id && args.id.id && state.id && state.id.id && args.id.id == state.id.id);
         return args.id && args.id.id && state.id && state.id.id && args.id.id == state.id.id;
       });
-      // if (triggerCard.args) {
-      //   if (triggerCard.args.find(x => x.name == 'id' && x.type == 'autocomplete')) {
-      //     card.getArgument('id').registerAutocompleteListener(async (query, args) => {
-      //       try {
-      //         var array = _.map(triggerCards[triggerCard.id].flows, flow => { return flow.trigger.args && flow.trigger.args.id ? Number.parseInt(flow.trigger.args.id.id) : null });
-      //         var max = _.max(array);
-      //         if (!max) max = 1; else max++;
-      //         var res = [{ id: max.toString(), name: max.toString() }];
-      //         if (query && query != max.toString()) res.push({ id: query, name: query });
-      //         return res;
-      //       } catch (error) { this.error(triggerCard.id + '.id.registerAutocompleteListener.error :', error); throw error; }
-      //     });
-      //     card.on('update', this.refreshFlowTriggers.bind(this, triggerCards[triggerCard.id]))
-      //     this.refreshFlowTriggers(triggerCards[triggerCard.id]);
-      //   }
-      // }
+      if (triggerCard.args) {
+        // if (triggerCard.args.find(x => x.name == 'id' && x.type == 'autocomplete')) {
+        //   card.getArgument('id').registerAutocompleteListener(async (query, args) => {
+        //     try {
+        //       var array = _.map(triggerCards[triggerCard.id].flows, flow => { return flow.trigger.args && flow.trigger.args.id ? Number.parseInt(flow.trigger.args.id.id) : null });
+        //       var max = _.max(array);
+        //       if (!max) max = 1; else max++;
+        //       var res = [{ id: max.toString(), name: max.toString() }];
+        //       if (query && query != max.toString()) res.push({ id: query, name: query });
+        //       return res;
+        //     } catch (error) { this.error(triggerCard.id + '.id.registerAutocompleteListener.error :', error); throw error; }
+        //   });
+        // }
+        
+        card.on('update', this.refreshFlowTriggers.bind(this, triggerCards[triggerCard.id]))
+        this.refreshFlowTriggers(triggerCards[triggerCard.id]);
+      }
     }
   }
 
 
   // //Build in notification if double ID!
-  // async refreshFlowTriggers(trigger) {
-  //   var flows = await homeyApi.getOwnTriggerFlows({ device: this, refresh: true, triggerCardId: trigger.id });
-  //   trigger.flows = flows || [];
-  // }
+  async refreshFlowTriggers(trigger) {
+    var flows = await homeyApi.getOwnTriggerFlows({ device: this, refresh: true, triggerCardId: trigger.id });
+    trigger.flows = flows || [];
+  }
 
 
   initializeConditionsAndActions() {
@@ -97,15 +98,15 @@ class MethodGroupDevice extends Homey.Device {
             } catch (error) { this.error(error) }
           });
           if (actionCard.args) {
-            // if (actionCard.args.find(x => x.name == 'flow' && x.type == 'autocomplete')) card.getArgument('flow').registerAutocompleteListener(async (query, args) => {
-            //   try {
-            //     var flows = await homeyApi.getOwnTriggerFlows({ args: actionCard.args, device: args.device, cardId: actionCard.id.split('__')[1] });
-            //     if (query) flows = flows.filter(f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
-            //     return flows.map(f => {
-            //       return { id: f.id, name: f.name }
-            //     });
-            //   } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
-            // });
+            if (actionCard.args.find(x => x.name == 'flow' && x.type == 'autocomplete')) card.getArgument('flow').registerAutocompleteListener(async (query, args) => {
+              try {
+                var flows = await homeyApi.getOwnTriggerFlows({ args: actionCard.args, device: args.device, cardId: actionCard.id.split('__')[1] });
+                if (query) flows = flows.filter(f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
+                return flows.map(f => {
+                  return { id: f.id, name: f.name }
+                });
+              } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
+            });
           }
         }
       }).bind(this));
