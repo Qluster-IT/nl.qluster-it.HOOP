@@ -62,7 +62,7 @@ class HOOPApp extends Homey.App {
         return r;
       } catch (error) { this.error('app_action__synccall.flow.registerAutocompleteListener.error :', error); throw error; }
     });
-    this.flows.conditions['app_condition__await'].card.registerRunListener(({flow, actioncardsmode='async'} = {}, state) => {
+    this.flows.conditions['app_condition__await'].card.registerRunListener(({flow, actioncardsmode} = {}, state) => {
       try {
         if(!flow ) return Promise.reject('Missing flow argument');            
         var defer  = new Defer(30*1000);
@@ -135,6 +135,12 @@ class HOOPApp extends Homey.App {
         else defer.reject(new Error(message));
 
         return defer.promise;
+      });
+    }).bind(this));
+
+    ['app_action__return'].forEach((card=>{ 
+      this.flows[card.startsWith('app_condition') ? 'conditions' : 'actions'][card].card.registerRunListener( async ({} = {}, state) => {
+        return true;
       });
     }).bind(this));
   }
