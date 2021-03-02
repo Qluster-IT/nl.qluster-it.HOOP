@@ -13,7 +13,7 @@ class HOOPApp extends Homey.App {
   /**
    * onInit is called when the app is initialized.
    */
-  async onInit() {
+  async onInit() { 
     this.log('HOOPApp has been initialized');
     homeyApi.init(this);
     Script.init(this);
