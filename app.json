@@ -38,13 +38,36 @@
       {
         "id": "methodgroup_trigger__text1",
         "title": {
-          "en": "Method with Arguments (1 text) [[actioncardsmode]]"
+          "en": "Method with Arguments (1 text) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              }
+            ]
           },
           {
             "type": "dropdown",
@@ -57,7 +80,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "booleanExecuting actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchroon (default)"
                 }
               },
               {
@@ -132,7 +155,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "booleanExecuting actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchroon (default)"
                 }
               },
               {
@@ -179,13 +202,36 @@
       {
         "id": "methodgroup_trigger__text2_boolean1",
         "title": {
-          "en": "Method with Arguments (2 texts, 1 boolean) [[actioncardsmode]]"
+          "en": "Method with Arguments (2 texts, 1 boolean) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              }
+            ]
           },
           {
             "type": "dropdown",
@@ -198,7 +244,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "booleanExecuting actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchroon (default)"
                 }
               },
               {
@@ -259,13 +305,36 @@
       {
         "id": "methodgroup_trigger__text2_number1",
         "title": {
-          "en": "Method with Arguments (2 texts, 1 number) [[actioncardsmode]]"
+          "en": "Method with Arguments (2 texts, 1 number) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              }
+            ]
           },
           {
             "type": "dropdown",
@@ -278,7 +347,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "booleanExecuting actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchroon (default)"
                 }
               },
               {
@@ -339,13 +408,36 @@
       {
         "id": "methodgroup_trigger__text3",
         "title": {
-          "en": "Method with Arguments (3 texts) [[actioncardsmode]]"
+          "en": "Method with Arguments (3 texts) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              }
+            ]
           },
           {
             "type": "dropdown",
@@ -358,7 +450,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "booleanExecuting actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchroon (default)"
                 }
               },
               {
@@ -419,13 +511,36 @@
       {
         "id": "methodgroup_trigger__text3_boolean1",
         "title": {
-          "en": "Method with Arguments (3 texts, 1 boolean) [[actioncardsmode]]"
+          "en": "Method with Arguments (3 texts, 1 boolean) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              }
+            ]
           },
           {
             "type": "dropdown",
@@ -438,7 +553,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "booleanExecuting actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchroon (default)"
                 }
               },
               {
@@ -513,13 +628,36 @@
       {
         "id": "methodgroup_trigger__text3_number1",
         "title": {
-          "en": "Method with Arguments (3 texts, 1 number) [[actioncardsmode]]"
+          "en": "Method with Arguments (3 texts, 1 number) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              }
+            ]
           },
           {
             "type": "dropdown",
@@ -532,7 +670,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "booleanExecuting actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchroon (default)"
                 }
               },
               {
@@ -605,15 +743,38 @@
         ]
       },
       {
-        "id": "methodgroup_trigger__text4_boolean1",
+        "id": "methodgroup_trigger__text4",
         "title": {
-          "en": "Method with Arguments (4 texts, 1 boolean) [[actioncardsmode]]"
+          "en": "Method with Arguments (4 texts) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              }
+            ]
           },
           {
             "type": "dropdown",
@@ -626,7 +787,124 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "booleanExecuting actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchroon (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "name": "text_1",
+            "type": "string",
+            "title": {
+              "en": "text1"
+            }
+          },
+          {
+            "name": "text_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text1 has value"
+            }
+          },
+          {
+            "name": "text_2",
+            "type": "string",
+            "title": {
+              "en": "text2"
+            }
+          },
+          {
+            "name": "text_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text2 has value"
+            }
+          },
+          {
+            "name": "text_3",
+            "type": "string",
+            "title": {
+              "en": "text3"
+            }
+          },
+          {
+            "name": "text_3_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text3 has value"
+            }
+          },
+          {
+            "name": "text_4",
+            "type": "string",
+            "title": {
+              "en": "text4"
+            }
+          },
+          {
+            "name": "text_4_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text4 has value"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_trigger__text4_boolean1",
+        "title": {
+          "en": "Method with Arguments (4 texts, 1 boolean) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon (default)"
                 }
               },
               {
@@ -713,15 +991,38 @@
         ]
       },
       {
-        "id": "methodgroup_trigger__text4_number1",
+        "id": "methodgroup_trigger__text4_boolean1_number1",
         "title": {
-          "en": "Method with Arguments (4 texts, 1 number) [[actioncardsmode]]"
+          "en": "Method with Arguments (4 texts, 1 boolean, 1 number) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              }
+            ]
           },
           {
             "type": "dropdown",
@@ -734,7 +1035,152 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "booleanExecuting actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchroon (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "name": "text_1",
+            "type": "string",
+            "title": {
+              "en": "text1"
+            }
+          },
+          {
+            "name": "text_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text1 has value"
+            }
+          },
+          {
+            "name": "text_2",
+            "type": "string",
+            "title": {
+              "en": "text2"
+            }
+          },
+          {
+            "name": "text_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text2 has value"
+            }
+          },
+          {
+            "name": "text_3",
+            "type": "string",
+            "title": {
+              "en": "text3"
+            }
+          },
+          {
+            "name": "text_3_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text3 has value"
+            }
+          },
+          {
+            "name": "text_4",
+            "type": "string",
+            "title": {
+              "en": "text4"
+            }
+          },
+          {
+            "name": "text_4_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text4 has value"
+            }
+          },
+          {
+            "name": "boolean_1",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "name": "boolean_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1 has value"
+            }
+          },
+          {
+            "name": "number_1",
+            "type": "number",
+            "title": {
+              "en": "number1"
+            }
+          },
+          {
+            "name": "number_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number1 has value"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_trigger__text4_number1",
+        "title": {
+          "en": "Method with Arguments (4 texts, 1 number) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon (default)"
                 }
               },
               {
@@ -819,6 +1265,156 @@
             }
           }
         ]
+      },
+      {
+        "id": "methodgroup_trigger__boolean1",
+        "title": {
+          "en": "Method with Arguments (1 boolean) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "name": "boolean_1",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "name": "boolean_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1 has value"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_trigger__number1",
+        "title": {
+          "en": "Method with Arguments (1 number) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "name": "number_1",
+            "type": "number",
+            "title": {
+              "en": "number1"
+            }
+          },
+          {
+            "name": "number_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number1 has value"
+            }
+          }
+        ]
       }
     ],
     "conditions": [
@@ -849,7 +1445,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "booleanExecuting actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchroon (default)"
                 }
               },
               {
@@ -1491,6 +2087,72 @@
         ]
       },
       {
+        "id": "methodgroup_condition__text4_boolean1_number1",
+        "title": {
+          "en": "Start Method with Arguments (4 texts, 1 boolean, 1 number)"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], boolean1:[[boolean_1]], number1:[[number_1]]) and continue when !{{|not}} successful"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+              "en": "text1"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_2",
+            "placeholder": {
+              "en": "text2"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_3",
+            "placeholder": {
+              "en": "text3"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_4",
+            "placeholder": {
+              "en": "text4"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
+            }
+          }
+        ]
+      },
+      {
         "id": "methodgroup_condition__text4_number1",
         "title": {
           "en": "Start Method with Arguments (4 texts, 1 number)"
@@ -1548,6 +2210,68 @@
             }
           }
         ]
+      },
+      {
+        "id": "methodgroup_condition__boolean1",
+        "title": {
+          "en": "Await Method with Arguments (1 boolean)"
+        },
+        "titleFormatted": {
+          "en": "Await [[flow]] (boolean1:[[boolean_1]]) and continue when !{{|not}} successful "
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+              "en": "boolean1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_condition__number1",
+        "title": {
+          "en": "Await Method with Arguments (1 number)"
+        },
+        "titleFormatted": {
+          "en": "Await [[flow]] (number1:[[number_1]]) and continue when !{{|not}} successful "
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
+            }
+          }
+        ]
       }
     ],
     "actions": [
@@ -1592,73 +2316,6 @@
             "name": "waitDuration",
             "placeholder": {
               "en": "Duration"
-            }
-          }
-        ]
-      },
-      {
-        "id": "cardoverloader_action__autocomplete1_text1",
-        "title": {
-          "en": "Overload a Card with Arguments (1 autocomplete, 1 text)"
-        },
-        "titleFormatted": {
-          "en": "Start [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]])"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=cardoverloader"
-          },
-          {
-            "type": "autocomplete",
-            "name": "card",
-            "placeholder": {
-              "en": "Type in the app-uri or device name"
-            }
-          },
-          {
-            "type": "autocomplete",
-            "name": "autocomplete_1",
-            "placeholder": {
-              "en": "autocomplete1"
-            }
-          },
-          {
-            "type": "text",
-            "name": "text_1",
-            "placeholder": {
-              "en": "text1"
-            }
-          }
-        ]
-      },
-      {
-        "id": "cardoverloader_action__text1",
-        "title": {
-          "en": "Overload a Card with Arguments (1 text)"
-        },
-        "titleFormatted": {
-          "en": "Start [[card]] (text1:[[text_1]])"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=cardoverloader"
-          },
-          {
-            "type": "autocomplete",
-            "name": "card",
-            "placeholder": {
-              "en": "Type in the app-uri or device name"
-            }
-          },
-          {
-            "type": "text",
-            "name": "text_1",
-            "placeholder": {
-              "en": "text1"
             }
           }
         ]
@@ -2087,6 +2744,72 @@
         ]
       },
       {
+        "id": "methodgroup_action__text4_boolean1_number1",
+        "title": {
+          "en": "Start Method with Arguments (4 texts, 1 boolean, 1 number)"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], boolean1:[[boolean_1]], number1:[[number_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+              "en": "text1"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_2",
+            "placeholder": {
+              "en": "text2"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_3",
+            "placeholder": {
+              "en": "text3"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_4",
+            "placeholder": {
+              "en": "text4"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
+            }
+          }
+        ]
+      },
+      {
         "id": "methodgroup_action__text4_number1",
         "title": {
           "en": "Start Method with Arguments (4 texts, 1 number)"
@@ -2134,6 +2857,68 @@
             "name": "text_4",
             "placeholder": {
               "en": "text4"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_action__boolean1",
+        "title": {
+          "en": "Start Method with Arguments (1 boolean)"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (boolean1:[[boolean_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+              "en": "boolean1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_action__number1",
+        "title": {
+          "en": "Start Method with Arguments (1 number)"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (number1:[[number_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
             }
           },
           {

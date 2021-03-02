@@ -1,0 +1,30 @@
+{
+    "id":"methodgroup_condition__number1",
+    "title" : {
+        "en":"Await Method with Arguments (1 number)"
+    },"titleFormatted" : {
+        "en":"Await [[flow]] (number1:[[number_1]]) and continue when !{{|not}} successful "
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=methodgroup"
+        },
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow",
+                "nl": "Flow"
+            }
+        },
+        {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+                "en": "number1"
+            }            
+        }
+    ]
+}

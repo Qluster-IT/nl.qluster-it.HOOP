@@ -1,0 +1,30 @@
+{
+    "id":"methodgroup_action__boolean1",
+    "title" : {
+        "en":"Start Method with Arguments (1 boolean)"
+    },"titleFormatted" : {
+        "en":"Start [[flow]] (boolean1:[[boolean_1]])"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=methodgroup"
+        },
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow",
+                "nl": "Flow"
+            }
+        },
+        {
+        "type": "text",
+        "name": "boolean_1",
+        "placeholder": {
+            "en": "boolean1"
+        }            
+        }
+    ]
+}

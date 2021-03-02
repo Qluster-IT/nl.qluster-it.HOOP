@@ -1,0 +1,65 @@
+{
+    "id":"methodgroup_action__text4_boolean1_number1",
+    "title" : {
+        "en":"Start Method with Arguments (4 texts, 1 boolean, 1 number)"
+    },"titleFormatted" : {
+        "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], boolean1:[[boolean_1]], number1:[[number_1]])"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=methodgroup"
+        },
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow",
+                "nl": "Flow"
+            }
+        },
+        {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+                "en": "text1"
+            }            
+        },
+        {
+            "type": "text",
+            "name": "text_2",
+            "placeholder": {
+                "en": "text2"
+            }            
+        },
+        {
+            "type": "text",
+            "name": "text_3",
+            "placeholder": {
+                "en": "text3"
+            }            
+        },        
+        {
+            "type": "text",
+            "name": "text_4",
+            "placeholder": {
+                "en": "text4"
+            }            
+        },
+        {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+                "en": "boolean1"
+            }            
+        },
+        {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+                "en": "number1"
+            }            
+        }
+    ]
+}

@@ -24,7 +24,7 @@
                     "id": "async",
                     "name": "async",
                     "label": {
-                      "en": "booleanExecuting actioncards asynchroon (default)"
+                      "en": "Executing actioncards asynchroon (default)"
                     }
                 },{
                     "id": "sync",

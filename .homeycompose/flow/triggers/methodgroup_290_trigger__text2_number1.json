@@ -1,14 +1,36 @@
 {
-    "id": "methodgroup_trigger__text3_number1",
+    "id": "methodgroup_trigger__text2_number1",
     
     "title": {
-      "en": "Method with Arguments (3 texts, 1 number) [[actioncardsmode]]"
+      "en": "Method with Arguments (2 texts, 1 number) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
     },
     "args": [
       {
           "type" : "device",
           "name" : "device",
           "filter": "driver_id=methodgroup"
+      },
+      {
+          "type": "dropdown",
+          "name": "conditioncardsmode",
+          "placeholder": {
+              "en": "Conditioncard mode"
+          },
+          "values": [
+              {
+                  "id": "if-or-or",
+                  "name": "if-or-or",
+                  "label": {
+                    "en": "If-Or-Or (Default)"
+                  }
+              },{
+                  "id": "if-or-finally",
+                  "name": "if-or-finally",
+                  "label": {
+                    "en": "If-Or-Finally"
+                  }
+              }
+          ]
       },
       {
           "type": "dropdown",
@@ -21,7 +43,7 @@
                   "id": "async",
                   "name": "async",
                   "label": {
-                    "en": "booleanExecuting actioncards asynchroon (default)"
+                    "en": "Executing actioncards asynchroon (default)"
                   }
               },{
                   "id": "sync",
@@ -61,22 +83,7 @@
         "title": {
           "en": "text2 has value"
         }
-      },
-      {
-        "name": "text_3",
-        "type": "string",
-        "title": {
-          "en": "text3"
-        }
-      },
-      {
-        "name": "text_3_hasvalue",
-        "type": "boolean",
-        "title": {
-          "en": "text3 has value"
-        }
-      }
-      ,
+      },      
       {
         "name": "number_1",
         "type": "number",

@@ -1,0 +1,103 @@
+{
+    "id": "methodgroup_trigger__text3",
+    
+    "title": {
+      "en": "Method with Arguments (3 texts) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+    },
+    "args": [
+      {
+          "type" : "device",
+          "name" : "device",
+          "filter": "driver_id=methodgroup"
+      },
+      {
+          "type": "dropdown",
+          "name": "conditioncardsmode",
+          "placeholder": {
+              "en": "Conditioncard mode"
+          },
+          "values": [
+              {
+                  "id": "if-or-or",
+                  "name": "if-or-or",
+                  "label": {
+                    "en": "If-Or-Or (Default)"
+                  }
+              },{
+                  "id": "if-or-finally",
+                  "name": "if-or-finally",
+                  "label": {
+                    "en": "If-Or-Finally"
+                  }
+              }
+          ]
+      },
+      {
+          "type": "dropdown",
+          "name": "actioncardsmode",
+          "placeholder": {
+              "en": "Actioncard mode"
+          },
+          "values": [
+              {
+                  "id": "async",
+                  "name": "async",
+                  "label": {
+                    "en": "Executing actioncards asynchroon (default)"
+                  }
+              },{
+                  "id": "sync",
+                  "name": "sync",
+                  "label": {
+                    "en": "Executing actioncards synchroon"
+                  }
+              }
+          ]
+      }
+    ],
+    "tokens": [
+      {
+        "name": "text_1",
+        "type": "string",
+        "title": {
+          "en": "text1"
+        }
+      },
+      {
+        "name": "text_1_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "text1 has value"
+        }
+      },
+      {
+        "name": "text_2",
+        "type": "string",
+        "title": {
+          "en": "text2"
+        }
+      },
+      {
+        "name": "text_2_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "text2 has value"
+        }
+      },
+      {
+        "name": "text_3",
+        "type": "string",
+        "title": {
+          "en": "text3"
+        }
+      },
+      {
+        "name": "text_3_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "text3 has value"
+        }
+      }
+    ]    
+    
+  }

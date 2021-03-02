@@ -1,8 +1,8 @@
 {
-    "id": "methodgroup_trigger__text2",
+    "id": "methodgroup_trigger__text3_number1",
     
     "title": {
-      "en": "Method with Arguments (2 texts) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+      "en": "Method with Arguments (3 texts, 1 number) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
     },
     "args": [
       {
@@ -43,7 +43,7 @@
                   "id": "async",
                   "name": "async",
                   "label": {
-                    "en": "booleanExecuting actioncards asynchroon (default)"
+                    "en": "Executing actioncards asynchroon (default)"
                   }
               },{
                   "id": "sync",
@@ -82,6 +82,35 @@
         "type": "boolean",
         "title": {
           "en": "text2 has value"
+        }
+      },
+      {
+        "name": "text_3",
+        "type": "string",
+        "title": {
+          "en": "text3"
+        }
+      },
+      {
+        "name": "text_3_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "text3 has value"
+        }
+      }
+      ,
+      {
+        "name": "number_1",
+        "type": "number",
+        "title": {
+          "en": "number1"
+        }
+      },
+      {
+        "name": "number_1_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "number1 has value"
         }
       }
     ]    
