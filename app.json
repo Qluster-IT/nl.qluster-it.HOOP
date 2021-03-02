@@ -57,7 +57,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon"
+                  "en": "booleanExecuting actioncards asynchroon (default)"
                 }
               },
               {
@@ -90,13 +90,36 @@
       {
         "id": "methodgroup_trigger__text2",
         "title": {
-          "en": "Method with Arguments (2 texts) [[actioncardsmode]]"
+          "en": "Method with Arguments (2 texts) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              }
+            ]
           },
           {
             "type": "dropdown",
@@ -109,7 +132,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon"
+                  "en": "booleanExecuting actioncards asynchroon (default)"
                 }
               },
               {
@@ -175,7 +198,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon"
+                  "en": "booleanExecuting actioncards asynchroon (default)"
                 }
               },
               {
@@ -255,7 +278,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon"
+                  "en": "booleanExecuting actioncards asynchroon (default)"
                 }
               },
               {
@@ -335,7 +358,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon"
+                  "en": "booleanExecuting actioncards asynchroon (default)"
                 }
               },
               {
@@ -415,7 +438,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon"
+                  "en": "booleanExecuting actioncards asynchroon (default)"
                 }
               },
               {
@@ -509,7 +532,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon"
+                  "en": "booleanExecuting actioncards asynchroon (default)"
                 }
               },
               {
@@ -603,7 +626,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon"
+                  "en": "booleanExecuting actioncards asynchroon (default)"
                 }
               },
               {
@@ -711,7 +734,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon"
+                  "en": "booleanExecuting actioncards asynchroon (default)"
                 }
               },
               {
@@ -826,7 +849,7 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon"
+                  "en": "booleanExecuting actioncards asynchroon (default)"
                 }
               },
               {
