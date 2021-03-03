@@ -40,5 +40,14 @@
   },
   "1.1.8": {
     "en": "Added error and stacktrace tokens to Method Group triggers, being updated during flow execution, making error handling possible"
+  },
+  "1.2.0": {
+    "en": "Added Else If condition-card to Flow Director"
+  },
+  "1.3.0": {
+    "en": "Updated readme"
+  },
+  "1.3.1": {
+    "en": "json improved"
   }
 }

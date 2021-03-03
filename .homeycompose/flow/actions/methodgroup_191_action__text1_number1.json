@@ -1,0 +1,37 @@
+{
+    "id":"methodgroup_action__text1_number1",
+    "title" : {
+        "en":"Start Method with Arguments (1 text, 1 number)"
+    },"titleFormatted" : {
+        "en":"Start [[flow]] (text1:[[text_1]], number1:[[number_1]])"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=methodgroup"
+        },
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow",
+                "nl": "Flow"
+            }
+        },
+        {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+                "en": "text1"
+            }            
+        },
+        {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+                "en": "number1"
+            }            
+        }
+    ]
+}

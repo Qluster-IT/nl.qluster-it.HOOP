@@ -1,6 +1,6 @@
 {
   "id": "nl.qluster-it.HOOP",
-  "version": "1.1.8",
+  "version": "1.3.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -19,6 +19,13 @@
     "homey:manager:api",
     "homey:app:com.athom.homeyscript"
   ],
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "paypal.me/QlusterIT"
+      }
+    }
+  },
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"

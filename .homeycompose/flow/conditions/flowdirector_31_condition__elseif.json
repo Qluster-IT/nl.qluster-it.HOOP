@@ -1,0 +1,15 @@
+{
+    "id":"flowdirector_condition__elseif",
+    "title" : {
+        "en":"Else If"
+    },"titleFormatted" : {
+        "en":"ELSE IF"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=flowdirector"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "id":"methodgroup_action__",
+    "title" : {
+        "en":"Start Method without Arguments"
+    },"titleFormatted" : {
+        "en":"Start [[flow]]"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=methodgroup"
+        },
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow",
+                "nl": "Flow"
+            }
+        }
+    ]
+}
