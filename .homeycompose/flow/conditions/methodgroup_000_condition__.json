@@ -1,0 +1,23 @@
+{
+    "id":"methodgroup_condition__",
+    "title" : {
+        "en":"Await Method without Arguments"
+    },"titleFormatted" : {
+        "en":"Await [[flow]] !{{|and continue when not successful }} "
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=methodgroup"
+        },
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow",
+                "nl": "Flow"
+            }
+        }
+    ]
+}

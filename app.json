@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "nl.qluster-it.HOOP",
-  "version": "1.1.8",
+  "version": "1.2.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -35,6 +35,88 @@
   },
   "flow": {
     "triggers": [
+      {
+        "id": "methodgroup_trigger__",
+        "title": {
+          "en": "Method without Arguments, conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "name": "error",
+            "type": "string",
+            "title": {
+              "en": "error"
+            }
+          },
+          {
+            "name": "stacktrace",
+            "type": "string",
+            "title": {
+              "en": "stacktrace"
+            }
+          }
+        ]
+      },
       {
         "id": "methodgroup_trigger__text1",
         "title": {
@@ -113,6 +195,116 @@
             "type": "boolean",
             "title": {
               "en": "text1 has value"
+            }
+          },
+          {
+            "name": "error",
+            "type": "string",
+            "title": {
+              "en": "error"
+            }
+          },
+          {
+            "name": "stacktrace",
+            "type": "string",
+            "title": {
+              "en": "stacktrace"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_trigger__text1_number1",
+        "title": {
+          "en": "Method with Arguments (1 text, 1 number) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchroon (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchroon"
+                }
+              }
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "name": "text_1",
+            "type": "string",
+            "title": {
+              "en": "text1"
+            }
+          },
+          {
+            "name": "text_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text1 has value"
+            }
+          },
+          {
+            "name": "number_1",
+            "type": "number",
+            "title": {
+              "en": "number1"
+            }
+          },
+          {
+            "name": "number_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number1 has value"
             }
           },
           {
@@ -1769,6 +1961,36 @@
         ]
       },
       {
+        "id": "cardoverloader_condition__autocomplete1",
+        "title": {
+          "en": "Overload a Card with Arguments (1 autocomplete) !{{|and continue when not successful }}"
+        },
+        "titleFormatted": {
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]]) !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=cardoverloader"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app-uri or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "autocomplete_1",
+            "placeholder": {
+              "en": "autocomplete1"
+            }
+          }
+        ]
+      },
+      {
         "id": "cardoverloader_condition__autocomplete1_boolean1",
         "title": {
           "en": "Overload a Card with Arguments (1 autocomplete, 1 boolean) !{{|and continue when not successful }}"
@@ -2004,6 +2226,22 @@
         ]
       },
       {
+        "id": "flowdirector_condition__elseif",
+        "title": {
+          "en": "Else If"
+        },
+        "titleFormatted": {
+          "en": "ELSE IF"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowdirector"
+          }
+        ]
+      },
+      {
         "id": "flowdirector_condition__endif",
         "title": {
           "en": "End If"
@@ -2043,6 +2281,30 @@
         ]
       },
       {
+        "id": "methodgroup_condition__",
+        "title": {
+          "en": "Await Method without Arguments"
+        },
+        "titleFormatted": {
+          "en": "Await [[flow]] !{{|and continue when not successful }} "
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
+            }
+          }
+        ]
+      },
+      {
         "id": "methodgroup_condition__text1",
         "title": {
           "en": "Await Method with Arguments (1 text)"
@@ -2069,6 +2331,44 @@
             "name": "text_1",
             "placeholder": {
               "en": "text1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_condition__text1_number1",
+        "title": {
+          "en": "Start Method with Arguments (1 text, 1 number)"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (text1:[[text_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+              "en": "text1"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
             }
           }
         ]
@@ -2720,6 +3020,30 @@
         ]
       },
       {
+        "id": "methodgroup_action__",
+        "title": {
+          "en": "Start Method without Arguments"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
+            }
+          }
+        ]
+      },
+      {
         "id": "methodgroup_action__text1",
         "title": {
           "en": "Start Method with Arguments (1 text)"
@@ -2746,6 +3070,44 @@
             "name": "text_1",
             "placeholder": {
               "en": "text1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_action__text1_number1",
+        "title": {
+          "en": "Start Method with Arguments (1 text, 1 number)"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (text1:[[text_1]], number1:[[number_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+              "en": "text1"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
             }
           }
         ]

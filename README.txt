@@ -14,7 +14,11 @@ Setting the Method Group Device Setting "Overloadable" will let you even trigger
 
 Or trigger any flow as condition and await till its done, creating synchronised actions, handling variables before executing any further actions, all within the same flow.
 
-Or create a Card Overloader and allows the execution of Actioncards (Then-Cards) as Conditions and await them.
+And create a Card Overloader and allows the execution of Actioncards (Then-Cards) as Conditions and await them.
+
+Also a Flow Director is available, giving you If, Or(else), And(Also), Then, Else, Else If, End If and handeling errors with stacktrace during flow.
+
+You can transform the if-or-or condition groups of a flow into if-or-finally or try-catch-finally.
 
 
 Again, please take a look at the Community Forum Topic before usages.
