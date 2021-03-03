@@ -19,6 +19,13 @@
     "homey:manager:api",
     "homey:app:com.athom.homeyscript"
   ],
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "paypal.me/QlusterIT"
+      }
+    }
+  },
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
