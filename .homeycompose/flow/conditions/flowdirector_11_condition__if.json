@@ -3,7 +3,7 @@
     "title" : {
         "en":"If"        
     },"titleFormatted" : {
-        "en":"If (all cards untill Then are) !{{true|false}}"
+        "en":"If (all cards untill Then are true); Mode = !{{AndAlso &&|And &}}"
     },
     "args": [
         {

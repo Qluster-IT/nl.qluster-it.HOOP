@@ -31,5 +31,8 @@
   },
   "1.1.5": {
     "en": "Changes icon"
+  },
+  "1.1.6": {
+    "en": "Added Flow Director - If Then Else EndIf cards within conditional part"
   }
 }

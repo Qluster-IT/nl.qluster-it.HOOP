@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "nl.qluster-it.HOOP",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -1498,10 +1498,10 @@
       {
         "id": "cardoverloader_condition__autocomplete1_boolean1",
         "title": {
-          "en": "Overload a Card with Arguments (1 autocomplete, 1 boolean)"
+          "en": "Overload a Card with Arguments (1 autocomplete, 1 boolean) and continue when !{{|not}} successful"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], boolean1:[[boolean_1]])"
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], boolean1:[[boolean_1]]) and continue when !{{|not}} successful"
         },
         "args": [
           {
@@ -1535,10 +1535,10 @@
       {
         "id": "cardoverloader_condition__autocomplete1_number1",
         "title": {
-          "en": "Overload a Card with Arguments (1 autocomplete, 1 number)"
+          "en": "Overload a Card with Arguments (1 autocomplete, 1 number) and continue when !{{|not}} successful"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], number1:[[number_1]])"
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], number1:[[number_1]]) and continue when !{{|not}} successful"
         },
         "args": [
           {
@@ -1572,10 +1572,10 @@
       {
         "id": "cardoverloader_condition__autocomplete1_text1",
         "title": {
-          "en": "Overload a Card with Arguments (1 autocomplete, 1 text)"
+          "en": "Overload a Card with Arguments (1 autocomplete, 1 text) and continue when !{{|not}} successful"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]])"
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]]) and continue when !{{|not}} successful"
         },
         "args": [
           {
@@ -1609,10 +1609,10 @@
       {
         "id": "cardoverloader_condition__number1",
         "title": {
-          "en": "Overload a Card with Arguments (1 number)"
+          "en": "Overload a Card with Arguments (1 number) and continue when !{{|not}} successful"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (number1:[[number_1]])"
+          "en": "Await [[card]] (number1:[[number_1]]) and continue when !{{|not}} successful"
         },
         "args": [
           {
@@ -1639,10 +1639,10 @@
       {
         "id": "cardoverloader_condition__text1",
         "title": {
-          "en": "Overload a Card with Arguments (1 text)"
+          "en": "Overload a Card with Arguments (1 text) and continue when !{{|not}} successful"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (text1:[[text_1]])"
+          "en": "Await [[card]] (text1:[[text_1]]) and continue when !{{|not}} successful"
         },
         "args": [
           {
@@ -1672,7 +1672,23 @@
           "en": "If"
         },
         "titleFormatted": {
-          "en": "If (all cards untill Then are) !{{true|false}}"
+          "en": "If (all cards untill Then are true); Mode = !{{AndAlso &&|And &}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowdirector"
+          }
+        ]
+      },
+      {
+        "id": "flowdirector_condition__orelse",
+        "title": {
+          "en": "OrElse"
+        },
+        "titleFormatted": {
+          "en": "!{{OrElse ||Or }}|"
         },
         "args": [
           {
