@@ -34,5 +34,8 @@
   },
   "1.1.6": {
     "en": "Added Flow Director - If Then Else EndIf cards within conditional part"
+  },
+  "1.1.7": {
+    "en": "Added Or(Else) cards to Flow Director and And(Also) choice for If-Card"
   }
 }
