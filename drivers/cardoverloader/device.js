@@ -72,7 +72,7 @@ class CardOverloaderDevice extends Homey.Device {
                 var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:card });
                 //var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
 
-                this.log('triggerArgs -->', triggerArgs);
+                //this.log('triggerArgs -->', triggerArgs);
 
                 //var argsToUse = Flower.getArgsForTokens({ flow, args, actionCard:card, triggerCard:triggerManifest  });
                 var promise = Flower.triggerCard({ card, args: triggerArgs, type:type });
@@ -96,7 +96,7 @@ class CardOverloaderDevice extends Homey.Device {
             } catch (error) { this.log('Error triggering CardOverloader Card (3)');this.error(error); defer.reject('Error message'); }
             return defer.promise;
           });
-          this.log('actionCard.args', actionCard.args);
+          //this.log('actionCard.args', actionCard.args);
           if (actionCard.args) {
             if (actionCard.args.find(x => x.name == 'card' && x.type == 'autocomplete')) card.getArgument('card').registerAutocompleteListener(async (query, args) => {
               try {
@@ -111,17 +111,7 @@ class CardOverloaderDevice extends Homey.Device {
                   //boolean
                   && _.sumBy( card.args, arg=> arg.type=='dropdown' && arg.values.length==2 && (arg.values[0].id === 'true' || arg.values[0].id==='false' ) && (arg.values[1].id === 'true' || arg.values[1].id==='false' )) == cardToUser.count.number
                   );
-                // flowCards = [flowCards[0]];
-                // this.log('flowCards', flowCards);
-                // flowCards = flowCards.filter(card => _.every(['text', 'number', 'boolean', 'autocomplete'], type=> 
-                // { 
-                //   var sum = _.sumBy( card.args, arg=> arg.type==type)==cardToUser.count[type]
-                //   this.log('type', type, 'sum ', sum);
-                //   return sum
-                // }));
-
-
-
+                
                 var r = flowCards.map(f => {
                   /// WHATS OUT, ALL NEED TO BE SAME!
                   if(f.uri.startsWith('homey:device:')) {

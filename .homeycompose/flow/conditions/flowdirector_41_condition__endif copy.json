@@ -1,0 +1,15 @@
+{
+    "id":"flowdirector_condition__endif",
+    "title" : {
+        "en":"End If"
+    },"titleFormatted" : {
+        "en":"End If"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=flowdirector"
+        }
+    ]
+}

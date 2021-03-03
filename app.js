@@ -111,10 +111,8 @@ class HOOPApp extends Homey.App {
       //       });
       //     } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
       //   });
-      // }
-    
+      // }    
     }
-    
   }
 
   initializeConditionsAndActions() {

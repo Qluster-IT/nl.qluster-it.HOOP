@@ -1,0 +1,15 @@
+{
+    "id":"flowdirector_condition__if",
+    "title" : {
+        "en":"If"        
+    },"titleFormatted" : {
+        "en":"If (all cards untill Then are) !{{true|false}}"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=flowdirector"
+        }
+    ]
+}

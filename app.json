@@ -1667,6 +1667,70 @@
         ]
       },
       {
+        "id": "flowdirector_condition__if",
+        "title": {
+          "en": "If"
+        },
+        "titleFormatted": {
+          "en": "If (all cards untill Then are) !{{true|false}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowdirector"
+          }
+        ]
+      },
+      {
+        "id": "flowdirector_condition__then",
+        "title": {
+          "en": "Then"
+        },
+        "titleFormatted": {
+          "en": "Then"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowdirector"
+          }
+        ]
+      },
+      {
+        "id": "flowdirector_condition__else",
+        "title": {
+          "en": "Else"
+        },
+        "titleFormatted": {
+          "en": "Else"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowdirector"
+          }
+        ]
+      },
+      {
+        "id": "flowdirector_condition__endif",
+        "title": {
+          "en": "End If"
+        },
+        "titleFormatted": {
+          "en": "End If"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowdirector"
+          }
+        ]
+      },
+      {
         "id": "methodgroup_condition__text1",
         "title": {
           "en": "Await Method with Arguments (1 text)"
@@ -2936,13 +3000,41 @@
     {
       "id": "cardoverloader",
       "name": {
-        "en": "Card overloader"
+        "en": "Card Overloader"
       },
       "class": "other",
       "capabilities": [],
       "images": {
         "large": "/drivers/cardoverloader/assets/images/large.png",
         "small": "/drivers/cardoverloader/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          },
+          "options": {
+            "singular": true
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "flowdirector",
+      "name": {
+        "en": "Flow Director"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/flowdirector/assets/images/large.png",
+        "small": "/drivers/flowdirector/assets/images/small.png"
       },
       "pair": [
         {
