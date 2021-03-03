@@ -1,0 +1,23 @@
+{
+    "id":"app_condition__test",
+    "title" : {
+        "en":"Test"
+    },"titleFormatted" : {
+        "en":"Test <strong>hallo</strong> [[testfield]]"
+    },
+    "args":[
+        {
+            "type":"dropdown",
+            "name":"testfield",
+            "values": [
+                {
+                    "id": "async",
+                    "name": "async",
+                    "label": {
+                      "en": "<strong>hallo</strong>"
+                    }
+                }
+            ]
+        }
+    ]
+}

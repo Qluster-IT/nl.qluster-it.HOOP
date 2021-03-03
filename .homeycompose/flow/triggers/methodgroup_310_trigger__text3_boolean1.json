@@ -29,6 +29,12 @@
                   "label": {
                     "en": "If-Or-Finally"
                   }
+              },{
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
               }
           ]
       },
@@ -111,6 +117,20 @@
         "type": "boolean",
         "title": {
           "en": "boolean1 has value"
+        }
+      },
+      {
+        "name": "error",
+        "type": "string",
+        "title": {
+          "en": "error"
+        }
+      },
+      {
+        "name": "stacktrace",
+        "type": "string",
+        "title": {
+          "en": "stacktrace"
         }
       }
     ]    

@@ -1,0 +1,22 @@
+{
+    "id":"flowdirector_action__throw",
+    "title" : {
+        "en":"Throw an error with message"        
+    },"titleFormatted" : {
+        "en":"Throw [[message]]"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=flowdirector"
+        },
+        {
+            "type": "text",
+            "name": "message",
+            "placeholder": {
+                "en": "Message"
+            }
+        }
+    ]
+}

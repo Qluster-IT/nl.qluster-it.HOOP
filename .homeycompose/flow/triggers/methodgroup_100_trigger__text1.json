@@ -29,6 +29,12 @@
                   "label": {
                     "en": "If-Or-Finally"
                   }
+              },{
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
               }
           ]
       },
@@ -56,6 +62,7 @@
       }
     ],
     "tokens": [
+      
       {
         "name": "text_1",
         "type": "string",
@@ -68,6 +75,20 @@
         "type": "boolean",
         "title": {
           "en": "text1 has value"
+        }
+      },
+      {
+        "name": "error",
+        "type": "string",
+        "title": {
+          "en": "error"
+        }
+      },
+      {
+        "name": "stacktrace",
+        "type": "string",
+        "title": {
+          "en": "stacktrace"
         }
       }
     ]    

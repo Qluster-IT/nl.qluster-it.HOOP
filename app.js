@@ -13,7 +13,7 @@ class HOOPApp extends Homey.App {
   /**
    * onInit is called when the app is initialized.
    */
-  async onInit() {
+  async onInit() { 
     this.log('HOOPApp has been initialized');
     homeyApi.init(this);
     Script.init(this);
@@ -111,10 +111,8 @@ class HOOPApp extends Homey.App {
       //       });
       //     } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
       //   });
-      // }
-    
+      // }    
     }
-    
   }
 
   initializeConditionsAndActions() {
@@ -131,8 +129,8 @@ class HOOPApp extends Homey.App {
     ['app_condition__throw', 'app_action__throw'].forEach((card=>{ 
       this.flows[card.startsWith('app_condition') ? 'conditions' : 'actions'][card].card.registerRunListener(({message} = {}, state) => {
         var defer = new Defer();
-        if(!message ) defer.reject(new Error('Missing message argument'));
-        else defer.reject(new Error(message));
+        if(!message ) defer.reject('Missing message argument');
+        else defer.reject(message);
 
         return defer.promise;
       });
