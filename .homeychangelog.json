@@ -37,5 +37,8 @@
   },
   "1.1.7": {
     "en": "Added Or(Else) cards to Flow Director and And(Also) choice for If-Card"
+  },
+  "1.1.8": {
+    "en": "Added error and stacktrace tokens to Method Group triggers, being updated during flow execution, making error handling possible"
   }
 }
