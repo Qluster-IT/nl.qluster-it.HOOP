@@ -49,5 +49,8 @@
   },
   "1.3.1": {
     "en": "json improved"
+  },
+  "1.4.0": {
+    "en": "Fixed Else-If card"
   }
 }
