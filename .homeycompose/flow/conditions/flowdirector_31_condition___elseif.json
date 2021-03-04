@@ -1,9 +1,9 @@
 {
-    "id":"flowdirector_condition__then",
+    "id":"flowdirector_condition___elseif",
     "title" : {
-        "en":"Then"
+        "en":"Else If"
     },"titleFormatted" : {
-        "en":"THEN"
+        "en":"ELSE IF"
     },
     "args": [
         {

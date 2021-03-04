@@ -31,8 +31,9 @@ class HOOPApp extends Homey.App {
     this.initializeConditions();
     this.initializeActions();
     this.initializeConditionsAndActions();
-
   }
+
+  
   
   initializeConditions() {
     var conditionsCards = {};

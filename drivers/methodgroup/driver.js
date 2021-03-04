@@ -121,10 +121,10 @@ class MethodGroupDriver extends Homey.Driver
                 else defer.resolve(true);
               }).call(this).then(res=> {
               }).catch(err=> {
-                this.log('Error triggering MehodGroup Card 2');this.error(err); defer.reject('Error message');
+                this.log('Error triggering MehodGroup Card 2');this.error(err); defer.reject(err.name || err);
               })
               //ownFlowItem.card.trigger(args.device, triggerArgs, { id: { id: flow.trigger.args.id.id } });
-            } catch (error) { this.log('Error triggering MehodGroup Card (3)');this.error(error); defer.reject('Error message'); }
+            } catch (err) { this.log('Error triggering MehodGroup Card (3)');this.error(error); defer.reject(err.name || err); }
             return defer.promise;
           });
           if (actionCard.args) {

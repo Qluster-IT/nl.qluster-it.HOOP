@@ -1,9 +1,9 @@
 {
-    "id":"flowdirector_condition__orelse",
+    "id":"flowdirector_condition___endif",
     "title" : {
-        "en":"OrElse"
+        "en":"End If"
     },"titleFormatted" : {
-        "en":"!{{OrElse ||Or }}|"
+        "en":"END IF"
     },
     "args": [
         {

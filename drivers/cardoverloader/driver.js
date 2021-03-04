@@ -118,13 +118,6 @@ class CardOverloaderDriver extends Homey.Driver
                 this.log('cardToUser.count', cardToUser.id, cardToUser.count);
                 flowCards = flowCards.filter(card => 
                   {
-                    // if(card.uriObj && card.uriObj.name=='Hoofdlamp badkamer' && card.title.indexOf('Dim')>-1) {
-                    //   this.log('dim gevonden ', card);
-                    //   this.log('cardToUser.count ', cardToUser.count);
-                    //   this.log('every',  _.every(['text',  'autocomplete'], type=>  _.sumBy( card.args, arg=> arg.type==type)==cardToUser.count[type]));
-                    //   this.log('numbers', _.sumBy( card.args, arg=> (arg.type=='number' || arg.type=='range') ? 1 : 0));
-                    //   this.log('boolean', _.sumBy( card.args, arg=> arg.type=='dropdown' && arg.values.length==2 && (arg.values[0].id === 'true' || arg.values[0].id==='false' ) && (arg.values[1].id === 'true' || arg.values[1].id==='false' ) ? 1 : 0));
-                    //}
                   return _.every(['text',  'autocomplete'], type=>  _.sumBy( card.args, arg=> arg.type==type)==cardToUser.count[type])
                   && _.sumBy( card.args, arg=> arg.type=='number' || arg.type=='range') == cardToUser.count.number
                   //boolean
@@ -144,7 +137,7 @@ class CardOverloaderDriver extends Homey.Driver
                 if (query) r = r.filter(f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
                 r = _.uniqBy(r, card => card.id);
 
-                r = _.orderBy(r, [card => card.order, card => card.name, card => card.name ]);
+                r = _.orderBy(r, [card => card.order, card => card.name, card => card.id ]);
                 return r;
               } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
             });
