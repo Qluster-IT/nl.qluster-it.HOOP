@@ -15,10 +15,12 @@ class MethodGroupDriver extends Homey.Driver
     {
         this.log('MethodGroupDriver has been initialized');      
 
+        Flower.init(null, this);
         this.flows = {};
     
         this.initializeTriggers();
-        this.initializeConditionsAndActions();  
+        this.initializeConditionsAndActions();
+        //await token.setValue(arg); 
     }
 
 
@@ -105,12 +107,14 @@ class MethodGroupDriver extends Homey.Driver
             var defer = new Defer();
             try {
               (async()=>{
+                
                 var flow = await homeyApi.getFlow({ id: args.flow.id });
                 if (!flow.enabled) return true;
                 
+                
                 var triggerManifest = await homeyApi.getFlowCard({ uri:  flow.trigger.uri ,id: flow.trigger.id, type:'triggers' }); 
                 var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
-  
+
                 var promise = Flower.triggerFlow({ flow, tokensAsArgs: triggerArgs, actioncardsmode:args.actioncardsmode });
                 if(cardType=='conditions') 
                   promise.then(r=> {
@@ -121,10 +125,10 @@ class MethodGroupDriver extends Homey.Driver
                 else defer.resolve(true);
               }).call(this).then(res=> {
               }).catch(err=> {
-                this.log('Error triggering MehodGroup Card 2');this.error(err); defer.reject('Error message');
+                this.log('Error triggering MehodGroup Card 2');this.error(err); defer.reject(err.name || err);
               })
               //ownFlowItem.card.trigger(args.device, triggerArgs, { id: { id: flow.trigger.args.id.id } });
-            } catch (error) { this.log('Error triggering MehodGroup Card (3)');this.error(error); defer.reject('Error message'); }
+            } catch (err) { this.log('Error triggering MehodGroup Card (3)');this.error(error); defer.reject(err.name || err); }
             return defer.promise;
           });
           if (actionCard.args) {

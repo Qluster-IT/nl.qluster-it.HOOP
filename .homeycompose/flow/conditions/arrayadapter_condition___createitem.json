@@ -1,0 +1,26 @@
+{
+    "id": "arrayadapter_condition___createitem",    
+    "title": {
+      "en": "Create Item"
+    },
+    "titleFormatted": {
+      "en": "Create Item [[id]]"
+    },
+    "args": [
+      {
+          "type" : "device",
+          "name" : "device",
+          "filter": "driver_id=arrayadapter"
+      },
+      {
+          "type": "text",
+          "name": "id",
+          "title": {
+              "en": "ID"
+          },
+          "placeholder": {
+            "en": "Give it an ID"
+          }   
+      }
+    ]
+  }

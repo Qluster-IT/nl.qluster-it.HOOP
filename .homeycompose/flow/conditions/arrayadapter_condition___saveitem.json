@@ -1,0 +1,26 @@
+{
+    "id": "arrayadapter_condition___saveitem",    
+    "title": {
+      "en": "Save Item"
+    },
+    "titleFormatted": {
+      "en": "Save Item into [[array]]"
+    },
+    "args": [
+      {
+          "type" : "device",
+          "name" : "device",
+          "filter": "driver_id=arrayadapter"
+      },
+      {
+          "type": "autocomplete",
+          "name": "array",
+          "title": {
+              "en": "Array"
+          },
+          "placeholder": {
+            "en": "Search the device or app"
+          } 
+      }
+    ]
+  }

@@ -15,8 +15,7 @@
             "type": "autocomplete",
             "name": "flow",
             "placeholder": {
-                "en": "Flow",
-                "nl": "Flow"
+                "en": "Flow"
             }
         },
         {

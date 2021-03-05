@@ -24,13 +24,13 @@
                     "id": "async",
                     "name": "async",
                     "label": {
-                      "en": "Executing actioncards asynchroon (default)"
+                      "en": "Executing actioncards asynchronously (default)"
                     }
                 },{
                     "id": "sync",
                     "name": "sync",
                     "label": {
-                      "en": "Executing actioncards synchroon"
+                      "en": "Executing actioncards synchronously"
                     }
                 }
             ]

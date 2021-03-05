@@ -1,9 +1,9 @@
 {
-    "id":"flowdirector_condition__then",
+    "id":"flowdirector_condition___if",
     "title" : {
-        "en":"Then"
+        "en":"If"        
     },"titleFormatted" : {
-        "en":"THEN"
+        "en":"IF (all cards untill Then are true); Operator = !{{AndAlso &&|And &}}"
     },
     "args": [
         {

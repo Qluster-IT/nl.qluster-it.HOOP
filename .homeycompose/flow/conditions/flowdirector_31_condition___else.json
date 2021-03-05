@@ -1,9 +1,9 @@
 {
-    "id":"flowdirector_condition__if",
+    "id":"flowdirector_condition___else",
     "title" : {
-        "en":"If"        
+        "en":"Else"
     },"titleFormatted" : {
-        "en":"IF (all cards untill Then are true); Mode = !{{AndAlso &&|And &}}"
+        "en":"ELSE"
     },
     "args": [
         {

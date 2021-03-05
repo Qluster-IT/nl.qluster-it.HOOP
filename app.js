@@ -4,10 +4,8 @@ const Homey = require('homey');
 const homeyApi = require('./lib/homeyApi');
 const _ = require('lodash');
 const { Defer } = require('./lib/proto');
-const Script = require('./lib/script');
 const Flower = require('./lib/flower');
 
-//const { HomeyAPI } = require('athom-api');
 
 class HOOPApp extends Homey.App {
   /**
@@ -16,12 +14,16 @@ class HOOPApp extends Homey.App {
   async onInit() { 
     this.log('HOOPApp has been initialized');
     homeyApi.init(this);
-    Script.init(this);
     Flower.init(this);
     //this.log('init', await homeyApi.getDevice({id:'4fbe7935-cfe3-47d4-b552-68e05f9d0e91'}));
 
     this.flows = {};
 
+    
+    const tokenError = await this.homey.flow.createToken('error', { type: 'string', title: 'error' })
+    const tokenStackTrace = await this.homey.flow.createToken('stacktrace', { type: 'string', title: 'stacktrace' })
+
+    //const tokenStackTrace = await this.homey.flow.createToken('stacktrace', { type: 'string', title: 'stacktrace' })
     
 
     // var homey = await this.getHomeyAPI();
@@ -31,8 +33,11 @@ class HOOPApp extends Homey.App {
     this.initializeConditions();
     this.initializeActions();
     this.initializeConditionsAndActions();
-
   }
+
+
+
+  
   
   initializeConditions() {
     var conditionsCards = {};

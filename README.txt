@@ -2,7 +2,6 @@ Bringing you H.O.O.P (Dutch for Hope).
 
 Homey Object Oriented Programming (for advanced users).
 
-!Requires the HomeyScript App to be installed!
 
 This apps transforms your Homey in a programmable object, changing standard flow behavior.
 Took a look at the Community Forum Topic for diagrams, examples and overal usages.
@@ -20,7 +19,7 @@ Also a Flow Director is available, giving you If, Or(else), And(Also), Then, Els
 
 You can transform the if-or-or condition groups of a flow into if-or-finally or try-catch-finally.
 
-
-Again, please take a look at the Community Forum Topic before usages.
+Take a look at the settings of the app for how to get your developer access (needs to be set one time).
+And again, please take a look at the Community Forum Topic before usages.
 
 Please report issues on the issues site.

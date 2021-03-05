@@ -1,0 +1,151 @@
+{
+    "id": "arrayadapter_trigger__newarrayuri",
+    
+    "title": {
+      "en": "New Array"
+    },
+    "titleFormatted": {
+      "en": "Array [[name]] for [[uri]] triggering every [[interval]] seconds"
+    },
+    "args": [
+      {
+          "type" : "device",
+          "name" : "device",
+          "filter": "driver_id=arrayadapter"
+      },
+      {
+          "type": "text",
+          "name": "name",
+          "title": {
+              "en": "Triggername"
+          },
+          "placeholder": {
+            "en": "Give it a name"
+          }   
+      },
+      {
+          "type": "autocomplete",
+          "name": "uri",
+          "title": {
+              "en": "Target"
+          },
+          "placeholder": {
+            "en": "Search the device or app"
+          } 
+      },
+      {
+          "type": "number",
+          "name": "interval",
+          "title": {
+              "en": "Interval"
+          },
+          "placeholder": {
+            "en": "In seconds"
+          },
+          "step":1,
+          "min":0,
+          "max":3600
+      }
+    ],
+    "tokens": [
+      {
+        "name": "text_1",
+        "type": "string",
+        "title": {
+          "en": "text1"
+        }
+      },
+      {
+        "name": "text_1_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "text1 has value"
+        }
+      },
+      {
+        "name": "text_2",
+        "type": "string",
+        "title": {
+          "en": "text2"
+        }
+      },
+      {
+        "name": "text_2_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "text2 has value"
+        }
+      },
+      {
+        "name": "text_3",
+        "type": "string",
+        "title": {
+          "en": "text3"
+        }
+      },
+      {
+        "name": "text_3_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "text3 has value"
+        }
+      },
+      {
+        "name": "text_4",
+        "type": "string",
+        "title": {
+          "en": "text4"
+        }
+      },
+      {
+        "name": "text_4_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "text4 has value"
+        }
+      },
+      {
+        "name": "boolean_1",
+        "type": "boolean",
+        "title": {
+          "en": "boolean1"
+        }
+      },
+      {
+        "name": "boolean_1_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "boolean1 has value"
+        }
+      },
+      {
+        "name": "number_1",
+        "type": "number",
+        "title": {
+          "en": "number1"
+        }
+      },
+      {
+        "name": "number_1_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "number1 has value"
+        }
+      },
+      {
+        "name": "error",
+        "type": "string",
+        "title": {
+          "en": "error"
+        }
+      },
+      {
+        "name": "stacktrace",
+        "type": "string",
+        "title": {
+          "en": "stacktrace"
+        }
+      }
+    ]    
+    
+  }

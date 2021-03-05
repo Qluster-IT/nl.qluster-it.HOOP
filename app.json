@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "nl.qluster-it.HOOP",
-  "version": "1.3.1",
+  "version": "1.6.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -10,16 +10,12 @@
   },
   "brandColor": "#3D64AC",
   "description": {
-    "en": "Homey Object Oriented Programming",
-    "nl": "Homey Object geOriënteerd Programmeren"
+    "en": "Homey Object Oriented Programming"
   },
   "category": [
     "tools"
   ],
-  "permissions": [
-    "homey:manager:api",
-    "homey:app:com.athom.homeyscript"
-  ],
+  "permissions": [],
   "contributing": {
     "donate": {
       "paypal": {
@@ -42,6 +38,268 @@
   },
   "flow": {
     "triggers": [
+      {
+        "id": "arrayadapter_trigger__newarray",
+        "title": {
+          "en": "New Array"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=arrayadapter"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "text_1",
+            "type": "string",
+            "title": {
+              "en": "text1"
+            }
+          },
+          {
+            "name": "text_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text1 has value"
+            }
+          },
+          {
+            "name": "text_2",
+            "type": "string",
+            "title": {
+              "en": "text2"
+            }
+          },
+          {
+            "name": "text_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text2 has value"
+            }
+          },
+          {
+            "name": "text_3",
+            "type": "string",
+            "title": {
+              "en": "text3"
+            }
+          },
+          {
+            "name": "text_3_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text3 has value"
+            }
+          },
+          {
+            "name": "text_4",
+            "type": "string",
+            "title": {
+              "en": "text4"
+            }
+          },
+          {
+            "name": "text_4_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text4 has value"
+            }
+          },
+          {
+            "name": "boolean_1",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "name": "boolean_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1 has value"
+            }
+          },
+          {
+            "name": "number_1",
+            "type": "number",
+            "title": {
+              "en": "number1"
+            }
+          },
+          {
+            "name": "number_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number1 has value"
+            }
+          },
+          {
+            "name": "error",
+            "type": "string",
+            "title": {
+              "en": "error"
+            }
+          },
+          {
+            "name": "stacktrace",
+            "type": "string",
+            "title": {
+              "en": "stacktrace"
+            }
+          }
+        ]
+      },
+      {
+        "id": "arrayadapter_trigger__newarrayuri",
+        "title": {
+          "en": "New Array"
+        },
+        "titleFormatted": {
+          "en": "Array [[name]] for [[uri]] triggering every [[interval]] seconds"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=arrayadapter"
+          },
+          {
+            "type": "text",
+            "name": "name",
+            "title": {
+              "en": "Triggername"
+            },
+            "placeholder": {
+              "en": "Give it a name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "uri",
+            "title": {
+              "en": "Target"
+            },
+            "placeholder": {
+              "en": "Search the device or app"
+            }
+          },
+          {
+            "type": "number",
+            "name": "interval",
+            "title": {
+              "en": "Interval"
+            },
+            "placeholder": {
+              "en": "In seconds"
+            },
+            "step": 1,
+            "min": 0,
+            "max": 3600
+          }
+        ],
+        "tokens": [
+          {
+            "name": "text_1",
+            "type": "string",
+            "title": {
+              "en": "text1"
+            }
+          },
+          {
+            "name": "text_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text1 has value"
+            }
+          },
+          {
+            "name": "text_2",
+            "type": "string",
+            "title": {
+              "en": "text2"
+            }
+          },
+          {
+            "name": "text_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text2 has value"
+            }
+          },
+          {
+            "name": "text_3",
+            "type": "string",
+            "title": {
+              "en": "text3"
+            }
+          },
+          {
+            "name": "text_3_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text3 has value"
+            }
+          },
+          {
+            "name": "text_4",
+            "type": "string",
+            "title": {
+              "en": "text4"
+            }
+          },
+          {
+            "name": "text_4_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text4 has value"
+            }
+          },
+          {
+            "name": "boolean_1",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "name": "boolean_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1 has value"
+            }
+          },
+          {
+            "name": "number_1",
+            "type": "number",
+            "title": {
+              "en": "number1"
+            }
+          },
+          {
+            "name": "number_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number1 has value"
+            }
+          },
+          {
+            "name": "error",
+            "type": "string",
+            "title": {
+              "en": "error"
+            }
+          },
+          {
+            "name": "stacktrace",
+            "type": "string",
+            "title": {
+              "en": "stacktrace"
+            }
+          }
+        ]
+      },
       {
         "id": "methodgroup_trigger__",
         "title": {
@@ -94,33 +352,17 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
-          }
-        ],
-        "tokens": [
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
-            }
           }
         ]
       },
@@ -176,14 +418,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -202,20 +444,6 @@
             "type": "boolean",
             "title": {
               "en": "text1 has value"
-            }
-          },
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
             }
           }
         ]
@@ -272,14 +500,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -312,20 +540,6 @@
             "type": "boolean",
             "title": {
               "en": "number1 has value"
-            }
-          },
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
             }
           }
         ]
@@ -382,14 +596,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -422,20 +636,6 @@
             "type": "boolean",
             "title": {
               "en": "text2 has value"
-            }
-          },
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
             }
           }
         ]
@@ -492,14 +692,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -546,20 +746,6 @@
             "type": "boolean",
             "title": {
               "en": "boolean1 has value"
-            }
-          },
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
             }
           }
         ]
@@ -616,14 +802,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -670,20 +856,6 @@
             "type": "boolean",
             "title": {
               "en": "number1 has value"
-            }
-          },
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
             }
           }
         ]
@@ -740,14 +912,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -794,20 +966,6 @@
             "type": "boolean",
             "title": {
               "en": "text3 has value"
-            }
-          },
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
             }
           }
         ]
@@ -864,14 +1022,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -932,20 +1090,6 @@
             "type": "boolean",
             "title": {
               "en": "boolean1 has value"
-            }
-          },
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
             }
           }
         ]
@@ -1002,14 +1146,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -1070,20 +1214,6 @@
             "type": "boolean",
             "title": {
               "en": "number1 has value"
-            }
-          },
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
             }
           }
         ]
@@ -1140,14 +1270,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -1208,20 +1338,6 @@
             "type": "boolean",
             "title": {
               "en": "text4 has value"
-            }
-          },
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
             }
           }
         ]
@@ -1278,14 +1394,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -1360,20 +1476,6 @@
             "type": "boolean",
             "title": {
               "en": "boolean1 has value"
-            }
-          },
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
             }
           }
         ]
@@ -1430,14 +1532,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -1526,20 +1628,6 @@
             "type": "boolean",
             "title": {
               "en": "number1 has value"
-            }
-          },
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
             }
           }
         ]
@@ -1596,14 +1684,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -1679,20 +1767,6 @@
             "title": {
               "en": "number1 has value"
             }
-          },
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
-            }
           }
         ]
       },
@@ -1748,14 +1822,96 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "name": "boolean_1",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "name": "boolean_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1 has value"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_trigger__boolean1_number1",
+        "title": {
+          "en": "Method with Arguments (1 boolean, 1 number) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -1777,17 +1933,127 @@
             }
           },
           {
-            "name": "error",
-            "type": "string",
+            "name": "number_1",
+            "type": "number",
             "title": {
-              "en": "error"
+              "en": "number1"
             }
           },
           {
-            "name": "stacktrace",
-            "type": "string",
+            "name": "number_1_hasvalue",
+            "type": "boolean",
             "title": {
-              "en": "stacktrace"
+              "en": "number1 has value"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_trigger__boolean2_number1",
+        "title": {
+          "en": "Method with Arguments (2 booleans, 1 number) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "name": "boolean_1",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "name": "boolean_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1 has value"
+            }
+          },
+          {
+            "name": "boolean_2",
+            "type": "boolean",
+            "title": {
+              "en": "boolean2"
+            }
+          },
+          {
+            "name": "boolean_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean2 has value"
+            }
+          },
+          {
+            "name": "number_1",
+            "type": "number",
+            "title": {
+              "en": "number1"
+            }
+          },
+          {
+            "name": "number_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number1 has value"
             }
           }
         ]
@@ -1844,14 +2110,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -1870,20 +2136,6 @@
             "type": "boolean",
             "title": {
               "en": "number1 has value"
-            }
-          },
-          {
-            "name": "error",
-            "type": "string",
-            "title": {
-              "en": "error"
-            }
-          },
-          {
-            "name": "stacktrace",
-            "type": "string",
-            "title": {
-              "en": "stacktrace"
             }
           }
         ]
@@ -1917,14 +2169,14 @@
                 "id": "async",
                 "name": "async",
                 "label": {
-                  "en": "Executing actioncards asynchroon (default)"
+                  "en": "Executing actioncards asynchronously (default)"
                 }
               },
               {
                 "id": "sync",
                 "name": "sync",
                 "label": {
-                  "en": "Executing actioncards synchroon"
+                  "en": "Executing actioncards synchronously"
                 }
               }
             ]
@@ -1968,6 +2220,58 @@
         ]
       },
       {
+        "id": "arrayadapter_condition___createitem",
+        "title": {
+          "en": "Create Item"
+        },
+        "titleFormatted": {
+          "en": "Create Item [[id]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=arrayadapter"
+          },
+          {
+            "type": "text",
+            "name": "id",
+            "title": {
+              "en": "ID"
+            },
+            "placeholder": {
+              "en": "Give it an ID"
+            }
+          }
+        ]
+      },
+      {
+        "id": "arrayadapter_condition___saveitem",
+        "title": {
+          "en": "Save Item"
+        },
+        "titleFormatted": {
+          "en": "Save Item into [[array]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=arrayadapter"
+          },
+          {
+            "type": "autocomplete",
+            "name": "array",
+            "title": {
+              "en": "Array"
+            },
+            "placeholder": {
+              "en": "Search the device or app"
+            }
+          }
+        ]
+      },
+      {
         "id": "cardoverloader_condition__autocomplete1",
         "title": {
           "en": "Overload a Card with Arguments (1 autocomplete) !{{|and continue when not successful }}"
@@ -1985,7 +2289,7 @@
             "type": "autocomplete",
             "name": "card",
             "placeholder": {
-              "en": "Type in the app-uri or device name"
+              "en": "Type in the app or device name"
             }
           },
           {
@@ -2015,7 +2319,7 @@
             "type": "autocomplete",
             "name": "card",
             "placeholder": {
-              "en": "Type in the app-uri or device name"
+              "en": "Type in the app or device name"
             }
           },
           {
@@ -2030,6 +2334,43 @@
             "name": "boolean_1",
             "placeholder": {
               "en": "boolean1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cardoverloader_condition__autocomplete1_dropdown1",
+        "title": {
+          "en": "Overload a Card with Arguments (1 autocomplete, 1 dropdown) !{{|and continue when not successful }}"
+        },
+        "titleFormatted": {
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]]) !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=cardoverloader"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "autocomplete_1",
+            "placeholder": {
+              "en": "autocomplete1"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "dropdown_1",
+            "placeholder": {
+              "en": "dropdown1"
             }
           }
         ]
@@ -2052,7 +2393,7 @@
             "type": "autocomplete",
             "name": "card",
             "placeholder": {
-              "en": "Type in the app-uri or device name"
+              "en": "Type in the app or device name"
             }
           },
           {
@@ -2089,7 +2430,7 @@
             "type": "autocomplete",
             "name": "card",
             "placeholder": {
-              "en": "Type in the app-uri or device name"
+              "en": "Type in the app or device name"
             }
           },
           {
@@ -2097,6 +2438,154 @@
             "name": "autocomplete_1",
             "placeholder": {
               "en": "autocomplete1"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+              "en": "text1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cardoverloader_condition__boolean1_number1",
+        "title": {
+          "en": "Overload a Card with Arguments (1 boolean, 1 number) !{{|and continue when not successful }}"
+        },
+        "titleFormatted": {
+          "en": "Await [[card]] (boolean1:[[boolean_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=cardoverloader"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cardoverloader_condition__dropdown1_boolean1",
+        "title": {
+          "en": "Overload a Card with Arguments (1 dropdown, 1 boolean) !{{|and continue when not successful }}"
+        },
+        "titleFormatted": {
+          "en": "Await [[card]] (dropdown1:[[dropdown_1]], boolean1:[[boolean_1]]) !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=cardoverloader"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "dropdown_1",
+            "placeholder": {
+              "en": "dropdown1"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+              "en": "boolean1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cardoverloader_condition__dropdown1_number1",
+        "title": {
+          "en": "Overload a Card with Arguments (1 dropdown, 1 number) !{{|and continue when not successful }}"
+        },
+        "titleFormatted": {
+          "en": "Await [[card]] (dropdown1:[[dropdown_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=cardoverloader"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "dropdown_1",
+            "placeholder": {
+              "en": "dropdown1"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cardoverloader_condition__dropdown1_text1",
+        "title": {
+          "en": "Overload a Card with Arguments (1 dropdown, 1 text) !{{|and continue when not successful }}"
+        },
+        "titleFormatted": {
+          "en": "Await [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]]) !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=cardoverloader"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "dropdown_1",
+            "placeholder": {
+              "en": "dropdown1"
             }
           },
           {
@@ -2126,7 +2615,7 @@
             "type": "autocomplete",
             "name": "card",
             "placeholder": {
-              "en": "Type in the app-uri or device name"
+              "en": "Type in the app or device name"
             }
           },
           {
@@ -2156,7 +2645,7 @@
             "type": "autocomplete",
             "name": "card",
             "placeholder": {
-              "en": "Type in the app-uri or device name"
+              "en": "Type in the app or device name"
             }
           },
           {
@@ -2169,12 +2658,12 @@
         ]
       },
       {
-        "id": "flowdirector_condition__if",
+        "id": "flowdirector_condition___if",
         "title": {
           "en": "If"
         },
         "titleFormatted": {
-          "en": "IF (all cards untill Then are true); Mode = !{{AndAlso &&|And &}}"
+          "en": "IF (all cards untill Then are true); Operator = !{{AndAlso &&|And &}}"
         },
         "args": [
           {
@@ -2185,7 +2674,7 @@
         ]
       },
       {
-        "id": "flowdirector_condition__orelse",
+        "id": "flowdirector_condition___orelse",
         "title": {
           "en": "OrElse"
         },
@@ -2201,7 +2690,7 @@
         ]
       },
       {
-        "id": "flowdirector_condition__then",
+        "id": "flowdirector_condition___then",
         "title": {
           "en": "Then"
         },
@@ -2217,7 +2706,7 @@
         ]
       },
       {
-        "id": "flowdirector_condition__else",
+        "id": "flowdirector_condition___else",
         "title": {
           "en": "Else"
         },
@@ -2233,7 +2722,7 @@
         ]
       },
       {
-        "id": "flowdirector_condition__elseif",
+        "id": "flowdirector_condition___elseif",
         "title": {
           "en": "Else If"
         },
@@ -2249,7 +2738,7 @@
         ]
       },
       {
-        "id": "flowdirector_condition__endif",
+        "id": "flowdirector_condition___endif",
         "title": {
           "en": "End If"
         },
@@ -2787,8 +3276,7 @@
             "type": "autocomplete",
             "name": "flow",
             "placeholder": {
-              "en": "Flow",
-              "nl": "Flow"
+              "en": "Flow"
             }
           },
           {
@@ -2921,6 +3409,87 @@
             "name": "boolean_1",
             "placeholder": {
               "en": "boolean1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_condition__boolean1_number1",
+        "title": {
+          "en": "Start Method with Arguments (1 boolean, 1 number)"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (boolean1:[[boolean_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_condition__boolean2_number1",
+        "title": {
+          "en": "Start Method with Arguments (2 booleans, 1 number)"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (boolean1:[[boolean_1]], boolean2:[[boolean_2]], number1:[[number_1]]) !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_2",
+            "placeholder": {
+              "en": "boolean2"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
             }
           }
         ]
@@ -3668,6 +4237,89 @@
         ]
       },
       {
+        "id": "methodgroup_action__boolean1_number1",
+        "title": {
+          "en": "Start Method with Arguments (1 boolean, 1 number)"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (boolean1:[[boolean_1]], number1:[[number_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "methodgroup_action__boolean2_number1",
+        "title": {
+          "en": "Start Method with Arguments (2 booleans, 1 number)"
+        },
+        "titleFormatted": {
+          "en": "Start [[flow]] (boolean1:[[boolean_1]], boolean2:[[boolean_2]], number1:[[number_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=methodgroup"
+          },
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow",
+              "nl": "Flow"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_2",
+            "placeholder": {
+              "en": "boolean2"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
+            }
+          }
+        ]
+      },
+      {
         "id": "methodgroup_action__number1",
         "title": {
           "en": "Start Method with Arguments (1 number)"
@@ -3740,6 +4392,35 @@
         "large": "/drivers/flowdirector/assets/images/large.png",
         "small": "/drivers/flowdirector/assets/images/small.png"
       },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          },
+          "options": {
+            "singular": true
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "homeyelevator",
+      "name": {
+        "en": "Homey Elevator"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/homeyelevator/assets/images/large.jpg",
+        "small": "/drivers/homeyelevator/assets/images/small.jpg"
+      },
+      "deprecated": true,
       "pair": [
         {
           "id": "list_devices",

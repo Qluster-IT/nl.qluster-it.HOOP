@@ -1,0 +1,28 @@
+{
+  "id": "arrayadapter",
+  "name": {
+    "en": "Array Adapter"
+  },
+  "class": "other",
+  "capabilities": [],
+  "images": {
+    "large": "/drivers/arrayadapter/assets/images/large.png",
+    "small": "/drivers/arrayadapter/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_my_devices"
+      },
+      "options": {
+        "singular": true
+      }
+    },
+    {
+      "id": "add_my_devices",
+      "template": "add_devices"
+    }
+  ]  
+}

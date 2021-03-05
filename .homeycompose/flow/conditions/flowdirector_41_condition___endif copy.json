@@ -1,9 +1,9 @@
 {
-    "id":"flowdirector_condition__elseif",
+    "id":"flowdirector_condition___endif",
     "title" : {
-        "en":"Else If"
+        "en":"End If"
     },"titleFormatted" : {
-        "en":"ELSE IF"
+        "en":"END IF"
     },
     "args": [
         {
