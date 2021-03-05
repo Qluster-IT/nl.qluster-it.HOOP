@@ -2,7 +2,6 @@ Bringing you H.O.O.P (Dutch for Hope).
 
 Homey Object Oriented Programming (for advanced users).
 
-!Requires the HomeyScript App to be installed!
 
 This apps transforms your Homey in a programmable object, changing standard flow behavior.
 Took a look at the Community Forum Topic for diagrams, examples and overal usages.

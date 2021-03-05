@@ -1,0 +1,29 @@
+{
+  "id": "homeyelevator",
+  "name": {
+    "en": "Homey Elevator"
+  },
+  "class": "other",
+  "capabilities": [],
+  "images": {
+    "large": "/drivers/homeyelevator/assets/images/large.png",
+    "small": "/drivers/homeyelevator/assets/images/small.png"
+  },
+  "deprecated": true,
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_my_devices"
+      },
+      "options": {
+        "singular": true
+      }
+    },
+    {
+      "id": "add_my_devices",
+      "template": "add_devices"
+    }
+  ]
+}

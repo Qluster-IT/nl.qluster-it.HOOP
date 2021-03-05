@@ -1,6 +1,6 @@
 {
   "id": "nl.qluster-it.HOOP",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -15,8 +15,7 @@
     "tools"
   ],
   "permissions": [
-    "homey:manager:api",
-    "homey:app:com.athom.homeyscript"
+    "homey:manager:api"
   ],
   "contributing": {
     "donate": {

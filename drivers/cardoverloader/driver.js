@@ -69,40 +69,40 @@ class CardOverloaderDriver extends Homey.Driver
             const defer = new Defer();
             try {
               (async ()=>{
-                  this.log('error args', args)
-                const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
-                const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
-                if (!card) return false;
+                  if(!args.card || !args.card.refType) return defer.reject('no uri given');
+                  const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
+                  const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
+                  if (!card) return defer.reject('no card found');
+                    
+                  // var triggerArgs = Flower.getArgsForTokens({ flow, args, actionCard });
                   
-                // var triggerArgs = Flower.getArgsForTokens({ flow, args, actionCard });
-                
-                // var promise = Flower.triggerFlow({ flow, tokensAsArgs: triggerArgs });
-                // if(cardType=='conditions') return await promise;
-                // else return true;
-                
-                //var triggerManifest = await homeyApi.getFlowCard({ uri:  args.card.refUri ,id: args.card.refId, type:type });
-                
-                var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:card });
-                //var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
+                  // var promise = Flower.triggerFlow({ flow, tokensAsArgs: triggerArgs });
+                  // if(cardType=='conditions') return await promise;
+                  // else return true;
+                  
+                  //var triggerManifest = await homeyApi.getFlowCard({ uri:  args.card.refUri ,id: args.card.refId, type:type });
+                  
+                  var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:card });
+                  //var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
 
-                this.log('triggerArgs -->', triggerArgs);
+                  this.log('triggerArgs -->', triggerArgs);
 
-                //var argsToUse = Flower.getArgsForTokens({ flow, args, actionCard:card, triggerCard:triggerManifest  });
-                var promise = Flower.triggerCard({ card, args: triggerArgs, type:type });
-                this.log('flow triggered' ); 
-                
+                  //var argsToUse = Flower.getArgsForTokens({ flow, args, actionCard:card, triggerCard:triggerManifest  });
+                  var promise = Flower.triggerCard({ card, args: triggerArgs, type:type });
+                  this.log('flow triggered' ); 
+                  
 
-                if(cardType=='conditions') {
-                  promise.then(r=> {
-                    this.log('r = ', r);
-                    defer.resolve(r===undefined || r===null ? true : r);
-                  }).catch(err=> {
-                    this.log('err in it', err);
-                    this.error(err);
-                    defer.reject((err.name || err) + ' within ' + card.uri + '.' + card.id);
-                  });
-                } 
-                else return defer.resolve(true);
+                  if(cardType=='conditions') {
+                    promise.then(r=> {
+                      this.log('r = ', r);
+                      defer.resolve(r===undefined || r===null ? true : r);
+                    }).catch(err=> {
+                      this.log('err in it', err);
+                      this.error(err);
+                      defer.reject((err.name || err) + ' within ' + card.uri + '.' + card.id);
+                    });
+                  } 
+                  else return defer.resolve(true);
               }).call(this).then(res=> {
               }).catch(err=> {
                 this.log('Error triggering CardOverloader Card 2');this.error(err); defer.reject('Error message');
@@ -120,7 +120,12 @@ class CardOverloaderDriver extends Homey.Driver
                 //var flowCardsConditions = await homeyApi.getFlowCards({type:'conditions'});
                 //var flowCardsActions = await homeyApi.getFlowCards({type:'actions'});
                 //var flowCards = _.union(flowCardsConditions, flowCardsActions);
+                
+                if (query) flowCards = flowCards.filter(f => f.uri.toLowerCase().indexOf(query.toLowerCase()) > -1);
+                this.log('flowCards args', JSON.stringify(flowCards[2], null, 2));//_.find(flowCards, c=> c.uriObj && c.uriObj.name=='Hoofdlamp badkamer'));
+                
                 this.log('cardToUser.count', cardToUser.id, cardToUser.count);
+                
                 flowCards = flowCards.filter(card => 
                   {
                   return _.every(['text',  'autocomplete'], type=>  _.sumBy( card.args, arg=> arg.type==type)==cardToUser.count[type])
@@ -131,7 +136,6 @@ class CardOverloaderDriver extends Homey.Driver
                   && cardToUser.count.dropdown == _.sumBy( card.args, arg=> arg.type=='dropdown' && !(arg.values.length==2 && (arg.values[0].id === 'true' || arg.values[0].id==='false' ) && (arg.values[1].id === 'true' || arg.values[1].id==='false' )))
                 });
 
-                //this.log('flowCards args', JSON.stringify(flowCards[0].args, null, 2));//_.find(flowCards, c=> c.uriObj && c.uriObj.name=='Hoofdlamp badkamer'));
                 
                 var r = flowCards.map(f => {
                   /// WHATS OUT, ALL NEED TO BE SAME!
@@ -152,6 +156,7 @@ class CardOverloaderDriver extends Homey.Driver
               const argName = arg.name;
               card.getArgument(argName).registerAutocompleteListener(async (query, args) => {
                 try {
+                  if(!args.card || !args.card.refType) return false;
                   const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
                   const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
                   if (!card) return false;                  

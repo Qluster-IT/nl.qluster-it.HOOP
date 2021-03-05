@@ -38,6 +38,8 @@ class HOOPApp extends Homey.App {
     this.initializeConditionsAndActions();
   }
 
+
+
   
   
   initializeConditions() {

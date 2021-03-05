@@ -107,12 +107,14 @@ class MethodGroupDriver extends Homey.Driver
             var defer = new Defer();
             try {
               (async()=>{
+                
                 var flow = await homeyApi.getFlow({ id: args.flow.id });
                 if (!flow.enabled) return true;
                 
+                
                 var triggerManifest = await homeyApi.getFlowCard({ uri:  flow.trigger.uri ,id: flow.trigger.id, type:'triggers' }); 
                 var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
-  
+
                 var promise = Flower.triggerFlow({ flow, tokensAsArgs: triggerArgs, actioncardsmode:args.actioncardsmode });
                 if(cardType=='conditions') 
                   promise.then(r=> {

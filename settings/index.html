@@ -1,0 +1,138 @@
+<html>
+<head>
+    <!-- ... -->
+    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+    <script type="text/javascript" src="//cdn.athom.com/athom-api/3.1.14/athom-api.min.js"></script>
+    
+</head>
+<body>
+    <fieldset>
+        <legend>Homey settings</legend>
+
+        <div class="field row">
+            <label for="clientid">What to do</label>
+            Easiest way is to goto this settingpage through http://developer.athom.com/tools/app-settings)<br/>
+            Goto http://developer.athom.com/api/projects to get your client secret and secret it.<br/>
+            Then click on Save Client.<br/>
+            Then copy the URL from the goto-url into your browser and follow the steps.<br/>
+            When the browser returns, copy the code into the Code from Athom field en click save changes (dont wait to long).<br/>
+        </div>
+        
+        <div class="field row" style="padding-bottom:10px;">
+            <label for="clientid">Client ID</label>
+            <input id="clientid" type="text" style="width:100%;border : 1px solid grey;"></input>
+        </div>
+        
+        <div class="field row" style="padding-bottom:10px;">
+            <label for="clientsecret">Client Secret</label>
+            <input id="clientsecret" type="text" style="width:100%;border : 1px solid grey;"></input>
+        </div>
+
+        <div class="field row" style="padding-bottom:10px;">
+            <button id="saveclient" class="right" style="width:100%;" onclick="setAthom()">Save Client</button>
+        </div>
+
+
+        <div class="field row" style="padding-bottom:10px;">
+            <label for="url">Goto url</label>
+            <textarea id="url" type="text" rows="6" style="width:100%;border : 1px solid grey;"></textarea>
+        </div>
+        <div class="field row" style="padding-bottom:10px;">
+            <button id="refreshurl" class="right" style="width:100%;" >Refresh URL</button>
+        </div>
+        
+
+        <div class="field row" style="padding-bottom:10px;">
+            <label for="code">code from athom</label>
+            <input id="code" type="text" value="" style="border : 1px solid grey;" />
+            <button id="save" class="right" style="width:100%;">Save changes</button>
+        </div>
+
+        <div class="field row" style="padding-bottom:10px;">
+            <textarea id="debug" type="text" columns="40" rows="5" style="width:100%;display:none;"></textarea>
+        </div>
+    </fieldset>
+    <!-- <iframe id="frame" src="index-frame.html" style="width:100%; height: 0.1%; border:none;">        
+    </iframe> -->
+
+
+
+
+    <script type="text/javascript">
+            var _window;
+            var iframe;
+            var code;
+            var url;
+            var debug;
+            let cloudAPI;
+
+            
+            function l(s)  {
+                debug.value+='\r\n' + (s!==undefined ? s.toString() : 'undefined');
+            }
+            
+            function getUrl () {                
+                //setAthom();
+                url.value = cloudAPI.getLoginUrl();
+                return true;
+            }
+
+            
+
+            function setAthom() {
+                var clientid = document.getElementById('clientid').value;
+                var clientsecret = document.getElementById('clientsecret').value;
+                Homey.set('clientid', clientid);
+                Homey.set('clientsecret', clientsecret);
+                    
+
+                AthomCloudAPI.setConfig({
+                    clientId: clientid, //Obtained through the developer portal/Athom
+                    clientSecret: clientsecret, //Obtained through the developer portal/Athom
+                    callbackUrl: 'http://localhost', //Configured through developer portal
+                    redirectUrl: 'http://localhost', //Configured through developer portal
+                    autoRefreshTokens: 1
+                });
+
+                cloudAPI = new AthomCloudAPI(
+                    {
+                        store: new AthomStorageAdapter.LocalStorage('_athom_cloud_api')
+                    }
+                );
+                getUrl();
+            }
+
+        function onHomeyReady( Homey ){
+
+            _window;
+             iframe = document.getElementById('frame');
+            code = document.getElementById('code');
+            url = document.getElementById('url');
+            debug = document.getElementById('debug');
+            
+            l('ready')
+            
+            Homey.ready();
+            
+            try{
+                
+
+                document.getElementById('save').addEventListener('click', function(e) {
+                    Homey.set('authorizationcode', code.value);
+                    Homey.alert('code opgeslagen');                
+                });
+                setAthom();
+            
+            } catch (ex) { 
+                Homey.alert(ex);
+                //console.log('Error:' + ex);
+            }
+
+                
+        }
+
+
+    </script>
+
+</body>
+</html>
