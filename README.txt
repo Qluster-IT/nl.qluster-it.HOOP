@@ -19,7 +19,7 @@ Also a Flow Director is available, giving you If, Or(else), And(Also), Then, Els
 
 You can transform the if-or-or condition groups of a flow into if-or-finally or try-catch-finally.
 
-
-Again, please take a look at the Community Forum Topic before usages.
+Take a look at the settings of the app for how to get your developer access (needs to be set one time).
+And again, please take a look at the Community Forum Topic before usages.
 
 Please report issues on the issues site.

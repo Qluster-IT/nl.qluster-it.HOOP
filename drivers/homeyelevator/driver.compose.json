@@ -6,8 +6,8 @@
   "class": "other",
   "capabilities": [],
   "images": {
-    "large": "/drivers/homeyelevator/assets/images/large.png",
-    "small": "/drivers/homeyelevator/assets/images/small.png"
+    "large": "/drivers/homeyelevator/assets/images/large.jpg",
+    "small": "/drivers/homeyelevator/assets/images/small.jpg"
   },
   "deprecated": true,
   "pair": [

@@ -16,7 +16,6 @@ class HOOPApp extends Homey.App {
   async onInit() { 
     this.log('HOOPApp has been initialized');
     homeyApi.init(this);
-    Script.init(this);
     Flower.init(this);
     //this.log('init', await homeyApi.getDevice({id:'4fbe7935-cfe3-47d4-b552-68e05f9d0e91'}));
 
