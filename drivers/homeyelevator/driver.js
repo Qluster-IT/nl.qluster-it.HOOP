@@ -51,7 +51,7 @@ module.exports = class HomeyDriver extends OAuth2Driver { //Homey.Driver {
 					redirectUrl: 'http://localhost',					
 					clientId : clientId,
 					clientSecret : clientSecret,
-					scopes: ['homey', 'account.homeys']//,
+					scopes: ['homey.devices.readonly', 'homey.flow.readonly', 'homey.flow.start']//, //'account.homeys'
 					//allowMultiSession: true
 				}, homey : this.homey
 			});
@@ -62,7 +62,7 @@ module.exports = class HomeyDriver extends OAuth2Driver { //Homey.Driver {
 			this.log('me', token)
 
 			setInterval((async ()=>{
-				var me = await this.homeyOAuthClient.getMe();
+				var me = await this.homeyOAuthClient.getSessionToken();
 				this.log('me', me)
 			}).bind(this), 12* 60*60*1000); // elke 12 uur
 		}).call(this);
@@ -73,20 +73,20 @@ module.exports = class HomeyDriver extends OAuth2Driver { //Homey.Driver {
 		return await this.homeyOAuthClient.getSessionToken();
 	}
 
-	async onPairListDevices({ oAuth2Client }) {
-		console.log('onPairListDevices');
-		const things = await oAuth2Client.getMe();
-		console.log('me');
-		console.log(me);
-		return things.map(thing => {
-		  return {
-			name: thing.name,
-			data: {
-			  id: thing.id,
-			},
-		  }
-		});
-	}
+	// async onPairListDevices({ oAuth2Client }) {
+	// 	console.log('onPairListDevices');
+	// 	const things = await oAuth2Client.getMe();
+	// 	console.log('me');
+	// 	console.log(me);
+	// 	return things.map(thing => {
+	// 	  return {
+	// 		name: thing.name,
+	// 		data: {
+	// 		  id: thing.id,
+	// 		},
+	// 	  }
+	// 	});
+	// }
 
   }
 

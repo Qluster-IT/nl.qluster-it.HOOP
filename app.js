@@ -4,10 +4,8 @@ const Homey = require('homey');
 const homeyApi = require('./lib/homeyApi');
 const _ = require('lodash');
 const { Defer } = require('./lib/proto');
-const Script = require('./lib/script');
 const Flower = require('./lib/flower');
 
-//const { HomeyAPI } = require('athom-api');
 
 class HOOPApp extends Homey.App {
   /**

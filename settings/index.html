@@ -18,37 +18,37 @@
             When the browser returns, copy the code into the Code from Athom field en click save changes (dont wait to long).<br/>
         </div>
         
-        <div class="field row" style="padding-bottom:10px;">
+        <div class="field row" style="margin-bottom:20px;">
             <label for="clientid">Client ID</label>
             <input id="clientid" type="text" style="width:100%;border : 1px solid grey;"></input>
         </div>
         
-        <div class="field row" style="padding-bottom:10px;">
+        <div class="field row" style="margin-bottom:20px;">
             <label for="clientsecret">Client Secret</label>
             <input id="clientsecret" type="text" style="width:100%;border : 1px solid grey;"></input>
         </div>
 
-        <div class="field row" style="padding-bottom:10px;">
+        <div class="field row" style="margin-bottom:20px;">
             <button id="saveclient" class="right" style="width:100%;" onclick="setAthom()">Save Client</button>
         </div>
 
 
-        <div class="field row" style="padding-bottom:10px;">
+        <div class="field row" style="margin-bottom:20px;">
             <label for="url">Goto url</label>
             <textarea id="url" type="text" rows="6" style="width:100%;border : 1px solid grey;"></textarea>
         </div>
-        <div class="field row" style="padding-bottom:10px;">
+        <div class="field row" style="margin-bottom:20px;">
             <button id="refreshurl" class="right" style="width:100%;" >Refresh URL</button>
         </div>
         
 
-        <div class="field row" style="padding-bottom:10px;">
+        <div class="field row" style="margin-bottom:20px;">
             <label for="code">code from athom</label>
             <input id="code" type="text" value="" style="border : 1px solid grey;" />
-            <button id="save" class="right" style="width:100%;">Save changes</button>
+            <button id="save" class="right" style="width:100%;">Save code</button>
         </div>
 
-        <div class="field row" style="padding-bottom:10px;">
+        <div class="field row" style="margin-bottom:20px;">
             <textarea id="debug" type="text" columns="40" rows="5" style="width:100%;display:none;"></textarea>
         </div>
     </fieldset>
@@ -73,7 +73,7 @@
             
             function getUrl () {                
                 //setAthom();
-                url.value = cloudAPI.getLoginUrl();
+                url.value = cloudAPI.getLoginUrl(['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']);
                 return true;
             }
 
@@ -82,8 +82,8 @@
             function setAthom() {
                 var clientid = document.getElementById('clientid').value;
                 var clientsecret = document.getElementById('clientsecret').value;
-                Homey.set('clientid', clientid);
-                Homey.set('clientsecret', clientsecret);
+                if(clientid)Homey.set('clientid', clientid);
+                if(clientsecret)Homey.set('clientsecret', clientsecret);
                     
 
                 AthomCloudAPI.setConfig({
@@ -91,7 +91,8 @@
                     clientSecret: clientsecret, //Obtained through the developer portal/Athom
                     callbackUrl: 'http://localhost', //Configured through developer portal
                     redirectUrl: 'http://localhost', //Configured through developer portal
-                    autoRefreshTokens: 1
+                    autoRefreshTokens: 1,
+                    scopes: ['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']
                 });
 
                 cloudAPI = new AthomCloudAPI(
@@ -110,6 +111,12 @@
             url = document.getElementById('url');
             debug = document.getElementById('debug');
             
+            Homey.get('clientid', function(err, res) {
+                if(!err) document.getElementById('clientid').value = res;
+            });
+            Homey.get('clientsecret', function(err, res) {
+                if(!err) document.getElementById('clientsecret').value = res;
+            });
             l('ready')
             
             Homey.ready();
