@@ -16,6 +16,7 @@ class ArrayAdapterDriver extends Homey.Driver
         this.log('ArrayAdapter has been initialized');      
 
         this.flows = {};
+        Flower.init(null, this);
     
         this.initializeTriggers();
         this.initializeConditionsAndActions();  

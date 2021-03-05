@@ -15,6 +15,7 @@ class CardOverloaderDriver extends Homey.Driver
     {
         this.log('CardOverloaderDriver has been initialized');    
         this.flows = {};
+        Flower.init(null, this);
     
         this.initializeConditionsAndActions();    
     }
@@ -50,24 +51,25 @@ class CardOverloaderDriver extends Homey.Driver
               number:0,
               boolean:0,
               autocomplete:0,
+              dropdown:0
             }
           };
           var types = actionCard.id.split('__')[1].split('_');
           _.forEach(types, t=> {
             if(t.startsWith('text')) cardToUser.count['text']= Number.parseInt( t.replace('text',''));
             else if(t.startsWith('number')) cardToUser.count['number']= Number.parseInt( t.replace('number',''));
-            else if(t.startsWith('range')) cardToUser.count['range']= Number.parseInt( t.replace('range',''));
-            
+            else if(t.startsWith('range')) cardToUser.count['range']= Number.parseInt( t.replace('range',''));            
             else if(t.startsWith('boolean')) cardToUser.count['boolean']= Number.parseInt( t.replace('boolean',''));
             else if(t.startsWith('autocomplete')) cardToUser.count['autocomplete']= Number.parseInt( t.replace('autocomplete',''));
+            else if(t.startsWith('dropdown')) cardToUser.count['dropdown']= Number.parseInt( t.replace('dropdown',''));
           });
           cardToUser.count.number += cardToUser.count.range || 0;
           
           card.registerRunListener((args, state) => {
-            var defer = new Defer();
+            const defer = new Defer();
             try {
               (async ()=>{
-                  
+                  this.log('error args', args)
                 const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
                 const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
                 if (!card) return false;
@@ -83,18 +85,21 @@ class CardOverloaderDriver extends Homey.Driver
                 var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:card });
                 //var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
 
-                //this.log('triggerArgs -->', triggerArgs);
+                this.log('triggerArgs -->', triggerArgs);
 
                 //var argsToUse = Flower.getArgsForTokens({ flow, args, actionCard:card, triggerCard:triggerManifest  });
                 var promise = Flower.triggerCard({ card, args: triggerArgs, type:type });
-
+                this.log('flow triggered' ); 
                 
 
                 if(cardType=='conditions') {
                   promise.then(r=> {
+                    this.log('r = ', r);
                     defer.resolve(r===undefined || r===null ? true : r);
                   }).catch(err=> {
-                    defer.reject(err + ' within ' + card.uri + '.' + card.id);
+                    this.log('err in it', err);
+                    this.error(err);
+                    defer.reject((err.name || err) + ' within ' + card.uri + '.' + card.id);
                   });
                 } 
                 else return defer.resolve(true);
@@ -119,20 +124,22 @@ class CardOverloaderDriver extends Homey.Driver
                 flowCards = flowCards.filter(card => 
                   {
                   return _.every(['text',  'autocomplete'], type=>  _.sumBy( card.args, arg=> arg.type==type)==cardToUser.count[type])
-                  && _.sumBy( card.args, arg=> arg.type=='number' || arg.type=='range') == cardToUser.count.number
+                  && cardToUser.count.number == _.sumBy( card.args, arg=> arg.type=='number' || arg.type=='range') 
                   //boolean
-                  && _.sumBy( card.args, arg=> arg.type=='dropdown' && arg.values.length==2 && (arg.values[0].id === 'true' || arg.values[0].id==='false' ) && (arg.values[1].id === 'true' || arg.values[1].id==='false' )) == cardToUser.count.boolean
+                  && cardToUser.count.boolean == _.sumBy( card.args, arg=> arg.type=='dropdown' && arg.values.length==2 && (arg.values[0].id === 'true' || arg.values[0].id==='false' ) && (arg.values[1].id === 'true' || arg.values[1].id==='false' ))
+                  //dropdown
+                  && cardToUser.count.dropdown == _.sumBy( card.args, arg=> arg.type=='dropdown' && !(arg.values.length==2 && (arg.values[0].id === 'true' || arg.values[0].id==='false' ) && (arg.values[1].id === 'true' || arg.values[1].id==='false' )))
                 });
 
-                this.log('flowCards has', flowCards);//_.find(flowCards, c=> c.uriObj && c.uriObj.name=='Hoofdlamp badkamer'));
+                //this.log('flowCards args', JSON.stringify(flowCards[0].args, null, 2));//_.find(flowCards, c=> c.uriObj && c.uriObj.name=='Hoofdlamp badkamer'));
                 
                 var r = flowCards.map(f => {
                   /// WHATS OUT, ALL NEED TO BE SAME!
                   if(f.uri.startsWith('homey:device:')) {
-                    return { id: f.uri, name: f.uriObj.name + ' - ' + f.id, description: f.title, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : f.__athom_api_type };
+                    return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.id, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : f.__athom_api_type };
                   } if(f.uri.startsWith('homey:zone:')) {
-                    return { id: f.uri, name: f.uriObj.name + ' - ' + f.id, description: f.title, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : f.__athom_api_type };
-                  } else return { id: f.uri, name: f.uri + ' - ' + f.id, description: f.title, order:0, refUri:f.uri, refId : f.id, refType : f.__athom_api_type }
+                    return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.id, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : f.__athom_api_type };
+                  } else return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.uri + ' - ' + f.id, order:0, refUri:f.uri, refId : f.id, refType : f.__athom_api_type }
                 });
                 if (query) r = r.filter(f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
                 r = _.uniqBy(r, card => card.id);
@@ -143,31 +150,38 @@ class CardOverloaderDriver extends Homey.Driver
             });
             if (actionCard.args.find(x => x.name.indexOf('autocomplete')>-1)) actionCard.args.filter(x => x.name.indexOf('autocomplete')>-1).forEach(arg=>{
               const argName = arg.name;
-                card.getArgument(argName).registerAutocompleteListener(async (query, args) => {
-                  try {
-                    const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
-                    const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
-                    if (!card) return false;
-                    
-                    var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:card });
-                    
-                    var promise = Flower.getFlowCardAutocomplete({ card, args: triggerArgs, type:type, query, autocompleteNumber:1 });
-                    var r = await promise;
-                    
-                    // var r =  n.map(x=> {
-                    //   return {
-                    //   id:x.id || x.name,
-                    //   name:x.name
-                    //   }
-                    // });
-                    r.forEach(x=> x.id= x.id || x.name);
-                    this.log('r------>', r);
+              card.getArgument(argName).registerAutocompleteListener(async (query, args) => {
+                try {
+                  const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
+                  const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
+                  if (!card) return false;                  
+                  var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:card });                  
+                  var promise = Flower.getFlowCardAutocomplete({ card, args: triggerArgs, type:type, query, autocompleteNumber:1 });
+                  var r = await promise;
+                  return r;
 
-                    return r;
+                } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
+              });
+            });
+            if (actionCard.args.find(x => x.name.indexOf('dropdown')>-1)) actionCard.args.filter(x => x.name.indexOf('dropdown')>-1).forEach(arg=>{
+              const argName = arg.name;
+              card.getArgument(argName).registerAutocompleteListener(async (query, args) => {
+                try {
+                  const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
+                  const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
+                  if (!card) return false;
+                  //Only first is option right now.
+                  this.log('card.args', card.args)
+                  var arg = _.find(card.args, a=> a.type=='dropdown');// && !(arg.values.length==2 && (arg.values[0].id === 'true' || arg.values[0].id==='false' ) && (arg.values[1].id === 'true' || arg.values[1].id==='false' ))
+                  this.log('arg', arg)
+                  if(!arg) return false;
 
-                  } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
-                });
-              });          
+                  this.log('arg', arg);
+                  return arg.values;
+
+                } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
+              });
+            }); 
           }
         }
         

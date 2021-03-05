@@ -13,7 +13,8 @@ class FlowDirectorDriver extends Homey.Driver
 {
     async onInit()
     {
-        this.log('FlowDirectorDriver has been initialized');    
+        this.log('FlowDirectorDriver has been initialized');   
+        Flower.init(null, this); 
         this.flowCards = {};
         
         this.initializeConditions();

@@ -1,0 +1,37 @@
+{
+    "id":"methodgroup_action__boolean1_number1",
+    "title" : {
+        "en":"Start Method with Arguments (1 boolean, 1 number)"
+    },"titleFormatted" : {
+        "en":"Start [[flow]] (boolean1:[[boolean_1]], number1:[[number_1]])"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=methodgroup"
+        },
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow",
+                "nl": "Flow"
+            }
+        },
+        {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+                "en": "boolean1"
+            }            
+        },
+        {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+                "en": "number1"
+            }            
+        }
+    ]
+}

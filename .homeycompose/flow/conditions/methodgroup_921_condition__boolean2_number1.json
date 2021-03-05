@@ -1,0 +1,43 @@
+{
+    "id":"methodgroup_condition__boolean2_number1",
+    "title" : {
+        "en":"Start Method with Arguments (2 booleans, 1 number)"
+    },"titleFormatted" : {
+        "en":"Start [[flow]] (boolean1:[[boolean_1]], boolean2:[[boolean_2]], number1:[[number_1]]) !{{|and continue when not successful }}"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=methodgroup"
+        },
+        {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+                "en": "Flow"
+            }
+        },
+        {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+                "en": "boolean1"
+            }            
+        },
+        {
+            "type": "text",
+            "name": "boolean_2",
+            "placeholder": {
+                "en": "boolean2"
+            }            
+        },
+        {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+                "en": "number1"
+            }            
+        }
+    ]
+}

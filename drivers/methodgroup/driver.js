@@ -15,10 +15,12 @@ class MethodGroupDriver extends Homey.Driver
     {
         this.log('MethodGroupDriver has been initialized');      
 
+        Flower.init(null, this);
         this.flows = {};
     
         this.initializeTriggers();
-        this.initializeConditionsAndActions();  
+        this.initializeConditionsAndActions();
+        //await token.setValue(arg); 
     }
 
 

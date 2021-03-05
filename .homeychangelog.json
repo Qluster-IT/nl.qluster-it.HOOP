@@ -1,56 +1,8 @@
 {
-  "1.0.0": {
+  "1.5.0": {
     "en": "Live"
   },
-  "1.0.1": {
-    "en": "Image update"
-  },
-  "1.0.2": {
-    "en": "Removed old condition"
-  },
-  "1.0.3": {
-    "en": "HomeyScript based"
-  },
-  "1.0.4": {
-    "en": "Added Card Overloader"
-  },
-  "1.0.5": {
-    "en": "Added (sychroon) conditions to Card Overloader"
-  },
-  "1.1.0": {
-    "en": "Updated all manuals, topics, readmess "
-  },
-  "1.1.1": {
-    "en": "Bugfixed"
-  },
-  "1.1.2": {
-    "en": "ready"
-  },
-  "1.1.3": {
-    "en": "Added conditions mode in trigger: if-or-or (default) and if-or-finally(!)"
-  },
-  "1.1.5": {
-    "en": "Changes icon"
-  },
-  "1.1.6": {
-    "en": "Added Flow Director - If Then Else EndIf cards within conditional part"
-  },
-  "1.1.7": {
-    "en": "Added Or(Else) cards to Flow Director and And(Also) choice for If-Card"
-  },
-  "1.1.8": {
-    "en": "Added error and stacktrace tokens to Method Group triggers, being updated during flow execution, making error handling possible"
-  },
-  "1.2.0": {
-    "en": "Added Else If condition-card to Flow Director"
-  },
-  "1.3.0": {
-    "en": "Updated readme"
-  },
-  "1.3.1": {
-    "en": "json improved"
-  },
-  "1.4.0": {
-    "en": "Fixed Else-If card"
+  "1.5.1": {
+    "en": "textual"
   }
 }

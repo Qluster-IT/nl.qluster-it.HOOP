@@ -15,7 +15,7 @@
             "type": "autocomplete",
             "name": "card",
             "placeholder": {
-                "en": "Type in the app-uri or device name"
+                "en": "Type in the app or device name"
             }
         },
         {

@@ -1,6 +1,6 @@
 {
   "id": "nl.qluster-it.HOOP",
-  "version": "1.4.0",
+  "version": "1.5.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -9,8 +9,7 @@
   },
   "brandColor": "#3D64AC",
   "description": {
-    "en": "Homey Object Oriented Programming",
-    "nl": "Homey Object geOriënteerd Programmeren"
+    "en": "Homey Object Oriented Programming"
   },
   "category": [
     "tools"

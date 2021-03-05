@@ -1,0 +1,95 @@
+{
+    "id": "methodgroup_trigger__boolean1_number1",
+    
+    "title": {
+      "en": "Method with Arguments (1 boolean, 1 number) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+    },
+    "args": [
+      {
+          "type" : "device",
+          "name" : "device",
+          "filter": "driver_id=methodgroup"
+      },
+      {
+          "type": "dropdown",
+          "name": "conditioncardsmode",
+          "placeholder": {
+              "en": "Conditioncard mode"
+          },
+          "values": [
+              {
+                  "id": "if-or-or",
+                  "name": "if-or-or",
+                  "label": {
+                    "en": "If-Or-Or (Default)"
+                  }
+              },{
+                  "id": "if-or-finally",
+                  "name": "if-or-finally",
+                  "label": {
+                    "en": "If-Or-Finally"
+                  }
+              },{
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+          ]
+      },
+      {
+          "type": "dropdown",
+          "name": "actioncardsmode",
+          "placeholder": {
+              "en": "Actioncard mode"
+          },
+          "values": [
+              {
+                  "id": "async",
+                  "name": "async",
+                  "label": {
+                    "en": "Executing actioncards asynchroon (default)"
+                  }
+              },{
+                  "id": "sync",
+                  "name": "sync",
+                  "label": {
+                    "en": "Executing actioncards synchroon"
+                  }
+              }
+          ]
+      }
+    ],
+    "tokens": [
+      {
+        "name": "boolean_1",
+        "type": "boolean",
+        "title": {
+          "en": "boolean1"
+        }
+      },
+      {
+        "name": "boolean_1_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "boolean1 has value"
+        }
+      },
+      {
+        "name": "number_1",
+        "type": "number",
+        "title": {
+          "en": "number1"
+        }
+      },
+      {
+        "name": "number_1_hasvalue",
+        "type": "boolean",
+        "title": {
+          "en": "number1 has value"
+        }
+      }
+    ]    
+    
+  }

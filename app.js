@@ -23,6 +23,11 @@ class HOOPApp extends Homey.App {
     this.flows = {};
 
     
+    const tokenError = await this.homey.flow.createToken('error', { type: 'string', title: 'error' })
+    const tokenStackTrace = await this.homey.flow.createToken('stacktrace', { type: 'string', title: 'stacktrace' })
+
+    //const tokenStackTrace = await this.homey.flow.createToken('stacktrace', { type: 'string', title: 'stacktrace' })
+    
 
     // var homey = await this.getHomeyAPI();
     // this.log('homey.flow', homey.flow);
