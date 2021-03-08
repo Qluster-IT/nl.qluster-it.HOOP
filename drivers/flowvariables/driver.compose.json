@@ -1,13 +1,13 @@
 {
-  "id": "flowdirector",
+  "id": "flowvariables",
   "name": {
-    "en": "Flow Director"
+    "en": "Flow Variables"
   },
   "class": "other",
-  "capabilities": ["flowvariables_text1"],
+  "capabilities": [],
   "images": {
-    "large": "/drivers/flowdirector/assets/images/large.png",
-    "small": "/drivers/flowdirector/assets/images/small.png"
+    "large": "/drivers/flowvariables/assets/images/large.png",
+    "small": "/drivers/flowvariables/assets/images/small.png"
   },
   "pair": [
     {

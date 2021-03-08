@@ -80,9 +80,11 @@ class CardOverloaderDriver extends Homey.Driver
                   // if(cardType=='conditions') return await promise;
                   // else return true;
                   
-                  //var triggerManifest = await homeyApi.getFlowCard({ uri:  args.card.refUri ,id: args.card.refId, type:type });
+                  //this.log('args -->', args);
+                  var manifest = await homeyApi.getFlowCard({ uri:  args.card.refUri ,id: args.card.refId, type:type });
                   
-                  var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:card });
+                  this.log('manifest.args -->', manifest.args);
+                  var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:manifest });
                   //var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
 
                   this.log('triggerArgs -->', triggerArgs);
