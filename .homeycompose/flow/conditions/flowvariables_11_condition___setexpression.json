@@ -1,0 +1,26 @@
+{
+    "id":"flowvariables_condition___setexpression",
+    "droptoken":["string","number","boolean"],
+    "title" : {
+        "en":"Set Variable (expression)"        
+    },"titleFormatted" : {
+        "en":"Set [[droptoken]] to [[expression]]"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=flowvariables"
+        },
+        {
+            "type" : "text",
+            "name" : "expression",
+            "placeholder": {
+                "en": "\"Hallo\" or 1+1"
+            },
+            "title": {
+                "en": "Expression"
+            }  
+        }
+    ]
+}

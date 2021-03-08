@@ -1,0 +1,28 @@
+{
+  "id": "flowdirector",
+  "name": {
+    "en": "Flow Director"
+  },
+  "class": "other",
+  "capabilities": ["flowvariables_text1"],
+  "images": {
+    "large": "/drivers/flowdirector/assets/images/large.png",
+    "small": "/drivers/flowdirector/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_my_devices"
+      },
+      "options": {
+        "singular": true
+      }
+    },
+    {
+      "id": "add_my_devices",
+      "template": "add_devices"
+    }
+  ]
+}
