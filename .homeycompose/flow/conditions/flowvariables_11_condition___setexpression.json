@@ -1,0 +1,76 @@
+{
+    "id":"flowvariables_condition___setexpression",
+    "title" : {
+        "en":"Set Variable (expression)"        
+    },"titleFormatted" : {
+        "en":"Set [[type]] [[name]] to [[expression]]"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=flowvariables"
+        },
+        {
+            "type" : "text",
+            "name" : "expression",
+            "placeholder": {
+                "en": "\"Hallo\" or 1+1 or Math.floor(1.5)"
+            },
+            "title": {
+                "en": "Expression"
+            }  
+        },
+        {
+            "type" : "autocomplete",
+            "name" : "name",
+            "placeholder": {
+                "en": "Type or select"
+            },
+            "title": {
+                "en": "Name"
+            }
+        },
+        {
+            "type" : "dropdown",
+            "name" : "type",
+            "placeholder": {
+                "en": "Type"
+            },
+            "title": {
+                "en": "Type"
+            },
+            "values": [
+                {
+                  "id": "boolean",
+                  "name": "Boolean",
+                  "label": {
+                    "en": "Boolean"
+                  }
+                },
+                {
+                  "id": "number",
+                  "name": "Number",
+                  "label": {
+                    "en": "Number"
+                  }
+                },
+                {
+                    "id": "string",
+                    "name": "String",
+                    "label": {
+                      "en": "String"
+                    }
+                },
+                {
+                    "id": "json",
+                    "name": "Json",
+                    "label": {
+                      "en": "Json"
+                    }
+                }
+              ]
+        }
+    
+    ]
+}

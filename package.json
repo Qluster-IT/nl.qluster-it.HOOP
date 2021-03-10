@@ -8,6 +8,7 @@
   "dependencies": {
     "homey-oauth2app": "^3.0.9",
     "lodash": "^4.17.21",
+    "safe-eval": "^0.4.1",
     "uuid": "^8.3.2"
   }
 }

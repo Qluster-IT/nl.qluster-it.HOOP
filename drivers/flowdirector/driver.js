@@ -68,15 +68,15 @@ class FlowDirectorDriver extends Homey.Driver
   initializeConditionsAndActions() {
     ['flowdirector_condition__','flowdirector_action__'].forEach((cardName => {
         const cardType = cardName.startsWith('flowdirector_condition_') ? 'conditions' : 'actions';
-        if(['flowdirector_condition__throw', 'flowdirector_action__throw'].indexOf(cardName)>-1) return;
-        for (let actionCardIndex = 0; actionCardIndex < homeyApi.app.manifest.flow[cardType].length; actionCardIndex++) {
-          const actionCard = homeyApi.app.manifest.flow[cardType][actionCardIndex];
-          if (!actionCard.id.startsWith('flowdirector_')) continue;
-          const card = this.homey.flow[cardType =='actions' ? 'getActionCard': 'getConditionCard'](actionCard.id);          
-          card.registerRunListener(async(args, state) => {
-            return Promise.reject('Flow Director cards can only be used in flows that are started by H.O.O.P.');
-          });          
-        }        
+        if(['flowdirector_condition___', 'flowdirector_action___'].indexOf(cardName)>-1) 
+          for (let actionCardIndex = 0; actionCardIndex < homeyApi.app.manifest.flow[cardType].length; actionCardIndex++) {
+            const actionCard = homeyApi.app.manifest.flow[cardType][actionCardIndex];
+            if (!actionCard.id.startsWith('flowdirector_')) continue;
+            const card = this.homey.flow[cardType =='actions' ? 'getActionCard': 'getConditionCard'](actionCard.id);          
+            card.registerRunListener(async(args, state) => {
+              return Promise.reject('Flow Director cards can only be used in flows that are started by H.O.O.P.');
+            });          
+          }        
       }).bind(this));
       ['flowdirector_condition__throw', 'flowdirector_action__throw'].forEach((cardName=>{ 
         this.flowCards[cardName.startsWith('flowdirector_condition') ? 'conditions' : 'actions'][cardName].card.registerRunListener(({message} = {}, state) => {

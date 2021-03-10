@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "nl.qluster-it.HOOP",
-  "version": "1.6.1",
+  "version": "1.6.4",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -2487,6 +2487,36 @@
         ]
       },
       {
+        "id": "cardoverloader_condition__dropdown1",
+        "title": {
+          "en": "Overload a Card with Arguments (1 dropdown) !{{|and continue when not successful }}"
+        },
+        "titleFormatted": {
+          "en": "Await [[card]] (dropdown1:[[dropdown_1]]) !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=cardoverloader"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "dropdown_1",
+            "placeholder": {
+              "en": "dropdown1"
+            }
+          }
+        ]
+      },
+      {
         "id": "cardoverloader_condition__dropdown1_boolean1",
         "title": {
           "en": "Overload a Card with Arguments (1 dropdown, 1 boolean) !{{|and continue when not successful }}"
@@ -2773,6 +2803,82 @@
             "placeholder": {
               "en": "Message"
             }
+          }
+        ]
+      },
+      {
+        "id": "flowvariables_condition___setexpression",
+        "title": {
+          "en": "Set Variable (expression)"
+        },
+        "titleFormatted": {
+          "en": "Set [[type]] [[name]] to [[expression]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowvariables"
+          },
+          {
+            "type": "text",
+            "name": "expression",
+            "placeholder": {
+              "en": "\"Hallo\" or 1+1 or Math.floor(1.5)"
+            },
+            "title": {
+              "en": "Expression"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "name",
+            "placeholder": {
+              "en": "Type or select"
+            },
+            "title": {
+              "en": "Name"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "type",
+            "placeholder": {
+              "en": "Type"
+            },
+            "title": {
+              "en": "Type"
+            },
+            "values": [
+              {
+                "id": "boolean",
+                "name": "Boolean",
+                "label": {
+                  "en": "Boolean"
+                }
+              },
+              {
+                "id": "number",
+                "name": "Number",
+                "label": {
+                  "en": "Number"
+                }
+              },
+              {
+                "id": "string",
+                "name": "String",
+                "label": {
+                  "en": "String"
+                }
+              },
+              {
+                "id": "json",
+                "name": "Json",
+                "label": {
+                  "en": "Json"
+                }
+              }
+            ]
           }
         ]
       },
@@ -4391,6 +4497,34 @@
       "images": {
         "large": "/drivers/flowdirector/assets/images/large.png",
         "small": "/drivers/flowdirector/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          },
+          "options": {
+            "singular": true
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "flowvariables",
+      "name": {
+        "en": "Flow Variables"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/flowvariables/assets/images/large.png",
+        "small": "/drivers/flowvariables/assets/images/small.png"
       },
       "pair": [
         {

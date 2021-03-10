@@ -1,0 +1,28 @@
+{
+  "id": "flowvariables",
+  "name": {
+    "en": "Flow Variables"
+  },
+  "class": "other",
+  "capabilities": [],
+  "images": {
+    "large": "/drivers/flowvariables/assets/images/large.png",
+    "small": "/drivers/flowvariables/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_my_devices"
+      },
+      "options": {
+        "singular": true
+      }
+    },
+    {
+      "id": "add_my_devices",
+      "template": "add_devices"
+    }
+  ]
+}

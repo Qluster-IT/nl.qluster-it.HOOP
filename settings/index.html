@@ -1,145 +1,125 @@
-<html>
-<head>
-    <!-- ... -->
-    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
-    <script type="text/javascript" src="//cdn.athom.com/athom-api/3.1.14/athom-api.min.js"></script>
-    
-</head>
-<body>
-    <fieldset>
-        <legend>Homey settings</legend>
+<!DOCTYPE html>
+<html ng-app="HOOPApp">
+    <head>
+        <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+        <script type="text/javascript" src="//cdn.athom.com/athom-api/3.1.14/athom-api.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="bootstrap.css" />
+        <script type="text/javascript" src="/manager/webserver/assets/js/angular.js"></script>
+        <script type="text/javascript" src="smart-table.min.js"></script>
+        <script type="text/javascript" src="HOOPAppController.js"></script>
+    </head>
 
-        <div class="field row">
-            <label for="clientid">What to do</label>
-            Easiest way is to goto this settingpage through http://developer.athom.com/tools/app-settings)<br/>
+    <body ng-controller="HOOPAppController as hoop">        
+        <textarea id="debug" type="text" columns="40" rows="5" style="width:100%;display:none;"></textarea>
+        <h2>How to get developer access?</h2>
+        <p>Easiest way is to goto this settingpage through http://developer.athom.com/tools/app-settings).<br/>
             Goto http://developer.athom.com/api/projects to get your client secret and secret it.<br/>
             Then click on Save Client.<br/>
             Then copy the URL from the goto-url into your browser and follow the steps.<br/>
-            When the browser returns, copy the code into the Code from Athom field en click save changes (dont wait to long).<br/>
-        </div>
-        
-        <div class="field row" style="margin-bottom:20px;">
-            <label for="clientid">Client ID</label>
-            <input id="clientid" type="text" style="width:100%;border : 1px solid grey;"></input>
-        </div>
-        
-        <div class="field row" style="margin-bottom:20px;">
-            <label for="clientsecret">Client Secret</label>
-            <input id="clientsecret" type="text" style="width:100%;border : 1px solid grey;"></input>
-        </div>
-
-        <div class="field row" style="margin-bottom:20px;">
-            <button id="saveclient" class="right" style="width:100%;" onclick="setAthom()">Save Client</button>
-        </div>
-
-
-        <div class="field row" style="margin-bottom:20px;">
-            <label for="url">Goto url</label>
-            <textarea id="url" type="text" rows="6" style="width:100%;border : 1px solid grey;"></textarea>
-        </div>
-        <div class="field row" style="margin-bottom:20px;">
-            <button id="refreshurl" class="right" style="width:100%;" >Refresh URL</button>
-        </div>
-        
-
-        <div class="field row" style="margin-bottom:20px;">
-            <label for="code">code from athom</label>
-            <input id="code" type="text" value="" style="border : 1px solid grey;" />
-            <button id="save" class="right" style="width:100%;">Save code</button>
-        </div>
-
-        <div class="field row" style="margin-bottom:20px;">
-            <textarea id="debug" type="text" columns="40" rows="5" style="width:100%;display:none;"></textarea>
-        </div>
-    </fieldset>
-    <!-- <iframe id="frame" src="index-frame.html" style="width:100%; height: 0.1%; border:none;">        
-    </iframe> -->
-
-
-
-
-    <script type="text/javascript">
-            var _window;
-            var iframe;
-            var code;
-            var url;
-            var debug;
-            let cloudAPI;
-
+            When the browser returns, copy the code into the Code from Athom field en click save changes (dont wait to long).<br/></p>
+        <div >
+            <div class="panel panel-default">
+                <div class="panel-heading">developer access</div>
+                <div class="panel-body">
+                    <fieldset>                
+                        <div class="form-group" style="margin-bottom:20px;">
+                            <label for="clientid">Client ID</label>
+                            <input class="form-control" id="clientid" type="text" style="border : 1px solid grey;" ng-model="hoop.clientid"></input>
+                        </div>
+                        
+                        <div class="form-group" style="margin-bottom:20px;">
+                            <label for="clientsecret">Client Secret</label>
+                            <input class="form-control" id="clientsecret" type="text" style="border : 1px solid grey;" ng-model="hoop.clientsecret"></input>
+                        </div>
+                
+                        <div class="form-group" style="margin-bottom:20px;">
+                            <button class="btn btn-default" id="saveclient" class="right" ng-click="hoop.saveAthomClient()">Save Client</button>
+                        </div>
+                
+                
+                        <div class="form-group" style="margin-bottom:20px;">
+                            <label for="url">Goto url</label>
+                            <textarea class="form-control" id="url" type="text" rows="6" style="border : 1px solid grey;" ng-model="hoop.cloudurl"></textarea>
+                        </div>
+                        
+                
+                        <div class="form-group" style="margin-bottom:20px;">
+                            <label for="code">code from athom</label>
+                            <input id="code" type="text" style="border : 1px solid grey;" ng-model="hoop.authorizationcode"/>
+                            <button class="btn btn-default" id="save" class="right" ng-click="hoop.saveCode()">Save code</button>
+                        </div>
+                
+                        <div class="form-group" style="margin-bottom:20px;">
+                            <textarea class="form-control" id="debug" type="text" columns="40" rows="5" style="display:none;"></textarea>
+                        </div>
             
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        
+
+        <h2>Functions</h2>
+        <p>Be aware that removing functions could corrupt flows that are using that function.</p>
+        <div >
+            <div class="panel panel-default">
+                <div class="panel-heading">Add function</div>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="functionName">Function name</label>
+                            <input class="form-control" id="functionName" type="text" ng-model="hoop.newFunction.name" placeholder="Name"><span class="error">{{hoop.messages}}</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button class="btn btn-default" type="button" ng-disabled="!hoop.newFunction.name" ng-click="hoop.addFunction()">Add function</button>                        
+                            <button class="btn btn-default" type="button" ng-click="hoop.deleteAll()">Delete All</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <table st-safe-src="hoop.functions" st-table="displayedCollection" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th st-sort="name" colspan="3">Name</th>
+                    </tr>
+                    <tr>
+                        <th colspan="3">
+                            <input st-search="name" placeholder="search for name" class="input-sm form-control" type="search" />
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="function in displayedCollection" >
+                        <td>{{function.name}}</td>
+                        <td><button ng-click="hoop.editFunction(function)">edit</button></td>
+                        <td><button ng-click="hoop.removeFunction(function)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="editFunction" style="width:100%;height:100%;position:fixed;top:0px;background-color: white;" ng-if="hoop.editFunctionItem">
+            <input  class="input-sm form-control" style="height:40px;" ng-model="hoop.editFunctionItem.name" />
+            <textarea style="width:100%;height:calc(100% - 80px)" ng-model="hoop.editFunctionItem.value"></textarea>
+            <button style="height:40px;" ng-click="hoop.saveActiveFunction()">Save</button><button style="height:40px;" style="position:relative;float:right;" ng-click="hoop.saveActiveFunction(true)">Save & Close</button>
+        </div>
+
+        <script type="text/javascript">        
+            //var debug = document.getElementById('debug');
             function l(s)  {
-                debug.value+='\r\n' + (s!==undefined ? s.toString() : 'undefined');
-            }
-            
-            function getUrl () {                
-                //setAthom();
-                url.value = cloudAPI.getLoginUrl(['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']);
-                return true;
+                document.getElementById('debug').value+='\r\n' + (s!==undefined ? s.toString() : 'undefined');
             }
 
-            
-
-            function setAthom() {
-                var clientid = document.getElementById('clientid').value;
-                var clientsecret = document.getElementById('clientsecret').value;
-                if(clientid)Homey.set('clientid', clientid);
-                if(clientsecret)Homey.set('clientsecret', clientsecret);
-                    
-
-                AthomCloudAPI.setConfig({
-                    clientId: clientid, //Obtained through the developer portal/Athom
-                    clientSecret: clientsecret, //Obtained through the developer portal/Athom
-                    callbackUrl: 'http://localhost', //Configured through developer portal
-                    redirectUrl: 'http://localhost', //Configured through developer portal
-                    autoRefreshTokens: 1,
-                    scopes: ['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']
+            function onHomeyReady(Homey) {
+                Homey.ready();
+                var element = document.getElementById('functionName');
+                var scope = angular.element(element).scope();
+                scope.$apply(function() {
+                    scope.hoop.setHomey(Homey, scope, l);
                 });
-
-                cloudAPI = new AthomCloudAPI(
-                    {
-                        store: new AthomStorageAdapter.LocalStorage('_athom_cloud_api')
-                    }
-                );
-                getUrl();
             }
-
-        function onHomeyReady( Homey ){
-
-            _window;
-             iframe = document.getElementById('frame');
-            code = document.getElementById('code');
-            url = document.getElementById('url');
-            debug = document.getElementById('debug');
-            
-            Homey.get('clientid', function(err, res) {
-                if(!err) document.getElementById('clientid').value = res;
-            });
-            Homey.get('clientsecret', function(err, res) {
-                if(!err) document.getElementById('clientsecret').value = res;
-            });
-            l('ready')
-            
-            Homey.ready();
-            
-            try{
-                
-
-                document.getElementById('save').addEventListener('click', function(e) {
-                    Homey.set('authorizationcode', code.value);
-                    Homey.alert('code opgeslagen');                
-                });
-                setAthom();
-            
-            } catch (ex) { 
-                Homey.alert(ex);
-                //console.log('Error:' + ex);
-            }
-
-                
-        }
-
-
-    </script>
-
-</body>
+        </script>
+    </body>
 </html>

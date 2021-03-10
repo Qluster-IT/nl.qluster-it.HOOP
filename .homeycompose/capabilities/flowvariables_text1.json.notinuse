@@ -1,0 +1,9 @@
+{
+  "type": "string",
+  "title": {
+    "en": "text1"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": null
+}

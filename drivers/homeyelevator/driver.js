@@ -58,6 +58,9 @@ module.exports = class HomeyDriver extends OAuth2Driver { //Homey.Driver {
 			//this.homeyOAuthController.deleteOAuth2Client({sessionId:"735d5f4b-150a-4d39-ad12-65b3b65e79f6", configId:"default"});
 			this.homeyOAuthClient = await this.homeyOAuthController.getClient(code); //code
 			this.flow = this.devices = this.homeyOAuthClient;
+			this.homeyOAuthClient.refresh = async ()=> {
+				return this.getToken();
+			}
 			var token = await this.homeyOAuthClient.getSessionToken();
 			this.log('me', token)
 
