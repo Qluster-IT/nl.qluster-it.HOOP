@@ -104,6 +104,8 @@ class MethodGroupDriver extends Homey.Driver
             manifest: actionCard
           };
           card.registerRunListener((args, state) => {
+            this.log(cardName + '.registerRunListener state', state);
+            this.log(cardName + '.registerRunListener flow.id ', args.flow.id);
             var defer = new Defer();
             try {
               (async()=>{
