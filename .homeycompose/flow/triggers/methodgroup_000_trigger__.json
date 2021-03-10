@@ -2,20 +2,13 @@
     "id": "methodgroup_trigger__",
     
     "title": {
-      "en": "Method [[id]] without Arguments, conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+      "en": "Method without Arguments, conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
     },
     "args": [
       {
           "type" : "device",
           "name" : "device",
           "filter": "driver_id=methodgroup"
-      },
-      {
-        "type": "autocomplete",
-        "name": "id",
-        "placeholder": {
-          "en": "ID"
-        }
       },
       {
           "type": "dropdown",

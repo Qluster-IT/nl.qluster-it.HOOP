@@ -2,20 +2,13 @@
     "id": "methodgroup_trigger__text2_number1",
     
     "title": {
-      "en": "Method [[id]] with Arguments (2 texts, 1 number) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+      "en": "Method with Arguments (2 texts, 1 number) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
     },
     "args": [
       {
           "type" : "device",
           "name" : "device",
           "filter": "driver_id=methodgroup"
-      },
-      {
-        "type": "autocomplete",
-        "name": "id",
-        "placeholder": {
-          "en": "ID"
-        }
       },
       {
           "type": "dropdown",
