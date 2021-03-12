@@ -9,57 +9,60 @@
         <script type="text/javascript" src="HOOPAppController.js"></script>
     </head>
 
-    <body ng-controller="HOOPAppController as hoop">        
-        <textarea id="debug" type="text" columns="40" rows="5" style="width:100%;display:none;"></textarea>
-        <h2>How to get developer access?</h2>
-        <p>Easiest way is to goto this settingpage through http://developer.athom.com/tools/app-settings).<br/>
-            Goto http://developer.athom.com/api/projects to get your client secret and secret it.<br/>
-            Then click on Save Client.<br/>
-            Then copy the URL from the goto-url into your browser and follow the steps.<br/>
-            When the browser returns, copy the code into the Code from Athom field en click save changes (dont wait to long).<br/></p>
-        <div >
-            <div class="panel panel-default">
-                <div class="panel-heading">developer access</div>
-                <div class="panel-body">
-                    <fieldset>                
-                        <div class="form-group" style="margin-bottom:20px;">
-                            <label for="clientid">Client ID</label>
-                            <input class="form-control" id="clientid" type="text" style="border : 1px solid grey;" ng-model="hoop.clientid"></input>
-                        </div>
-                        
-                        <div class="form-group" style="margin-bottom:20px;">
-                            <label for="clientsecret">Client Secret</label>
-                            <input class="form-control" id="clientsecret" type="text" style="border : 1px solid grey;" ng-model="hoop.clientsecret"></input>
-                        </div>
+    <body ng-controller="HOOPAppController as hoop">
+        <div style="display:none;">
+            <textarea id="debug" type="text" columns="40" rows="5" style="width:100%;display:none;"></textarea>
+            <h2>How to get developer access?</h2>
+            <p>Easiest way is to goto this settingpage through http://developer.athom.com/tools/app-settings).<br/>
+                Goto http://developer.athom.com/api/projects to get your client id and client secret.<br/>
+                Then click on Save Client.<br/>
+                Then copy the URL from the goto-url into your browser and follow the steps.<br/>
+                When the browser returns (with an error that localhost doesn't exists), copy the code from the (localhost-) URL into the Code from Athom field en click save changes (dont wait to long).<br/></p>
+            <div >
+                <div class="panel panel-default">
+                    <div class="panel-heading">developer access</div>
+                    <div class="panel-body">
+                        <fieldset>                
+                            <div class="form-group" style="margin-bottom:20px;">
+                                <label for="clientid">Client ID</label>
+                                <input class="form-control" id="clientid" type="text" style="border : 1px solid grey;" ng-model="hoop.clientid"></input>
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom:20px;">
+                                <label for="clientsecret">Client Secret</label>
+                                <input class="form-control" id="clientsecret" type="text" style="border : 1px solid grey;" ng-model="hoop.clientsecret"></input>
+                            </div>
+                    
+                            <div class="form-group" style="margin-bottom:20px;">
+                                <button class="btn btn-default" id="saveclient" class="right" ng-click="hoop.saveAthomClient()">Save Client</button>
+                            </div>
+                    
+                    
+                            <div class="form-group" style="margin-bottom:20px;">
+                                <label for="url">Goto url</label>
+                                <textarea class="form-control" id="url" type="text" rows="6" style="border : 1px solid grey;" ng-model="hoop.cloudurl"></textarea>
+                            </div>
+                            
+                    
+                            <div class="form-group" style="margin-bottom:20px;">
+                                <label for="code">code from athom</label>
+                                <input id="code" type="text" style="border : 1px solid grey;" ng-model="hoop.authorizationcode"/>
+                                <button class="btn btn-default" id="save" class="right" ng-click="hoop.saveCode()">Save code</button>
+                            </div>
+                    
+                            <div class="form-group" style="margin-bottom:20px;">
+                                <textarea class="form-control" id="debug" type="text" columns="40" rows="5" style="display:none;"></textarea>
+                            </div>
                 
-                        <div class="form-group" style="margin-bottom:20px;">
-                            <button class="btn btn-default" id="saveclient" class="right" ng-click="hoop.saveAthomClient()">Save Client</button>
-                        </div>
-                
-                
-                        <div class="form-group" style="margin-bottom:20px;">
-                            <label for="url">Goto url</label>
-                            <textarea class="form-control" id="url" type="text" rows="6" style="border : 1px solid grey;" ng-model="hoop.cloudurl"></textarea>
-                        </div>
-                        
-                
-                        <div class="form-group" style="margin-bottom:20px;">
-                            <label for="code">code from athom</label>
-                            <input id="code" type="text" style="border : 1px solid grey;" ng-model="hoop.authorizationcode"/>
-                            <button class="btn btn-default" id="save" class="right" ng-click="hoop.saveCode()">Save code</button>
-                        </div>
-                
-                        <div class="form-group" style="margin-bottom:20px;">
-                            <textarea class="form-control" id="debug" type="text" columns="40" rows="5" style="display:none;"></textarea>
-                        </div>
-            
-                    </fieldset>
+                        </fieldset>
+                    </div>
                 </div>
             </div>
         </div>
         
 
         <h2>Functions</h2>
+        <p>These functions can be used within (javascript) expression, such as in Flow Vairable cards.</p>
         <p>Be aware that removing functions could corrupt flows that are using that function.</p>
         <div >
             <div class="panel panel-default">
