@@ -45,6 +45,7 @@
                     var el = document.getElementById('output');
                     Homey.emit('authorizationcode', el.value)
                     Homey.alert('code saved');
+                    Homey.done();
                 } catch (error) {                    
                     Homey.alert('error; ' + error);
                 }
