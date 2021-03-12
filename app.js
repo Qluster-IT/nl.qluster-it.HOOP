@@ -140,7 +140,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 			this.client = await this.getClient(code); //code
       this.homey.drivers.getDriver('homeyelevator').client = this.client;
       
-			
+			this.refreshOwnFlows();
 			this.client.refresh = async ()=> {
 				return this.getToken();
 			}

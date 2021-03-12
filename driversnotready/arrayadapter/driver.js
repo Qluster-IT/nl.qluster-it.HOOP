@@ -81,18 +81,18 @@ class ArrayAdapterDriver extends Homey.Driver
         });
       }
         
-        card.on('update', this.refreshFlowTriggers.bind(this, triggerCards[triggerCard.id]))
-        this.refreshFlowTriggers(triggerCards[triggerCard.id]);
+        // card.on('update', this.refreshFlowTriggers.bind(this, triggerCards[triggerCard.id]))
+        // this.refreshFlowTriggers(triggerCards[triggerCard.id]);
       
     }
   }
 
 
   // //Build in notification if double ID!
-  async refreshFlowTriggers(trigger) {
-    var flows = await homeyApi.getOwnTriggerFlows({ device: this, refresh: true, triggerCardId: trigger.id });
-    trigger.flows = flows || [];
-  }
+  // async refreshFlowTriggers(trigger) {
+  //   var flows = await homeyApi.getOwnTriggerFlows({ device: this, refresh: true, triggerCardId: trigger.id });
+  //   trigger.flows = flows || [];
+  // }
 
 
   initializeConditionsAndActions() {
