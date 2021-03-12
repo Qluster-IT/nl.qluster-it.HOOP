@@ -9,8 +9,11 @@
     "large": "/drivers/homeyelevator/assets/images/large.jpg",
     "small": "/drivers/homeyelevator/assets/images/small.jpg"
   },
-  "deprecated": true,
+  
   "pair": [
+    {
+      "id": "start"
+    },
     {
       "id": "list_devices",
       "template": "list_devices",

@@ -6,6 +6,7 @@
     "homey": "^2.9.7"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "homey-oauth2app": "^3.0.9",
     "lodash": "^4.17.21",
     "safe-eval": "^0.4.1",

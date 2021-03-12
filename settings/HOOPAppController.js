@@ -60,6 +60,12 @@
                     }
                 });
             });
+            this.homey.get('homeyid', (err, res) => {                    
+                //if(!err) this.homey.alert('clientid:' + res);                    
+                if(!err) this.scope.$apply(()=> {
+                    this.homeyid = res;
+                });
+            });
             
         }
         this.saveAthomClient = function() {
@@ -68,11 +74,12 @@
             this.setAthomClient();
         }
         this.setAthomClient = function() {
+            Homey.alert
             AthomCloudAPI.setConfig({
                 clientId: this.clientid, //Obtained through the developer portal/Athom
                 clientSecret: this.clientsecret, //Obtained through the developer portal/Athom
                 callbackUrl: 'http://localhost', //Configured through developer portal
-                redirectUrl: 'http://localhost', //Configured through developer portal
+                redirectUrl: 'https://cli.athom.com?clientid='+this.homeyid,//'http://localhost', //Configured through developer portal
                 autoRefreshTokens: 1,
                 scopes: ['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']
             });

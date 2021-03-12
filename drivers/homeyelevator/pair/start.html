@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html  style="height:100%;position:relative;">
+    <head>
+        <!-- <script type="text/javascript" src="./../../../settings/homey.js" data-origin="settings"></script>
+        <script type="text/javascript" src="/homey.js" data-origin="settings"></script> -->
+        <script type="text/javascript" src="//cdn.athom.com/athom-api/3.1.14/athom-api.min.js"></script>
+        <script type="text/javascript">
+            
+            //var debug = document.getElementById('debug');
+            // function l(s)  {
+            //     document.getElementById('debug').value+='\r\n' + (s!==undefined ? s.toString() : 'undefined');
+            // }
+            //Homey.alert('homey ready');            
+            Homey.setTitle('Login, copy code, then paste it into the field and press save');
+
+            
+            document.execCommand("copy");
+            // this.interval = setInterval((async (navigator)=> {                    
+            //     Homey.alert('interval');
+            //     console.log('try grapping');
+            //     try {                    
+            //         var text = await navigator.clipboard.readText();
+            //         if(text && text.length>0) {
+            //             Homey.alert(text);
+            //             console.log(text);
+            //         }
+            //     } catch (e) {
+            //         Homey.alert('error; ' + e);
+            //         console.log('errpr: ' +e);
+            //     }
+            // }).bind(this, navigator), 1000);
+
+            async function pasteCode() {                
+                try {
+                    
+                    // var pasteText = document.querySelector("#output");
+                    // pasteText.focus();
+                    // document.execCommand("paste");
+
+                    // //await navigator.clipboard.readText();
+
+                    // const queryOpts = { name: 'clipboard-read', allowWithoutGesture: false };
+                    // const permissionStatus = await navigator.permissions.query(queryOpts);
+                    // Will be 'granted', 'denied' or 'prompt':
+                    var el = document.getElementById('output');
+                    Homey.emit('authorizationcode', el.value)
+                    Homey.alert('code saved');
+                } catch (error) {                    
+                    Homey.alert('error; ' + error);
+                }
+            }
+        
+                // var element = document.getElementById('functionName');
+                // var scope = angular.element(element).scope();
+                // scope.$apply(function() {
+                //     scope.hoop.setHomey(Homey, scope, l);
+                // });
+            
+        </script>
+    </head>
+
+    <body  style="height:100%;position:relative;">
+        <textarea id="output" style="width:100%;" rows=3></textarea><br/>
+        <button onclick="pasteCode()">Save</button>
+        <br/>
+        <iframe id="frame" src="https://cli.athom.com?port=22222&clientId=5bd33e9b9c99fc4f8d0bc231" allow="clipboard-read; clipboard-write" style="width:100%; height:80%; position: relative; border:none;" ></iframe>
+        
+        
+    </body>
+</html>
