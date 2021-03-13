@@ -124,7 +124,7 @@ class CardOverloaderDriver extends Homey.Driver
                 //var flowCards = _.union(flowCardsConditions, flowCardsActions);
                 
                 if (query) flowCards = flowCards.filter(f => f.uri.toLowerCase().indexOf(query.toLowerCase()) > -1);
-                this.log('flowCards', JSON.stringify(flowCards[0], null, 2));//_.find(flowCards, c=> c.uriObj && c.uriObj.name=='Hoofdlamp badkamer'));
+                //this.log('flowCards', JSON.stringify(flowCards[0], null, 2));//_.find(flowCards, c=> c.uriObj && c.uriObj.name=='Hoofdlamp badkamer'));
                 
                 this.log('cardToUser.count', cardToUser.id, cardToUser.count);
                 
