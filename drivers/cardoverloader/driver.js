@@ -54,7 +54,7 @@ class CardOverloaderDriver extends Homey.Driver
               dropdown:0
             }
           };
-          var types = actionCard.id.split('__')[1].split('_');
+          let types = actionCard.id.split('__')[1].split('_');
           _.forEach(types, t=> {
             if(t.startsWith('text')) cardToUser.count['text']= Number.parseInt( t.replace('text',''));
             else if(t.startsWith('number')) cardToUser.count['number']= Number.parseInt( t.replace('number',''));
@@ -124,7 +124,7 @@ class CardOverloaderDriver extends Homey.Driver
                 //var flowCards = _.union(flowCardsConditions, flowCardsActions);
                 
                 if (query) flowCards = flowCards.filter(f => f.uri.toLowerCase().indexOf(query.toLowerCase()) > -1);
-                this.log('flowCards args', JSON.stringify(flowCards[2], null, 2));//_.find(flowCards, c=> c.uriObj && c.uriObj.name=='Hoofdlamp badkamer'));
+                this.log('flowCards', JSON.stringify(flowCards[0], null, 2));//_.find(flowCards, c=> c.uriObj && c.uriObj.name=='Hoofdlamp badkamer'));
                 
                 this.log('cardToUser.count', cardToUser.id, cardToUser.count);
                 
