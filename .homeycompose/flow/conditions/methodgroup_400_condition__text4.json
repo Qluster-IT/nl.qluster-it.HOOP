@@ -3,7 +3,7 @@
     "title" : {
         "en":"Start Method with Arguments (4 texts)"
     },"titleFormatted" : {
-        "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]]) !{{|and continue when not successful }}"
+        "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]] !{{|and continue when not successful }}"
     },
     "args": [
         {

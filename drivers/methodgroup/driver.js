@@ -26,17 +26,21 @@ class MethodGroupDriver extends Homey.Driver
 
     async onPairListDevices(data)
     {
-        return {
-            "name": 'Method Group',
-            data:
-            {
-                "id": uuidv4()
-            },
-            settings:
-            {
-                "overloading": "false"
-            }
-        };
+      const firstId = 'methodgroupdevice';
+      let devices = this.getDevices();
+      if(devices && devices.length>0) devices = _.filter(devices, device=> device.getDate().id==firstId);
+      var id = devices && devices.length>0 ? uuidv4() : firstId;
+      return {
+          "name": 'Method Group',
+          data:
+          {
+              "id": id
+          },
+          settings:
+          {
+              "overloading": "false"
+          }
+      };
     }
 
     

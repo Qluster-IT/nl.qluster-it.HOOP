@@ -38,12 +38,17 @@ class FlowVariablesDriver extends Homey.Driver
       this.context = {
 
       }
-      for (let i = 0; i < this.functions.length; i++) {
-        const funcObj = this.functions[i];
-        
-        let func = funcObj.value.parseFunction();
-        this.log('func', func);
-        this.context[funcObj.name] = func;
+      if(this.functions && this.functions.length>0) for (let i = 0; i < this.functions.length; i++) {
+        try {          
+          const funcObj = this.functions[i];
+          
+          let func = funcObj.value.parseFunction();
+          this.log('func', func);
+          this.context[funcObj.name] = func;
+        } catch (error) {
+          this.log('Error creating function ' + this.functions[i].name);
+          this.error(error);
+        }
       }
     }
     
@@ -51,11 +56,15 @@ class FlowVariablesDriver extends Homey.Driver
 
     async onPairListDevices(data)
     {
+      const firstId = 'flowvariablesdevice';
+      let devices = this.getDevices();
+      if(devices && devices.length>0) devices = _.filter(devices, device=> device.getDate().id==firstId);
+      var id = devices && devices.length>0 ? uuidv4() : firstId;
       return {
           "name": 'Flow Variables',
           data:
           {
-              "id": uuidv4()
+              "id": id
           }
       };
     }

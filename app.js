@@ -26,8 +26,12 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
   //   this.homey.settings.set('homeyid', (await this.homey.cloud.getHomeyId()));
 
   async onOAuth2Init() {
+    if (process.env.DEBUG === '1')
+    {
+        require('inspector').open(9222, '0.0.0.0', true);
+    }
+
     this.SETTINGS_KEY= this.SETTINGS_KEY;//+ '_' + 'HomeyOAuth';
-    //this.clearOAuth2Clients(); //watch out!
     this.ip = (await this.homey.cloud.getLocalAddress()).split(':')[0];
     var config = {      
         client: HomeymanOAth2Client,
@@ -42,6 +46,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
     };
     this.setOAuth2Config(config);
     await super.onOAuth2Init();
+    //this.clearOAuth2Clients(); //watch out!
     
     
     this.log('HOOPApp has been initialized');
@@ -101,6 +106,8 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 		this.homey.settings.on('set', (function(settingName) {
 			if(settingName=='authorizationcode') {
 				this.setAuthorizationCode();
+			} else if(settingName=='cleartoken') {
+				this.clearToken();
 			}
 
 		  }).bind(this));
@@ -108,10 +115,17 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 		  this.setAuthorization();
   }
 
+
+  async clearToken() {			  	  
+    this.log('clearing token');
+    this.clearOAuth2Clients(); //watch out!
+
+  }
+
   async setAuthorizationCode() {			  	  
 		var code = await this.homey.settings.get('authorizationcode');
 		this.setAuthorization(code);
-	  }
+  }
 	async setAuthorization(code) {	
 		// var clientId = await this.homey.settings.get('clientid');
 		// var clientSecret = await this.homey.settings.get('clientsecret');
@@ -144,13 +158,15 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 			this.client.refresh = async ()=> {
 				return this.getToken();
 			}
-			var token = await this.client.getSessionToken();
-			this.log('me', token)
 
 			setInterval((async ()=>{
 				var me = await this.client.getSessionToken();
 				this.log('me', me)
 			}).bind(this), 12* 60*60*1000); // elke 12 uur
+      
+			var token = await this.client.getSessionToken();
+			this.log('me', token)
+
 		}).call(this);
 	}
 

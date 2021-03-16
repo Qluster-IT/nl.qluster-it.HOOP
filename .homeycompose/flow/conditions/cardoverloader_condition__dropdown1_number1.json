@@ -1,15 +1,15 @@
 {
-    "id":"cardoverloader_condition__dropdown1_number1",
+    "id":"actioncards_condition__dropdown1_number1",
     "title" : {
-        "en":"Overload a Card with Arguments (1 dropdown, 1 number) !{{|and continue when not successful }}"
+        "en":"Action with 1 dropdown, 1 number !{{|and continue when not successful }}"
     },"titleFormatted" : {
-        "en":"Await [[card]] (dropdown1:[[dropdown_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
+        "en":"Await [[card]] (dropdown1:[[dropdown_1]], number1:[[number_1]] !{{|and continue when not successful }}"
     },
     "args": [
         {
             "type" : "device",
             "name" : "device",
-            "filter": "driver_id=cardoverloader"
+            "filter": "driver_id=actioncards"
         },        
         {
             "type": "autocomplete",

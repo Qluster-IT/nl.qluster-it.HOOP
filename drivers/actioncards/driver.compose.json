@@ -1,13 +1,13 @@
 {
-  "id": "cardoverloader",
+  "id": "actioncards",
   "name": {
-    "en": "Card Overloader"
+    "en": "Action Cards"
   },
   "class": "other",
   "capabilities": [],
   "images": {
-    "large": "/drivers/cardoverloader/assets/images/large.png",
-    "small": "/drivers/cardoverloader/assets/images/small.png"
+    "large": "/drivers/actioncards/assets/images/large.png",
+    "small": "/drivers/actioncards/assets/images/small.png"
   },
   "pair": [
     {
