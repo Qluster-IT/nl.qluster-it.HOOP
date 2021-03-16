@@ -105,9 +105,19 @@ class FlowVariablesDriver extends Homey.Driver
         card.card.getArgument('name').registerAutocompleteListener(async (query, args) => {
           if (!args.device) throw "Device missing";
 
+          var list = _.filter(args.device.variables, vari=> vari.type===args.type.id);
+
           var r = [];
-          if(query && query.length>0)r.push({id:query, name:query});
-          return r;
+          if(query && query.length>0) r.push({id:query, name:query});
+          var rAdd = _.map(list, vari=> {
+            return {
+              id:vari.name,
+              name:vari.name
+            }
+          });
+          if(query && query.length>0) rAdd = _.filter(rAdd, vari=> vari.id.toLowerCase().indexOf(query.toLowerCase())>-1);
+
+          return _.concat(r, rAdd);
         });
         // card.card.on('update', () => {
         //   this.updateNames();
@@ -133,13 +143,14 @@ class FlowVariablesDriver extends Homey.Driver
         //   });          
         // }        
       }).bind(this));
+
       ['flowvariables_condition___setexpression'].forEach((cardName=>{
         var cardType = cardName.startsWith('flowvariables_condition') ? 'conditions' : 'actions';
         this.flowCards[cardType][cardName].card.registerRunListener(async (args, state) => {
           try {
               
-            if(!args ) defer.reject('Missing args argument');
-            this.log('args, ', args);
+            if(!args ) throw 'Missing args argument';
+            //this.log('args, ', args);
             var result = this.runSandBox(args.expression);
             this.log('result', result);
             await args.device.setValue(args.name.id, result, args.type);

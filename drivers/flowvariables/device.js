@@ -14,6 +14,7 @@ class FlowVariablesDevice extends Homey.Device {
   }
 
   async setValue(name, value, type) {
+    let baseType = type;
     switch (type) {
       case 'string':
         if(!_.isString(value) && value!==null && value!==undefined) value = value.toString(); else value = _.isString(value) ? value :'';
@@ -53,7 +54,8 @@ class FlowVariablesDevice extends Homey.Device {
     this.variables[name] = {
       name,
       value,
-      token
+      token,
+      type:baseType
     }
     this.homey.settings.set(this.getData().id + '_variables', this.variables);
     await token.setValue(value);
