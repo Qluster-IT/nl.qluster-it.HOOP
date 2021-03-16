@@ -3,7 +3,7 @@
     "title" : {
         "en":"Await Method with Arguments (1 boolean)"
     },"titleFormatted" : {
-        "en":"Await [[flow]] (boolean1:[[boolean_1]] !{{|and continue when not successful }} "
+        "en":"Await [[flow]] (boolean1:[[boolean_1]]) !{{|and continue when not successful }} "
     },
     "args": [
         {
