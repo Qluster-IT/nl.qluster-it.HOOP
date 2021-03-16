@@ -1,9 +1,9 @@
 {
     "id":"actioncards_condition__autocomplete1_dropdown1",
     "title" : {
-        "en":"Overload a Card with Arguments (1 autocomplete, 1 dropdown) !{{|and continue when not successful }}"
+        "en":"Action with 1 autocomplete, 1 dropdown !{{|and continue when not successful }}"
     },"titleFormatted" : {
-        "en":"Await [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]]) !{{|and continue when not successful }}"
+        "en":"Await [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]] !{{|and continue when not successful }}"
     },
     "args": [
         {
