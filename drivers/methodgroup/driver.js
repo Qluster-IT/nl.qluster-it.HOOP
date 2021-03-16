@@ -24,7 +24,7 @@ class MethodGroupDriver extends Homey.Driver
     }
 
 
-    async onPairListDevices(data)
+    async onPairListDevices()//data)
     {
       const firstId = 'methodgroupdevice';
       let devices = this.getDevices();
@@ -129,7 +129,7 @@ class MethodGroupDriver extends Homey.Driver
                     defer.reject(err);//'Error triggering MehodGroup Card (1)');
                   });
                 else defer.resolve(true);
-              }).call(this).then(res=> {
+              }).call(this).then(()=> {
               }).catch(err=> {
                 this.log('Error triggering MehodGroup Card 2');this.error(err); defer.reject(err.name || err);
               });
