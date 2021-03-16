@@ -3,7 +3,7 @@
     "title" : {
         "en":"Await Method with Arguments (2 texts)"
     },"titleFormatted" : {
-        "en":"Await [[flow]] (text1:[[text_1]], text2:[[text_2]] !{{|and continue when not successful }} "
+        "en":"Await [[flow]] (text1:[[text_1]], text2:[[text_2]]) !{{|and continue when not successful }} "
     },
     "args": [
         {

@@ -3,7 +3,7 @@
     "title" : {
         "en":"Start Method with Arguments (2 texts, 1 boolean)"
     },"titleFormatted" : {
-        "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], boolean1:[[boolean_1]] !{{|and continue when not successful }}"
+        "en":"Start [[flow]] (text1:[[text_1]], text2:[[text_2]], boolean1:[[boolean_1]]) !{{|and continue when not successful }}"
     },
     "args": [
         {

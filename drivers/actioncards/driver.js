@@ -21,6 +21,7 @@ class CardOverloaderDriver extends Homey.Driver
     }
 
 
+    // eslint-disable-next-line no-unused-vars
     async onPairListDevices(data)
     {
       const firstId = 'actioncardsdevice';
@@ -110,7 +111,7 @@ class CardOverloaderDriver extends Homey.Driver
                     });
                   } 
                   else return defer.resolve(true);
-              }).call(this).then(res=> {
+              }).call(this).then(()=> {
               }).catch(err=> {
                 this.log('Error triggering CardOverloader Card 2');this.error(err); defer.reject('Error message');
               })
@@ -150,10 +151,10 @@ class CardOverloaderDriver extends Homey.Driver
                 let r = flowCards.map(f => {
                   /// WHATS OUT, ALL NEED TO BE SAME!
                   if(f.uri.startsWith('homey:device:')) {
-                    return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.id, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : 'Action'};//f.__athom_api_type };
+                    return { id: f.uri +'_' + f.id, name: f.uriObj.name + ' - ' + f.title, description: f.id, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : 'Action'};//f.__athom_api_type };
                   } if(f.uri.startsWith('homey:zone:')) {
-                    return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.id, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : 'Action'};//f.__athom_api_type };
-                  } else return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.uri + ' - ' + f.id, order:0, refUri:f.uri, refId : f.id, refType : 'Action'};//f.__athom_api_type }
+                    return { id: f.uri +'_' + f.id, name: f.uriObj.name + ' - ' + f.title, description: f.id, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : 'Action'};//f.__athom_api_type };
+                  } else return { id: f.uri +'_' + f.id, name: f.uriObj.name + ' - ' + f.title, description: f.uri + ' - ' + f.id, order:0, refUri:f.uri, refId : f.id, refType : 'Action'};//f.__athom_api_type }
                 });
                 //this.log('query ', '"'+query+'"' );
                 if (query) r = _.filter(r, (f) => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1 || f.description.toLowerCase().indexOf(query.toLowerCase()) > -1 );

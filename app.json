@@ -2145,135 +2145,6 @@
     ],
     "conditions": [
       {
-        "id": "app_condition__await",
-        "title": {
-          "en": "Await flow call"
-        },
-        "titleFormatted": {
-          "en": "Await [[flow]] while [[actioncardsmode]] !{{|and continue when not successful }}"
-        },
-        "args": [
-          {
-            "type": "autocomplete",
-            "name": "flow",
-            "placeholder": {
-              "en": "Flow"
-            }
-          },
-          {
-            "type": "dropdown",
-            "name": "actioncardsmode",
-            "placeholder": {
-              "en": "Actioncard mode"
-            },
-            "values": [
-              {
-                "id": "async",
-                "name": "async",
-                "label": {
-                  "en": "Executing actioncards asynchronously (default)"
-                }
-              },
-              {
-                "id": "sync",
-                "name": "sync",
-                "label": {
-                  "en": "Executing actioncards synchronously"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "app_condition__throw",
-        "title": {
-          "en": "Throw an error"
-        },
-        "titleFormatted": {
-          "en": "Throw [[message]]"
-        },
-        "args": [
-          {
-            "type": "text",
-            "name": "message",
-            "placeholder": {
-              "en": "Message"
-            }
-          }
-        ]
-      },
-      {
-        "id": "app_condition__wait",
-        "title": {
-          "en": "Wait"
-        },
-        "titleFormatted": {
-          "en": "Wait [[waitDuration]] ms"
-        },
-        "args": [
-          {
-            "type": "number",
-            "name": "waitDuration",
-            "placeholder": {
-              "en": "Duration"
-            }
-          }
-        ]
-      },
-      {
-        "id": "arrayadapter_condition___createitem",
-        "title": {
-          "en": "Create Item"
-        },
-        "titleFormatted": {
-          "en": "Create Item [[id]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=arrayadapter"
-          },
-          {
-            "type": "text",
-            "name": "id",
-            "title": {
-              "en": "ID"
-            },
-            "placeholder": {
-              "en": "Give it an ID"
-            }
-          }
-        ]
-      },
-      {
-        "id": "arrayadapter_condition___saveitem",
-        "title": {
-          "en": "Save Item"
-        },
-        "titleFormatted": {
-          "en": "Save Item into [[array]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=arrayadapter"
-          },
-          {
-            "type": "autocomplete",
-            "name": "array",
-            "title": {
-              "en": "Array"
-            },
-            "placeholder": {
-              "en": "Search the device or app"
-            }
-          }
-        ]
-      },
-      {
         "id": "actioncards_condition__autocomplete1",
         "title": {
           "en": "Action with 1 autocomplete !{{|and continue when not successful }}"
@@ -2690,6 +2561,135 @@
         ]
       },
       {
+        "id": "app_condition__await",
+        "title": {
+          "en": "Await flow call"
+        },
+        "titleFormatted": {
+          "en": "Await [[flow]] while [[actioncardsmode]] !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "app_condition__throw",
+        "title": {
+          "en": "Throw an error"
+        },
+        "titleFormatted": {
+          "en": "Throw [[message]]"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "placeholder": {
+              "en": "Message"
+            }
+          }
+        ]
+      },
+      {
+        "id": "app_condition__wait",
+        "title": {
+          "en": "Wait"
+        },
+        "titleFormatted": {
+          "en": "Wait [[waitDuration]] ms"
+        },
+        "args": [
+          {
+            "type": "number",
+            "name": "waitDuration",
+            "placeholder": {
+              "en": "Duration"
+            }
+          }
+        ]
+      },
+      {
+        "id": "arrayadapter_condition___createitem",
+        "title": {
+          "en": "Create Item"
+        },
+        "titleFormatted": {
+          "en": "Create Item [[id]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=arrayadapter"
+          },
+          {
+            "type": "text",
+            "name": "id",
+            "title": {
+              "en": "ID"
+            },
+            "placeholder": {
+              "en": "Give it an ID"
+            }
+          }
+        ]
+      },
+      {
+        "id": "arrayadapter_condition___saveitem",
+        "title": {
+          "en": "Save Item"
+        },
+        "titleFormatted": {
+          "en": "Save Item into [[array]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=arrayadapter"
+          },
+          {
+            "type": "autocomplete",
+            "name": "array",
+            "title": {
+              "en": "Array"
+            },
+            "placeholder": {
+              "en": "Search the device or app"
+            }
+          }
+        ]
+      },
+      {
         "id": "flowdirector_condition___if",
         "title": {
           "en": "If"
@@ -2914,7 +2914,7 @@
           "en": "Await Method with Arguments (1 text)"
         },
         "titleFormatted": {
-          "en": "Await [[flow]] (text1:[[text_1]] !{{|and continue when not successful }} "
+          "en": "Await [[flow]] (text1:[[text_1]]) !{{|and continue when not successful }} "
         },
         "args": [
           {
@@ -2945,7 +2945,7 @@
           "en": "Start Method with Arguments (1 text, 1 number)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Start [[flow]] (text1:[[text_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2983,7 +2983,7 @@
           "en": "Await Method with Arguments (2 texts)"
         },
         "titleFormatted": {
-          "en": "Await [[flow]] (text1:[[text_1]], text2:[[text_2]] !{{|and continue when not successful }} "
+          "en": "Await [[flow]] (text1:[[text_1]], text2:[[text_2]]) !{{|and continue when not successful }} "
         },
         "args": [
           {
@@ -3021,7 +3021,7 @@
           "en": "Start Method with Arguments (2 texts, 1 boolean)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], boolean1:[[boolean_1]] !{{|and continue when not successful }}"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], boolean1:[[boolean_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -3067,7 +3067,7 @@
           "nlnotyet": "Start Method met Argumenten (2 teksten, 1 nummers)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -3112,7 +3112,7 @@
           "en": "Start Method with Arguments (3 texts)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]] !{{|and continue when not successful }}"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -3157,7 +3157,7 @@
           "en": "Start Method with Arguments (3 texts, 1 boolean)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], boolean1:[[boolean_1]] !{{|and continue when not successful }}"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], boolean1:[[boolean_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -3209,7 +3209,7 @@
           "en": "Start Method with Arguments (3 texts, 1 number)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -3261,7 +3261,7 @@
           "en": "Start Method with Arguments (4 texts)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]] !{{|and continue when not successful }}"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -3313,7 +3313,7 @@
           "en": "Start Method with Arguments (4 texts, 1 boolean)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], boolean1:[[boolean_1]] !{{|and continue when not successful }}"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], boolean1:[[boolean_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -3372,7 +3372,7 @@
           "en": "Start Method with Arguments (4 texts, 1 boolean, 1 number)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], boolean1:[[boolean_1]], number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], boolean1:[[boolean_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -3437,7 +3437,7 @@
           "en": "Start Method with Arguments (4 texts, 1 number)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Start [[flow]] (text1:[[text_1]], text2:[[text_2]], text3:[[text_3]], text4:[[text_4]], number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -3496,7 +3496,7 @@
           "en": "Await Method with Arguments (1 boolean)"
         },
         "titleFormatted": {
-          "en": "Await [[flow]] (boolean1:[[boolean_1]] !{{|and continue when not successful }} "
+          "en": "Await [[flow]] (boolean1:[[boolean_1]]) !{{|and continue when not successful }} "
         },
         "args": [
           {
@@ -3527,7 +3527,7 @@
           "en": "Start Method with Arguments (1 boolean, 1 number)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (boolean1:[[boolean_1]], number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Start [[flow]] (boolean1:[[boolean_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -3564,7 +3564,7 @@
           "en": "Start Method with Arguments (2 booleans, 1 number)"
         },
         "titleFormatted": {
-          "en": "Start [[flow]] (boolean1:[[boolean_1]], boolean2:[[boolean_2]], number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Start [[flow]] (boolean1:[[boolean_1]], boolean2:[[boolean_2]], number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -3608,7 +3608,7 @@
           "en": "Await Method with Arguments (1 number)"
         },
         "titleFormatted": {
-          "en": "Await [[flow]] (number1:[[number_1]] !{{|and continue when not successful }} "
+          "en": "Await [[flow]] (number1:[[number_1]]) !{{|and continue when not successful }} "
         },
         "args": [
           {
