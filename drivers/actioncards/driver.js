@@ -3,11 +3,11 @@
 const Homey = require('homey');
 const { v4: uuidv4 } = require('uuid');
     
-const homeyApi = require('./../../lib/homeyApi');
+const homeyApi = require('../../lib/homeyApi');
 const _ = require('lodash');
 const Flower = require('../../lib/flower');
 
-const { Defer } = require('./../../lib/proto');
+const { Defer } = require('../../lib/proto');
 
 class CardOverloaderDriver extends Homey.Driver
 {
@@ -23,24 +23,28 @@ class CardOverloaderDriver extends Homey.Driver
 
     async onPairListDevices(data)
     {
+      const firstId = 'actioncardsdevice';
+      let devices = this.getDevices();
+      if(devices && devices.length>0) devices = _.filter(devices, device=> device.getDate().id==firstId);
+      var id = devices && devices.length>0 ? uuidv4() : firstId;
         return {
-            "name": 'Card Overloader',
+            "name": 'Action Cards',
             data:
             {
-                "id": uuidv4()
+                "id": id
             }
         };
     }
 
     
   initializeConditionsAndActions() {
-    ['cardoverloader_condition__','cardoverloader_action__'].forEach((cardName => {
-        const cardType = cardName.startsWith('cardoverloader_condition_') ? 'conditions' : 'actions';
+    ['actioncards_condition__','actioncards_action__'].forEach((cardName => {
+        const cardType = cardName.startsWith('actioncards_condition_') ? 'conditions' : 'actions';
         const actionsCards = {};
         this.flows[cardType] = actionsCards
         for (let actionCardIndex = 0; actionCardIndex < homeyApi.app.manifest.flow[cardType].length; actionCardIndex++) {
           const actionCard = homeyApi.app.manifest.flow[cardType][actionCardIndex];
-          if (!actionCard.id.startsWith('cardoverloader_')) continue;
+          if (!actionCard.id.startsWith('actioncards_')) continue;
           const card = this.homey.flow[cardType =='actions' ? 'getActionCard': 'getConditionCard'](actionCard.id);
           const cardToUser = actionsCards[actionCard.id] = {
             id: actionCard.id,
@@ -134,7 +138,10 @@ class CardOverloaderDriver extends Homey.Driver
                   return _.every(['text',  'autocomplete'], type=>  _.sumBy( card.args, arg=> arg.type==type)==cardToUser.count[type])
                   && cardToUser.count.number == _.sumBy( card.args, arg=> arg.type=='number' || arg.type=='range') 
                   //boolean
-                  && cardToUser.count.boolean == _.sumBy( card.args, arg=> arg.type=='dropdown' && arg.values.length==2 && (arg.values[0].id === 'true' || arg.values[0].id==='false' ) && (arg.values[1].id === 'true' || arg.values[1].id==='false' ))
+                  && cardToUser.count.boolean == _.sumBy( card.args, arg=> 
+                    (arg.type=='dropdown' && arg.values.length==2 && (arg.values[0].id === 'true' || arg.values[0].id==='false' ) && (arg.values[1].id === 'true' || arg.values[1].id==='false' ))
+                    || (arg.type=='checkbox')
+                    )
                   //dropdown
                   && cardToUser.count.dropdown == _.sumBy( card.args, arg=> arg.type=='dropdown' && !(arg.values.length==2 && (arg.values[0].id === 'true' || arg.values[0].id==='false' ) && (arg.values[1].id === 'true' || arg.values[1].id==='false' )))
                 });
@@ -151,7 +158,7 @@ class CardOverloaderDriver extends Homey.Driver
                 //this.log('query ', '"'+query+'"' );
                 if (query) r = _.filter(r, (f) => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1 || f.description.toLowerCase().indexOf(query.toLowerCase()) > -1 );
                 this.log('result:', r);
-                r = _.uniqBy(r, card => card.id);
+                r = _.uniqBy(r, card => card.refUri + card.refId);
 
                 r = _.orderBy(r, [card => card.order, card => card.name, card => card.id ]);
                 return r;

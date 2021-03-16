@@ -25,13 +25,17 @@ class FlowDirectorDriver extends Homey.Driver
 
     async onPairListDevices(data)
     {
-        return {
-            "name": 'Flow Director',
-            data:
-            {
-                "id": uuidv4()
-            }
-        };
+      const firstId = 'flowdirectordevice';
+      let devices = this.getDevices();
+      if(devices && devices.length>0) devices = _.filter(devices, device=> device.getDate().id==firstId);
+      var id = devices && devices.length>0 ? uuidv4() : firstId;
+      return {
+          "name": 'Flow Director',
+          data:
+          {
+              "id": id
+          }
+      };
     }
 
     

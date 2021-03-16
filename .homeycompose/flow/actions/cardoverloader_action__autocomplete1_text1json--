@@ -1,5 +1,5 @@
 {
-    "id":"cardoverloader_action__autocomplete1_text1",
+    "id":"actioncards_action__autocomplete1_text1",
     "title" : {
         "en":"Overload a Card with Arguments (1 autocomplete, 1 text)"
     },"titleFormatted" : {
@@ -9,7 +9,7 @@
         {
             "type" : "device",
             "name" : "device",
-            "filter": "driver_id=cardoverloader"
+            "filter": "driver_id=actioncards"
         },        
         {
             "type": "autocomplete",
