@@ -84,6 +84,7 @@ class CardOverloaderDriver extends Homey.Driver
                   var manifest = await homeyApi.getFlowCard({ uri:  args.card.refUri ,id: args.card.refId, type:type });
                   
                   this.log('manifest.args -->', manifest.args);
+                  if(manifest.args && manifest.args.length>0 )this.log('manifest.args[0] -->', manifest.args[0]);
                   var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:manifest });
                   //var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
 
