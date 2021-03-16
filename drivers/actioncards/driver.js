@@ -21,6 +21,7 @@ class CardOverloaderDriver extends Homey.Driver
     }
 
 
+    // eslint-disable-next-line no-unused-vars
     async onPairListDevices(data)
     {
       const firstId = 'actioncardsdevice';
@@ -110,7 +111,7 @@ class CardOverloaderDriver extends Homey.Driver
                     });
                   } 
                   else return defer.resolve(true);
-              }).call(this).then(res=> {
+              }).call(this).then(()=> {
               }).catch(err=> {
                 this.log('Error triggering CardOverloader Card 2');this.error(err); defer.reject('Error message');
               })

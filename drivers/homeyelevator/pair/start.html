@@ -44,7 +44,7 @@
                     // Will be 'granted', 'denied' or 'prompt':
                     var el = document.getElementById('output');
                     Homey.emit('authorizationcode', el.value)
-                    Homey.alert('code saved');
+                    Homey.alert('The code has succesfully been saved.\r\nThis window will now close.');
                     Homey.done();
                 } catch (error) {                    
                     Homey.alert('error; ' + error);
