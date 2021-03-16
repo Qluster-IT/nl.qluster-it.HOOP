@@ -84,7 +84,7 @@ class CardOverloaderDriver extends Homey.Driver
                   var manifest = await homeyApi.getFlowCard({ uri:  args.card.refUri ,id: args.card.refId, type:type });
                   
                   this.log('manifest.args -->', manifest.args);
-                  if(manifest.args && manifest.args.length>0 )this.log('manifest.args[0] -->', manifest.args[0]);
+                  if(manifest.args && manifest.args.length>0 ) this.log('manifest.args[0] -->', manifest.args[0]);
                   var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:manifest });
                   //var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
 
@@ -165,7 +165,7 @@ class CardOverloaderDriver extends Homey.Driver
                   const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
                   const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
                   if (!card) return false;                  
-                  var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:card });                  
+                  var triggerArgs = Flower.getArgsForAutocomplete({ args, actionCard, triggerCard:card });                  
                   var promise = Flower.getFlowCardAutocomplete({ card, args: triggerArgs, type:type, query, autocompleteNumber:1 });
                   var r = await promise;
                   return r;
