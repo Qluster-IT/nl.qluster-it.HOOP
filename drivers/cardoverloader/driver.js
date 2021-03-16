@@ -123,7 +123,7 @@ class CardOverloaderDriver extends Homey.Driver
                 //var flowCardsActions = await homeyApi.getFlowCards({type:'actions'});
                 //var flowCards = _.union(flowCardsConditions, flowCardsActions);
                 
-                if (query) flowCards = flowCards.filter(f => f.uri.toLowerCase().indexOf(query.toLowerCase()) > -1);
+                //if (query) flowCards = flowCards.filter(f => f.uri.toLowerCase().indexOf(query.toLowerCase()) > -1);
                 //this.log('flowCards', JSON.stringify(flowCards[0], null, 2));//_.find(flowCards, c=> c.uriObj && c.uriObj.name=='Hoofdlamp badkamer'));
                 
                 this.log('cardToUser.count', cardToUser.id, cardToUser.count);
@@ -139,7 +139,7 @@ class CardOverloaderDriver extends Homey.Driver
                 });
 
                 
-                var r = flowCards.map(f => {
+                let r = flowCards.map(f => {
                   /// WHATS OUT, ALL NEED TO BE SAME!
                   if(f.uri.startsWith('homey:device:')) {
                     return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.id, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : f.__athom_api_type };
@@ -147,7 +147,9 @@ class CardOverloaderDriver extends Homey.Driver
                     return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.id, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : f.__athom_api_type };
                   } else return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.uri + ' - ' + f.id, order:0, refUri:f.uri, refId : f.id, refType : f.__athom_api_type }
                 });
-                if (query) r = r.filter(f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
+                //this.log('query ', '"'+query+'"' );
+                if (query) r = _.filter(r, (f) => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1 || f.description.toLowerCase().indexOf(query.toLowerCase()) > -1 );
+                //this.log('result:', r);
                 r = _.uniqBy(r, card => card.id);
 
                 r = _.orderBy(r, [card => card.order, card => card.name, card => card.id ]);

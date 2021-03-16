@@ -92,10 +92,14 @@
             this.cloudurl = cloudAPI.getLoginUrl(['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']);
         }
 
+        this.clearToken = function() {
+            this.homey.set('cleartoken', true);
+            this.homey.alert('Token cleared, restart App or create another Homey Elevator.');
+        }
 
         this.saveCode = function() {
             this.homey.set('authorizationcode', this.authorizationcode);
-            this.homey.alert('Code saved');
+            this.homey.alert('Code saved.');
         }
 
         this.savefunctions = function() {
