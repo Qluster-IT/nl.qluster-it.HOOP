@@ -3,7 +3,7 @@
     "title" : {
         "en":"Action with 1 boolean, 1 number !{{|and continue when not successful }}"
     },"titleFormatted" : {
-        "en":"Await [[card]] (boolean1:[[boolean_1]], number1:[[number_1]] !{{|and continue when not successful }}"
+        "en":"Await [[card]] (boolean1:[[boolean_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
     },
     "args": [
         {

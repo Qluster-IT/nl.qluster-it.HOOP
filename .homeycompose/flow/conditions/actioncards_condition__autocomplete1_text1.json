@@ -3,7 +3,7 @@
     "title" : {
         "en":"Action with 1 autocomplete, 1 text !{{|and continue when not successful }}"
     },"titleFormatted" : {
-        "en":"Await [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]] !{{|and continue when not successful }}"
+        "en":"Await [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]]) !{{|and continue when not successful }}"
     },
     "args": [
         {

@@ -3,7 +3,7 @@
     "title" : {
         "en":"Action with 1 dropdown, 1 text !{{|and continue when not successful }}"
     },"titleFormatted" : {
-        "en":"Await [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]] !{{|and continue when not successful }}"
+        "en":"Await [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]]) !{{|and continue when not successful }}"
     },
     "args": [
         {
