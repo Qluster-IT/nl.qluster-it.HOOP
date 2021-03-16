@@ -142,14 +142,14 @@ class CardOverloaderDriver extends Homey.Driver
                 let r = flowCards.map(f => {
                   /// WHATS OUT, ALL NEED TO BE SAME!
                   if(f.uri.startsWith('homey:device:')) {
-                    return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.id, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : f.__athom_api_type };
+                    return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.id, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : 'Action'};//f.__athom_api_type };
                   } if(f.uri.startsWith('homey:zone:')) {
-                    return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.id, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : f.__athom_api_type };
-                  } else return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.uri + ' - ' + f.id, order:0, refUri:f.uri, refId : f.id, refType : f.__athom_api_type }
+                    return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.id, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : 'Action'};//f.__athom_api_type };
+                  } else return { id: f.uri, name: f.uriObj.name + ' - ' + f.title, description: f.uri + ' - ' + f.id, order:0, refUri:f.uri, refId : f.id, refType : 'Action'};//f.__athom_api_type }
                 });
                 //this.log('query ', '"'+query+'"' );
                 if (query) r = _.filter(r, (f) => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1 || f.description.toLowerCase().indexOf(query.toLowerCase()) > -1 );
-                //this.log('result:', r);
+                this.log('result:', r);
                 r = _.uniqBy(r, card => card.id);
 
                 r = _.orderBy(r, [card => card.order, card => card.name, card => card.id ]);
@@ -176,6 +176,8 @@ class CardOverloaderDriver extends Homey.Driver
               const argName = arg.name;
               card.getArgument(argName).registerAutocompleteListener(async (query, args) => {
                 try {
+                  console.log('registerAutocompleteListener args.card');
+                  console.log(args.card);
                   const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : 'actions';
                   const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
                   if (!card) return false;

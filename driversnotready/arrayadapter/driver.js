@@ -69,7 +69,7 @@ class ArrayAdapterDriver extends Homey.Driver
             // }
             var r = flowCards.map(f => {
               /// WHATS OUT, ALL NEED TO BE SAME!
-              return { id: f.uri, name: f.uriObj.name, description: f.uriObj.type, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : f.__athom_api_type };              
+              return { id: f.uri, name: f.uriObj.name, description: f.uriObj.type, order:1, isDevice: true, refUri:f.uri, refId : f.id, refType : 'Action'};//f.__athom_api_type };              
             });
             if (query) r = r.filter(f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
             r = _.uniqBy(r, card => card.id);
