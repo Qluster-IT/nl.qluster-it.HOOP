@@ -2150,7 +2150,7 @@
           "en": "Action with 1 autocomplete !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2180,7 +2180,7 @@
           "en": "Action with 1 autocomplete, 1 boolean !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], boolean1:[[boolean_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], boolean1:[[boolean_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2217,7 +2217,7 @@
           "en": "Action with 1 autocomplete, 1 dropdown !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2254,7 +2254,7 @@
           "en": "Action with 1 autocomplete, 1 number !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2291,7 +2291,7 @@
           "en": "Action with 1 autocomplete, 1 text !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2328,7 +2328,7 @@
           "en": "Action with 1 boolean, 1 number !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (boolean1:[[boolean_1]], number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (boolean1:[[boolean_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2365,7 +2365,7 @@
           "en": "Action with 1 dropdown !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (dropdown1:[[dropdown_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (dropdown1:[[dropdown_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2395,7 +2395,7 @@
           "en": "Action with 1 dropdown, 1 boolean !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (dropdown1:[[dropdown_1]], boolean1:[[boolean_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (dropdown1:[[dropdown_1]], boolean1:[[boolean_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2432,7 +2432,7 @@
           "en": "Action with 1 dropdown, 1 number !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (dropdown1:[[dropdown_1]], number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (dropdown1:[[dropdown_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2469,7 +2469,7 @@
           "en": "Action with 1 dropdown, 1 text !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2506,7 +2506,7 @@
           "en": "Action with 1 number !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2536,7 +2536,7 @@
           "en": "Action with 1 text !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (text1:[[text_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (text1:[[text_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
