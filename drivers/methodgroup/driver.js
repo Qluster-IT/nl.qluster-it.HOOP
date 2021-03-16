@@ -56,7 +56,7 @@ class MethodGroupDriver extends Homey.Driver
         card: card,
         manifest: triggerCard,
         flows: []
-      }
+      };
       //check if flow is enabled
       card.registerRunListener(async (args, state) => {
         this.log(triggerCard.id + '.registerRunListener: ');
@@ -97,7 +97,7 @@ class MethodGroupDriver extends Homey.Driver
     ['methodgroup_condition__','methodgroup_action__'].forEach((cardName => {
       var cardType = cardName.startsWith('methodgroup_condition') ? 'conditions' : 'actions';
         var actionsCards = {};
-        this.flows[cardType] = actionsCards
+        this.flows[cardType] = actionsCards;
         for (let actionCardIndex = 0; actionCardIndex < homeyApi.app.manifest.flow[cardType].length; actionCardIndex++) {
           const actionCard = homeyApi.app.manifest.flow[cardType][actionCardIndex];
           if (!actionCard.id.startsWith('methodgroup_')) continue;
@@ -132,9 +132,9 @@ class MethodGroupDriver extends Homey.Driver
               }).call(this).then(res=> {
               }).catch(err=> {
                 this.log('Error triggering MehodGroup Card 2');this.error(err); defer.reject(err.name || err);
-              })
+              });
               //ownFlowItem.card.trigger(args.device, triggerArgs, { id: { id: flow.trigger.args.id.id } });
-            } catch (err) { this.log('Error triggering MehodGroup Card (3)');this.error(error); defer.reject(err.name || err); }
+            } catch (err) { this.log('Error triggering MehodGroup Card (3)');this.error(err); defer.reject(err.name || err); }
             return defer.promise;
           });
           if (actionCard.args) {
@@ -143,7 +143,7 @@ class MethodGroupDriver extends Homey.Driver
                 var flows = await homeyApi.getOwnTriggerFlows({ args: actionCard.args, device: args.device, cardId: actionCard.id.split('__')[1] });
                 if (query) flows = flows.filter(f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
                 return flows.map(f => {
-                  return { id: f.id, name: f.name }
+                  return { id: f.id, name: f.name };
                 });
               } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
             });
