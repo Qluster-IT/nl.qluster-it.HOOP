@@ -2150,7 +2150,7 @@
           "en": "Action with 1 autocomplete !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2180,7 +2180,7 @@
           "en": "Action with 1 autocomplete, 1 boolean !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], boolean1:[[boolean_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], boolean1:[[boolean_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2217,7 +2217,7 @@
           "en": "Action with 1 autocomplete, 1 dropdown !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2254,7 +2254,7 @@
           "en": "Action with 1 autocomplete, 1 number !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2291,7 +2291,7 @@
           "en": "Action with 1 autocomplete, 1 text !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2328,7 +2328,7 @@
           "en": "Action with 1 boolean, 1 number !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (boolean1:[[boolean_1]], number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (boolean1:[[boolean_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2365,7 +2365,7 @@
           "en": "Action with 1 dropdown !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (dropdown1:[[dropdown_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (dropdown1:[[dropdown_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2395,7 +2395,7 @@
           "en": "Action with 1 dropdown, 1 boolean !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (dropdown1:[[dropdown_1]], boolean1:[[boolean_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (dropdown1:[[dropdown_1]], boolean1:[[boolean_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2432,7 +2432,7 @@
           "en": "Action with 1 dropdown, 1 number !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (dropdown1:[[dropdown_1]], number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (dropdown1:[[dropdown_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2469,7 +2469,7 @@
           "en": "Action with 1 dropdown, 1 text !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2506,7 +2506,7 @@
           "en": "Action with 1 number !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (number1:[[number_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (number1:[[number_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2536,7 +2536,7 @@
           "en": "Action with 1 text !{{|and continue when not successful }}"
         },
         "titleFormatted": {
-          "en": "Await [[card]] (text1:[[text_1]] !{{|and continue when not successful }}"
+          "en": "Await [[card]] (text1:[[text_1]]) !{{|and continue when not successful }}"
         },
         "args": [
           {
@@ -2690,12 +2690,105 @@
         ]
       },
       {
+        "id": "flowdirector_condition___ifthen",
+        "title": {
+          "en": "If Then"
+        },
+        "titleFormatted": {
+          "en": "IF the next [[ifamount]] cards are true THEN execute the [[thenamount]] cards after that; Operator = !{{AndAlso &&|And &}}"
+        },
+        "hint": {
+          "en": "If the amount of cards are validated as true (considering the operator), execute the next amount of cards and finishes the IF statement."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowdirector"
+          },
+          {
+            "type": "number",
+            "name": "ifamount",
+            "placeholder": {
+              "en": "Number"
+            },
+            "title": {
+              "en": "Number of cards for IF"
+            },
+            "step": 1,
+            "min": 1,
+            "max": 100
+          },
+          {
+            "type": "number",
+            "name": "thenamount",
+            "placeholder": {
+              "en": "Number"
+            },
+            "title": {
+              "en": "Number of cards for THEN"
+            },
+            "step": 1,
+            "min": 1,
+            "max": 100
+          }
+        ]
+      },
+      {
+        "id": "flowdirector_condition___elseifthen",
+        "title": {
+          "en": "Else If Then"
+        },
+        "titleFormatted": {
+          "en": "ELSE IF the next [[ifamount]] cards are true THEN execute the [[thenamount]] cards after that; Operator = !{{AndAlso &&|And &}}"
+        },
+        "hint": {
+          "en": "If the previous conditions validated false, Then If the amount of cards are validated as true (considering the operator), execute the next amount of cards and finishes the IF statement."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowdirector"
+          },
+          {
+            "type": "number",
+            "name": "ifamount",
+            "placeholder": {
+              "en": "Number"
+            },
+            "title": {
+              "en": "Number of cards for IF"
+            },
+            "step": 1,
+            "min": 1,
+            "max": 100
+          },
+          {
+            "type": "number",
+            "name": "thenamount",
+            "placeholder": {
+              "en": "Number"
+            },
+            "title": {
+              "en": "Number of cards for THEN"
+            },
+            "step": 1,
+            "min": 1,
+            "max": 100
+          }
+        ]
+      },
+      {
         "id": "flowdirector_condition___if",
         "title": {
           "en": "If"
         },
         "titleFormatted": {
-          "en": "IF (all cards untill Then are true); Operator = !{{AndAlso &&|And &}}"
+          "en": "IF (all cards until THEN are true); Operator = !{{AndAlso &&|And &}}"
+        },
+        "hint": {
+          "en": "If all cards until the first THEN card are validated as true (considering the operator), execute all cards until END or ELSE(IF).\r\nIf validated as false, goto ELSE or END IF."
         },
         "args": [
           {
@@ -2759,7 +2852,7 @@
           "en": "Else If"
         },
         "titleFormatted": {
-          "en": "ELSE IF"
+          "en": "ELSE IF (all cards until THEN are true); Operator = !{{AndAlso &&|And &}}"
         },
         "args": [
           {

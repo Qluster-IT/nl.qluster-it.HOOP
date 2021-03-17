@@ -74,17 +74,16 @@
             this.setAthomClient();
         }
         this.setAthomClient = function() {
-            Homey.alert
             AthomCloudAPI.setConfig({
                 clientId: this.clientid, //Obtained through the developer portal/Athom
                 clientSecret: this.clientsecret, //Obtained through the developer portal/Athom
                 callbackUrl: 'http://localhost', //Configured through developer portal
-                redirectUrl: 'https://cli.athom.com?clientid='+this.homeyid,//'http://localhost', //Configured through developer portal
+                redirectUrl: 'http://localhost',//'https://cli.athom.com?clientid='+this.homeyid,//'http://localhost', //Configured through developer portal
                 autoRefreshTokens: 1,
                 scopes: ['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']
             });
 
-            cloudAPI = new AthomCloudAPI(
+            let cloudAPI = new AthomCloudAPI(
                 {
                     store: new AthomStorageAdapter.LocalStorage('_athom_cloud_api')
                 }

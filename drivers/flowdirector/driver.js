@@ -41,7 +41,7 @@ class FlowDirectorDriver extends Homey.Driver
     
   initializeConditions() {
     var conditionsCards = {};
-    this.flowCards.conditions = conditionsCards
+    this.flowCards.conditions = conditionsCards;
     for (let cardIndex = 0; cardIndex < homeyApi.app.manifest.flow.conditions.length; cardIndex++) {
       const conditionCard = homeyApi.app.manifest.flow.conditions[cardIndex];
       if(!conditionCard.id.startsWith('flowdirector_')) continue;
@@ -56,7 +56,7 @@ class FlowDirectorDriver extends Homey.Driver
   
   initializeActions() {
     var actionsCards = {};
-    this.flowCards.actions = actionsCards
+    this.flowCards.actions = actionsCards;
     for (let actionCardIndex = 0; actionCardIndex < homeyApi.app.manifest.flow.actions.length; actionCardIndex++) {
       const actionCard = homeyApi.app.manifest.flow.actions[actionCardIndex];
       if(!actionCard.id.startsWith('flowdirector_')) continue;
@@ -72,18 +72,18 @@ class FlowDirectorDriver extends Homey.Driver
   initializeConditionsAndActions() {
     ['flowdirector_condition__','flowdirector_action__'].forEach((cardName => {
         const cardType = cardName.startsWith('flowdirector_condition_') ? 'conditions' : 'actions';
-        if(['flowdirector_condition___', 'flowdirector_action___'].indexOf(cardName)>-1) 
           for (let actionCardIndex = 0; actionCardIndex < homeyApi.app.manifest.flow[cardType].length; actionCardIndex++) {
             const actionCard = homeyApi.app.manifest.flow[cardType][actionCardIndex];
             if (!actionCard.id.startsWith('flowdirector_')) continue;
             const card = this.homey.flow[cardType =='actions' ? 'getActionCard': 'getConditionCard'](actionCard.id);          
-            card.registerRunListener(async(args, state) => {
-              return Promise.reject('Flow Director cards can only be used in flows that are started by H.O.O.P.');
-            });          
+            if(actionCard.id.startsWith('flowdirector_condition___') || actionCard.id.startsWith('flowdirector_action___'))
+              card.registerRunListener(async(args, state) => {
+                return Promise.reject('Flow Director cards can only be used in flows that are started by H.O.O.P. triggers and cannot be testen directly in the floweditor.');
+              });          
           }        
       }).bind(this));
       ['flowdirector_condition__throw', 'flowdirector_action__throw'].forEach((cardName=>{ 
-        this.flowCards[cardName.startsWith('flowdirector_condition') ? 'conditions' : 'actions'][cardName].card.registerRunListener(({message} = {}, state) => {
+        this.flowCards[cardName.startsWith('flowdirector_condition') ? 'conditions' : 'actions'][cardName].card.registerRunListener(({message} = {}, state={}) => {
           var defer = new Defer();
           if(!message ) defer.reject('Missing message argument');
           else defer.reject(message);

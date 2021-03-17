@@ -25,29 +25,36 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
   //   //this.homey.settings.set('clientid', Homey.env.CLIENT_ID)
   //   this.homey.settings.set('homeyid', (await this.homey.cloud.getHomeyId()));
 
-  async onOAuth2Init() {
-    if (process.env.DEBUG === '1')
-    {
-        require('inspector').open(9222, '0.0.0.0', true);
+  async initConfig() {
+    let client_id = this.homey.settings.get('clientid');
+    let client_secret = this.homey.settings.get('clientsecret');
+    let redirect_url = null;
+    if(client_id && client_id.length>0 && client_secret && client_secret.length>0 ) {
+      redirect_url = 'http://localhost';
     }
-
-    this.SETTINGS_KEY= this.SETTINGS_KEY;//+ '_' + 'HomeyOAuth';
-    this.ip = (await this.homey.cloud.getLocalAddress()).split(':')[0];
     var config = {      
-        client: HomeymanOAth2Client,
-        apiUrl: 'http://'+this.ip+'/api',
-        tokenUrl: 'https://api.athom.com/oauth2/token',
-        authorizationUrl: 'https://accounts.athom.com/authorise',
-        redirectUrl: 'https://cli.athom.com' || this.REDIRECT_URL,//'http://localhost',					
-        //clientId : this.CLIENT_ID,//clientId,
-        //clientSecret : this.CLIENT_SECRET,//clientSecret,
-        scopes: [ 'homey.devices.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']//, //'account.homeys'
-        //allowMultiSession: true      
+      client: HomeymanOAth2Client,
+      apiUrl: 'http://'+this.ip+'/api',
+      tokenUrl: 'https://api.athom.com/oauth2/token',
+      authorizationUrl: 'https://accounts.athom.com/authorise',
+      redirectUrl: redirect_url || 'https://cli.athom.com',//'http://localhost',					
+      clientId : client_id,//clientId,
+      clientSecret : client_secret,//clientSecret,
+      scopes: [ 'homey.devices.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']//, //'account.homeys'
+      //allowMultiSession: true      
     };
     this.setOAuth2Config(config);
     await super.onOAuth2Init();
-    //this.clearOAuth2Clients(); //watch out!
+  }
+
+  async onOAuth2Init() {
+    if (process.env.DEBUG === '1') require('inspector').open(9222, '0.0.0.0', true);
+
+    this.SETTINGS_KEY= this.SETTINGS_KEY;//+ '_' + 'HomeyOAuth';
+    this.ip = (await this.homey.cloud.getLocalAddress()).split(':')[0];
     
+    //this.clearOAuth2Clients(); //watch out!
+    await this.initConfig();
     
     this.log('HOOPApp has been initialized');
     
@@ -88,8 +95,8 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
     //   }
     // }
 
-    const tokenError = await this.homey.flow.createToken('error', { type: 'string', title: 'error' })
-    const tokenStackTrace = await this.homey.flow.createToken('stacktrace', { type: 'string', title: 'stacktrace' })
+    const tokenError = await this.homey.flow.createToken('error', { type: 'string', title: 'error' });
+    const tokenStackTrace = await this.homey.flow.createToken('stacktrace', { type: 'string', title: 'stacktrace' });
 
     //const tokenStackTrace = await this.homey.flow.createToken('stacktrace', { type: 'string', title: 'stacktrace' })
     
@@ -157,15 +164,15 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 			//this.refreshOwnFlows();
 			this.client.refresh = async ()=> {
 				return this.getToken();
-			}
+			};
 
 			setInterval((async ()=>{
 				var me = await this.client.getSessionToken();
-				this.log('me', me)
+				this.log('me', me);
 			}).bind(this), 12* 60*60*1000); // elke 12 uur
       
 			var token = await this.client.getSessionToken();
-			this.log('me', token)
+			this.log('me', token);
 
 		}).call(this);
 	}
@@ -182,7 +189,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
   
   initializeConditions() {
     var conditionsCards = {};
-    this.flows.conditions = conditionsCards
+    this.flows.conditions = conditionsCards;
     for (let cardIndex = 0; cardIndex < homeyApi.app.manifest.flow.conditions.length; cardIndex++) {
       const conditionCard = homeyApi.app.manifest.flow.conditions[cardIndex];
       if(!conditionCard.id.startsWith('app_')) continue;
@@ -202,25 +209,25 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
         if (query) flows = _.filter(flows, f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
         flows = _.orderBy(flows, f=>f.name);
         var r = _.map(flows,f => {
-          return { id: f.id, name: f.name }
+          return { id: f.id, name: f.name };
         });
         //this.log('r',r)
         return r;
       } catch (error) { this.error('app_action__synccall.flow.registerAutocompleteListener.error :', error); throw error; }
     });
-    this.flows.conditions['app_condition__await'].card.registerRunListener(({flow, actioncardsmode} = {}, state) => {
+    this.flows.conditions['app_condition__await'].card.registerRunListener(({flow, actioncardsmode} = {}, state={}) => {
       try {
         if(!flow ) return Promise.reject('Missing flow argument');            
         var defer  = new Defer(30*1000);
         Flower.triggerFlow({flow, actioncardsmode}).then(()=> defer.resolve(true)).catch(err=>defer.reject(err));
         return defer.promise;
-      } catch (error) { this.error(error) }
+      } catch (error) { this.error(error); }
   });
   }
 
   initializeActions() {
     var actionsCards = {};
-    this.flows.actions = actionsCards
+    this.flows.actions = actionsCards;
     for (let actionCardIndex = 0; actionCardIndex < homeyApi.app.manifest.flow.actions.length; actionCardIndex++) {
       const actionCard = homeyApi.app.manifest.flow.actions[actionCardIndex];
       if(!actionCard.id.startsWith('app_')) continue;
@@ -263,17 +270,17 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 
   initializeConditionsAndActions() {
     ['app_condition__wait', 'app_action__wait'].forEach((card=>{ 
-      this.flows[card.startsWith('app_condition') ? 'conditions' : 'actions'][card].card.registerRunListener(({waitDuration} = {}, state) => {
+      this.flows[card.startsWith('app_condition') ? 'conditions' : 'actions'][card].card.registerRunListener(({waitDuration} = {}, state={}) => {
         try {
           if(!waitDuration ) return Promise.reject('Missing duration argument');          
           var defer  = new Defer();
           setTimeout(()=> defer.resolve(true), waitDuration);          
           return defer.promise;
-        } catch (error) { this.error(error) }
+        } catch (error) { this.error(error); }
       });
     }).bind(this));
     ['app_condition__throw', 'app_action__throw'].forEach((card=>{ 
-      this.flows[card.startsWith('app_condition') ? 'conditions' : 'actions'][card].card.registerRunListener(({message} = {}, state) => {
+      this.flows[card.startsWith('app_condition') ? 'conditions' : 'actions'][card].card.registerRunListener(({message} = {}, state={}) => {
         var defer = new Defer();
         if(!message ) defer.reject('Missing message argument');
         else defer.reject(message);
@@ -283,7 +290,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
     }).bind(this));
 
     ['app_action__return'].forEach((card=>{ 
-      this.flows[card.startsWith('app_condition') ? 'conditions' : 'actions'][card].card.registerRunListener( async ({} = {}, state) => {
+      this.flows[card.startsWith('app_condition') ? 'conditions' : 'actions'][card].card.registerRunListener( async (args, state={}) => {
         return true;
       });
     }).bind(this));
