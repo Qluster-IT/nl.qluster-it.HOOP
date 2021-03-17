@@ -2735,6 +2735,51 @@
         ]
       },
       {
+        "id": "flowdirector_condition___elseifthen",
+        "title": {
+          "en": "Else If Then"
+        },
+        "titleFormatted": {
+          "en": "ELSE IF the next [[ifamount]] cards are true THEN execute the [[thenamount]] cards after that; Operator = !{{AndAlso &&|And &}}"
+        },
+        "hint": {
+          "en": "If the previous conditions validated false, Then If the amount of cards are validated as true (considering the operator), execute the next amount of cards and finishes the IF statement."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowdirector"
+          },
+          {
+            "type": "number",
+            "name": "ifamount",
+            "placeholder": {
+              "en": "Number"
+            },
+            "title": {
+              "en": "Number of cards for IF"
+            },
+            "step": 1,
+            "min": 1,
+            "max": 100
+          },
+          {
+            "type": "number",
+            "name": "thenamount",
+            "placeholder": {
+              "en": "Number"
+            },
+            "title": {
+              "en": "Number of cards for THEN"
+            },
+            "step": 1,
+            "min": 1,
+            "max": 100
+          }
+        ]
+      },
+      {
         "id": "flowdirector_condition___if",
         "title": {
           "en": "If"
