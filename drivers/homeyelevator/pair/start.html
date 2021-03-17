@@ -11,7 +11,7 @@
             //     document.getElementById('debug').value+='\r\n' + (s!==undefined ? s.toString() : 'undefined');
             // }
             //Homey.alert('homey ready');            
-            Homey.setTitle('Login, copy code, then paste it into the field and press save.');
+            Homey.setTitle('Login, copy code, then paste it into the field and press save.\r\nIf you get an error, use the App Settings.');
 
             
             //document.execCommand("copy");
@@ -67,7 +67,8 @@
         <iframe id="frame" src="" allow="clipboard-read; clipboard-write" style="width:100%; height:80%; position: relative; border:none;" ></iframe>
         
         <script>
-            document.getElementById('frame').src='https://cli.athom.com?port=22222&clientId=5bd33e' + '9b9c99' + 'fc4f8' +  'd0bc231';
+            document.getElementById('frame').src='https://cli.athom.com?port=22222&clientId=' + atob('NWJkMzNlOWI5Yzk5ZmM0ZjhkMGJjMjMx');
+            
         </script>
     </body>
 </html>

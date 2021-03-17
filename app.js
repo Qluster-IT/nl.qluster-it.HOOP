@@ -52,7 +52,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 
     this.SETTINGS_KEY= this.SETTINGS_KEY;//+ '_' + 'HomeyOAuth';
     this.ip = (await this.homey.cloud.getLocalAddress()).split(':')[0];
-    
+
     //this.clearOAuth2Clients(); //watch out!
     await this.initConfig();
     
