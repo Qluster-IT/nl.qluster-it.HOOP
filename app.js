@@ -25,26 +25,36 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
   //   //this.homey.settings.set('clientid', Homey.env.CLIENT_ID)
   //   this.homey.settings.set('homeyid', (await this.homey.cloud.getHomeyId()));
 
+  async initConfig() {
+    let client_id = this.homey.settings.get('clientid');
+    let client_secret = this.homey.settings.get('clientsecret');
+    let redirect_url = null;
+    if(client_id && client_id.length>0 && client_secret && client_secret.length>0 ) {
+      redirect_url = 'http://localhost';
+    }
+    var config = {      
+      client: HomeymanOAth2Client,
+      apiUrl: 'http://'+this.ip+'/api',
+      tokenUrl: 'https://api.athom.com/oauth2/token',
+      authorizationUrl: 'https://accounts.athom.com/authorise',
+      redirectUrl: redirect_url || 'https://cli.athom.com',//'http://localhost',					
+      clientId : client_id,//clientId,
+      clientSecret : client_secret,//clientSecret,
+      scopes: [ 'homey.devices.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']//, //'account.homeys'
+      //allowMultiSession: true      
+    };
+    this.setOAuth2Config(config);
+    await super.onOAuth2Init();
+  }
+
   async onOAuth2Init() {
     if (process.env.DEBUG === '1') require('inspector').open(9222, '0.0.0.0', true);
 
     this.SETTINGS_KEY= this.SETTINGS_KEY;//+ '_' + 'HomeyOAuth';
     this.ip = (await this.homey.cloud.getLocalAddress()).split(':')[0];
-    var config = {      
-        client: HomeymanOAth2Client,
-        apiUrl: 'http://'+this.ip+'/api',
-        tokenUrl: 'https://api.athom.com/oauth2/token',
-        authorizationUrl: 'https://accounts.athom.com/authorise',
-        redirectUrl: 'https://cli.athom.com' || this.REDIRECT_URL,//'http://localhost',					
-        //clientId : this.CLIENT_ID,//clientId,
-        //clientSecret : this.CLIENT_SECRET,//clientSecret,
-        scopes: [ 'homey.devices.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']//, //'account.homeys'
-        //allowMultiSession: true      
-    };
-    this.setOAuth2Config(config);
-    await super.onOAuth2Init();
-    //this.clearOAuth2Clients(); //watch out!
     
+    //this.clearOAuth2Clients(); //watch out!
+    await this.initConfig();
     
     this.log('HOOPApp has been initialized');
     
