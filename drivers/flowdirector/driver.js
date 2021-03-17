@@ -41,7 +41,7 @@ class FlowDirectorDriver extends Homey.Driver
     
   initializeConditions() {
     var conditionsCards = {};
-    this.flowCards.conditions = conditionsCards
+    this.flowCards.conditions = conditionsCards;
     for (let cardIndex = 0; cardIndex < homeyApi.app.manifest.flow.conditions.length; cardIndex++) {
       const conditionCard = homeyApi.app.manifest.flow.conditions[cardIndex];
       if(!conditionCard.id.startsWith('flowdirector_')) continue;
@@ -56,7 +56,7 @@ class FlowDirectorDriver extends Homey.Driver
   
   initializeActions() {
     var actionsCards = {};
-    this.flowCards.actions = actionsCards
+    this.flowCards.actions = actionsCards;
     for (let actionCardIndex = 0; actionCardIndex < homeyApi.app.manifest.flow.actions.length; actionCardIndex++) {
       const actionCard = homeyApi.app.manifest.flow.actions[actionCardIndex];
       if(!actionCard.id.startsWith('flowdirector_')) continue;

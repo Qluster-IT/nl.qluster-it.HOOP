@@ -3,7 +3,7 @@
     "title" : {
         "en":"Else If"
     },"titleFormatted" : {
-        "en":"ELSE IF"
+        "en":"ELSE IF (all cards until THEN are true); Operator = !{{AndAlso &&|And &}}"
     },
     "args": [
         {

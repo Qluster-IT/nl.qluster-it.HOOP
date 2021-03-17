@@ -3,8 +3,11 @@
     "title" : {
         "en":"If"        
     },"titleFormatted" : {
-        "en":"IF (all cards untill Then are true); Operator = !{{AndAlso &&|And &}}"
+        "en":"IF (all cards until THEN are true); Operator = !{{AndAlso &&|And &}}"
     },
+    "hint": {
+        "en": "If all cards until the first THEN card are validated as true (considering the operator), execute all cards until END or ELSE(IF).\r\nIf validated as false, goto ELSE or END IF."
+      },
     "args": [
         {
             "type" : "device",

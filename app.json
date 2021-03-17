@@ -2690,12 +2690,60 @@
         ]
       },
       {
+        "id": "flowdirector_condition___ifthen",
+        "title": {
+          "en": "If Then"
+        },
+        "titleFormatted": {
+          "en": "IF the next [[ifamount]] cards are true THEN execute the [[thenamount]] cards after that; Operator = !{{AndAlso &&|And &}}"
+        },
+        "hint": {
+          "en": "If the amount of cards are validated as true (considering the operator), execute the next amount of cards and finishes the IF statement."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=flowdirector"
+          },
+          {
+            "type": "number",
+            "name": "ifamount",
+            "placeholder": {
+              "en": "Number"
+            },
+            "title": {
+              "en": "Number of cards for IF"
+            },
+            "step": 1,
+            "min": 1,
+            "max": 100
+          },
+          {
+            "type": "number",
+            "name": "thenamount",
+            "placeholder": {
+              "en": "Number"
+            },
+            "title": {
+              "en": "Number of cards for THEN"
+            },
+            "step": 1,
+            "min": 1,
+            "max": 100
+          }
+        ]
+      },
+      {
         "id": "flowdirector_condition___if",
         "title": {
           "en": "If"
         },
         "titleFormatted": {
-          "en": "IF (all cards untill Then are true); Operator = !{{AndAlso &&|And &}}"
+          "en": "IF (all cards until THEN are true); Operator = !{{AndAlso &&|And &}}"
+        },
+        "hint": {
+          "en": "If all cards until the first THEN card are validated as true (considering the operator), execute all cards until END or ELSE(IF).\r\nIf validated as false, goto ELSE or END IF."
         },
         "args": [
           {
@@ -2759,7 +2807,7 @@
           "en": "Else If"
         },
         "titleFormatted": {
-          "en": "ELSE IF"
+          "en": "ELSE IF (all cards until THEN are true); Operator = !{{AndAlso &&|And &}}"
         },
         "args": [
           {
