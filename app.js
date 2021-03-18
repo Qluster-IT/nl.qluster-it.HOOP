@@ -141,6 +141,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 		// var clientSecret = await this.homey.settings.get('clientsecret');
 
 		this.ip = (await this.homey.cloud.getLocalAddress()).split(':')[0];
+    this.clearOAuth2Clients();
 		await this.initConfig();
 		
     this.log('setAuthorizationCode ', code);
