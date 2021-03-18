@@ -45,8 +45,13 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
       scopes: [ 'homey.devices.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']//, //'account.homeys'
       //allowMultiSession: true      
     };
-    this.setOAuth2Config(config);
-    await super.onOAuth2Init();
+    try {     
+      this.setOAuth2Config(config);
+      await super.onOAuth2Init(); 
+    } catch (error) {
+     this.log('initConfig.error'); 
+     this.error(error);
+    }
   }
 
   async onOAuth2Init() {
