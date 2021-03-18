@@ -118,8 +118,8 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 
     
 		this.homey.settings.on('set', (function(settingName) {
-			if(settingName=='authorizationcode') {
-				this.setAuthorizationCode();
+			if(settingName=='authorizationcode') {        
+        this.setAuthorizationCode({reset:true});
 			} else if(settingName=='cleartoken') {
 				this.clearToken();
 			}
@@ -136,7 +136,9 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 
   }
 
-  async setAuthorizationCode() {			  	  
+  async setAuthorizationCode({reset}) {
+    if(reset) await this.initConfig();
+				
 		var code = await this.homey.settings.get('authorizationcode');
 		this.setAuthorization(code);
   }
