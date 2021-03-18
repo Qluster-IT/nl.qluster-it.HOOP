@@ -30,6 +30,9 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
     let client_secret = this.homey.settings.get('clientsecret');
     if(client_id=='') client_id = null;
     if(client_secret=='') client_secret = null;
+    this.CLIENT_ID = client_id;
+    this.CLIENT_SECRET = client_secret;
+    
     let redirect_url = null;
     if(client_id && client_id.length>0 && client_secret && client_secret.length>0 ) {
       redirect_url = 'http://localhost';
@@ -40,11 +43,12 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
       tokenUrl: 'https://api.athom.com/oauth2/token',
       authorizationUrl: 'https://accounts.athom.com/authorise',
       redirectUrl: redirect_url || 'https://cli.athom.com',//'http://localhost',					
-      clientId : client_id,//clientId,
-      clientSecret : client_secret,//clientSecret,
+      // clientId : client_id,//clientId,
+      // clientSecret : client_secret,//clientSecret,
       scopes: [ 'homey.devices.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']//, //'account.homeys'
       //allowMultiSession: true      
     };
+    
     try {     
       this.setOAuth2Config(config);
       await super.onOAuth2Init(); 
@@ -132,12 +136,16 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 
   async clearToken() {			  	  
     this.log('clearing token');
+    
     this.clearOAuth2Clients(); //watch out!
 
   }
 
   async setAuthorizationCode({reset}) {
-    if(reset) await this.initConfig();
+    if(reset) {
+      this.clearToken();
+      await this.initConfig();
+    }
 				
 		var code = await this.homey.settings.get('authorizationcode');
 		this.setAuthorization(code);
@@ -148,8 +156,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 		// var clientSecret = await this.homey.settings.get('clientsecret');
 
 		this.ip = (await this.homey.cloud.getLocalAddress()).split(':')[0];
-    await this.initConfig();
-		
+    
     this.log('setAuthorizationCode ', code);
 		(async ()=>{
 			this.log('ASYNC STARTS');
