@@ -28,6 +28,8 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
   async initConfig() {
     let client_id = this.homey.settings.get('clientid');
     let client_secret = this.homey.settings.get('clientsecret');
+    if(client_id=='') client_id = null;
+    if(client_secret=='') client_secret = null;
     let redirect_url = null;
     if(client_id && client_id.length>0 && client_secret && client_secret.length>0 ) {
       redirect_url = 'http://localhost';
