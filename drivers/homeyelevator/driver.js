@@ -117,6 +117,10 @@ module.exports = class HomeyDriver extends OAuth2Driver { //Homey.Driver {
 		});
 		session.setHandler('authorizationcode', async (code) =>{
 			console.log('autorizationcode: ' + code);
+			
+			await this.homey.settings.set('clientid', undefined);
+			
+			await this.homey.settings.set('clientsecret', undefined);
 			this.homey.settings.set('authorizationcode', code);
 		  });
 	  }

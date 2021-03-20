@@ -28,6 +28,11 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
   async initConfig() {
     let client_id = this.homey.settings.get('clientid');
     let client_secret = this.homey.settings.get('clientsecret');
+    if(client_id=='') client_id = null;
+    if(client_secret=='') client_secret = null;
+    this.CLIENT_ID = client_id;
+    this.CLIENT_SECRET = client_secret;
+    
     let redirect_url = null;
     if(client_id && client_id.length>0 && client_secret && client_secret.length>0 ) {
       redirect_url = 'http://localhost';
@@ -38,13 +43,19 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
       tokenUrl: 'https://api.athom.com/oauth2/token',
       authorizationUrl: 'https://accounts.athom.com/authorise',
       redirectUrl: redirect_url || 'https://cli.athom.com',//'http://localhost',					
-      clientId : client_id,//clientId,
-      clientSecret : client_secret,//clientSecret,
+      // clientId : client_id,//clientId,
+      // clientSecret : client_secret,//clientSecret,
       scopes: [ 'homey.devices.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']//, //'account.homeys'
       //allowMultiSession: true      
     };
-    this.setOAuth2Config(config);
-    await super.onOAuth2Init();
+    
+    try {     
+      this.setOAuth2Config(config);
+      await super.onOAuth2Init(); 
+    } catch (error) {
+     this.log('initConfig.error'); 
+     this.error(error);
+    }
   }
 
   async onOAuth2Init() {
@@ -111,8 +122,8 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 
     
 		this.homey.settings.on('set', (function(settingName) {
-			if(settingName=='authorizationcode') {
-				this.setAuthorizationCode();
+			if(settingName=='authorizationcode') {        
+        this.setAuthorizationCode({reset:true});
 			} else if(settingName=='cleartoken') {
 				this.clearToken();
 			}
@@ -125,20 +136,28 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 
   async clearToken() {			  	  
     this.log('clearing token');
+    
     this.clearOAuth2Clients(); //watch out!
 
   }
 
-  async setAuthorizationCode() {			  	  
+  async setAuthorizationCode({reset}) {
+    if(reset) {
+      this.clearToken();
+      await this.initConfig();
+    }
+				
 		var code = await this.homey.settings.get('authorizationcode');
 		this.setAuthorization(code);
   }
 	async setAuthorization(code) {	
-		// var clientId = await this.homey.settings.get('clientid');
+    
+    // var clientId = await this.homey.settings.get('clientid');
 		// var clientSecret = await this.homey.settings.get('clientsecret');
 
 		this.ip = (await this.homey.cloud.getLocalAddress()).split(':')[0];
-		this.log('setAuthorizationCode ', code);
+    
+    this.log('setAuthorizationCode ', code);
 		(async ()=>{
 			this.log('ASYNC STARTS');
 			
