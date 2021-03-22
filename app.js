@@ -153,7 +153,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
       
 			//this.refreshOwnFlows();
 			this.client.refresh = async ()=> {
-				return this.getToken();
+				return await this.getToken();
 			};
 
 			setInterval((async ()=>{
@@ -227,34 +227,6 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
         card: card,
         manifest : actionCard
       };
-      // card.registerRunListener(async (args, state) => {
-      //   try {          
-      //     // console.log(actionCard.id + '.registerRunListener: ');
-      //     // console.log(args);
-      //     // console.log(state);
-      //     //var flow = await homeyApi.getFlow({ id: args.flow.id });
-      //     //if (!flow.enabled) return true;
-
-      //   } catch (error) { this.error(error) }
-      // });
-      // if (actionCard.args) {
-      //   if (actionCard.args.find(x => x.name == 'flow' && x.type == 'autocomplete')) card.getArgument('flow').registerAutocompleteListener(async (query, args) => {
-      //     //this.log(actionCard.id + '.flow.registerAutocompleteListener: ', actionCard.args);
-      //     //console.log(query);
-      //     //console.log(args);
-      //     try {
-
-      //       var flows = await homeyApi.getOwnTriggerFlows({args: actionCard.args, device:args.device, cardId : actionCard.id.split('__')[1] });
-      //       // var flow = flows ? _.find(flows, x=>x.trigger.uri=='homey:app:nl.qluster-it.FlowEnhancer') : null;
-      //       //this.log('flows', flows);
-      //       //console.log(flows);
-      //       if (query) flows = flows.filter(f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
-      //       return flows.map(f => {
-      //         return { id: f.id, name: f.name }
-      //       });
-      //     } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
-      //   });
-      // }    
     }
   }
 

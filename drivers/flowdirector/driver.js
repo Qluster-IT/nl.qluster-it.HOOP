@@ -80,7 +80,7 @@ class FlowDirectorDriver extends Homey.Driver
               card.registerRunListener(async(args, state) => {
                 return Promise.reject('Flow Director cards can only be used in flows that are started by H.O.O.P. triggers and cannot be testen directly in the floweditor.');
               });          
-          }        
+          }
       }).bind(this));
       ['flowdirector_condition__throw', 'flowdirector_action__throw'].forEach((cardName=>{ 
         this.flowCards[cardName.startsWith('flowdirector_condition') ? 'conditions' : 'actions'][cardName].card.registerRunListener(({message} = {}, state={}) => {
