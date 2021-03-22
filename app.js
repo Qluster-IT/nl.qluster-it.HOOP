@@ -76,35 +76,6 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
     this.flows = {};
 
 
-    // let listener;
-    // this.server = express();
-    // const port = await new Promise(resolve => {
-    //   listener = this.server.listen(() => {
-    //     resolve(listener.address().port);
-    //   });
-    // });
-
-    // this.log('------------ POORTEN ------------');
-    // for (let i = 9000; i < 9001; i++) {
-    //   try {
-    //     let server = http.createServer((function (req, res) {
-    //       //console.log('requesting: ' + req.url);
-    //       //console.log('req.headers: ' + req.headers);
-          
-    //       // if(!req.headers || !req.headers.host || req.headers.host  != this.ip + ':47333') retur();
-    
-    
-    //       // if (req.url.slice(0, 5) !== '/tts/') {
-    //       //   return retur();
-    //       // }
-
-    //     }).bind(this)).listen(i);//, '127.0.0.1')
-    //     server.close();
-    //     server = null;
-    //   } catch (error) {
-    //     this.log(i);
-    //   }
-    // }
 
     const tokenError = await this.homey.flow.createToken('error', { type: 'string', title: 'error' });
     const tokenStackTrace = await this.homey.flow.createToken('stacktrace', { type: 'string', title: 'stacktrace' });
@@ -188,7 +159,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 			setInterval((async ()=>{
 				var me = await this.client.getSessionToken();
 				this.log('me', me);
-			}).bind(this), 12* 60*60*1000); // elke 12 uur
+			}).bind(this), 1* 60*60*1000); // elke 1 uur
       
 			var token = await this.client.getSessionToken();
 			this.log('me', token);
