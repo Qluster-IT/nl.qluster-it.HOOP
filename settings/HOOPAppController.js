@@ -2,7 +2,7 @@
     .controller('HOOPAppController', function($scope) {
         this.messages = '';
         this.selected = {};
-        this.homey;
+        //this.homey;
 
         this.setHomey = function(homey, scope, log) {
             this.homey = homey;
@@ -83,7 +83,7 @@
                 scopes: ['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']
             });
 
-            let cloudAPI = new AthomCloudAPI(
+            var cloudAPI = new AthomCloudAPI(
                 {
                     store: new AthomStorageAdapter.LocalStorage('_athom_cloud_api')
                 }
