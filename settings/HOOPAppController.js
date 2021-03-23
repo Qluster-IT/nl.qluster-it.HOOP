@@ -83,7 +83,7 @@
                 scopes: ['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']
             });
 
-            let cloudAPI = new AthomCloudAPI(
+            var cloudAPI = new AthomCloudAPI(
                 {
                     store: new AthomStorageAdapter.LocalStorage('_athom_cloud_api')
                 }
