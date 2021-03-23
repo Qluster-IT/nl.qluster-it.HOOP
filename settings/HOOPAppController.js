@@ -2,7 +2,7 @@
     .controller('HOOPAppController', function($scope) {
         this.messages = '';
         this.selected = {};
-        this.homey;
+        //this.homey;
 
         this.setHomey = function(homey, scope, log) {
             this.homey = homey;
