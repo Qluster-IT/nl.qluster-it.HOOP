@@ -28,7 +28,7 @@ class MethodGroupDriver extends Homey.Driver
     {
       const firstId = 'methodgroupdevice';
       let devices = this.getDevices();
-      if(devices && devices.length>0) devices = _.filter(devices, device=> device.getDate().id==firstId);
+      if(devices && devices.length>0) devices = _.filter(devices, device=> device.getData().id==firstId);
       var id = devices && devices.length>0 ? uuidv4() : firstId;
       return {
           "name": 'Method Group',

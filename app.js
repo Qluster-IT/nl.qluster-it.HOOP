@@ -260,7 +260,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
       });
     }).bind(this));
 
-    ['app_action__return', 'app_action__flowsharer'].forEach((card=>{ 
+    ['app_action__return'].forEach((card=>{ 
       this.flows[card.startsWith('app_condition') ? 'conditions' : 'actions'][card].card.registerRunListener( async (args, state={}) => {
         return true;
       });
