@@ -66,8 +66,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
     this.ip = (await this.homey.cloud.getLocalAddress()).split(':')[0];
 
     //this.clearOAuth2Clients(); //watch out!
-    
-    //await this.initConfig();
+    await this.initConfig();
     
     this.log('HOOPApp has been initialized');
     
@@ -95,16 +94,16 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
     this.initializeConditionsAndActions();
 
     
-		// this.homey.settings.on('set', (function(settingName) {
-		// 	if(settingName=='authorizationcode') {        
-    //     this.setAuthorizationCode({reset:true});
-		// 	} else if(settingName=='cleartoken') {
-		// 		this.clearToken();
-		// 	}
+		this.homey.settings.on('set', (function(settingName) {
+			if(settingName=='authorizationcode') {        
+        this.setAuthorizationCode({reset:true});
+			} else if(settingName=='cleartoken') {
+				this.clearToken();
+			}
 
-		//   }).bind(this));
-		//   //await this.setCloudJSON();
-		//   this.setAuthorization();
+		  }).bind(this));
+		  //await this.setCloudJSON();
+		  this.setAuthorization();
   }
 
 

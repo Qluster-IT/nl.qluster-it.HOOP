@@ -14,10 +14,7 @@
   "category": [
     "tools"
   ],
-  "permissions": [
-    "homey:manager:api",
-    "homey:app:com.athom.homeyscript"
-  ],
+  "permissions": [],
   "contributing": {
     "donate": {
       "paypal": {

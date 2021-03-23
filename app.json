@@ -15,10 +15,7 @@
   "category": [
     "tools"
   ],
-  "permissions": [
-    "homey:manager:api",
-    "homey:app:com.athom.homeyscript"
-  ],
+  "permissions": [],
   "contributing": {
     "donate": {
       "paypal": {
@@ -4680,7 +4677,6 @@
         "large": "/drivers/homeyelevator/assets/images/large.jpg",
         "small": "/drivers/homeyelevator/assets/images/small.jpg"
       },
-      "deprecated": true,
       "pair": [
         {
           "id": "start"
