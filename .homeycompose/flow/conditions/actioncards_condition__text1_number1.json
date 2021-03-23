@@ -1,0 +1,36 @@
+{
+    "id":"actioncards_condition__text1_number1",
+    "title" : {
+        "en":"Action with 1 text, 1 number !{{|and continue when not successful }}"
+    },"titleFormatted" : {
+        "en":"Await [[card]] (text1:[[text_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=actioncards"
+        },        
+        {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+                "en": "Type in the app or device name"
+            }
+        },
+        {
+        "type": "text",
+        "name": "text_1",
+        "placeholder": {
+            "en": "text1"
+        }
+        },
+        {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+                "en": "number1"
+            }            
+        }
+    ]
+}
