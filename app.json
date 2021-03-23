@@ -3734,8 +3734,29 @@
           "en": "Used to share flows nicely"
         },
         "titleFormatted": {
-          "en": "Improved<script type=\"text/javascript\">setTimeout(function(){var t=$(\".flow-inner .category .card\");console.log(t);var e=0,r=0,n=0;t.each((t,s)=>{if(n>-1&&n--,0===n&&e>0&&e--,e<0&&(e=0),\"Flow Director\"==$(s).find(\".card__content-text small\").text()){let t=$(s).find(\".card__content-text\").text().trim().substr(13).trim();t.startsWith(\"IF the next\")||t.startsWith(\"ELSE IF the\")?(r=1,n=1,$(s).find(\".card__content-text .arg-number\").each((t,e)=>{console.log($(e).text()),n+=Number.parseInt($(e).text())})):t.startsWith(\"IF\")?r=1:t.startsWith(\"ELSE\")||t.startsWith(\"THEN\")?(e--,r=1):t.startsWith(\"END IF\")&&e--}e>0?(console.log(\"setting intend: \"+(15*e).toString()),$(s).css(\"margin-left\",(15*e).toString()+\"px\")):$(s).css(\"margin-left\",\"0px\"),r&&(e+=r),r=0})},500);</script>"
-        }
+          "en": "Used to shared flows nicely [[improveaction]]"
+        },
+        "args": [
+          {
+            "type": "dropdown",
+            "name": "improveaction",
+            "placeholder": {
+              "en": "Improve"
+            },
+            "title": {
+              "en": "Improve"
+            },
+            "values": [
+              {
+                "id": "1",
+                "name": "1",
+                "label": {
+                  "en": "Improved<script type=\"text/javascript\">setTimeout(function(){var t=$(\".flow-inner .category .card\");console.log(t);var e=0,r=0,n=0;t.each((t,s)=>{if(n>-1&&n--,0===n&&e>0&&e--,e<0&&(e=0),\"Flow Director\"==$(s).find(\".card__content-text small\").text()){let t=$(s).find(\".card__content-text\").text().trim().substr(13).trim();t.startsWith(\"IF the next\")||t.startsWith(\"ELSE IF the\")?(r=1,n=1,$(s).find(\".card__content-text .arg-number\").each((t,e)=>{console.log($(e).text()),n+=Number.parseInt($(e).text())})):t.startsWith(\"IF\")?r=1:t.startsWith(\"ELSE\")||t.startsWith(\"THEN\")?(e--,r=1):t.startsWith(\"END IF\")&&e--}e>0?(console.log(\"setting intend: \"+(15*e).toString()),$(s).css(\"margin-left\",(15*e).toString()+\"px\")):$(s).css(\"margin-left\",\"0px\"),r&&(e+=r),r=0})},500);</script>"
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         "id": "app_action__return",
