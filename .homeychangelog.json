@@ -1,29 +1,5 @@
 {
-  "1.5.0": {
+  "1.0.0": {
     "en": "Live"
-  },
-  "1.5.1": {
-    "en": "textual"
-  },
-  "1.5.2": {
-    "en": "Question"
-  },
-  "1.6.0": {
-    "en": "Without HomeyScript"
-  },
-  "1.6.1": {
-    "en": "Api-less"
-  },
-  "1.6.2": {
-    "en": "Bugfixes"
-  },
-  "1.6.3": {
-    "en": "Fixes"
-  },
-  "1.6.4": {
-    "en": "added Flow Variables with custom expressions"
-  },
-  "1.6.5": {
-    "en": "api based, does not work"
   }
 }
