@@ -8,13 +8,13 @@
             this.homey = homey;
             this.log = function(s) { return log(s);}
             this.functions = [];
-            this.scope = scope;
-            
+            this.scope = scope;            
             try {
             
                 this.getAuthorizationCode();
                 this.getFunctionFromSettings();
-                this.getClientStuff();                
+                this.getClientStuff();    
+                this.setAthomClient();            
             } catch (error) {
                 this.homey.alert('error: ' + error);
             }
@@ -68,17 +68,18 @@
             });
             
         }
-        this.saveAthomClient = function() {
-            this.homey.set('clientid', this.clientid);
-            this.homey.set('clientsecret', this.clientsecret);
-            this.setAthomClient();
-        }
+        // this.saveAthomClient = function() {
+        //     this.homey.set('clientid', this.clientid);
+        //     this.homey.set('clientsecret', this.clientsecret);
+        //     this.setAthomClient();
+        // }
+
         this.setAthomClient = function() {
             AthomCloudAPI.setConfig({
-                clientId: this.clientid, //Obtained through the developer portal/Athom
-                clientSecret: this.clientsecret, //Obtained through the developer portal/Athom
+                clientId: atob('NWJkMzNlOWI5Yzk5ZmM0ZjhkMGJjMjMx'), //Obtained through the developer portal/Athom
+                //clientSecret: this.clientsecret, //Obtained through the developer portal/Athom
                 callbackUrl: 'http://localhost', //Configured through developer portal
-                redirectUrl: 'http://localhost',//'https://cli.athom.com?clientid='+this.homeyid,//'http://localhost', //Configured through developer portal
+                redirectUrl: 'https://cli.athom.com',//'http://localhost', //Configured through developer portal
                 autoRefreshTokens: 1,
                 scopes: ['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']
             });
@@ -90,6 +91,8 @@
             );
             this.cloudurl = cloudAPI.getLoginUrl(['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']);
         }
+
+        
 
         this.clearToken = function() {
             this.homey.set('cleartoken', true);
@@ -135,11 +138,10 @@
             })
         }
         this.removeFunction = function(row) {
-            this.homey.confirm('Are you sure you wish to delete function '+row.name+'?', null, () => {
-                
-            var index = this.functions.indexOf(row);
-            this.functions.splice(index, 1);
-            storeFunction();
+            this.homey.confirm('Are you sure you wish to delete function '+row.name+'?', null, () => {                
+                var index = this.functions.indexOf(row);
+                this.functions.splice(index, 1);
+                this.storeFunction();
             })
         };
         this.editFunction = function(row) {
@@ -153,4 +155,6 @@
         this.storeFunction = function() {
             this.homey.set('flowvariables_functions', angular.copy(this.functions));
         }
+
+                
     });
