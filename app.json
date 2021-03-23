@@ -15,9 +15,7 @@
   "category": [
     "tools"
   ],
-  "permissions": [
-    "homey:manager:api"
-  ],
+  "permissions": [],
   "contributing": {
     "donate": {
       "paypal": {

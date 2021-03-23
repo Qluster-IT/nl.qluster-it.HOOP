@@ -9,3 +9,6 @@ From methodgroup-trigger
           "en": "ID"
         }
       }
+
+
+      You need to grant the app developer access by eather creating a Homey Elevator device (on Android Phone's), or, if you're using iOS, use the Settings to grant access.

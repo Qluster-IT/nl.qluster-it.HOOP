@@ -10,6 +10,7 @@ const OAuth2Controller = require('./lib/outh2Clients/OAuth2Controller');
 
 const  HomeymanOAth2Client = require('./lib/outh2Clients/HomeyOAuth2Client');
 const OAuth2MiniApp = require('./lib/outh2Clients/OAuth2MiniApp');
+const Script = require('./lib/script');
 
 class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
   /**
@@ -71,6 +72,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
     
     homeyApi.init(this);
     Flower.init(this);
+    Script.init(this);
     //this.log('init', await homeyApi.getDevice({id:'4fbe7935-cfe3-47d4-b552-68e05f9d0e91'}));
 
     this.flows = {};
@@ -163,6 +165,13 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
       
 			var token = await this.client.getSessionToken();
 			this.log('me', token);
+      // setTimeout((async ()=>{
+      //   // var ap = await this.client.getApp({id:'com.athom.homeyscript'});
+      //   // this.log('me', ap);
+        
+      //   var ap = await Script.getToken();
+      //   this.log('token HS', ap);
+      // }).bind(this), 3000);
 
 		}).call(this);
 	}
