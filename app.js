@@ -161,7 +161,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 			setInterval((async ()=>{
 				var me = await this.client.getSessionToken();
 				this.log('me', me);
-			}).bind(this), 1* 60*60*1000); // elke 1 uur
+			}).bind(this), 12* 60*60*1000); // elke 1 uur
       
 			var token = await this.client.getSessionToken();
 			this.log('me', token);
