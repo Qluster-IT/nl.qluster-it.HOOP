@@ -1,5 +1,8 @@
 {
   "1.0.0": {
     "en": "Live"
+  },
+  "1.0.1": {
+    "en": "Error's are passed through correctly"
   }
 }
