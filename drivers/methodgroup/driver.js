@@ -128,7 +128,11 @@ class MethodGroupDriver extends Homey.Driver
                   }).catch(err=> {
                     defer.reject(err);//'Error triggering MehodGroup Card (1)');
                   });
-                else defer.resolve(true);
+                else promise.then(r=> {
+                  defer.resolve(true);
+                }).catch(err=> {
+                  defer.reject(err);//'Error triggering MehodGroup Card (1)');
+                });
               }).call(this).then(()=> {
               }).catch(err=> {
                 this.log('Error triggering MehodGroup Card 2');this.error(err); defer.reject(err.name || err);
