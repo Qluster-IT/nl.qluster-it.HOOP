@@ -4,5 +4,8 @@
   },
   "1.0.1": {
     "en": "Error's are passed through correctly"
+  },
+  "1.0.2": {
+    "en": "Improved readme"
   }
 }
