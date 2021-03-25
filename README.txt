@@ -3,21 +3,21 @@ Bringing you H.O.O.P (Dutch for Hope).
 Homey Object Oriented Programming (for advanced users).
 
 
-This apps transforms your Homey in a programmable object, changing standard flow behavior.
-Took a look at the Community Forum Topic for diagrams, examples and overal usages.
-If you dont understand this app, please don't use it.
+This app transforms your Homey in to a programmable object, changing standard flow behavior.
+Take a look at the Community Forum Topic for diagrams, examples and overall usages.
+If you don't understand this app, please don't use it.
 
-You need to grant ‘developer’ access rights’ to the app by eather creating a Homey Elevator device (on Android Phone's), or, if you're using iOS, use the Settings to grant access.
+You need to grant ‘developer’ access rights’ to the app by either creating a Homey Elevator device (on Android Phone's), or, if you're using iOS, use the Settings to grant access.
 
-Create one (or more) Method Group device(s) and use it like in an Object Oriented Programming manner.
-Give it (overloadable) methods which will handle there own objects (devices, flows, variables, etc), removing the need for repetative flows.
+Create one (or more) Method Group device(s) that can be used in an Object Oriented Programming manner.
+Give it (overloadable) methods which will handle their own objects (devices, flows, variables, etc), removing the need for repetitive flows.
 Setting the Method Group Device Setting "Overloadable" will let you even trigger a TriggerCard (Text3:, Boolean1:) by a Condition/ActionCard (Text:2, Boolean1) or a Condition/ActionCard (Text:1).
 
 Or trigger any flow as condition and await till its done, creating synchronised actions, handling variables before executing any further actions, all within the same flow.
 
-Create a Flow Actions Device and allows the execution of Actioncards (Then-Cards) as Conditions and await them.
+Create a Flow Actions Device that allows the execution of Actioncards (Then-Cards) as Conditions and await them.
 
-Also a Flow Director is available, giving you If, Or(else), And(Also), Then, Else, Else If, End If and handeling errors with stacktrace during flow.
+Also a Flow Director is available, giving you If, Or(else), And(Also), Then, Else, Else If, End If and handling errors with stacktrace during the flow.
 
 You can transform the if-or-or condition groups of a flow into if-or-finally or try-catch-finally.
 
