@@ -20,10 +20,10 @@ class FlowVariablesDevice extends Homey.Device {
         if(!_.isString(value) && value!==null && value!==undefined) value = value.toString(); else value = _.isString(value) ? value :'';
         break;
       case 'number':
-        if(!_.isNumber(value) && value!==null && value!==undefined) value = value.toString(); else value = _.isNumber(value) ? value : -1;
+        if(!_.isNumber(value) && value!==null && value!==undefined) value = Number.parseFloat(value.toString()); else value = _.isNumber(value) ? value : -1;
         break;
       case 'boolean':
-        if(!_.isBoolean(value) && value!==null && value!==undefined) value = value.toString(); else value = _.isBoolean(value) ? value :false;
+        if(!_.isBoolean(value) && value!==null && value!==undefined) value = (value.toString() === 'true' || value.toString() ==='1'); else value = _.isBoolean(value) ? value :false;
         break;
       case 'json':
         value = JSON.stringify(value);

@@ -10,5 +10,8 @@
   },
   "1.0.3": {
     "en": "Bugfixed flow variables"
+  },
+  "1.0.4": {
+    "en": "Bugfixed Flow Director"
   }
 }
