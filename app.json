@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "nl.qluster-it.HOOP",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -2142,6 +2142,29 @@
       }
     ],
     "conditions": [
+      {
+        "id": "actioncards_condition__",
+        "title": {
+          "en": "Action without arguments !{{|and continue when not successful }}"
+        },
+        "titleFormatted": {
+          "en": "Await [[card]] !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=actioncards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          }
+        ]
+      },
       {
         "id": "actioncards_condition__autocomplete1",
         "title": {
