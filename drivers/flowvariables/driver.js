@@ -105,7 +105,7 @@ class FlowVariablesDriver extends Homey.Driver
         card.card.getArgument('name').registerAutocompleteListener(async (query, args) => {
           if (!args.device) throw "Device missing";
 
-          var list = _.filter(args.device.variables, vari=> vari.type===args.type.id);
+          var list = _.filter(args.device.variables, vari=> vari.type===args.type);
 
           var r = [];
           if(query && query.length>0) r.push({id:query, name:query});
