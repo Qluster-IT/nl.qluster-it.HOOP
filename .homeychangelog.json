@@ -13,5 +13,8 @@
   },
   "1.0.4": {
     "en": "Bugfixed Flow Director"
+  },
+  "1.0.5": {
+    "en": "Added Action Cards - Await without arguments (turn device on/off or toggle)"
   }
 }
