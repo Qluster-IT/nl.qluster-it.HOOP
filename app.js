@@ -181,8 +181,16 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
       },
       async () => {
         // called by HomeyAPI on 401 requests
-        await this.client.login();
-        if(_.isString(this.client.accessToken)) api.setToken(this.client.accessToken);
+        this.log('Homey Api refresh, refreshing token');
+        await this.client.refreshToken();
+        let token = await this.client.login();
+        if(_.isString(token)) api.setToken(token);
+        else {
+          this.log('Homey Api failed, refreshing token again');
+          await this.client.refreshToken();
+          let tokenAgain = await this.client.login();
+          api.setToken(tokenAgain);
+        }
       }
     );
     this.homey.drivers.getDriver('homeyelevator').homeyApi = api;
