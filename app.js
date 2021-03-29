@@ -3,6 +3,9 @@ const http = require('http');
 
 const Homey = require('homey');
 const homeyApi = require('./lib/homeyApi');
+
+const { HomeyAPI } = require('athom-api');
+
 const _ = require('lodash');
 const { Defer } = require('./lib/proto');
 const Flower = require('./lib/flower');
@@ -64,6 +67,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 
     this.SETTINGS_KEY= this.SETTINGS_KEY;//+ '_' + 'HomeyOAuth';
     this.ip = (await this.homey.cloud.getLocalAddress()).split(':')[0];
+    this.localURL = await this.homey.api.getLocalUrl();
 
     //this.clearOAuth2Clients(); //watch out!
     await this.initConfig();
@@ -153,6 +157,8 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 			this.client = await this.getClient(code); //code
       this.homey.drivers.getDriver('homeyelevator').client = this.client;
       
+      
+      
 			//this.refreshOwnFlows();
 			this.client.refresh = async ()=> {
 				return await this.getToken();
@@ -165,6 +171,21 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
       
 			var token = await this.client.getSessionToken();
 			this.log('me', token);
+
+      const api = new HomeyAPI({
+        localUrl: this.localURL,
+        baseUrl: this.localURL,
+        token: this.client.accessToken,
+        apiVersion: 2,
+        online: true
+      },
+      async () => {
+        // called by HomeyAPI on 401 requests
+        await this.client.login();
+        if(_.isString(this.client.accessToken)) api.setToken(this.client.accessToken);
+      }
+    );
+    this.homey.drivers.getDriver('homeyelevator').homeyApi = api;
       // setTimeout((async ()=>{
       //   // var ap = await this.client.getApp({id:'com.athom.homeyscript'});
       //   // this.log('me', ap);
