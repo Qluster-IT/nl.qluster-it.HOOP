@@ -165,17 +165,20 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 			};
 
 			setInterval((async ()=>{
-				var me = await this.client.getSessionToken();
+				var me = await this.client.getMe();
 				this.log('me', me);
 			}).bind(this), 12* 60*60*1000); // elke 1 uur
       
 			var token = await this.client.getSessionToken();
+      
+      if(!_.isString(token)) await this.client.refreshToken();
+      token = await this.client.login();
 			this.log('me', token);
 
       const api = new HomeyAPI({
         localUrl: this.localURL,
         baseUrl: this.localURL,
-        token: this.client.accessToken,
+        token: token,
         apiVersion: 2,
         online: true
       },
@@ -183,8 +186,8 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
         // called by HomeyAPI on 401 requests
         this.log('Homey Api refresh, refreshing token');
         await this.client.refreshToken();
-        let token = await this.client.login();
-        if(_.isString(token)) api.setToken(token);
+        let tokenInside = await this.client.login();
+        if(_.isString(tokenInside)) api.setToken(tokenInside);
         else {
           this.log('Homey Api failed, refreshing token again');
           await this.client.refreshToken();
@@ -207,7 +210,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
 
 	async getToken() {
 		if(!this.client) await this.setAuthorization();
-		return await this.client.getSessionToken();
+		return await this.client.login();
 	}
 
 
