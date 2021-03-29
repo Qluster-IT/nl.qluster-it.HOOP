@@ -19,5 +19,8 @@
   },
   "1.0.6": {
     "en": "Bugfixed Else card"
+  },
+  "1.0.7": {
+    "en": "ELSE card will not response to IF-THEN or ELSE-IF-THEN cards anymore"
   }
 }
