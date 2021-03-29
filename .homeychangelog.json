@@ -22,5 +22,8 @@
   },
   "1.0.7": {
     "en": "ELSE card will not response to IF-THEN or ELSE-IF-THEN cards anymore"
+  },
+  "1.1.0": {
+    "en": "Bugfixed and improved the Elevation (especially for first time install)"
   }
 }

@@ -15,6 +15,9 @@ class FlowVariablesDriver extends Homey.Driver
     async onInit()
     {
         this.log('FlowVariablesDriver has been initialized');   
+        
+        //this.ip = (await this.homey.cloud.getLocalAddress()).split(':')[0];
+        //this.localURL = await this.homey.api.getLocalUrl();
         Flower.init(null, this);
         homeyApi.init(this);
         this.flowCards = {};
