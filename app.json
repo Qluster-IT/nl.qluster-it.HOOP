@@ -2139,6 +2139,29 @@
             }
           }
         ]
+      },
+      {
+        "id": "triggercards_trigger__",
+        "title": {
+          "en": "Trigger without arguments !{{|and continue when not successful }}"
+        },
+        "titleFormatted": {
+          "en": "Trigger [[card]] !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=actioncards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          }
+        ]
       }
     ],
     "conditions": [
@@ -4783,6 +4806,34 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "triggercards",
+      "name": {
+        "en": "Trigger Cards"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/triggercards/assets/images/large.png",
+        "small": "/drivers/triggercards/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          },
+          "options": {
+            "singular": true
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
         }
       ]
     }

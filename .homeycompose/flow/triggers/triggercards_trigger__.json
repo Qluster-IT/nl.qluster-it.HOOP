@@ -1,0 +1,22 @@
+{
+    "id":"triggercards_trigger__",
+    "title" : {
+        "en":"Trigger without arguments !{{|and continue when not successful }}"
+    },"titleFormatted" : {
+        "en":"Trigger [[card]] !{{|and continue when not successful }}"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=actioncards"
+        },        
+        {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+                "en": "Type in the app or device name"
+            }        
+        }
+    ]
+}
