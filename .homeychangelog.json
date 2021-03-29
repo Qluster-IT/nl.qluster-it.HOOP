@@ -16,5 +16,8 @@
   },
   "1.0.5": {
     "en": "Added Action Cards - Await without arguments (turn device on/off or toggle)"
+  },
+  "1.0.6": {
+    "en": "ELSE card will not response to IF-THEN or ELSE-IF-THEN cards anymore"
   }
 }
