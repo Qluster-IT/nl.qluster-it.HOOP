@@ -125,7 +125,7 @@ class TriggerCardsDriver extends Homey.Driver
           });
           //this.log('actionCard.args', actionCard.args);
           if (actionCard.args) {
-            if (actionCard.args.find(x => x.name == 'card' && x.type == 'autocomplete')) card.getArgument('card').registerAutocompleteListener(Shared.registerAutocompleteListenerCard.call(this, {actionCard, cardToUser ,cardType, homeyApi}));
+            if (actionCard.args.find(x => x.name == 'card' && x.type == 'autocomplete')) card.getArgument('card').registerAutocompleteListener(Shared.registerAutocompleteListenerCard.call(this, {actionCard, cardToUser ,cardType, homeyApi}).bind(this));
             if (actionCard.args.find(x => x.name.indexOf('autocomplete')>-1)) actionCard.args.filter(x => x.name.indexOf('autocomplete')>-1).forEach(arg=>{
               const argName = arg.name;
               card.getArgument(argName).registerAutocompleteListener(async (query, args) => {
