@@ -2152,7 +2152,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=actioncards"
+            "filter": "driver_id=triggercards"
           },
           {
             "type": "autocomplete",
