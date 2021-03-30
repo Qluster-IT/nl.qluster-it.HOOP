@@ -230,21 +230,7 @@ class TriggerCardsDriver extends Homey.Driver
 
   async getAllFlows() {    
     var api = await homeyApi.getAsync();
-    var folders = await api.flow.getFlowFolders();
-    var folderHoop = _.find(folders, f=>f.name=='HOOPInternal');
-    if(!folderHoop) {
-      folderHoop = new HomeyAPI.ManagerFlow.FlowFolder();
-      folderHoop.name = 'HOOPInternal';
-      folderHoop = await api.flow.createFlowFolder({flowfolder:folderHoop});
-    }
-    var folderTriggerCards = _.find(folders, f=>f.name=='Trigger Cards' && f.parent==folderHoop.id );
-    if(!folderTriggerCards) {
-      folderTriggerCards = new HomeyAPI.ManagerFlow.FlowFolder();
-      folderTriggerCards.name = 'Trigger Cards';
-      folderTriggerCards.parent = folderHoop.id;
-      folderTriggerCards = await api.flow.createFlowFolder({flowfolder:folderTriggerCards});
-    }
-   
+
     var allDevices = await api.devices.getDevices();
     var device = _.find(allDevices, d => d.driverUri== 'homey:app:nl.qluster-it.HOOP' && d.driverId == 'triggercards');
 
@@ -252,7 +238,24 @@ class TriggerCardsDriver extends Homey.Driver
     var triggerFlows = {};
     /**@type {{[key:string]:HomeyAPI.ManagerFlow.Flow]} */
     var actionFlows = {};
+    var folderTriggerCards  = null;
     if(device) {
+      var folders = await api.flow.getFlowFolders();
+      var folderHoop = _.find(folders, f=>f.name=='HOOPInternal');
+      if(!folderHoop) {
+        folderHoop = new HomeyAPI.ManagerFlow.FlowFolder();
+        folderHoop.name = 'HOOPInternal';
+        folderHoop = await api.flow.createFlowFolder({flowfolder:folderHoop});
+      }
+      folderTriggerCards = _.find(folders, f=>f.name=='Trigger Cards' && f.parent==folderHoop.id );
+      if(!folderTriggerCards) {
+        folderTriggerCards = new HomeyAPI.ManagerFlow.FlowFolder();
+        folderTriggerCards.name = 'Trigger Cards';
+        folderTriggerCards.parent = folderHoop.id;
+        folderTriggerCards = await api.flow.createFlowFolder({flowfolder:folderTriggerCards});
+      }
+   
+    
       var flows = await api.flow.getFlows();
       _.each(flows, (f, key)=> {
         if(f.trigger.uri=='homey:device:' + device.id && f.trigger.id.startsWith('triggercards_trigger__')) triggerFlows[key] = f ;
