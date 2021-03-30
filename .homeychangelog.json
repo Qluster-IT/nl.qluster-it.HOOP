@@ -28,5 +28,8 @@
   },
   "1.1.1": {
     "en": "Added Trigger Cards device, Elevation needs to be done again one time to use it!"
+  },
+  "1.1.2": {
+    "en": "Improved string handling"
   }
 }
