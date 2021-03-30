@@ -1,0 +1,29 @@
+{
+    "id":"triggercards_action_trigger",
+    "title" : {
+        "en":"Execute"
+    },"titleFormatted" : {
+        "en":"Execute [[triggercard]] with [[tokens]]"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=triggercards"
+        },        
+        {
+            "type": "autocomplete",
+            "name": "triggercard",
+            "placeholder": {
+                "en": "To trigger"
+            }        
+        },        
+        {
+            "type": "text",
+            "name": "tokens",
+            "placeholder": {
+                "en": "Tokens"
+            }        
+        }
+    ]
+}

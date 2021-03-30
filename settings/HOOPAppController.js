@@ -81,7 +81,7 @@
                 callbackUrl: 'http://localhost', //Configured through developer portal
                 redirectUrl: 'https://cli.athom.com',//'http://localhost', //Configured through developer portal
                 autoRefreshTokens: 1,
-                scopes: ['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']
+                //scopes: ['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']
             });
 
             var cloudAPI = new AthomCloudAPI(
@@ -89,7 +89,7 @@
                     store: new AthomStorageAdapter.LocalStorage('_athom_cloud_api')
                 }
             );
-            this.cloudurl = cloudAPI.getLoginUrl(['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']);
+            this.cloudurl = cloudAPI.getLoginUrl();//['homey.device.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']);
         }
 
         
