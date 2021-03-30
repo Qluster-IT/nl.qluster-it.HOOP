@@ -1,0 +1,31 @@
+{
+    "id":"flowdirector_condition___elsethen",
+    "title" : {
+        "en":"Else Then"
+    },"titleFormatted" : {
+        "en":"ELSE THEN execute the [[elseamount]] cards after that"
+    },
+    "hint": {
+        "en": "If the previous conditions validated false, Then execute the next amount of cards and finishes the IF statement."
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=flowdirector"
+        },
+        {
+            "type": "number",
+            "name": "elseamount",
+            "placeholder": {
+                "en": "Number"
+            },
+            "title": {
+                "en": "Number of cards for ELSE"
+            },
+            "step": 1,
+            "min" : 1,
+            "max":100
+        }
+    ]
+}

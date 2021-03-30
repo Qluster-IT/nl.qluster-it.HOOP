@@ -175,7 +175,10 @@ class TriggerCardsDriver extends Homey.Driver
                 between = between.replace('"', '\\"');
                 tokens = start + between + end;
               }
-              var filledTokens = JSON.parse(tokens);
+              var filledTokens = null;
+              try {
+                filledTokens = JSON.parse(tokens);
+              } catch (error) { }
               var triggerCard = await api.flow.getFlowCardTrigger({uri:toRunActionFlows[0].trigger.uri, id:toRunActionFlows[0].trigger.id, $skipCache:true});
               var triggerTokens = {};
               var tokenCount = {
