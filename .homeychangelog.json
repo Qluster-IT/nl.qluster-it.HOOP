@@ -31,5 +31,8 @@
   },
   "1.1.2": {
     "en": "Improved string handling"
+  },
+  "1.1.3": {
+    "en": "Added Else Then card to Flow Director"
   }
 }
