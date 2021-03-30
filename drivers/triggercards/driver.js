@@ -142,9 +142,18 @@ class TriggerCardsDriver extends Homey.Driver
             card.registerRunListener(async (args, state) => {
               
               var {triggerFlows, actionFlows, api } = this.customFlows;
-              var toRunActionFlows = _.filter(triggerFlows, (flow,aKey)=> flow.enabled &&  JSON.stringify(flow.trigger.args) == args.triggercard.value );
+              var toRunActionFlows = _.filter(triggerFlows, (flow,aKey)=> JSON.stringify(flow.trigger.args) == args.triggercard.value );
+              for (let i = 0; i < toRunActionFlows.length; i++) toRunActionFlows[i] = await homeyApi.getFlow(toRunActionFlows[i]);
+              toRunActionFlows = _.filter(toRunActionFlows, (flow,aKey)=> flow.enabled );
               if(!toRunActionFlows || toRunActionFlows.length==0) return true;
               
+              
+              // for (const key in toRunActionFlows) {
+              //   if (Object.hasOwnProperty.call(toRunActionFlows, key)) {
+              //     let flow = toRunActionFlows[key];
+                  
+              //   }
+              // }
               
               // HERERERERR ARE WE LEFT
               //const realFlow = await homeyApi.getFlow(flow);              
@@ -153,10 +162,10 @@ class TriggerCardsDriver extends Homey.Driver
 
 
 
-              
+
               //var json = JSON.parse(args.triggercard.value);
               var filledTokens = JSON.parse(args.tokens);
-              var triggerCard = await api.flow.getFlowCardTrigger({uri:toRunActionFlows[0].trigger.uri, id:toRunActionFlows[0].trigger.id});
+              var triggerCard = await api.flow.getFlowCardTrigger({uri:toRunActionFlows[0].trigger.uri, id:toRunActionFlows[0].trigger.id, $skipCache:true});
               var triggerTokens = {};
               var tokenCount = {
                 string:0,
@@ -201,7 +210,7 @@ class TriggerCardsDriver extends Homey.Driver
               triggerTokens.stacktrace = 'null';
 
               _.each(toRunActionFlows, flow=> 
-                Flower.triggerFlow({flow:flow, tokensAsArgs: triggerTokens})
+                Flower.triggerFlow({flow:flow, tokensAsArgs: triggerTokens, refreshedFlow:flow})
               );
             });
             //this.log('actionCard.args', actionCard.args);
@@ -272,7 +281,7 @@ class TriggerCardsDriver extends Homey.Driver
             actionFlow = new HomeyAPI.ManagerFlow.Flow();
             actionFlow.name = uuidv4();
             actionFlow.folder = folderTriggerCards.id;
-            actionFlow.trigger = await api.flow.getFlowCardTrigger({uri:triggerFlow.trigger.args.card.refUri, id:triggerFlow.trigger.args.card.refId});
+            actionFlow.trigger = await api.flow.getFlowCardTrigger({uri:triggerFlow.trigger.args.card.refUri, id:triggerFlow.trigger.args.card.refId, $skipCache:true});
             var args = Flower.getArgsForArgs({args:triggerFlow.trigger.args,triggerCard:actionFlow.trigger });
             actionFlow.trigger.args = args;
             
@@ -292,7 +301,7 @@ class TriggerCardsDriver extends Homey.Driver
               }
             });
             
-            var realAction = await api.flow.getFlowCardAction({uri:'homey:device:' + device.id, id:'triggercards_action_trigger'});
+            var realAction = await api.flow.getFlowCardAction({uri:'homey:device:' + device.id, id:'triggercards_action_trigger', $skipCache:true});
 
             var actionToDo = {
               uri:realAction.uri,

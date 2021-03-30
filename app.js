@@ -175,28 +175,32 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
       token = await this.client.login();
 			this.log('me', token);
 
-      const api = new HomeyAPI({
-        localUrl: this.localURL,
-        baseUrl: this.localURL,
-        token: token,
-        apiVersion: 2,
-        online: true
-      },
-      async () => {
-        // called by HomeyAPI on 401 requests
-        this.log('Homey Api refresh, refreshing token');
-        await this.client.refreshToken();
-        let tokenInside = await this.client.login();
-        if(_.isString(tokenInside)) api.setToken(tokenInside);
-        else {
-          this.log('Homey Api failed, refreshing token again');
-          await this.client.refreshToken();
-          let tokenAgain = await this.client.login();
-          api.setToken(tokenAgain);
-        }
-      }
-    );
-    this.homey.drivers.getDriver('homeyelevator').homeyApi = api;
+      this.client.setApi = ()=> {
+        const api = new HomeyAPI({
+            localUrl: this.localURL,
+            baseUrl: this.localURL,
+            token: token,
+            apiVersion: 2,
+            online: true        
+          },
+          async () => {
+            // called by HomeyAPI on 401 requests
+            this.log('Homey Api refresh, refreshing token');
+            await this.client.refreshToken();
+            let tokenInside = await this.client.login();
+            if(_.isString(tokenInside)) api.setToken(tokenInside);
+            else {
+              this.log('Homey Api failed, refreshing token again');
+              await this.client.refreshToken();
+              let tokenAgain = await this.client.login();
+              api.setToken(tokenAgain);
+            }
+          }
+        );
+        this.homey.drivers.getDriver('homeyelevator').homeyApi = api;
+      };
+      this.client.setApi();
+      
     homeyApi._ready.resolve();
       // setTimeout((async ()=>{
       //   // var ap = await this.client.getApp({id:'com.athom.homeyscript'});
