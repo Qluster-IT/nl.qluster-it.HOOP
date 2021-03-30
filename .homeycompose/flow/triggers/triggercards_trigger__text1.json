@@ -1,9 +1,9 @@
 {
     "id":"triggercards_trigger__text1",
     "title" : {
-        "en":"Trigger with 1 text !{{|and continue when not successful }}"
+        "en":"Trigger with 1 text"
     },"titleFormatted" : {
-        "en":"Trigger [[card]] (text1:[[text_1]]) !{{|and continue when not successful }}"
+        "en":"Trigger [[card]] (text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
     },
     "args": [
         {
@@ -24,6 +24,56 @@
             "placeholder": {
                 "en": "text1"
             }            
+        },
+        {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+                "en": "Conditioncard mode"
+            },
+            "values": [
+                {
+                    "id": "if-or-or",
+                    "name": "if-or-or",
+                    "label": {
+                      "en": "If-Or-Or (Default)"
+                    }
+                },{
+                    "id": "if-or-finally",
+                    "name": "if-or-finally",
+                    "label": {
+                      "en": "If-Or-Finally"
+                    }
+                },{
+                  "id": "try-catch-finally",
+                  "name": "try-catch-finally",
+                  "label": {
+                    "en": "Try-Catch-Finally"
+                  }
+                }
+            ]
+        },
+        {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+                "en": "Actioncard mode"
+            },
+            "values": [
+                {
+                    "id": "async",
+                    "name": "async",
+                    "label": {
+                      "en": "Executing actioncards asynchronously (default)"
+                    }
+                },{
+                    "id": "sync",
+                    "name": "sync",
+                    "label": {
+                      "en": "Executing actioncards synchronously"
+                    }
+                }
+            ]
         }
     ],
     "tokens": [

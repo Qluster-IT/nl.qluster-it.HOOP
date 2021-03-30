@@ -236,29 +236,8 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
         manifest : conditionCard
       };
     }    
-    this.flows.conditions['app_condition__await'].card.getArgument('flow').registerAutocompleteListener(async (query, args) => {
-      try {
-        var flows = await homeyApi.getFlows();
-        _.filter(flows, f => //f.enabled && 
-          this.triggerAble);
-
-        if (query) flows = _.filter(flows, f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
-        flows = _.orderBy(flows, f=>f.name);
-        var r = _.map(flows,f => {
-          return { id: f.id, name: f.name };
-        });
-        //this.log('r',r)
-        return r;
-      } catch (error) { this.error('app_action__synccall.flow.registerAutocompleteListener.error :', error); throw error; }
-    });
-    this.flows.conditions['app_condition__await'].card.registerRunListener(({flow, actioncardsmode} = {}, state={}) => {
-      try {
-        if(!flow ) return Promise.reject('Missing flow argument');            
-        var defer  = new Defer(30*1000);
-        Flower.triggerFlow({flow, actioncardsmode}).then(()=> defer.resolve(true)).catch(err=>defer.reject(err));
-        return defer.promise;
-      } catch (error) { this.error(error); }
-  });
+    
+    this.flows.conditions['app_condition__await']
   }
 
   initializeActions() {
@@ -302,6 +281,33 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
         return true;
       });
     }).bind(this));
+
+    ['app_condition__await', 'app_action__await'].forEach((card=>{ 
+      var cCard = this.flows[card.startsWith('app_condition') ? 'conditions' : 'actions'][card].card;
+      cCard.getArgument('flow').registerAutocompleteListener(async (query, args) => {
+        try {
+          var flows = await homeyApi.getFlows();
+          _.filter(flows, f => //f.enabled && 
+            this.triggerAble);
+  
+          if (query) flows = _.filter(flows, f => f.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
+          flows = _.orderBy(flows, f=>f.name);
+          var r = _.map(flows,f => {
+            return { id: f.id, name: f.name };
+          });
+          //this.log('r',r)
+          return r;
+        } catch (error) { this.error('app_action__synccall.flow.registerAutocompleteListener.error :', error); throw error; }
+      });
+      cCard.registerRunListener(({flow, actioncardsmode} = {}, state={}) => {
+        try {
+          if(!flow ) return Promise.reject('Missing flow argument');            
+          var defer  = new Defer(30*1000);
+          Flower.triggerFlow({flow, actioncardsmode}).then(()=> defer.resolve(true)).catch(err=>defer.reject(err));
+          return defer.promise;
+        } catch (error) { this.error(error); }
+      });
+    }));
     // this.flows.actions.app_action__flowsharer.card.getArgument('improveaction').registerAutocompleteListener(async (query, args) => {
     //   return [
     //     {
