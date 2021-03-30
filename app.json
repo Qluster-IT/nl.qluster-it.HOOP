@@ -2143,10 +2143,10 @@
       {
         "id": "triggercards_trigger__",
         "title": {
-          "en": "Trigger without arguments !{{|and continue when not successful }}"
+          "en": "Trigger without arguments"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] !{{|and continue when not successful }}"
+          "en": "Trigger [[card]] conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -2160,6 +2160,59 @@
             "placeholder": {
               "en": "Type in the app or device name"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -2322,10 +2375,10 @@
       {
         "id": "triggercards_trigger__autocomplete1",
         "title": {
-          "en": "Trigger with 1 autocomplete !{{|and continue when not successful }}"
+          "en": "Trigger with 1 autocomplete"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]]) !{{|and continue when not successful }}"
+          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -2346,6 +2399,59 @@
             "placeholder": {
               "en": "autocomplete1"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -2508,10 +2614,10 @@
       {
         "id": "triggercards_trigger__autocomplete1_boolean1",
         "title": {
-          "en": "Trigger with 1 autocomplete, 1 boolean !{{|and continue when not successful }}"
+          "en": "Trigger with 1 autocomplete, 1 boolean"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]], boolean1:[[boolean_1]]) !{{|and continue when not successful }}"
+          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]], boolean1:[[boolean_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -2539,6 +2645,59 @@
             "placeholder": {
               "en": "boolean1"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -2701,10 +2860,10 @@
       {
         "id": "triggercards_trigger__autocomplete1_dropdown1",
         "title": {
-          "en": "Trigger with 1 autocomplete, 1 dropdown !{{|and continue when not successful }}"
+          "en": "Trigger with 1 autocomplete, 1 dropdown"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]]) !{{|and continue when not successful }}"
+          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -2732,6 +2891,59 @@
             "placeholder": {
               "en": "dropdown1"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -2894,10 +3106,10 @@
       {
         "id": "triggercards_trigger__autocomplete1_number1",
         "title": {
-          "en": "Trigger with 1 autocomplete, 1 number !{{|and continue when not successful }}"
+          "en": "Trigger with 1 autocomplete, 1 number"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
+          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]], number1:[[number_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -2925,6 +3137,59 @@
             "placeholder": {
               "en": "number1"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -3087,10 +3352,10 @@
       {
         "id": "triggercards_trigger__autocomplete1_text1",
         "title": {
-          "en": "Trigger with 1 autocomplete, 1 text !{{|and continue when not successful }}"
+          "en": "Trigger with 1 autocomplete, 1 text"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]]) !{{|and continue when not successful }}"
+          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -3118,6 +3383,59 @@
             "placeholder": {
               "en": "text1"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -3280,10 +3598,10 @@
       {
         "id": "triggercards_trigger__boolean1",
         "title": {
-          "en": "Trigger with 1 boolean !{{|and continue when not successful }}"
+          "en": "Trigger with 1 boolean"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (boolean1:[[boolean_1]]) !{{|and continue when not successful }}"
+          "en": "Trigger [[card]] (boolean1:[[boolean_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -3304,6 +3622,59 @@
             "placeholder": {
               "en": "boolean1"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -3466,10 +3837,10 @@
       {
         "id": "triggercards_trigger__dropdown1",
         "title": {
-          "en": "Trigger with 1 dropdown !{{|and continue when not successful }}"
+          "en": "Trigger with 1 dropdown"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (dropdown1:[[dropdown_1]]) !{{|and continue when not successful }}"
+          "en": "Trigger [[card]] (dropdown1:[[dropdown_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -3490,6 +3861,59 @@
             "placeholder": {
               "en": "dropdown1"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -3652,10 +4076,10 @@
       {
         "id": "triggercards_trigger__dropdown1_boolean1",
         "title": {
-          "en": "Trigger with 1 dropdown, 1 boolean !{{|and continue when not successful }}"
+          "en": "Trigger with 1 dropdown, 1 boolean"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (dropdown1:[[dropdown_1]], boolean1:[[boolean_1]]) !{{|and continue when not successful }}"
+          "en": "Trigger [[card]] (dropdown1:[[dropdown_1]], boolean1:[[boolean_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -3683,6 +4107,59 @@
             "placeholder": {
               "en": "boolean1"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -3845,10 +4322,10 @@
       {
         "id": "triggercards_trigger__dropdown1_number1",
         "title": {
-          "en": "Trigger with 1 dropdown, 1 number !{{|and continue when not successful }}"
+          "en": "Trigger with 1 dropdown, 1 number"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (dropdown1:[[dropdown_1]], number1:[[number_1]]) !{{|and continue when not successful }}"
+          "en": "Trigger [[card]] (dropdown1:[[dropdown_1]], number1:[[number_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -3876,6 +4353,59 @@
             "placeholder": {
               "en": "number1"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -4038,10 +4568,10 @@
       {
         "id": "triggercards_trigger__dropdown1_text1",
         "title": {
-          "en": "Trigger with 1 dropdown, 1 text !{{|and continue when not successful }}"
+          "en": "Trigger with 1 dropdown, 1 text"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]]) !{{|and continue when not successful }}"
+          "en": "Trigger [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -4069,6 +4599,59 @@
             "placeholder": {
               "en": "text1"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -4231,10 +4814,10 @@
       {
         "id": "triggercards_trigger__number1",
         "title": {
-          "en": "Trigger with 1 number !{{|and continue when not successful }}"
+          "en": "Trigger with 1 number"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (number1:[[number_1]]) !{{|and continue when not successful }}"
+          "en": "Trigger [[card]] (number1:[[number_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -4255,6 +4838,59 @@
             "placeholder": {
               "en": "number1"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -4417,10 +5053,10 @@
       {
         "id": "triggercards_trigger__text1",
         "title": {
-          "en": "Trigger with 1 text !{{|and continue when not successful }}"
+          "en": "Trigger with 1 text"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (text1:[[text_1]]) !{{|and continue when not successful }}"
+          "en": "Trigger [[card]] (text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -4441,6 +5077,59 @@
             "placeholder": {
               "en": "text1"
             }
+          },
+          {
+            "type": "dropdown",
+            "name": "conditioncardsmode",
+            "placeholder": {
+              "en": "Conditioncard mode"
+            },
+            "values": [
+              {
+                "id": "if-or-or",
+                "name": "if-or-or",
+                "label": {
+                  "en": "If-Or-Or (Default)"
+                }
+              },
+              {
+                "id": "if-or-finally",
+                "name": "if-or-finally",
+                "label": {
+                  "en": "If-Or-Finally"
+                }
+              },
+              {
+                "id": "try-catch-finally",
+                "name": "try-catch-finally",
+                "label": {
+                  "en": "Try-Catch-Finally"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -6246,6 +6935,47 @@
       }
     ],
     "actions": [
+      {
+        "id": "app_action__await",
+        "title": {
+          "en": "Await flow call"
+        },
+        "titleFormatted": {
+          "en": "Await [[flow]] while [[actioncardsmode]] !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "flow",
+            "placeholder": {
+              "en": "Flow"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "actioncardsmode",
+            "placeholder": {
+              "en": "Actioncard mode"
+            },
+            "values": [
+              {
+                "id": "async",
+                "name": "async",
+                "label": {
+                  "en": "Executing actioncards asynchronously (default)"
+                }
+              },
+              {
+                "id": "sync",
+                "name": "sync",
+                "label": {
+                  "en": "Executing actioncards synchronously"
+                }
+              }
+            ]
+          }
+        ]
+      },
       {
         "id": "app_action__return",
         "title": {
