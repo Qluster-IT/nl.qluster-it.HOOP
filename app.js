@@ -49,8 +49,8 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
       redirectUrl: redirect_url || 'https://cli.athom.com',//'http://localhost',					
       // clientId : client_id,//clientId,
       // clientSecret : client_secret,//clientSecret,
-      scopes: [ 'homey.devices.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']//, //'account.homeys'
       //allowMultiSession: true      
+      //scopes: [ 'homey.devices.readonly', 'homey.zones.readonly', 'homey.flow.readonly', 'homey.flow.start']//, //'account.homeys'
     };
     
     try {     
@@ -197,6 +197,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
       }
     );
     this.homey.drivers.getDriver('homeyelevator').homeyApi = api;
+    homeyApi._ready.resolve();
       // setTimeout((async ()=>{
       //   // var ap = await this.client.getApp({id:'com.athom.homeyscript'});
       //   // this.log('me', ap);

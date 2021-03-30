@@ -2161,6 +2161,534 @@
               "en": "Type in the app or device name"
             }
           }
+        ],
+        "tokens": [
+          {
+            "name": "text_1",
+            "type": "string",
+            "title": {
+              "en": "text1"
+            }
+          },
+          {
+            "name": "text_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text1 has value"
+            }
+          },
+          {
+            "name": "text_2",
+            "type": "string",
+            "title": {
+              "en": "text2"
+            }
+          },
+          {
+            "name": "text_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text2 has value"
+            }
+          },
+          {
+            "name": "text_3",
+            "type": "string",
+            "title": {
+              "en": "text3"
+            }
+          },
+          {
+            "name": "text_3_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text3 has value"
+            }
+          },
+          {
+            "name": "text_4",
+            "type": "string",
+            "title": {
+              "en": "text4"
+            }
+          },
+          {
+            "name": "text_4_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text4 has value"
+            }
+          },
+          {
+            "name": "boolean_1",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "name": "boolean_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1 has value"
+            }
+          },
+          {
+            "name": "boolean_2",
+            "type": "boolean",
+            "title": {
+              "en": "boolean2"
+            }
+          },
+          {
+            "name": "boolean_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean2 has value"
+            }
+          },
+          {
+            "name": "boolean_3",
+            "type": "boolean",
+            "title": {
+              "en": "boolean3"
+            }
+          },
+          {
+            "name": "boolean_3_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean3 has value"
+            }
+          },
+          {
+            "name": "number_1",
+            "type": "number",
+            "title": {
+              "en": "number1"
+            }
+          },
+          {
+            "name": "number_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number1 has value"
+            }
+          },
+          {
+            "name": "number_2",
+            "type": "number",
+            "title": {
+              "en": "number2"
+            }
+          },
+          {
+            "name": "number_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number2 has value"
+            }
+          },
+          {
+            "name": "number_3",
+            "type": "number",
+            "title": {
+              "en": "number3"
+            }
+          },
+          {
+            "name": "number_3_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number3 has value"
+            }
+          },
+          {
+            "name": "error",
+            "type": "string",
+            "title": {
+              "en": "error"
+            }
+          },
+          {
+            "name": "stacktrace",
+            "type": "string",
+            "title": {
+              "en": "stacktrace"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_trigger__autocomplete1",
+        "title": {
+          "en": "Trigger with 1 autocomplete !{{|and continue when not successful }}"
+        },
+        "titleFormatted": {
+          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]]) !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "autocomplete_1",
+            "placeholder": {
+              "en": "autocomplete1"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "text_1",
+            "type": "string",
+            "title": {
+              "en": "text1"
+            }
+          },
+          {
+            "name": "text_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text1 has value"
+            }
+          },
+          {
+            "name": "text_2",
+            "type": "string",
+            "title": {
+              "en": "text2"
+            }
+          },
+          {
+            "name": "text_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text2 has value"
+            }
+          },
+          {
+            "name": "text_3",
+            "type": "string",
+            "title": {
+              "en": "text3"
+            }
+          },
+          {
+            "name": "text_3_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text3 has value"
+            }
+          },
+          {
+            "name": "text_4",
+            "type": "string",
+            "title": {
+              "en": "text4"
+            }
+          },
+          {
+            "name": "text_4_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text4 has value"
+            }
+          },
+          {
+            "name": "boolean_1",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "name": "boolean_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1 has value"
+            }
+          },
+          {
+            "name": "boolean_2",
+            "type": "boolean",
+            "title": {
+              "en": "boolean2"
+            }
+          },
+          {
+            "name": "boolean_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean2 has value"
+            }
+          },
+          {
+            "name": "boolean_3",
+            "type": "boolean",
+            "title": {
+              "en": "boolean3"
+            }
+          },
+          {
+            "name": "boolean_3_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean3 has value"
+            }
+          },
+          {
+            "name": "number_1",
+            "type": "number",
+            "title": {
+              "en": "number1"
+            }
+          },
+          {
+            "name": "number_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number1 has value"
+            }
+          },
+          {
+            "name": "number_2",
+            "type": "number",
+            "title": {
+              "en": "number2"
+            }
+          },
+          {
+            "name": "number_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number2 has value"
+            }
+          },
+          {
+            "name": "number_3",
+            "type": "number",
+            "title": {
+              "en": "number3"
+            }
+          },
+          {
+            "name": "number_3_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number3 has value"
+            }
+          },
+          {
+            "name": "error",
+            "type": "string",
+            "title": {
+              "en": "error"
+            }
+          },
+          {
+            "name": "stacktrace",
+            "type": "string",
+            "title": {
+              "en": "stacktrace"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_trigger__text1",
+        "title": {
+          "en": "Trigger with 1 text !{{|and continue when not successful }}"
+        },
+        "titleFormatted": {
+          "en": "Trigger [[card]] (text1:[[text_1]]) !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+              "en": "text1"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "text_1",
+            "type": "string",
+            "title": {
+              "en": "text1"
+            }
+          },
+          {
+            "name": "text_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text1 has value"
+            }
+          },
+          {
+            "name": "text_2",
+            "type": "string",
+            "title": {
+              "en": "text2"
+            }
+          },
+          {
+            "name": "text_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text2 has value"
+            }
+          },
+          {
+            "name": "text_3",
+            "type": "string",
+            "title": {
+              "en": "text3"
+            }
+          },
+          {
+            "name": "text_3_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text3 has value"
+            }
+          },
+          {
+            "name": "text_4",
+            "type": "string",
+            "title": {
+              "en": "text4"
+            }
+          },
+          {
+            "name": "text_4_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "text4 has value"
+            }
+          },
+          {
+            "name": "boolean_1",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1"
+            }
+          },
+          {
+            "name": "boolean_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean1 has value"
+            }
+          },
+          {
+            "name": "boolean_2",
+            "type": "boolean",
+            "title": {
+              "en": "boolean2"
+            }
+          },
+          {
+            "name": "boolean_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean2 has value"
+            }
+          },
+          {
+            "name": "boolean_3",
+            "type": "boolean",
+            "title": {
+              "en": "boolean3"
+            }
+          },
+          {
+            "name": "boolean_3_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "boolean3 has value"
+            }
+          },
+          {
+            "name": "number_1",
+            "type": "number",
+            "title": {
+              "en": "number1"
+            }
+          },
+          {
+            "name": "number_1_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number1 has value"
+            }
+          },
+          {
+            "name": "number_2",
+            "type": "number",
+            "title": {
+              "en": "number2"
+            }
+          },
+          {
+            "name": "number_2_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number2 has value"
+            }
+          },
+          {
+            "name": "number_3",
+            "type": "number",
+            "title": {
+              "en": "number3"
+            }
+          },
+          {
+            "name": "number_3_hasvalue",
+            "type": "boolean",
+            "title": {
+              "en": "number3 has value"
+            }
+          },
+          {
+            "name": "error",
+            "type": "string",
+            "title": {
+              "en": "error"
+            }
+          },
+          {
+            "name": "stacktrace",
+            "type": "string",
+            "title": {
+              "en": "stacktrace"
+            }
+          }
         ]
       }
     ],
@@ -4628,6 +5156,36 @@
             "name": "number_1",
             "placeholder": {
               "en": "number1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_action_trigger",
+        "title": {
+          "en": "Execute"
+        },
+        "titleFormatted": {
+          "en": "Execute [[triggercard]] with [[tokens]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "triggercard",
+            "placeholder": {
+              "en": "To trigger"
+            }
+          },
+          {
+            "type": "text",
+            "name": "tokens",
+            "placeholder": {
+              "en": "Tokens"
             }
           }
         ]

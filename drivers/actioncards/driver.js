@@ -47,7 +47,7 @@ class CardOverloaderDriver extends Homey.Driver
         for (let actionCardIndex = 0; actionCardIndex < homeyApi.app.manifest.flow[cardType].length; actionCardIndex++) {
           const actionCard = homeyApi.app.manifest.flow[cardType][actionCardIndex];
           if (!actionCard.id.startsWith('actioncards_')) continue;
-          const card = this.homey.flow[cardType =='conditions' ? 'getConditionCard': cardType =='actions' ? 'getActionCard': 'getTriggerCard'](actionCard.id);
+          const card = this.homey.flow[cardType =='conditions' ? 'getConditionCard': cardType =='actions' ? 'getActionCard': 'getDeviceTriggerCard'](actionCard.id);
           const cardToUser = actionsCards[actionCard.id] = {
             id: actionCard.id,
             card: card,
@@ -125,44 +125,9 @@ class CardOverloaderDriver extends Homey.Driver
           });
           //this.log('actionCard.args', actionCard.args);
           if (actionCard.args) {
-            if (actionCard.args.find(x => x.name == 'card' && x.type == 'autocomplete')) card.getArgument('card').registerAutocompleteListener(Shared.registerAutocompleteListenerCard.call(this, {actionCard, cardToUser ,cardType, homeyApi}));
-            if (actionCard.args.find(x => x.name.indexOf('autocomplete')>-1)) actionCard.args.filter(x => x.name.indexOf('autocomplete')>-1).forEach(arg=>{
-              const argName = arg.name;
-              card.getArgument(argName).registerAutocompleteListener(async (query, args) => {
-                try {
-                  if(!args.card || !args.card.refType) return false;
-                  const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : args.card.refType.indexOf('Trigger') >-1 ? 'triggers' : 'actions';
-                  const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
-                  if (!card) return false;                  
-                  var triggerArgs = Flower.getArgsForAutocomplete({ args, actionCard, triggerCard:card });                  
-                  var promise = Flower.getFlowCardAutocomplete({ card, args: triggerArgs, type:type, query, autocompleteNumber:1 });
-                  var r = await promise;
-                  return r;
-
-                } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
-              });
-            });
-            if (actionCard.args.find(x => x.name.indexOf('dropdown')>-1)) actionCard.args.filter(x => x.name.indexOf('dropdown')>-1).forEach(arg=>{
-              const argName = arg.name;
-              card.getArgument(argName).registerAutocompleteListener(async (query, args) => {
-                try {
-                  console.log('registerAutocompleteListener args.card');
-                  console.log(args.card);
-                  const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : args.card.refType.indexOf('Trigger') >-1 ? 'triggers' : 'actions';
-                  const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
-                  if (!card) return false;
-                  //Only first is option right now.
-                  this.log('card.args', card.args)
-                  var arg = _.find(card.args, a=> a.type=='dropdown');// && !(arg.values.length==2 && (arg.values[0].id === 'true' || arg.values[0].id==='false' ) && (arg.values[1].id === 'true' || arg.values[1].id==='false' ))
-                  this.log('arg', arg)
-                  if(!arg) return false;
-
-                  this.log('arg', arg);
-                  return arg.values;
-
-                } catch (error) { this.error(actionCard.id + '.flow.registerAutocompleteListener.error :', error); throw error; }
-              });
-            }); 
+            if (actionCard.args.find(x => x.name == 'card' && x.type == 'autocomplete')) card.getArgument('card').registerAutocompleteListener(Shared.registerAutocompleteListenerCard.call(this, {actionCard, cardToUser ,cardType:'actions', homeyApi}));
+            Shared.registerAutocompletes.call(this, {actionCard, homeyApi, Flower, card });
+            Shared.registerDropdowns.call(this, {actionCard, homeyApi, card });
           }
         }
         
