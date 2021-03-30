@@ -164,7 +164,18 @@ class TriggerCardsDriver extends Homey.Driver
 
 
               //var json = JSON.parse(args.triggercard.value);
-              var filledTokens = JSON.parse(args.tokens);
+              var tokens = args.tokens;
+              var i=-1;
+              while ((i = tokens.indexOf('[{|}]'))>-1) {
+                var start = tokens.substring(0,i);
+                var rest = tokens.substring(i+5);
+                var i2 = rest.indexOf('[{|}]');
+                var end = rest.substring(i2+5);
+                var between = rest.substring(0,i2);
+                between = between.replace('"', '\\"');
+                tokens = start + between + end;
+              }
+              var filledTokens = JSON.parse(tokens);
               var triggerCard = await api.flow.getFlowCardTrigger({uri:toRunActionFlows[0].trigger.uri, id:toRunActionFlows[0].trigger.id, $skipCache:true});
               var triggerTokens = {};
               var tokenCount = {
@@ -301,7 +312,7 @@ class TriggerCardsDriver extends Homey.Driver
                 case "boolean":
                 case "string":
                 default:                  
-                  tokens[token.type].push('[['+token.id + ']]');
+                  tokens[token.type].push('[{|}][['+token.id + ']][{|}]');
                   break;
               }
             });
