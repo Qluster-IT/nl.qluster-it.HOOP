@@ -252,11 +252,13 @@ class TriggerCardsDriver extends Homey.Driver
     var triggerFlows = {};
     /**@type {{[key:string]:HomeyAPI.ManagerFlow.Flow]} */
     var actionFlows = {};
-    var flows = await api.flow.getFlows();
-    _.each(flows, (f, key)=> {
-      if(f.trigger.uri=='homey:device:' + device.id && f.trigger.id.startsWith('triggercards_trigger__')) triggerFlows[key] = f ;
-      if(_.find( f.actions, action=> f.folder==folderTriggerCards.id && action.uri=='homey:device:' + device.id && action.id=='triggercards_action_trigger' )) actionFlows[key] = f ;
-    });
+    if(device) {
+      var flows = await api.flow.getFlows();
+      _.each(flows, (f, key)=> {
+        if(f.trigger.uri=='homey:device:' + device.id && f.trigger.id.startsWith('triggercards_trigger__')) triggerFlows[key] = f ;
+        if(_.find( f.actions, action=> f.folder==folderTriggerCards.id && action.uri=='homey:device:' + device.id && action.id=='triggercards_action_trigger' )) actionFlows[key] = f ;
+      });
+    }
     return {triggerFlows, actionFlows, folderTriggerCards, api, device};
   }
   
