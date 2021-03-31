@@ -40,6 +40,7 @@
                 }
                 this.scope.$apply(()=> {
                     this.functions = newFunctions;
+                    this.messages = typeof(newFunctions);
                 });
             }); 
         }
@@ -112,10 +113,11 @@
         this.addFunction = function() {
             try {                
                 this.log('addFunction');
-                if (this.functions && this.functions.filter(function(e) { return e.name == this.newFunction.name; }).length > 0) {
+                if (this.functions && this.functions.filter(function(e) { return e.name == $scope.newFunction.name; }).length > 0) {
                     this.messages = "Function already exists.";
                     return;
                 }
+            
                 var func = {
                     name: this.newFunction.name,
                     value:undefined,
@@ -124,17 +126,18 @@
                 this.functions.push(func);
                 this.storeFunction();
                 this.messages = '';
-                this.newFunction = {}                
+                this.newFunction = {}  ;              
                 this.log('addFunction done');
             } catch (error) {                           
                 this.log('addFunction error: ' + error);
                 this.messages = error;
+                //this.messages = JSON.stringify(this.functions) + '\r\n\r\n' +  JSON.stringify(this.newFunction) ;
             }
         };
         this.deleteAll = function() {
             this.homey.confirm('Are you sure you wish to delete ALL functions?', null, () => {
                 this.functions = [];
-                storeFunction();
+                this.storeFunction();
             })
         }
         this.removeFunction = function(row) {

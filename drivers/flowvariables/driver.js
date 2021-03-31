@@ -8,7 +8,7 @@ const _ = require('lodash');
 const Flower = require('../../lib/flower');
 
 const { Defer } = require('./../../lib/proto');
-var safeEval = require('safe-eval')
+const sandbox = require('./../../lib/sandbox');
 
 class FlowVariablesDriver extends Homey.Driver
 {
@@ -39,13 +39,14 @@ class FlowVariablesDriver extends Homey.Driver
       this.functions = await this.homey.settings.get('flowvariables_functions');
       this.log('this.functions', typeof(this.functions), this.functions);
       this.context = {
-
-      }
+        _:_
+      };
       if(this.functions && this.functions.length>0) for (let i = 0; i < this.functions.length; i++) {
         try {          
           const funcObj = this.functions[i];
           
           let func = funcObj.value.parseFunction();
+          //func.bind(this.context);
           this.log('func', func);
           this.context[funcObj.name] = func;
         } catch (error) {
@@ -205,7 +206,7 @@ class FlowVariablesDriver extends Homey.Driver
     var context = this.context;
     this.log('this.context', this.context);
     //try {
-      return safeEval(code, context);
+      return sandbox(code, context);
     //} catch (error) {
       
     //} 
