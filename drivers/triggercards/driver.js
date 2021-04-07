@@ -172,7 +172,8 @@ class TriggerCardsDriver extends Homey.Driver
                 var i2 = rest.indexOf('[{|}]');
                 var end = rest.substring(i2+5);
                 var between = rest.substring(0,i2);
-                between = between.replace('"', '\\"');
+                between = between.replace(new RegExp('"', 'g'), '\\"');
+
                 tokens = start + between + end;
               }
               var filledTokens = null;
