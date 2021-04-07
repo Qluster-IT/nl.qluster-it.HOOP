@@ -7,7 +7,7 @@ This app transforms your Homey in to a programmable object, changing standard fl
 Take a look at the Community Forum Topic for diagrams, examples and overall usages.
 If you don't understand this app, please don't use it.
 
-You need to grant ‘developer’ access rights’ to the app by either creating a Homey Elevator device (on Android Phone's), or, if you're using iOS, use the Settings to grant access.
+You need to grant ‘developer’ access rights’ to the app by creating a Homey Elevator device. If you get an error, use the Settings to grant access.
 
 Create one (or more) Method Group device(s) that can be used in an Object Oriented Programming manner.
 Give it (overloadable) methods which will handle their own objects (devices, flows, variables, etc), removing the need for repetitive flows.
