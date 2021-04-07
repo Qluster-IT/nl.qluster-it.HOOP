@@ -97,6 +97,7 @@ class CardOverloaderDriver extends Homey.Driver
                   //var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
 
                   this.log('triggerArgs -->', triggerArgs);
+                  if(card.duration===true) delete card.duration;
 
                   //var argsToUse = Flower.getArgsForTokens({ flow, args, actionCard:card, triggerCard:triggerManifest  });
                   var promise = Flower.triggerCard({ card, args: triggerArgs, type:type });
