@@ -49,5 +49,8 @@
   },
   "1.2.2": {
     "en": "Fixes escaping"
+  },
+  "1.2.3": {
+    "en": "Fixed iOS elevation"
   }
 }
