@@ -52,5 +52,8 @@
   },
   "1.2.3": {
     "en": "Fixed iOS elevation"
+  },
+  "1.2.4": {
+    "en": "Tested with Homey version 5.0.4"
   }
 }
