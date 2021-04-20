@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "nl.qluster-it.HOOP",
-  "version": "1.2.5",
+  "version": "1.3.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -2146,7 +2146,7 @@
           "en": "Trigger without arguments"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+          "en": "If [[card]] conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -2378,7 +2378,7 @@
           "en": "Trigger with 1 autocomplete"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+          "en": "If [[card]] (autocomplete1:[[autocomplete_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -2617,7 +2617,7 @@
           "en": "Trigger with 1 autocomplete, 1 boolean"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]], boolean1:[[boolean_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+          "en": "If [[card]] (autocomplete1:[[autocomplete_1]], boolean1:[[boolean_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -2863,7 +2863,7 @@
           "en": "Trigger with 1 autocomplete, 1 dropdown"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+          "en": "If [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -3109,7 +3109,7 @@
           "en": "Trigger with 1 autocomplete, 1 number"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]], number1:[[number_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+          "en": "If [[card]] (autocomplete1:[[autocomplete_1]], number1:[[number_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -3355,7 +3355,7 @@
           "en": "Trigger with 1 autocomplete, 1 text"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+          "en": "If [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -3601,7 +3601,7 @@
           "en": "Trigger with 1 boolean"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (boolean1:[[boolean_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+          "en": "If [[card]] (boolean1:[[boolean_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -3840,7 +3840,7 @@
           "en": "Trigger with 1 dropdown"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (dropdown1:[[dropdown_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+          "en": "If [[card]] (dropdown1:[[dropdown_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -4079,7 +4079,7 @@
           "en": "Trigger with 1 dropdown, 1 boolean"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (dropdown1:[[dropdown_1]], boolean1:[[boolean_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+          "en": "If [[card]] (dropdown1:[[dropdown_1]], boolean1:[[boolean_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -4325,7 +4325,7 @@
           "en": "Trigger with 1 dropdown, 1 number"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (dropdown1:[[dropdown_1]], number1:[[number_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+          "en": "If [[card]] (dropdown1:[[dropdown_1]], number1:[[number_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -4571,7 +4571,7 @@
           "en": "Trigger with 1 dropdown, 1 text"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+          "en": "If [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -4817,7 +4817,7 @@
           "en": "Trigger with 1 number"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (number1:[[number_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+          "en": "If [[card]] (number1:[[number_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -5056,7 +5056,7 @@
           "en": "Trigger with 1 text"
         },
         "titleFormatted": {
-          "en": "Trigger [[card]] (text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+          "en": "If [[card]] (text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
         },
         "args": [
           {
@@ -6961,6 +6961,438 @@
             "name": "number_1",
             "placeholder": {
               "en": "number1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_condition__",
+        "title": {
+          "en": "Trigger without arguments"
+        },
+        "titleFormatted": {
+          "en": "If [[card]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_condition__autocomplete1",
+        "title": {
+          "en": "Trigger with 1 autocomplete"
+        },
+        "titleFormatted": {
+          "en": "If [[card]] (autocomplete1:[[autocomplete_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "autocomplete_1",
+            "placeholder": {
+              "en": "autocomplete1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_condition__autocomplete1_boolean1",
+        "title": {
+          "en": "Trigger with 1 autocomplete, 1 boolean"
+        },
+        "titleFormatted": {
+          "en": "If [[card]] (autocomplete1:[[autocomplete_1]], boolean1:[[boolean_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "autocomplete_1",
+            "placeholder": {
+              "en": "autocomplete1"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+              "en": "boolean1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_condition__autocomplete1_dropdown1",
+        "title": {
+          "en": "Trigger with 1 autocomplete, 1 dropdown"
+        },
+        "titleFormatted": {
+          "en": "If [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "autocomplete_1",
+            "placeholder": {
+              "en": "autocomplete1"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "dropdown_1",
+            "placeholder": {
+              "en": "dropdown1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_condition__autocomplete1_number1",
+        "title": {
+          "en": "Trigger with 1 autocomplete, 1 number"
+        },
+        "titleFormatted": {
+          "en": "If [[card]] (autocomplete1:[[autocomplete_1]], number1:[[number_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "autocomplete_1",
+            "placeholder": {
+              "en": "autocomplete1"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_condition__autocomplete1_text1",
+        "title": {
+          "en": "Trigger with 1 autocomplete, 1 text"
+        },
+        "titleFormatted": {
+          "en": "If [[card]] (autocomplete1:[[autocomplete_1]], text1:[[text_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "autocomplete_1",
+            "placeholder": {
+              "en": "autocomplete1"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+              "en": "text1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_condition__boolean1",
+        "title": {
+          "en": "Trigger with 1 boolean"
+        },
+        "titleFormatted": {
+          "en": "If [[card]] (boolean1:[[boolean_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+              "en": "boolean1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_condition__dropdown1",
+        "title": {
+          "en": "Trigger with 1 dropdown"
+        },
+        "titleFormatted": {
+          "en": "If [[card]] (dropdown1:[[dropdown_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "dropdown_1",
+            "placeholder": {
+              "en": "dropdown1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_condition__dropdown1_boolean1",
+        "title": {
+          "en": "Trigger with 1 dropdown, 1 boolean"
+        },
+        "titleFormatted": {
+          "en": "If [[card]] (dropdown1:[[dropdown_1]], boolean1:[[boolean_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "dropdown_1",
+            "placeholder": {
+              "en": "dropdown1"
+            }
+          },
+          {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+              "en": "boolean1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_condition__dropdown1_number1",
+        "title": {
+          "en": "Trigger with 1 dropdown, 1 number"
+        },
+        "titleFormatted": {
+          "en": "If [[card]] (dropdown1:[[dropdown_1]], number1:[[number_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "dropdown_1",
+            "placeholder": {
+              "en": "dropdown1"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_condition__dropdown1_text1",
+        "title": {
+          "en": "Trigger with 1 dropdown, 1 text"
+        },
+        "titleFormatted": {
+          "en": "If [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "dropdown_1",
+            "placeholder": {
+              "en": "dropdown1"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+              "en": "text1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_condition__number1",
+        "title": {
+          "en": "Trigger with 1 number"
+        },
+        "titleFormatted": {
+          "en": "If [[card]] (number1:[[number_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "number",
+            "name": "number_1",
+            "placeholder": {
+              "en": "number1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "triggercards_condition__text1",
+        "title": {
+          "en": "Trigger with 1 text"
+        },
+        "titleFormatted": {
+          "en": "If [[card]] (text1:[[text_1]])"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=triggercards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+              "en": "text1"
             }
           }
         ]

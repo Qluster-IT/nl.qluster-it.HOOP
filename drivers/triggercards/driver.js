@@ -42,7 +42,7 @@ class TriggerCardsDriver extends Homey.Driver
 
     
   initializeTriggersConditionsAndActions() {
-    ['triggercards_trigger_', 'triggercards_action__'].forEach((cardName => {
+    ['triggercards_trigger_', 'triggercards_condition__', 'triggercards_action__'].forEach((cardName => {
         const cardType = cardName.startsWith('triggercards_condition_') ? 'conditions' : cardName.startsWith('triggercards_trigger_') ? 'triggers' : 'actions';
         const actionsCards = {};
         this.flows[cardType] = actionsCards;
@@ -80,56 +80,6 @@ class TriggerCardsDriver extends Homey.Driver
             card.on('update', this.updateFlows.bind(this));
             card.registerRunListener(async (args, state) => {
               return null;
-              //throw 
-              const defer = new Defer();
-              try {
-                (async ()=>{
-                    if(!args.card || !args.card.refType) return defer.reject('no uri given');
-                    const type = args.card.refType.indexOf('Condition') >-1 ? 'conditions' : args.card.refType.indexOf('Trigger') >-1 ? 'trigger' : 'actions';
-                    const card = await homeyApi.getFlowCard({ uri: args.card.refUri ,id: args.card.refId, type:type });
-                    if (!card) return defer.reject('no card found');
-                      
-                    // var triggerArgs = Flower.getArgsForTokens({ flow, args, actionCard });
-                    
-                    // var promise = Flower.triggerFlow({ flow, tokensAsArgs: triggerArgs });
-                    // if(cardType=='conditions') return await promise;
-                    // else return true;
-                    
-                    //this.log('args -->', args);
-                    var manifest = await homeyApi.getFlowCard({ uri:  args.card.refUri ,id: args.card.refId, type:type });
-                    
-                    this.log('manifest.args -->', manifest.args);
-                    if(manifest.args && manifest.args.length>0 ) this.log('manifest.args[0] -->', manifest.args[0]);
-                    var triggerArgs = Flower.getArgsForArgs({ args, actionCard, triggerCard:manifest });
-                    //var triggerArgs = Flower.getArgsForTokens({ args, actionCard, triggerCard:triggerManifest });
-
-                    this.log('triggerArgs -->', triggerArgs);
-
-                    //var argsToUse = Flower.getArgsForTokens({ flow, args, actionCard:card, triggerCard:triggerManifest  });
-                    
-                    var promise = Flower.triggerCard({ card, args: triggerArgs, type:type });
-                    this.log('flow triggered' ); 
-                    
-
-                    if(cardType=='conditions') {
-                      promise.then(r=> {
-                        this.log('r = ', r);
-                        defer.resolve(r===undefined || r===null ? true : r);
-                      }).catch(err=> {
-                        this.log('err in it', err);
-                        this.error(err);
-                        defer.reject((err.name || err) + ' within ' + card.uri + '.' + card.id);
-                      });
-                    } 
-                    else return defer.resolve(true);
-                }).call(this).then(()=> {
-                }).catch(err=> {
-                  this.log('Error triggering CardOverloader Card 2');this.error(err); defer.reject('Error message');
-                })
-                
-
-              } catch (error) { this.log('Error triggering CardOverloader Card (3)');this.error(error); defer.reject('Error message'); }
-              return defer.promise;
             });
             //this.log('actionCard.args', actionCard.args);
             if (actionCard.args) {            
@@ -138,30 +88,27 @@ class TriggerCardsDriver extends Homey.Driver
               Shared.registerDropdowns.call(this, {actionCard, homeyApi, card });            
             }
           } 
+          else if(cardType=='conditions') {
+            card.on('update', this.updateFlows.bind(this));
+            card.registerRunListener(async (args, state) => {
+              return null;
+            });
+            //this.log('actionCard.args', actionCard.args);
+            if (actionCard.args) {            
+              if (actionCard.args.find(x => x.name == 'card' && x.type == 'autocomplete')) card.getArgument('card').registerAutocompleteListener(Shared.registerAutocompleteListenerCard.call(this, {actionCard, cardToUser ,cardType:'triggers', homeyApi}));
+              Shared.registerAutocompletes.call(this, {actionCard, homeyApi, Flower, card });
+              Shared.registerDropdowns.call(this, {actionCard, homeyApi, card });
+            }
+          } 
           else if(cardType=='actions') {    
             card.registerRunListener(async (args, state) => {
               
-              var {triggerFlows, actionFlows, api } = this.customFlows;
-              var toRunActionFlows = _.filter(triggerFlows, (flow,aKey)=> JSON.stringify(flow.trigger.args) == args.triggercard.value );
+              var {triggerFlows, actionFlows, api, triggerArgs } = this.customFlows;
+              var toRunActionFlows = _.filter(triggerFlows, (flow,aKey)=> this.stringifyClean(flow.trigger.args) == args.triggercard.value || _.find(flow.conditions, con=> this.stringifyClean(con.args) == args.triggercard.value) );
               for (let i = 0; i < toRunActionFlows.length; i++) toRunActionFlows[i] = await homeyApi.getFlow(toRunActionFlows[i]);
               toRunActionFlows = _.filter(toRunActionFlows, (flow,aKey)=> flow.enabled );
               if(!toRunActionFlows || toRunActionFlows.length==0) return true;
               
-              
-              // for (const key in toRunActionFlows) {
-              //   if (Object.hasOwnProperty.call(toRunActionFlows, key)) {
-              //     let flow = toRunActionFlows[key];
-                  
-              //   }
-              // }
-              
-              // HERERERERR ARE WE LEFT
-              //const realFlow = await homeyApi.getFlow(flow);              
-              //toRunActionFlows = _.map(toRunActionFlows, flow=>  { return await homeyApi.getFlow(flow); } );
-              
-
-
-
 
               //var json = JSON.parse(args.triggercard.value);
               var tokens = args.tokens;
@@ -253,6 +200,8 @@ class TriggerCardsDriver extends Homey.Driver
     var triggerFlows = {};
     /**@type {{[key:string]:HomeyAPI.ManagerFlow.Flow]} */
     var actionFlows = {};
+
+    var triggerArgs = [];
     var folderTriggerCards  = null;
     if(device) {
       var folders = await api.flow.getFlowFolders();
@@ -272,12 +221,21 @@ class TriggerCardsDriver extends Homey.Driver
    
     
       var flows = await api.flow.getFlows();
+      var l;
       _.each(flows, (f, key)=> {
-        if(f.trigger.uri=='homey:device:' + device.id && f.trigger.id.startsWith('triggercards_trigger__')) triggerFlows[key] = f ;
+        if(f.trigger.uri=='homey:device:' + device.id && f.trigger.id.startsWith('triggercards_trigger__')) {
+          triggerFlows[key] = f;
+          triggerArgs.push(f.trigger.args);
+        }
+        
+        if( (l = _.filter(f.conditions, con=>  con.uri=='homey:device:' + device.id  && con.id.startsWith('triggercards_condition__')) ) && l.length>0) {          
+          triggerFlows[key] = f;
+          _.each(l, con=> triggerArgs.push(con.args) );
+        }
         if(_.find( f.actions, action=> f.folder==folderTriggerCards.id && action.uri=='homey:device:' + device.id && action.id=='triggercards_action_trigger' )) actionFlows[key] = f ;
       });
     }
-    return {triggerFlows, actionFlows, folderTriggerCards, api, device};
+    return {triggerFlows, actionFlows, folderTriggerCards, api, device, triggerArgs};
   }
   
   async updateFlows () {
@@ -287,13 +245,24 @@ class TriggerCardsDriver extends Homey.Driver
     try {        
       
       this.customFlows = await this.getAllFlows();
-      var {triggerFlows, actionFlows, folderTriggerCards, api, device } = this.customFlows;
+      var {triggerFlows, actionFlows, folderTriggerCards, api, device, triggerArgs } = this.customFlows;
       var doneTriggerArgs = [];
 
-      for (const key in triggerFlows) {
-        if (Object.hasOwnProperty.call(triggerFlows, key)) {
-          const triggerFlow = triggerFlows[key];
-          var triggerArgsJson =  JSON.stringify(triggerFlow.trigger.args);
+      for (let i = 0; i < triggerArgs.length; i++) {
+        const triggerArg = triggerArgs[i];
+
+        
+      // }
+
+      // for (const key in triggerFlows) {
+      //   if (Object.hasOwnProperty.call(triggerFlows, key)) {
+      //     const triggerFlow = triggerFlows[key];
+          //let args = _.clone(triggerArg);
+          // delete args.actioncardsmode;
+          // delete args.conditioncardsmode;
+          //var triggerArgsJson =  JSON.stringify(args);
+
+          var triggerArgsJson = this.stringifyClean(triggerArg);
           if(doneTriggerArgs.indexOf(triggerArgsJson)>-1) continue;
           /**@type {HomeyAPI.ManagerFlow.Flow} */
           var actionFlow = _.find(actionFlows, (aFlow,aKey)=> _.find(aFlow.actions, action=> action.args.triggercard.value == triggerArgsJson ));
@@ -301,9 +270,9 @@ class TriggerCardsDriver extends Homey.Driver
             actionFlow = new HomeyAPI.ManagerFlow.Flow();
             actionFlow.name = uuidv4();
             actionFlow.folder = folderTriggerCards.id;
-            actionFlow.trigger = await api.flow.getFlowCardTrigger({uri:triggerFlow.trigger.args.card.refUri, id:triggerFlow.trigger.args.card.refId, $skipCache:true});
-            var args = Flower.getArgsForArgs({args:triggerFlow.trigger.args,triggerCard:actionFlow.trigger });
-            actionFlow.trigger.args = args;
+            actionFlow.trigger = await api.flow.getFlowCardTrigger({uri:triggerArg.card.refUri, id:triggerArg.card.refId, $skipCache:true});
+            let argsToUse = Flower.getArgsForArgs({args:triggerArg,triggerCard:actionFlow.trigger });
+            actionFlow.trigger.args = argsToUse;
             
             var tokens = {
               string:[],
@@ -340,15 +309,16 @@ class TriggerCardsDriver extends Homey.Driver
             actionFlows[actionFlows.id] = actionFlow;
           }
           doneTriggerArgs.push(triggerArgsJson);
-        }
+        //}
       }
       
       for (const key in actionFlows) {
         if (Object.hasOwnProperty.call(actionFlows, key)) {
           const actionFlow = actionFlows[key];
           var action = _.find(actionFlow.actions, action=> action.args.triggercard );
-          var triggerFlow = _.find(triggerFlows, (f,aKey)=> JSON.stringify(f.trigger.args) == action.args.triggercard.value );
-          if(!triggerFlow) {
+          var exists = doneTriggerArgs.indexOf(action.args.triggercard.value>0);
+          //var triggerFlow = _.find(triggerFlows, (f,aKey)=> this.stringifyClean(f.trigger.args) == action.args.triggercard.value );
+          if(!exists) { //!triggerFlow) {
             delete actionFlows[actionFlow.id];
             api.flow.deleteFlow({id:actionFlow.id});
           }
@@ -368,6 +338,13 @@ class TriggerCardsDriver extends Homey.Driver
     
 
     //flows = _.filter(flows, flow=> flow.trigger)
+  }
+
+  stringifyClean(args) {
+    args = _.clone(args);
+    delete args.actioncardsmode;
+    delete args.conditioncardsmode;
+    return JSON.stringify(args);
   }
 }
 

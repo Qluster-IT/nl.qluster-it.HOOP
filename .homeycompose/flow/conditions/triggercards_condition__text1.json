@@ -1,0 +1,29 @@
+{
+    "id":"triggercards_condition__text1",
+    "title" : {
+        "en":"Trigger with 1 text"
+    },"titleFormatted" : {
+        "en":"If [[card]] (text1:[[text_1]])"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=triggercards"
+        },        
+        {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+                "en": "Type in the app or device name"
+            }        
+        },
+        {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+                "en": "text1"
+            }            
+        }
+      ]  
+}

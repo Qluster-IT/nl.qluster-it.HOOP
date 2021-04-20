@@ -1,0 +1,29 @@
+{
+    "id":"triggercards_condition__dropdown1",
+    "title" : {
+        "en":"Trigger with 1 dropdown"
+    },"titleFormatted" : {
+        "en":"If [[card]] (dropdown1:[[dropdown_1]])"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=triggercards"
+        },        
+        {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+                "en": "Type in the app or device name"
+            }        
+        },
+        {
+            "type": "autocomplete",
+            "name": "dropdown_1",
+            "placeholder": {
+                "en": "dropdown1"
+            }            
+        }
+      ]  
+}

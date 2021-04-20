@@ -1,0 +1,22 @@
+{
+    "id":"triggercards_condition__",
+    "title" : {
+        "en":"Trigger without arguments"
+    },"titleFormatted" : {
+        "en":"If [[card]]"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=triggercards"
+        },        
+        {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+                "en": "Type in the app or device name"
+            }        
+        }
+    ]
+}
