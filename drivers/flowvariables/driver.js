@@ -76,7 +76,7 @@ class FlowVariablesDriver extends Homey.Driver
     
   initializeConditions() {
     var conditionsCards = {};
-    this.flowCards.conditions = conditionsCards
+    this.flowCards.conditions = conditionsCards;
     for (let cardIndex = 0; cardIndex < homeyApi.app.manifest.flow.conditions.length; cardIndex++) {
       const conditionCard = homeyApi.app.manifest.flow.conditions[cardIndex];
       if(!conditionCard.id.startsWith('flowvariables_')) continue;
@@ -86,12 +86,13 @@ class FlowVariablesDriver extends Homey.Driver
         card: card,
         manifest : conditionCard
       };
+      card.on('update', ()=> { this.updateVariables(); } );
     }
   }
   
   initializeActions() {
     var actionsCards = {};
-    this.flowCards.actions = actionsCards
+    this.flowCards.actions = actionsCards;
     for (let actionCardIndex = 0; actionCardIndex < homeyApi.app.manifest.flow.actions.length; actionCardIndex++) {
       const actionCard = homeyApi.app.manifest.flow.actions[actionCardIndex];
       if(!actionCard.id.startsWith('flowvariables_')) continue;
@@ -121,7 +122,7 @@ class FlowVariablesDriver extends Homey.Driver
           });
           if(query && query.length>0) rAdd = _.filter(rAdd, vari=> vari.id.toLowerCase().indexOf(query.toLowerCase())>-1);
 
-          return _.concat(r, rAdd);
+          return _.uniqBy(_.concat(r, rAdd), (item)=> item.id);
         });
         // card.card.on('update', () => {
         //   this.updateNames();
@@ -168,6 +169,45 @@ class FlowVariablesDriver extends Homey.Driver
         
       }).bind(this));
       
+  }
+
+  async updateVariables() {
+    let flows = await homeyApi.getFlows(true);
+    flows = _.filter(flows, flow=> _.find(flow.conditions, con=> con.id=='flowvariables_condition___setexpression' ));
+    
+    let conditions = _.flatMap(flows, flow=> flow.conditions);
+    conditions = _.filter(conditions, con=> con.id=='flowvariables_condition___setexpression' );
+
+    //var thi = this;
+    //var d = thi.getDevice({id: '83316fce-cd9a-4149-866d-d898b345b0f2'});
+    // var ownDevices = {};
+    // var devices = this.getDevices();
+    // _.each(devices, dev=> {
+    //   var d = dev.getAppId();
+    //   var c= dev.getData();
+    // });
+    for (const conKey in conditions) {
+      if (Object.hasOwnProperty.call(conditions, conKey)) {
+        const con = conditions[conKey];
+        try {        
+          let id = _.last(con.uri.split(':'));
+          let dev = await homeyApi.getDevice({id});
+          var ownDev = this.getDevice({id:dev.data.id});
+          var hasVariable = ownDev.hasVariable(con.args.name.id);
+          if(!hasVariable) ownDev.setValue(con.args.name.id, null, con.args.type);          
+        } catch (error) {
+          this.error(error);
+         }
+      }
+    }
+
+
+    // _.each(conditions, con=> {
+
+    //   //var dev = _.find(devices, dev=> dev.get) this.getDeviceById(id);
+    //   //var hasVariable = dev.hasVariable(con.args.name.id);
+    // });
+
   }
 
   // updateAutoCompleteName(card) {

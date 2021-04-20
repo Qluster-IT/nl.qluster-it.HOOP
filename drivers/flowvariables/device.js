@@ -5,12 +5,17 @@ const Homey = require('homey');
 const _ = require('lodash');
 
 class FlowVariablesDevice extends Homey.Device {
+  
   async onInit() {
     this.log('FlowVariablesDevice has been initialized');
     this.log('this.id', this.getData().id);
     this.variables = this.homey.settings.get(this.getData().id + '_variables');
     if(!this.variables) this.variables = {};
     _.each(this.variables, async(vari)=> vari.token = await this.createToken(vari.name, vari.value, vari.token.opts.type));
+  }
+
+  hasVariable(name) {
+    return Object.keys(this.variables).indexOf(name)>-1;
   }
 
   async setValue(name, value, type) {
@@ -36,20 +41,15 @@ class FlowVariablesDevice extends Homey.Device {
     }
     //var type = _.isString(value) ? 'string' : _.isNumber(value) ? 'number' : _.isBoolean('boolean');
     if(!type) throw "Wrong variable type.";
+    
     var token = null;
-    if(Object.keys(this.variables).indexOf(name)>-1) {
+    if(this.hasVariable(name)) {
       token = this.variables[name].token;
-      //exists check type and notify if changed.
-      //if changed only!!!!
-      // if(this.variables[name].token && this.variables[name].token.unregister) {
-      //   this.variables[name].token.unregister();
-      //   this.variables[name].token = true;
-      // }
     }
-    if(token)this.log('token.opts ', token.opts);
+    if(token) this.log('token.opts ', token.opts);
     if(!token || token.opts.type!=type) {
       if(token && token.unregister) token.unregister();
-      token = await this.createToken(name, value, type);      
+      token = await this.createToken(name, value, type);
     }
     this.variables[name] = {
       name,
@@ -60,6 +60,8 @@ class FlowVariablesDevice extends Homey.Device {
     this.homey.settings.set(this.getData().id + '_variables', this.variables);
     await token.setValue(value);
   }
+  
+
   async createToken(name, value, type) {
     let data = this.getData();
     let deviceName =this.getName();

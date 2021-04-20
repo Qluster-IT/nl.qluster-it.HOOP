@@ -63,7 +63,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
   }
 
   async onOAuth2Init() {
-    if (process.env.DEBUG === '1') require('inspector').open(9222, '0.0.0.0', true);
+    if (process.env.DEBUG === '1') require('inspector').open(9222, '0.0.0.0', false);
 
     this.SETTINGS_KEY= this.SETTINGS_KEY;//+ '_' + 'HomeyOAuth';
     this.ip = (await this.homey.cloud.getLocalAddress()).split(':')[0];
