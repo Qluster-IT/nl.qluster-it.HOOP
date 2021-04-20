@@ -55,5 +55,8 @@
   },
   "1.2.4": {
     "en": "Tested with Homey version 5.0.4"
+  },
+  "1.2.5": {
+    "en": "FlowVariables fixed (created on flow-save)"
   }
 }
