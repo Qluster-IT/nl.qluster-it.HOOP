@@ -3,7 +3,7 @@
     "title" : {
         "en":"Trigger with 1 number"
     },"titleFormatted" : {
-        "en":"Trigger [[card]] (number1:[[number_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        "en":"If [[card]] (number1:[[number_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
     },
     "args": [
         {

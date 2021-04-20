@@ -1,0 +1,29 @@
+{
+    "id":"triggercards_condition__boolean1",
+    "title" : {
+        "en":"Trigger with 1 boolean"
+    },"titleFormatted" : {
+        "en":"If [[card]] (boolean1:[[boolean_1]])"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=triggercards"
+        },        
+        {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+                "en": "Type in the app or device name"
+            }        
+        },
+        {
+            "type": "text",
+            "name": "boolean_1",
+            "placeholder": {
+                "en": "boolean1"
+            }            
+        }
+      ]  
+}

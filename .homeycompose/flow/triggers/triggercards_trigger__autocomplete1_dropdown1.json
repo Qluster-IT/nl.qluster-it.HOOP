@@ -3,7 +3,7 @@
     "title" : {
         "en":"Trigger with 1 autocomplete, 1 dropdown"
     },"titleFormatted" : {
-        "en":"Trigger [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        "en":"If [[card]] (autocomplete1:[[autocomplete_1]], dropdown1:[[dropdown_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
     },
     "args": [
         {

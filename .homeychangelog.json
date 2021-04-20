@@ -58,5 +58,8 @@
   },
   "1.2.5": {
     "en": "FlowVariables fixed (created on flow-save)"
+  },
+  "1.3.0": {
+    "en": "Added TirggerCard Condition-TriggerCards: Add multiple triggers in the conditional (And) part"
   }
 }

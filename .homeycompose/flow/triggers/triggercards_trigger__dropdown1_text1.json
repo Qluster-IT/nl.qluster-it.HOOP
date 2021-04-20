@@ -3,7 +3,7 @@
     "title" : {
         "en":"Trigger with 1 dropdown, 1 text"
     },"titleFormatted" : {
-        "en":"Trigger [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        "en":"If [[card]] (dropdown1:[[dropdown_1]], text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
     },
     "args": [
         {

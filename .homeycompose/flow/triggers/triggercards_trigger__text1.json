@@ -3,7 +3,7 @@
     "title" : {
         "en":"Trigger with 1 text"
     },"titleFormatted" : {
-        "en":"Trigger [[card]] (text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        "en":"If [[card]] (text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
     },
     "args": [
         {
