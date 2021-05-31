@@ -3,7 +3,10 @@
     "title" : {
         "en":"Trigger without arguments"
     },"titleFormatted" : {
-        "en":"If [[card]]"
+        "en":"Trigger when [[card]]"
+    },
+    "hint":{
+        "en":"Place this card before any other conditional cards"
     },
     "args": [
         {

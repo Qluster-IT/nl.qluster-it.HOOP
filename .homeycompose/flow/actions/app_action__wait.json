@@ -5,6 +5,9 @@
     },"titleFormatted" : {
         "en":"Wait [[waitDuration]] ms"
     },
+    "hint":{
+        "en":"The execution of this flow will be paused for the amount of given time before continuing."
+    },
     "args": [        
         {
             "type": "number",

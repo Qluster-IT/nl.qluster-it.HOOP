@@ -3,7 +3,10 @@
     "title" : {
         "en":"Trigger with 1 text"
     },"titleFormatted" : {
-        "en":"If [[card]] (text1:[[text_1]])"
+        "en":"Trigger when [[card]] (text1:[[text_1]])"
+    },
+    "hint":{
+        "en":"Place this card before any other conditional cards"
     },
     "args": [
         {

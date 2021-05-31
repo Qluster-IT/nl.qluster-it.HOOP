@@ -3,7 +3,10 @@
     "title" : {
         "en":"Trigger with 1 dropdown, 1 boolean"
     },"titleFormatted" : {
-        "en":"If [[card]] (dropdown1:[[dropdown_1]], boolean1:[[boolean_1]])"
+        "en":"Trigger when [[card]] (dropdown1:[[dropdown_1]], boolean1:[[boolean_1]])"
+    },
+    "hint":{
+        "en":"Place this card before any other conditional cards"
     },
     "args": [
         {

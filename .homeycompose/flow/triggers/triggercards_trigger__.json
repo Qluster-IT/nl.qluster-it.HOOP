@@ -3,7 +3,7 @@
     "title" : {
         "en":"Trigger without arguments"
     },"titleFormatted" : {
-        "en":"If [[card]] conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        "en":"Trigger when [[card]] conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
     },
     "args": [
         {

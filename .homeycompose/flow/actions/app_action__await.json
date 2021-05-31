@@ -5,6 +5,9 @@
     },"titleFormatted" : {
         "en":"Await [[flow]] while [[actioncardsmode]] !{{|and continue when not successful }}"
     },
+    "hint":{
+        "en":"This card can be used to trigger any flow through the H.O.O.P. way and waits for it to finish."
+    },
     "args": [        
         {
             "type": "autocomplete",
