@@ -5,6 +5,9 @@
     },"titleFormatted" : {
         "en":"Throw [[message]]"
     },
+    "hint":{
+        "en":"Throws an error which can be stacktraced within H.O.O.P. flows."
+    },
     "args": [
         {
             "type": "text",

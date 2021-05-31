@@ -3,7 +3,7 @@
     "title" : {
         "en":"Trigger with 1 autocomplete, 1 boolean"
     },"titleFormatted" : {
-        "en":"If [[card]] (autocomplete1:[[autocomplete_1]], boolean1:[[boolean_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        "en":"Trigger when [[card]] (autocomplete1:[[autocomplete_1]], boolean1:[[boolean_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
     },
     "args": [
         {

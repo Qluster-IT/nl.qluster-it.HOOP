@@ -4,5 +4,8 @@
         "en":"Return"
     },"titleFormatted" : {
         "en":"Return"
+    },
+    "hint":{
+        "en":"This card does nothing."
     }
 }

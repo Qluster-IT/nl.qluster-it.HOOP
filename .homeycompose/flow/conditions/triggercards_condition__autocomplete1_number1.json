@@ -3,7 +3,10 @@
     "title" : {
         "en":"Trigger with 1 autocomplete, 1 number"
     },"titleFormatted" : {
-        "en":"If [[card]] (autocomplete1:[[autocomplete_1]], number1:[[number_1]])"
+        "en":"Trigger when [[card]] (autocomplete1:[[autocomplete_1]], number1:[[number_1]])"
+    },
+    "hint":{
+        "en":"Place this card before any other conditional cards"
     },
     "args": [
         {
