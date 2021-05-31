@@ -5,7 +5,7 @@ Homey Object Oriented Programming (for advanced users).
 
 This app transforms your Homey in to a programmable object, changing standard flow behavior.
 Take a look at the Community Forum Topic for diagrams, examples and overall usages.
-If you don't understand this app, please don't use it.
+
 
 You need to grant ‘developer’ access rights’ to the app by creating a Homey Elevator device. If you get an error, use the Settings to grant access.
 
