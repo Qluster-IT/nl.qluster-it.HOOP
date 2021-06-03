@@ -209,20 +209,6 @@
           "title": {
             "en": "number3 has value"
           }
-        },
-        {
-          "name": "error",
-          "type": "string",
-          "title": {
-            "en": "error"
-          }
-        },
-        {
-          "name": "stacktrace",
-          "type": "string",
-          "title": {
-            "en": "stacktrace"
-          }
         }
       ]  
 }
