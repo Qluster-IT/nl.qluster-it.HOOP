@@ -67,5 +67,8 @@
   },
   "1.3.2": {
     "en": "Removed stacktrace and error as tags from triggers: use hoops global tags"
+  },
+  "1.4.0": {
+    "en": "Added triggers with argument Time"
   }
 }

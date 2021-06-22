@@ -1,9 +1,9 @@
 {
-    "id":"triggercards_trigger__text1",
+    "id":"triggercards_trigger__time1",
     "title" : {
-        "en":"Trigger with 1 text"
+        "en":"Trigger with 1 time"
     },"titleFormatted" : {
-        "en":"Trigger when [[card]] (text1:[[text_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
+        "en":"Trigger when [[card]] (time1:[[time_1]]) conditions as [[conditioncardsmode]] and [[actioncardsmode]]"
     },
     "args": [
         {
@@ -19,10 +19,10 @@
             }        
         },
         {
-            "type": "text",
-            "name": "text_1",
+            "type": "time",
+            "name": "time_1",
             "placeholder": {
-                "en": "text1"
+                "en": "time1"
             }            
         },
         {
