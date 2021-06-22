@@ -1,0 +1,32 @@
+{
+    "id":"triggercards_condition__time1",
+    "title" : {
+        "en":"Trigger with 1 time"
+    },"titleFormatted" : {
+        "en":"Trigger when [[card]] (time1:[[time_1]])"
+    },
+    "hint":{
+        "en":"Place this card before any other conditional cards"
+    },
+    "args": [
+        {
+            "type" : "device",
+            "name" : "device",
+            "filter": "driver_id=triggercards"
+        },        
+        {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+                "en": "Type in the app or device name"
+            }        
+        },
+        {
+            "type": "time",
+            "name": "time_1",
+            "placeholder": {
+                "en": "time1"
+            }            
+        }
+      ]  
+}
