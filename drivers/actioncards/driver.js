@@ -57,7 +57,8 @@ class CardOverloaderDriver extends Homey.Driver
               number:0,
               boolean:0,
               autocomplete:0,
-              dropdown:0
+              dropdown:0,
+              time:0
             }
           };
 
@@ -69,6 +70,7 @@ class CardOverloaderDriver extends Homey.Driver
             else if(t.startsWith('boolean')) cardToUser.count['boolean']= Number.parseInt( t.replace('boolean',''));
             else if(t.startsWith('autocomplete')) cardToUser.count['autocomplete']= Number.parseInt( t.replace('autocomplete',''));
             else if(t.startsWith('dropdown')) cardToUser.count['dropdown']= Number.parseInt( t.replace('dropdown',''));
+            else if(t.startsWith('time')) cardToUser.count['time']= Number.parseInt( t.replace('time',''));
           });
           cardToUser.count.number += cardToUser.count.range || 0;
           

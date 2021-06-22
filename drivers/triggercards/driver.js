@@ -318,7 +318,7 @@ class TriggerCardsDriver extends Homey.Driver
         if (Object.hasOwnProperty.call(actionFlows, key)) {
           const actionFlow = actionFlows[key];
           var action = _.find(actionFlow.actions, action=> action.args.triggercard );
-          var exists = doneTriggerArgs.indexOf(action.args.triggercard.value>0);
+          var exists = doneTriggerArgs.indexOf(action.args.triggercard.value)>-1;
           //var triggerFlow = _.find(triggerFlows, (f,aKey)=> this.stringifyClean(f.trigger.args) == action.args.triggercard.value );
           if(!exists) { //!triggerFlow) {
             delete actionFlows[actionFlow.id];
