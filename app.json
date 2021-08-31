@@ -5811,6 +5811,43 @@
         ]
       },
       {
+        "id": "actioncards_condition__text2",
+        "title": {
+          "en": "Action with 2 texts !{{|and continue when not successful }}"
+        },
+        "titleFormatted": {
+          "en": "Await [[card]] (text1:[[text_1]], text2:[[text_2]]) !{{|and continue when not successful }}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=actioncards"
+          },
+          {
+            "type": "autocomplete",
+            "name": "card",
+            "placeholder": {
+              "en": "Type in the app or device name"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_1",
+            "placeholder": {
+              "en": "text1"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text_2",
+            "placeholder": {
+              "en": "text2"
+            }
+          }
+        ]
+      },
+      {
         "id": "app_condition__await",
         "title": {
           "en": "Await flow call"
