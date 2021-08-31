@@ -70,5 +70,8 @@
   },
   "1.4.0": {
     "en": "Added triggers with argument Time"
+  },
+  "1.4.1": {
+    "en": "Added ActionCard with 2 text arguments (For Simple LOG app)"
   }
 }
