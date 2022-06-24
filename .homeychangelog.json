@@ -73,5 +73,11 @@
   },
   "1.4.1": {
     "en": "Added ActionCard with 2 text arguments (For Simple LOG app)"
+  },
+  "1.4.2": {
+    "en": "Flowvariables bugfixed"
+  },
+  "1.4.3": {
+    "en": "Added ActionCards for LaMetric Time"
   }
 }

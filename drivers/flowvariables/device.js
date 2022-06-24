@@ -57,7 +57,23 @@ class FlowVariablesDevice extends Homey.Device {
       token,
       type:baseType
     }
-    this.homey.settings.set(this.getData().id + '_variables', this.variables);
+    
+    var varToSave = {};
+    var _temp = this.variables;
+    for (const key in _temp) {
+      if (Object.hasOwnProperty.call(this.variables, key)) {
+        const element = this.variables[key];
+        varToSave[key] = {};
+        for (const keyIndex in element) {
+          if (Object.hasOwnProperty.call(element, keyIndex)) {
+            const elementIndex = element[keyIndex];
+            if(keyIndex!='token') varToSave[key][keyIndex] = elementIndex;
+          }
+        }
+        
+      }
+    }
+    this.homey.settings.set(this.getData().id + '_variables', varToSave);
     await token.setValue(value);
   }
   
