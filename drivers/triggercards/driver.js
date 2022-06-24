@@ -272,7 +272,17 @@ class TriggerCardsDriver extends Homey.Driver
             actionFlow = new HomeyAPI.ManagerFlow.Flow();
             actionFlow.name = uuidv4();
             actionFlow.folder = folderTriggerCards.id;
-            actionFlow.trigger = await api.flow.getFlowCardTrigger({uri:triggerArg.card.refUri, id:triggerArg.card.refId, $skipCache:true});
+            try {              
+              actionFlow.trigger = await api.flow.getFlowCardTrigger({uri:triggerArg.card.refUri, id:triggerArg.card.refId, $skipCache:true});
+            } catch (error2) {
+              // if(error2.name=="flowcardtrigger_not_found") {
+              //   delete triggerArgs[triggerArg.id];
+              //   api.flow.deleteFlow({id:triggerArg.id});
+              // }
+
+              
+              continue;
+            }
             let argsToUse = Flower.getArgsForArgs({args:triggerArg,triggerCard:actionFlow.trigger });
             actionFlow.trigger.args = argsToUse;
             
