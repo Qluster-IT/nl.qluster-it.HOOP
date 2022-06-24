@@ -79,5 +79,8 @@
   },
   "1.4.3": {
     "en": "Added ActionCards for LaMetric Time"
+  },
+  "1.4.4": {
+    "en": "Flow Director fixes"
   }
 }
