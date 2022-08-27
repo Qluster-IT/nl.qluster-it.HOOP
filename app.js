@@ -63,7 +63,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
   }
 
   async onOAuth2Init() {
-    if (process.env.DEBUG === '1') require('inspector').open(9222, '0.0.0.0', false);
+    if (process.env.DEBUG === '1') require('inspector').open(9222, '0.0.0.0', true);
 
     this.SETTINGS_KEY= this.SETTINGS_KEY;//+ '_' + 'HomeyOAuth';
     this.ip = (await this.homey.cloud.getLocalAddress()).split(':')[0];
@@ -237,7 +237,7 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
       };
     }    
     
-    this.flows.conditions['app_condition__await']
+    //this.flows.conditions['app_condition__await']
   }
 
   initializeActions() {
@@ -308,6 +308,24 @@ class HOOPApp extends OAuth2MiniApp {//OAuth2MiniApp {// Homey.App {
         } catch (error) { this.error(error); }
       });
     }));
+
+      var cCard = this.flows.actions.app_action_setdevicename.card;
+      cCard.getArgument('device').registerAutocompleteListener(async (query, args) => {
+        try {
+          var devices = await homeyApi.getDevices();
+          if (query) devices = _.filter(devices, d => d.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
+          devices = _.orderBy(devices, f=>f.name);
+          var r = _.map(devices,d => { return { id: d.id, name: d.name }; });
+          return r;
+        } catch (error) { this.error('app_action_setdevicename.device.registerAutocompleteListener.error :', error); throw error; }
+      });
+      cCard.registerRunListener(async ({device, text} = {}, state={}) => {
+        try {
+          if(!device ) throw new Error('Missing device argument');
+          return await homeyApi.setDeviceName({id:device.id, name:text});          
+        } catch (error) { this.error(error); }
+      });
+
     // this.flows.actions.app_action__flowsharer.card.getArgument('improveaction').registerAutocompleteListener(async (query, args) => {
     //   return [
     //     {

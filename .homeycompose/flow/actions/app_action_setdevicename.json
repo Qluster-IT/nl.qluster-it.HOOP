@@ -1,0 +1,29 @@
+{
+        "id": "app_action_setdevicename",
+        "title": {
+          "en": "Set [[device]] Name",
+          "nl": "Zet [[device]] Naam"
+        },
+        "titleFormatted": {
+          "en": "Set the Name of [[device]] to [[text]]",
+          "nl": "Zet de Naam van [[device]] naar [[text]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Device",
+              "nl": "Apparaat"
+            }
+          },
+          {
+            "type": "text",
+            "name": "text",
+            "placeholder": {
+              "en": "Text",
+              "nl": "Tekst"
+            }
+          }
+        ]
+      }
