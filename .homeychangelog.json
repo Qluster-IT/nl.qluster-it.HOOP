@@ -81,6 +81,9 @@
     "en": "Added ActionCards for LaMetric Time"
   },
   "1.4.4": {
+    "en": "Flow Director fixes"
+  },
+  "1.4.5": {
     "en": "Added App ActionCard to Set/Change a Name for a Device"
   }
 }
