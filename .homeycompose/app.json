@@ -1,6 +1,6 @@
 {
   "id": "nl.qluster-it.HOOP",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -26,9 +26,9 @@
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
   },
-  "source": "https://bitbucket.org/QlusterIT/nl.qluster-it.hoop/",
+  "source": "https://github.com/Qluster-IT/nl.qluster-it.HOOP/",
   "bugs": {
-    "url": "https://bitbucket.org/QlusterIT/nl.qluster-it.hoop/issues"
+    "url": "https://github.com/Qluster-IT/nl.qluster-it.HOOP/issues"
   },
   "homeyCommunityTopicId": 43709,
   "author": {
